@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "volatility-risk-premium"
+version = "0.1.0"
+description = "Reproducible empirical research on implied and realized S&P 500 volatility"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "arch>=7.2,<9",
+  "matplotlib>=3.9,<4",
+  "numpy>=2.0,<3",
+  "pandas>=2.2,<3",
+  "scipy>=1.13,<2",
+  "statsmodels>=0.14,<1",
+  "yfinance==1.5.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2,<9",
+  "pytest-cov>=5,<7",
+]
+
+[project.scripts]
+vrp-download-samples = "vrp.data:main"
+vrp-download-spx = "vrp.spx_data:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

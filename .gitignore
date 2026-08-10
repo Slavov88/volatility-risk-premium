@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Research data and generated outputs
+data/raw/*
+!data/raw/README.md
+data/interim/**/*
+data/processed/**/*
+paper/figures/**/*
+paper/tables/**/*
+
+# Local artifacts and temporary inspection files
+tmp/
+output/
+outputs/
+
+# Generated tracker workbooks and inspection sidecars
+volatility_risk_premium_*tracker*.xlsx
+*.xlsx.inspect.ndjson
