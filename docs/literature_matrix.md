@@ -1,7 +1,7 @@
 # Literature matrix
 
 **Tracker task:** W1-07
-**Status:** Targeted protocol reading complete; in review by Person A. Results
+**Status:** Targeted protocol reading complete; coauthor review pending. Results
 below summarize prior work and are not findings of this project.
 
 | Source | Question / contribution | Method | Data | Main result | Limitation for this project | How we use it |

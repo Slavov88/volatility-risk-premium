@@ -67,10 +67,29 @@ def test_acquisition_uses_exact_symbol_unadjusted_ohlc_and_manifest(tmp_path: Pa
 
     yahoo_path = tmp_path / result.yahoo_relative_path
     manifest = json.loads((tmp_path / result.manifest_relative_path).read_text())
+    assert manifest["schema_version"] == 2
     assert manifest["yahoo"]["symbol"] == "^GSPC"
+    assert manifest["yahoo"]["artifact_type"] == (
+        "immutable normalized acquisition snapshot"
+    )
+    assert manifest["yahoo"]["provider_response_persisted"] is False
+    assert manifest["yahoo"]["persisted_columns"] == [
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Adj Close",
+        "Volume",
+    ]
+    assert "raw_columns" not in manifest["yahoo"]
+    assert "normalized acquisition snapshot" in manifest["yahoo"][
+        "adjustment_policy"
+    ]
     assert manifest["yahoo"]["request_parameters"]["auto_adjust"] is False
     assert manifest["yahoo"]["yfinance_version"] == "1.5.2-test"
     assert manifest["transport_note"] == "default verified TLS transports"
+    assert manifest["fred_validation"]["artifact_type"] == "provider response bytes"
     assert hashlib.sha256(yahoo_path.read_bytes()).hexdigest() == result.yahoo_sha256
 
 

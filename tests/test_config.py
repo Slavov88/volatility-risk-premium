@@ -13,7 +13,6 @@ def test_default_conventions_are_explicit_and_valid() -> None:
     assert CONVENTIONS.robustness_trading_day_sensitivities == (20, 22)
     assert CONVENTIONS.fixed_21_hac_maxlags == 20
     assert CONVENTIONS.percent_scale == 100.0
-    assert CONVENTIONS.risk_free_series == "USTREASURY_BC_3MONTH"
     assert CONVENTIONS.empirical_sign_convention == (
         "implied_variance_minus_realized_variance"
     )

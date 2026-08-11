@@ -42,9 +42,13 @@ variance minus realized variance**. Percentage conversion is presentation-only.
 - VIX history comes from Cboe. The exact-index OHLC candidate is Yahoo Finance
   `^GSPC` retrieved through pinned `yfinance` with `auto_adjust=False`. FRED
   `SP500` close validates the overlapping period. SPY remains engineering-only.
-- Retrievals use a declared inclusive start and exclusive frozen end. Raw CSVs
-  are immutable, date-stamped, hashed with SHA-256, and accompanied by schema,
-  coverage, missingness, request parameters, and software-version metadata.
+- Retrievals use a declared inclusive start and exclusive frozen end. The
+  Yahoo `yfinance` DataFrame is normalized and deterministically serialized
+  into an immutable acquisition snapshot; it is not persisted provider-response
+  bytes. Cboe and FRED source responses may be persisted as fetched bytes.
+  Acquisition artifacts are date-stamped, hashed with SHA-256, and accompanied
+  by schema, coverage, missingness, request parameters, software versions, and
+  artifact-type metadata.
 - A current New York trading-date bar is rejected even if returned. The final
   empirical sample ends at the last origin with a complete primary target; no
   forward target is shortened.
@@ -52,10 +56,12 @@ variance minus realized variance**. Percentage conversion is presentation-only.
 - Cboe calls its history daily closing values; current methodology disseminates
   RTH VIX through approximately 4:15 p.m. ET, and its EOD-input product describes
   the last published value. The free historical CSV does not explicitly state
-  that `CLOSE` is the 4:15 p.m. value for every historical date. This provenance
-  mapping remains open and must be resolved before target-panel construction.
-  SPX cash close is normally 4:00 p.m. ET, so exact synchronization is not
-  assumed.
+  that `CLOSE` is the 4:15 p.m. value for every historical date. This remains
+  an open provenance limitation, not an implementation blocker. Operationally,
+  daily VIX `CLOSE` is the end-of-day predictor at origin \(t\), and the target
+  begins with the first return ending strictly after \(t\), with no same-date
+  return. SPX cash close is normally 4:00 p.m. ET, so exact synchronization is
+  not assumed.
 
 ## 4. Primary and robustness horizons
 
@@ -123,6 +129,13 @@ implementation passes tests. MAE is descriptive only. Formal loss-difference
 inference must account for overlapping-target serial dependence; a naive
 Diebold-Mariano implementation is prohibited.
 
+Open decision O-002 must be locked and tested before H3: daily GARCH
+conditional variances will be summed for exchange sessions whose return-ending
+dates satisfy \(t<d\leq t+30\) calendar days, then annualized by \(365/30\) to
+match the variable-session realized-variance target. The timing, exchange
+calendar, and missing-session behavior must be frozen before comparison. No
+GARCH estimator is implemented in this protocol-foundation pass.
+
 ### H4 - Regime dependence
 
 The formal comparison is NBER recession versus non-recession observations:
@@ -131,9 +144,13 @@ The formal comparison is NBER recession versus non-recession observations:
 H_0:E[VRP^X_t\mid R_t=1]=E[VRP^X_t\mid R_t=0],
 \]
 
-tested with robust covariance. The Global Financial Crisis/2008, COVID/2020,
-and inflation/monetary-tightening/2022 remain three separate case studies. No
-common directional prediction is imposed.
+The regime label attaches to forecast origin \(t\), is used ex post only, and
+is never a predictor. Every eligible daily origin deterministically inherits
+the external monthly chronology value for its calendar month; the chronology
+version and mapping must be recorded before H4. The equality is tested with
+robust covariance. The Global Financial Crisis/2008, COVID/2020, and
+inflation/monetary-tightening/2022 remain three separate case studies. No common
+directional prediction is imposed.
 
 ## 7. HAC and non-overlap
 

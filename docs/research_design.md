@@ -34,7 +34,7 @@ checks, with 20- and 22-day sensitivities pre-specified.
 | H1 - Mean variance premium | \(H_0:E[VRP^X_t]=0\) versus \(H_1:E[VRP^X_t]\neq0\). The literature-predicted sign is recorded as positive before analysis. | Estimate the mean and a two-sided 95% HAC confidence interval. A one-sided positive-premium test is secondary only. |
 | H2 - VIX calibration | \(RVAR_{t,H}=\alpha+\beta IVAR_t+u_t\), with joint \(H_0:\alpha=0,\beta=1\). | Use robust covariance and a joint Wald test. This is a forecast-calibration null, not a restriction that theory must satisfy. |
 | H3 - Relative OOS accuracy | With VIX and GARCH evaluated on identical dates and targets, \(d_t=(RVAR_{t,H}-IVAR_t)^2-(RVAR_{t,H}-\widehat{GVAR}_t)^2\), and \(H_0:E[d_t]=0\). | MSE is the primary loss and RMSE is reported because it preserves the ranking. QLIKE is a robustness loss if cleanly implemented; MAE is descriptive only. No naive Diebold-Mariano test is used without overlap-aware dependence handling. |
-| H4 - Regime dependence | \(H_0:E[VRP^X_t\mid\text{NBER recession}]=E[VRP^X_t\mid\text{non-recession}]\). | Compare NBER recession and non-recession means with robust covariance. The 2008, 2020, and 2022 episodes are separate case studies with no forced common sign. |
+| H4 - Regime dependence | \(H_0:E[VRP^X_t\mid\text{NBER recession}]=E[VRP^X_t\mid\text{non-recession}]\). | Attach the regime label to forecast origin \(t\), use it ex post only, and never use it as a predictor. Every eligible daily origin deterministically inherits the external monthly chronology value for its calendar month; record the chronology version and mapping before H4. Compare recession and non-recession means with robust covariance. The 2008, 2020, and 2022 episodes are separate case studies with no forced common sign. |
 
 ## Robustness and reporting requirements
 
@@ -53,6 +53,15 @@ checks, with 20- and 22-day sensitivities pre-specified.
   initial estimation and then re-estimates an expanding window at every origin.
   Robustness uses a rolling ten-year window, a post-2003 start, and a 2010+
   start. Splits cannot change after rankings are inspected.
+- Before H3, lock and test aggregation of daily GARCH conditional variances to
+  the variable-session 30-calendar-day target: sum the variances for exchange
+  sessions whose return-ending dates satisfy \(t<d\leq t+30\) calendar days,
+  then annualize the sum by \(365/30\). No GARCH estimator is implemented in
+  this protocol-foundation pass.
+- Map the external monthly recession chronology deterministically to every
+  eligible daily forecast origin: the calendar-month value applies to each
+  origin in that month. Record the chronology version and mapping before H4,
+  and never use the ex-post regime label as a forecasting input.
 - Forecast construction uses only information available at the origin. A
   negative, null, or regime-specific estimate is a valid result.
 - No empirical claim enters the paper until generated reproducibly and audited

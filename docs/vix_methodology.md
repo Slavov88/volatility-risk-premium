@@ -1,7 +1,8 @@
 # VIX methodology note
 
 **Tracker task:** W1-06
-**Status:** In review; the exact free-history `CLOSE` timestamp remains open.
+**Status:** In review; the exact free-history `CLOSE` timestamp remains an open
+provenance limitation, not an implementation blocker.
 
 ## What VIX measures
 
@@ -73,10 +74,12 @@ back-calculated history, uses that exact timestamp or an unchanged convention.
 That final field-to-timestamp mapping remains open. SPX `SP500` cash close is
 normally 4:00 p.m. ET, so exact synchronization will not be silently assumed.
 
-The conservative panel convention, once the mapping is closed, will treat VIX
-as available only after its documented end-of-day timestamp and will begin the
-forward close-to-close target with return-ending dates strictly after origin
-date \(t\). The timestamp issue does not block immutable raw acquisition.
+Operationally, daily VIX `CLOSE` is treated as the end-of-day predictor at
+origin \(t\). The forward target begins with the first return ending strictly
+after \(t\) and includes no same-date return. The exact historical timestamp
+mapping should be resolved and documented before final analysis, but it does
+not block target construction. No exact synchronization with the normally
+4:00 p.m. SPX cash close is assumed.
 
 Historical VIX CSV:
 https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv

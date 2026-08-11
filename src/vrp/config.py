@@ -19,7 +19,6 @@ class ScientificConventions:
     robustness_trading_day_sensitivities: tuple[int, int] = (20, 22)
     fixed_21_hac_maxlags: int = 20
     percent_scale: float = 100.0
-    risk_free_series: str = "USTREASURY_BC_3MONTH"
     empirical_sign_convention: str = "implied_variance_minus_realized_variance"
     horizon_decision_status: str = "locked-2026-08-10"
 

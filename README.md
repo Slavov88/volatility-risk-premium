@@ -36,7 +36,7 @@ tested exact-index acquisition layer. No empirical VRP,
 forecast-ranking, or crisis result has been estimated yet. Any expected sign in
 the protocol is a literature-motivated hypothesis, not a project finding.
 
-The current Person B work products are:
+The current empirical-track work products are:
 
 - the substantively locked research design and analysis protocol, recorded in
   version control and awaiting coauthor review;
@@ -44,7 +44,7 @@ The current Person B work products are:
 - an eight-source literature matrix;
 - a tested acquisition architecture and local feasibility snapshots for Cboe
   VIX, Treasury rates, and engineering-only SPY data; and
-- the W2-06 Yahoo Finance `^GSPC` exact-index OHLC pipeline with
+- the Yahoo Finance `^GSPC` exact-index OHLC pipeline with
   `auto_adjust=False`, immutable manifests, and FRED `SP500` close validation.
 
 ## Canonical notation
@@ -91,27 +91,35 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
-## Reproduce data acquisition
+## Reproduce exact-index acquisition
 
-Raw downloads are intentionally ignored by Git. The command below creates
-date-stamped, immutable local snapshots and a machine-readable manifest:
-
-```bash
-vrp-download-samples --start-date 2026-05-01 --end-date 2026-08-10
-```
-
-The legacy command includes an engineering-only SPY sample. SPY must not
-replace the index. The exact-index W2-06 command uses an inclusive start and
-exclusive frozen end:
+The core empirical-track command uses an inclusive start and exclusive frozen
+end:
 
 ```bash
 vrp-download-spx --start-date 1990-01-01 --end-exclusive 2026-08-10
 ```
 
 It requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects any current-
-day bar, writes immutable date-stamped Yahoo and FRED snapshots, records hashes
-and manifest metadata, and reports close discrepancies without correcting the
-Yahoo OHLC. See [data source feasibility](docs/data_sources.md).
+day bar, and persists an immutable normalized acquisition snapshot. The Yahoo
+artifact is produced from the `yfinance` DataFrame by schema and numeric
+normalization, date normalization and sorting, and deterministic CSV
+serialization; it is not a byte-identical Yahoo network response. The command
+also stores the FRED validation response as fetched bytes, records hashes and
+manifest metadata, and reports close discrepancies without correcting the
+persisted Yahoo values. See [data source feasibility](docs/data_sources.md).
+
+### Legacy feasibility utility
+
+The following source-access utility is retained for reproducibility of the
+initial feasibility check, not as the core empirical-data pipeline:
+
+```bash
+vrp-download-samples --start-date 2026-05-01 --end-date 2026-08-10
+```
+
+It includes an engineering-only SPY sample. SPY is not part of the final
+empirical dataset and must never replace the S&P 500 index.
 
 Run the test suite with:
 
@@ -132,8 +140,10 @@ tests/                 Unit and integration tests
 ## Data and result provenance
 
 Every acquisition records the source URL, retrieval timestamp, SHA-256 digest,
-byte count, schema, coverage, and missingness. Processed data will be rebuilt
-from immutable raw snapshots; cleaning decisions and row losses will be logged.
+byte count, schema, coverage, and missingness. Provider responses stored as
+fetched bytes remain distinguishable from normalized acquisition snapshots.
+Processed data will be rebuilt from these immutable acquisition artifacts;
+cleaning decisions and row losses will be logged.
 
 Source and licensing restrictions may prevent redistributing some raw files.
 The repository therefore tracks code and provenance, not unreviewed bulk data.

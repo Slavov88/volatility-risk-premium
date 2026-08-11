@@ -1,9 +1,11 @@
-"""Reproducible exact-index OHLC acquisition for tracker task W2-06.
+"""Reproducible exact-index OHLC acquisition.
 
-This module acquires raw Yahoo Finance ``^GSPC`` daily OHLC with adjustment
-disabled, stores an immutable dated CSV, and validates overlapping closes
-against FRED ``SP500``. It deliberately does not construct returns, realized
-variance, forecasts, or empirical variance-risk-premium results.
+This module ingests Yahoo Finance ``^GSPC`` daily OHLC through ``yfinance``,
+normalizes the returned DataFrame, and persists an immutable deterministic CSV
+acquisition snapshot. The Yahoo CSV is not provider-response bytes. FRED
+``SP500`` response bytes are persisted as fetched for overlap validation. The
+module deliberately does not construct returns, realized variance, forecasts,
+or empirical variance-risk-premium results.
 """
 
 from __future__ import annotations
@@ -302,7 +304,7 @@ def acquire_spx_index(
     fred_fetch: ByteFetcher = fetch_bytes,
     transport_note: str = "default verified TLS transports",
 ) -> SpxAcquisitionResult:
-    """Acquire, validate, and version a frozen ``^GSPC`` raw snapshot."""
+    """Acquire and validate a frozen normalized ``^GSPC`` acquisition snapshot."""
 
     retrieved = retrieved_at or datetime.now(timezone.utc)
     if retrieved.tzinfo is None:
@@ -338,14 +340,14 @@ def acquire_spx_index(
         "prepost": False,
         "multi_level_index": False,
     }
-    yahoo_raw_frame = downloader(**request_parameters)
+    yahoo_provider_frame = downloader(**request_parameters)
     yahoo_frame = normalize_yahoo_spx(
-        yahoo_raw_frame,
+        yahoo_provider_frame,
         start_date=start_date,
         end_exclusive=end_exclusive,
         retrieved_at=retrieved,
     )
-    yahoo_raw = yahoo_csv_bytes(yahoo_frame)
+    yahoo_snapshot = yahoo_csv_bytes(yahoo_frame)
 
     fred_url = fred_sp500_csv_url(start_date, end_exclusive)
     fred_raw = fred_fetch(fred_url)
@@ -363,7 +365,7 @@ def acquire_spx_index(
     manifest_relative_path = Path(stamp) / "gspc_manifest.json"
     yahoo_path = raw_root / yahoo_relative_path
     fred_path = raw_root / fred_relative_path
-    yahoo_digest = write_immutable(yahoo_path, yahoo_raw)
+    yahoo_digest = write_immutable(yahoo_path, yahoo_snapshot)
     fred_digest = write_immutable(fred_path, fred_raw)
 
     missing_values = {
@@ -384,9 +386,9 @@ def acquire_spx_index(
         fred_validation=validation,
     )
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "dataset": "S&P 500 price index daily OHLC",
-        "research_scope": "W2-06 raw acquisition only; no realized-variance calculation",
+        "research_scope": "Exact-index acquisition only; no realized-variance calculation",
         "retrieved_at_utc": result.retrieved_at_utc,
         "frozen_window": {
             "start_inclusive": start_date.isoformat(),
@@ -395,31 +397,46 @@ def acquire_spx_index(
         },
         "yahoo": {
             "provider": "Yahoo Finance via yfinance",
+            "artifact_type": "immutable normalized acquisition snapshot",
+            "provider_response_persisted": False,
             "symbol": YAHOO_SPX_SYMBOL,
             "source_page": YAHOO_SPX_HISTORY_URL,
             "yfinance_version": result.yfinance_version,
             "request_parameters": request_parameters,
             "relative_path": result.yahoo_relative_path,
             "sha256": result.yahoo_sha256,
-            "bytes": len(yahoo_raw),
+            "bytes": len(yahoo_snapshot),
             "row_count": result.row_count,
             "coverage_start": result.coverage_start,
             "coverage_end": result.coverage_end,
-            "raw_columns": ["Date", *YAHOO_COLUMNS],
+            "persisted_columns": ["Date", *YAHOO_COLUMNS],
             "missing_values": result.missing_values,
-            "adjustment_policy": "auto_adjust=False; raw Yahoo OHLC retained",
+            "normalization": [
+                "schema normalization",
+                "numeric parsing",
+                "date normalization and sorting",
+                "deterministic CSV serialization",
+            ],
+            "adjustment_policy": (
+                "auto_adjust=False; unadjusted OHLC retained in normalized "
+                "acquisition snapshot"
+            ),
         },
         "fred_validation": {
             **asdict(validation),
+            "artifact_type": "provider response bytes",
             "series_page": FRED_SP500_PAGE_URL,
             "relative_path": result.fred_relative_path,
             "sha256": result.fred_sha256,
             "bytes": len(fred_raw),
             "raw_columns": fred_metadata["raw_columns"],
-            "correction_policy": "report discrepancies; never overwrite Yahoo OHLC",
+            "correction_policy": (
+                "report discrepancies; never overwrite persisted Yahoo values"
+            ),
         },
         "redistribution_note": (
-            "Raw provider data are ignored by Git; review Yahoo and S&P/FRED usage terms."
+            "Provider source bytes and normalized acquisition artifacts are ignored "
+            "by Git; review Yahoo and S&P/FRED usage terms."
         ),
         "transport_note": transport_note,
     }
