@@ -1,40 +1,39 @@
 # Raw data
 
-This directory contains immutable, date-stamped acquisition artifacts. Cboe,
-FRED, Treasury, and Nasdaq feasibility responses are stored as fetched bytes.
-The Yahoo `^GSPC` CSV is instead the first persisted project-level acquisition
-layer after `yfinance` DataFrame normalization; it is not a byte-identical Yahoo
-network response. All acquisition artifacts are ignored by Git because
-redistribution and licensing conditions differ by provider.
+This directory contains local immutable acquisition artifacts. Raw/provider data are ignored by Git because redistribution and licensing conditions differ by provider.
 
-Each retrieval directory contains a manifest with source URL, timestamp,
-SHA-256 digest, byte count, persisted schema, coverage, and missingness. Never
-edit an acquisition artifact in place. Cleaning belongs in `data/interim/` and
-must retain a row-loss and transformation log.
+## Canonical source roles
 
-Current source roles:
+- **Cboe VIX history:** primary official VIX source.
+- **Yahoo Finance `^GSPC`:** primary long-history S&P 500 price-index OHLC candidate, acquired through pinned `yfinance` with `auto_adjust=False`.
+- **FRED `SP500`:** recent close validation for the Yahoo index snapshot. Discrepancies are reported and never silently used to overwrite Yahoo OHLC.
+- **FRED / Federal Reserve H.15 short Treasury yields:** Track A rate source. The one-month constant-maturity series is preferred when it is available and maturity-matched; otherwise use the nearest defensible short maturity.
+- **Nasdaq SPY:** legacy engineering proxy only. It is not final S&P 500 index data.
 
-- Cboe VIX history: primary official VIX source.
-- Yahoo Finance `^GSPC`: primary long-history exact-index OHLC candidate,
-  acquired with pinned `yfinance` and `auto_adjust=False` by
-  `vrp-download-spx`. Its immutable normalized acquisition snapshot applies
-  schema and numeric parsing, date normalization and sorting, and deterministic
-  CSV serialization before persistence.
-- FRED `SP500`: recent close validation for the Yahoo index snapshot. FRED
-  discrepancies are reported in `gspc_manifest.json` and never silently used to
-  modify Yahoo OHLC.
-- U.S. Treasury daily yield curve: primary official rate source, provisional
-  three-month tenor choice.
-- Nasdaq SPY OHLC: provisional engineering proxy only; it is not final S&P 500
-  index OHLC data.
+The old feasibility utility's three-month Treasury choice is provisional and does not override the final Track A rate rule.
 
-The exact-index command uses an inclusive start and exclusive frozen end. It
-rejects any bar dated on or after the retrieval's current New York date. A run
-creates these ignored acquisition artifacts beneath its UTC retrieval
-timestamp:
+## Storage contract
+
+A production acquisition directory should contain immutable artifacts such as:
 
 ```text
 YYYY-MM-DDTHHMMSSZ/yahoo/gspc_ohlc_unadjusted.csv
 YYYY-MM-DDTHHMMSSZ/fred/sp500_close.csv
 YYYY-MM-DDTHHMMSSZ/gspc_manifest.json
 ```
+
+The Yahoo CSV is a deterministic project-level acquisition snapshot created from the `yfinance` DataFrame after schema/numeric/date normalization; it is not a byte-identical Yahoo network response. FRED response bytes are preserved as fetched.
+
+Never edit an acquisition artifact in place. Cleaning and target construction belong in code and produce data under `data/processed/`.
+
+## Production-freeze requirements
+
+The final core acquisition must:
+
+1. cover the confirmatory sample through 2025-12-31;
+2. use verified TLS/certificate checking;
+3. record retrieval time, source URLs, request parameters, software versions, schema, coverage, missingness, byte counts, hashes, and validation statistics;
+4. investigate the material Yahoo/FRED close discrepancies documented in `docs/data_sources.md` before the cleaned panel is frozen;
+5. copy a sanitized manifest into `data/manifests/` for version control.
+
+The earlier feasibility run that required `verify=False` for Yahoo remains historical evidence only and must not become the final core-data freeze.

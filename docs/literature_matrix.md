@@ -1,61 +1,52 @@
 # Literature matrix
 
-**Tracker task:** W1-07
-**Status:** Targeted protocol reading complete; coauthor review pending. Results
-below summarize prior work and are not findings of this project.
+**Tracker task:** W1-07  
+**Status:** targeted protocol reading complete; coauthor review pending. Literature results below are not findings of this project.
 
 | Source | Question / contribution | Method | Data | Main result | Limitation for this project | How we use it |
 |---|---|---|---|---|---|---|
-| [Black & Scholes (1973)](https://doi.org/10.1086/260062) | Derive an option valuation relation from no-arbitrage and replication. | Continuous-time stock model and delta-hedged replicating portfolio. | Theoretical analysis rather than a large empirical forecasting sample. | Produces the foundational pricing formula. | Constant volatility, continuous paths/trading, and idealized market assumptions; not a VIX construction. | Track A derivation and a disciplined contrast with Track B. |
-| [Engle (1982)](https://doi.org/10.2307/1912773) | Model time-varying conditional variance. | ARCH specification, likelihood-based estimation, and diagnostic testing. | U.K. inflation. | Establishes conditional heteroskedasticity as an estimable dynamic process. | Original application is not equity returns; symmetric ARCH can be too restrictive and high-order. | Foundation for volatility clustering and later GARCH diagnostics. |
-| [Bollerslev (1986)](https://doi.org/10.1016/0304-4076(86)90063-1) | Generalize ARCH parsimoniously by including lagged conditional variance. | GARCH class, stationarity/moment results, maximum likelihood. | Inflation example. | GARCH captures persistence with fewer parameters than high-order ARCH. | Basic GARCH(1,1) is symmetric, distribution-sensitive, and deliberately not state of the art. | Defines the benchmark statistical volatility model. |
-| [Christensen & Prabhala (1998)](https://doi.org/10.1016/S0304-405X(98)00034-8) | Reassess whether implied volatility contains incremental information for future realized volatility. | Monthly non-overlapping sampling; calibration and encompassing regressions; instrumental-variables and OOS robustness. | 139 S&P 100 option/realized-volatility observations, Nov. 1983-May 1995. | The paper attributes materially different conclusions from earlier work partly to longer history and avoidance of severe overlap. | Different underlying, era, and single-option Black-Scholes IV; its conclusions are not predictions for VIX. | Motivates common-period construction, a predetermined non-overlap check, joint calibration restrictions, and OOS MSE. |
-| [Poon & Granger (2003)](https://doi.org/10.1257/002205103765762743) | Synthesize volatility definitions and forecast evaluation across 93 studies. | Review of historical and option-implied approaches, loss metrics, regression tests, and realized-target measurement. | Multiple assets, regions, frequencies, and forecast definitions. | Measurement noise, horizon, data frequency, loss choice, overlap, and in-sample estimation can alter apparent rankings. | A heterogeneous survey cannot substitute for a controlled common-target comparison. | Supports a variance target, MSE as primary loss, RMSE reporting, explicit OOS estimation, overlap-aware uncertainty, and transparent target measurement. |
-| [Carr & Wu (2009)](https://doi.org/10.1093/rfs/hhn038) | Quantify variance risk premiums directly from option portfolios and realized variance. | Model-free synthetic variance-swap rate from option prices, compared with realized variance. | Options on five stock indices and 35 individual stocks. | Documents economically large variance-risk-premium behavior across assets. | Published variance and sign conventions require explicit mapping to this project's (IVAR-RVAR) definition. | Terminology, variance-replication intuition, and a required sign/units cross-check. |
-| [Bollerslev, Tauchen & Zhou (2009)](https://doi.org/10.1093/rfs/hhp008) | Ask whether model-free variance risk premia predict aggregate stock returns. | Equilibrium motivation plus predictive regressions using implied and high-frequency realized variation. | Post-1990 U.S. aggregate market data. | Reports strongest predictability at an intermediate quarterly horizon. | Return prediction is an optional extension; inference and specification sensitivity prevent treating this as a core expected result. | Economic interpretation and, only after the scope gate, a possible extension. |
-| [Cboe VIX Methodology](https://cdn.cboe.com/resources/indices/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf) | Define the operational VIX index. | Weighted OTM SPX/SPXW option strip, near/next-term variance calculations, 30-day interpolation. | Live option quotes and U.S. Treasury yield-curve inputs. | VIX is a 30-day model-free volatility index, not one Black-Scholes IV. | Methodology and contract rules can change; VIX is not a physical-measure unbiased forecast by definition. | Authoritative Track B definition and ingestion/units specification. |
+| [Black & Scholes (1973)](https://doi.org/10.1086/260062) | Derive an option valuation relation from no-arbitrage and replication. | Continuous-time stock model and delta-hedged replicating portfolio. | Theoretical. | Foundational European option-pricing relation. | Constant volatility, continuous paths/trading, idealized markets; not a VIX construction. | Track A derivation and disciplined contrast with Track B. |
+| [Engle (1982)](https://doi.org/10.2307/1912773) | Model time-varying conditional variance. | ARCH, likelihood estimation, diagnostics. | U.K. inflation. | Establishes conditional heteroskedasticity as an estimable dynamic process. | Original application is not equity returns; ARCH can be restrictive/high-order. | Foundation for volatility clustering and conditional-variance modelling. |
+| [Bollerslev (1986)](https://doi.org/10.1016/0304-4076(86)90063-1) | Generalize ARCH parsimoniously by including lagged conditional variance. | GARCH class, stationarity/moment results, maximum likelihood. | Inflation example. | GARCH captures persistence with fewer parameters. | Basic GARCH(1,1) is symmetric and deliberately not state of the art. | Defines the benchmark statistical volatility model. |
+| [Christensen & Prabhala (1998)](https://doi.org/10.1016/S0304-405X(98)00034-8) | Reassess whether implied volatility contains incremental information for future realized volatility. | Monthly non-overlapping sampling; calibration/encompassing regressions; IV and OOS robustness. | S&P 100 options and realized volatility, 1983–1995. | Finds implied volatility contains substantial information; overlap and sample design help explain differences from earlier studies. | Different underlying, era, and single-option Black–Scholes IV rather than VIX. | Motivates strict forward alignment, deterministic non-overlap robustness, calibration/encompassing tests, and genuine OOS comparison. |
+| [Poon & Granger (2003)](https://doi.org/10.1257/002205103765762743) | Review volatility measurement and forecasting evidence. | Survey of historical, conditional, and implied-volatility methods and forecast evaluation. | 93 studies across assets/markets. | Forecast rankings depend on measurement, horizon, loss function, and design. | Heterogeneous review cannot determine one universally optimal estimator. | Motivates common targets/masks, explicit loss functions, OOS evaluation, and robustness rather than result-driven model choice. |
+| [Carr & Wu (2009)](https://doi.org/10.1093/rfs/hhn038) | Quantify variance risk premiums using option-implied and realized variance. | Model-free variance-swap replication compared with realized variance. | Five stock indices and 35 individual stocks. | Documents economically important variance-risk-premium behaviour. | The theoretical conditional premium is not identical to this project's ex-post proxy. | Supports variance-space primary terminology, variance-replication intuition, and careful sign/unit mapping. |
+| [Bollerslev, Tauchen & Zhou (2009)](https://doi.org/10.1093/rfs/hhp008) | Ask whether variance risk premia predict aggregate stock returns. | Equilibrium motivation plus predictive regressions using implied/realized variation. | U.S. aggregate market data. | Reports return predictability at intermediate horizons. | Return prediction is outside the confirmatory core and inference is specification-sensitive. | Economic interpretation only; possible extension after the core scope gate. |
+| [Cboe VIX Methodology](https://cdn.cboe.com/api/global/us_indices/governance/VIX_Methodology.pdf) | Define the operational VIX index. | Weighted SPX option strip, near/next-term variance calculations, constant 30-day interpolation. | Live SPX option quotes and rate inputs. | VIX is a constant 30-calendar-day model-free volatility index, not one Black–Scholes IV. | Methodology/contract rules can evolve; VIX is not a physical-measure unbiased forecast by definition. | Authoritative Track B definition and the reason the primary realized target is exact 30 calendar days. |
 
 ## Synthesis for the present design
 
-The literature motivates a positive average gap and potentially useful implied-
-volatility forecasts, but it does not determine this project's result. The core
-replication must keep future alignment, overlapping-window inference, common
-targets, and volatility-versus-variance units explicit. Forecast superiority, if
-observed, would support information aggregation relative to stated benchmarks;
-it would not by itself prove the Efficient Market Hypothesis.
+The literature motivates a positive average implied-minus-realized variance gap and suggests that option-implied measures can contain useful forward-looking information. It does not determine this project's result.
 
-## Targeted reading record for protocol lock
+The final pre-analysis hierarchy is:
 
-This is a targeted review, not a claim that either paper was read cover to
-cover.
+1. **Primary horizon:** exact forward 30 calendar days, because the economic maturity of VIX is constant calendar time.
+2. **Mandatory horizon robustness:** exactly the next 21 trading days, the conventional one-trading-month approximation.
+3. **Primary object:** variance-space `VRP_X = IVAR - RVAR`.
+4. **Secondary communication object:** volatility-space `VOLGAP = IVOL - RVOL`.
+5. **Inference:** overlap-aware HAC plus deterministic non-overlapping robustness.
+6. **Forecasting:** VIX, GARCH, and naive forecasts compared genuinely out of sample on the same target and common mask.
+
+Forecast superiority, if observed, supports relative information content against the stated benchmark. It does not by itself prove the Efficient Markets Hypothesis.
+
+## Targeted reading record used for protocol lock
 
 ### Christensen & Prabhala (1998)
 
-- **Pages read:** journal pp. 126-129 (research-design contrast, monthly
-  non-overlap, option/realized-volatility construction); pp. 133-135
-  (calibration and encompassing regressions); pp. 139-140 (estimator and OOS
-  robustness); pp. 143-147 (mechanics and inferential consequences of overlap,
-  conclusion).
-- **Protocol implication:** retain the full overlapping daily panel for power
-  with robust covariance, but add one deterministic non-overlapping sample.
-  Test \(\alpha=0,\beta=1\) jointly as calibration, not as a theorem. Keep OOS
-  comparison on forecast errors and never reuse future observations in model
-  estimation.
-- **Boundary:** their implied volatility comes from one near-ATM OEX option and
-  their realized measure is volatility over the option life; neither definition
-  is copied mechanically into the present VIX/variance design.
+Targeted sections covered their research-design contrast, non-overlap logic, calibration and encompassing regressions, OOS robustness, and inferential consequences of overlap.
+
+**Protocol implication:** retain a full rolling panel for information efficiency but use robust covariance and a deterministic non-overlapping sample; jointly test calibration restrictions; never reuse future observations in model estimation.
+
+**Boundary:** their single-option OEX implied volatility and option-life realized measure are not copied mechanically into the VIX design.
 
 ### Poon & Granger (2003)
 
-- **Pages read:** journal pp. 479-482 (volatility/variance definitions,
-  measurement, realized volatility, frequency and microstructure); pp. 490-492
-  (loss measures, equal-accuracy inference, calibration/encompassing
-  regressions, noisy actual-volatility proxies, and OOS evaluation).
-- **Protocol implication:** compare forecasts against one well-defined variance
-  target; keep MSE primary and RMSE interpretable; treat MAE as descriptive;
-  distinguish in-sample from genuine recursive OOS forecasts; account for
-  serial correlation in overlapping forecast errors. QLIKE is retained only as
-  a clean positive-variance robustness loss.
-- **Boundary:** the survey documents heterogeneous practices rather than one
-  universally optimal estimator or loss, so it motivates pre-specification and
-  robustness rather than a result-dependent choice.
+Targeted sections covered volatility/variance definitions, realized-volatility measurement, forecast-loss measures, calibration/encompassing regressions, noisy realized targets, and OOS evaluation.
+
+**Protocol implication:** pre-specify the target and loss functions, compare forecasts on one common mask, distinguish in-sample from recursive OOS estimation, and account for serial correlation in overlapping forecast losses.
+
+**Boundary:** the review documents heterogeneous practices rather than one universally optimal horizon or estimator. It motivates transparent pre-specification and robustness.
+
+## Horizon decision note
+
+An August 23 draft briefly made 21 trading days primary for simplicity and alignment with the original project tracker. The August 26 methodological review restored the exact 30-calendar-day horizon as primary after re-examining the Cboe definition of VIX. This occurred before empirical VRP or forecast-ranking results were generated. The 21-trading-day design remains mandatory robustness, so both economically natural constructions are reported.

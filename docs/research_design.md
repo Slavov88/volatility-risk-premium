@@ -1,68 +1,93 @@
-# Research design - current pre-analysis specification
+# Research design — current pre-analysis specification
 
-**Protocol decision date:** 2026-08-10
-**Status:** Substantively locked and recorded in version control before analysis;
-coauthor review remains pending.
+**Authoritative protocol:** `paper/method_protocol.md`  
+**Decision date:** 2026-08-26  
+**Status:** locked before empirical VRP, forecast-ranking, or regime results; coauthor review pending.
 
-## Question and empirical objects
+This file is a concise research-design summary. If it conflicts with `paper/method_protocol.md`, the protocol controls.
 
-The central question is whether the excess of option-implied variance at date
-\(t\) over S&P 500 variance realized after \(t\) is statistically robust,
-economically interpretable, and stable across estimators and market regimes.
-The theoretical conditional variance risk premium is
-\(E_t^Q[\mathrm{variance}]-E_t^P[\mathrm{variance}]\); it is not directly
-observed by this design.
+## Central question
 
-| Symbol | Definition | Unit and role |
-|---|---|---|
-| \(IVOL_t\) | \(VIX_t/100\) | Annualized decimal implied volatility. |
-| \(IVAR_t\) | \(IVOL_t^2\) | Annualized decimal implied variance. |
-| \(HVAR_{t,30c}\) | Sum of squared close-to-close log returns whose return-ending dates satisfy \(t<d\leq t+30\) calendar days | Unannualized forward variance over the actual exchange calendar. |
-| \(RVAR_{t,30c}\) | \((365/30)HVAR_{t,30c}\) | Primary annualized forward realized variance. |
-| \(RVOL_{t,30c}\) | \(\sqrt{RVAR_{t,30c}}\) | Annualized forward realized volatility. |
-| \(VRP^X_t\) | \(IVAR_t-RVAR_{t,30c}\) | Primary **ex-post variance-risk-premium proxy**. Positive means implied minus realized variance. |
-| \(VOLGAP_t\) | \(IVOL_t-RVOL_{t,30c}\) | Secondary intuitive volatility gap; never called a variance risk premium. |
+Is the excess of option-implied over subsequently realized S&P 500 variance statistically robust, economically interpretable, and stable once the VIX horizon, overlapping observations, volatility dynamics, forecast evaluation, and regimes are handled carefully?
 
-The primary horizon is an actual 30-calendar-day forward window with no
-shortened end-of-sample targets. Fixed 21-trading-day targets are robustness
-checks, with 20- and 22-day sensitivities pre-specified.
+The theoretical variance risk premium is
 
-## Pre-specified hypotheses
+\[
+E_t^Q[\mathrm{variance}]-E_t^P[\mathrm{variance}],
+\]
 
-| ID | Exact null and alternative | Primary specification and decision rule |
-|---|---|---|
-| H1 - Mean variance premium | \(H_0:E[VRP^X_t]=0\) versus \(H_1:E[VRP^X_t]\neq0\). The literature-predicted sign is recorded as positive before analysis. | Estimate the mean and a two-sided 95% HAC confidence interval. A one-sided positive-premium test is secondary only. |
-| H2 - VIX calibration | \(RVAR_{t,H}=\alpha+\beta IVAR_t+u_t\), with joint \(H_0:\alpha=0,\beta=1\). | Use robust covariance and a joint Wald test. This is a forecast-calibration null, not a restriction that theory must satisfy. |
-| H3 - Relative OOS accuracy | With VIX and GARCH evaluated on identical dates and targets, \(d_t=(RVAR_{t,H}-IVAR_t)^2-(RVAR_{t,H}-\widehat{GVAR}_t)^2\), and \(H_0:E[d_t]=0\). | MSE is the primary loss and RMSE is reported because it preserves the ranking. QLIKE is a robustness loss if cleanly implemented; MAE is descriptive only. No naive Diebold-Mariano test is used without overlap-aware dependence handling. |
-| H4 - Regime dependence | \(H_0:E[VRP^X_t\mid\text{NBER recession}]=E[VRP^X_t\mid\text{non-recession}]\). | Attach the regime label to forecast origin \(t\), use it ex post only, and never use it as a predictor. Every eligible daily origin deterministically inherits the external monthly chronology value for its calendar month; record the chronology version and mapping before H4. Compare recession and non-recession means with robust covariance. The 2008, 2020, and 2022 episodes are separate case studies with no forced common sign. |
+which is unobserved. The empirical study therefore uses an ex-post proxy rather than claiming direct observation of the conditional physical expectation.
 
-## Robustness and reporting requirements
+## Canonical objects
 
-- Close-to-close squared log returns are the primary realized-variance
-  estimator. Parkinson and Garman-Klass are robustness estimators on identical
-  dates. Estimator disagreement must be reported and explained; agreement of
-  all three confidence intervals is not a validity requirement.
-- For fixed 21-trading-day targets, Newey-West `maxlags=20`. For the calendar
-  target, derive \(L_0\) mechanically as the greatest ordered forecast-origin
-  lag whose target return-date sets overlap. Report bandwidth sensitivities at
-  \(L_0\), 42, and 63 without selecting on significance.
-- The predetermined non-overlapping sample starts at the earliest eligible
-  origin and repeatedly selects the earliest next origin strictly after the
-  preceding target end. Phase offsets are appendix-only.
-- The primary OOS design uses the first ten complete aligned calendar years for
-  initial estimation and then re-estimates an expanding window at every origin.
-  Robustness uses a rolling ten-year window, a post-2003 start, and a 2010+
-  start. Splits cannot change after rankings are inspected.
-- Before H3, lock and test aggregation of daily GARCH conditional variances to
-  the variable-session 30-calendar-day target: sum the variances for exchange
-  sessions whose return-ending dates satisfy \(t<d\leq t+30\) calendar days,
-  then annualize the sum by \(365/30\). No GARCH estimator is implemented in
-  this protocol-foundation pass.
-- Map the external monthly recession chronology deterministically to every
-  eligible daily forecast origin: the calendar-month value applies to each
-  origin in that month. Record the chronology version and mapping before H4,
-  and never use the ex-post regime label as a forecasting input.
-- Forecast construction uses only information available at the origin. A
-  negative, null, or regime-specific estimate is a valid result.
-- No empirical claim enters the paper until generated reproducibly and audited
-  by the other coauthor.
+\[
+IVOL_t=VIX_t/100,
+\qquad
+IVAR_t=IVOL_t^2.
+\]
+
+For the exact 30-calendar-day interval after origin `t`,
+
+\[
+RVAR^{CC}_{t,30c}
+=
+\frac{365}{30}
+\sum_{d:t<d\le t+30c}r_d^2.
+\]
+
+Primary empirical proxy:
+
+\[
+VRP_t^X=IVAR_t-RVAR^{CC}_{t,30c}.
+\]
+
+Secondary intuitive gap:
+
+\[
+VOLGAP_t=IVOL_t-\sqrt{RVAR^{CC}_{t,30c}}.
+\]
+
+The sign is always implied minus realized.
+
+## Why 30 calendar days is primary
+
+VIX is a constant 30-calendar-day expected-volatility measure. The primary realized target therefore holds the calendar horizon fixed and allows the number of exchange sessions inside the interval to vary. This is the closest empirical match to the economic object represented by VIX.
+
+The next 21 trading days are retained as a mandatory one-trading-month robustness approximation:
+
+\[
+RVAR^{CC}_{t,21t}
+=
+\frac{252}{21}\sum_{j=1}^{21}r_{t+j}^2.
+\]
+
+Both designs are forward-looking: no return ending on or before the forecast origin enters the target.
+
+## Hypotheses
+
+- **H1:** mean primary `VRP_X` equals zero versus a two-sided alternative; literature-motivated expected sign is positive.
+- **H2:** variance-space Mincer–Zarnowitz calibration, jointly testing `alpha=0, beta=1` in `RVAR = alpha + beta*IVAR + u`.
+- **H3:** genuinely OOS forecast comparison of VIX, GARCH(1,1), and a naive historical-variance benchmark on a common mask.
+- **H4:** encompassing regression testing incremental predictive content of VIX and GARCH conditional on one another.
+- **H5:** formal NBER recession/non-recession comparison plus separate pre-defined 2008, 2020, and 2022 case studies.
+
+## Inference and robustness
+
+- Primary rolling 30c targets use Newey–West/HAC with lag `L0` derived mechanically from actual target-set overlap before outcomes are viewed; 42 and 63 are bandwidth sensitivities.
+- A deterministic non-overlapping 30c sample is mandatory.
+- Fixed 21-trading-day robustness uses HAC `maxlags=20`, with 10/21/42 sensitivity.
+- Close-to-close realized variance is primary; Parkinson and Garman–Klass are robustness estimators.
+- Variance-space results are primary; volatility-space gaps are secondary communication aids.
+- Post-2003, Student-t GARCH, and five-year rolling GARCH analyses are mandatory robustness checks.
+
+## Out-of-sample forecast design
+
+Initial estimation uses all valid returns through the last S&P 500 trading day of 2006. Evaluation begins on the first trading day of 2007. The primary GARCH model is recursively re-estimated on an expanding window; a five-year rolling window is robustness.
+
+For each primary origin, GARCH daily conditional variances are summed over the future exchange sessions whose return-ending dates fall strictly after `t` and no later than `t+30` calendar days, then annualized by `365/30`.
+
+The naive primary benchmark is the corresponding backward-looking 30-calendar-day realized variance. All forecasts use identical targets and evaluation dates.
+
+## Interpretation discipline
+
+A positive ex-post proxy does not itself prove irrationality. VIX can contain useful forward-looking information and still be systematically above subsequently realized variance because option prices can include compensation for volatility/tail risk. Forecast ranking is evidence about relative predictive performance, not a standalone test of the Efficient Markets Hypothesis.

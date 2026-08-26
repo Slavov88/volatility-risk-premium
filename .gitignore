@@ -22,11 +22,17 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Research data and generated outputs
+# Raw and generated research data
 data/raw/*
 !data/raw/README.md
 data/interim/**/*
 data/processed/**/*
+!data/processed/README.md
+
+# NOTE: data/manifests/ is intentionally NOT ignored.
+# It contains compact sanitized provenance metadata, never provider market data.
+
+# Generated paper outputs
 paper/figures/**/*
 paper/tables/**/*
 

@@ -5,26 +5,59 @@ import pytest
 from vrp.config import CONVENTIONS, ScientificConventions
 
 
-def test_default_conventions_are_explicit_and_valid() -> None:
-    assert CONVENTIONS.trading_days_per_year == 252
+def test_default_conventions_match_locked_protocol() -> None:
+    assert CONVENTIONS.protocol_version == "1.0"
+    assert CONVENTIONS.protocol_decision_date == "2026-08-26"
+    assert CONVENTIONS.sample_start == "1990-01-02"
+    assert CONVENTIONS.sample_end == "2025-12-31"
+
+    assert CONVENTIONS.primary_horizon == "30_calendar_days"
     assert CONVENTIONS.primary_calendar_days == 30
     assert CONVENTIONS.primary_calendar_annualization_days == 365
+    assert CONVENTIONS.robustness_horizon == "21_trading_days"
     assert CONVENTIONS.robustness_trading_days == 21
-    assert CONVENTIONS.robustness_trading_day_sensitivities == (20, 22)
-    assert CONVENTIONS.fixed_21_hac_maxlags == 20
-    assert CONVENTIONS.percent_scale == 100.0
-    assert CONVENTIONS.empirical_sign_convention == (
+    assert CONVENTIONS.trading_days_per_year == 252
+
+    assert CONVENTIONS.primary_empirical_object == (
         "implied_variance_minus_realized_variance"
     )
-    assert CONVENTIONS.horizon_decision_status == "locked-2026-08-10"
+    assert CONVENTIONS.secondary_empirical_object == (
+        "implied_volatility_minus_realized_volatility"
+    )
+    assert CONVENTIONS.empirical_sign_convention == "implied_minus_realized"
+
+    assert CONVENTIONS.primary_hac_rule == "derive_L0_from_calendar_target_overlap"
+    assert CONVENTIONS.primary_hac_sensitivity_maxlags == (42, 63)
+    assert CONVENTIONS.fixed_21_hac_maxlags == 20
+    assert CONVENTIONS.fixed_21_hac_sensitivity_maxlags == (10, 21, 42)
+
+    assert CONVENTIONS.oos_initial_estimation_end_year == 2006
+    assert CONVENTIONS.oos_start_year == 2007
+    assert CONVENTIONS.garch_primary_window == "expanding"
+    assert CONVENTIONS.garch_robustness_window_years == 5
+    assert CONVENTIONS.formal_regime_chronology == "NBER_monthly_business_cycle"
 
 
 def test_conventions_are_immutable() -> None:
     with pytest.raises(FrozenInstanceError):
-        CONVENTIONS.robustness_trading_days = 20  # type: ignore[misc]
+        CONVENTIONS.primary_calendar_days = 21  # type: ignore[misc]
 
 
-def test_invalid_horizon_is_rejected() -> None:
-    conventions = ScientificConventions(robustness_trading_days=0)
-    with pytest.raises(ValueError, match="robustness_trading_days"):
+def test_21_day_primary_horizon_is_rejected() -> None:
+    conventions = ScientificConventions(primary_calendar_days=21)
+    with pytest.raises(ValueError, match="30 calendar days"):
+        conventions.validate()
+
+
+def test_wrong_primary_empirical_object_is_rejected() -> None:
+    conventions = ScientificConventions(
+        primary_empirical_object="implied_volatility_minus_realized_volatility"
+    )
+    with pytest.raises(ValueError, match="variance-space"):
+        conventions.validate()
+
+
+def test_invalid_oos_design_is_rejected() -> None:
+    conventions = ScientificConventions(oos_start_year=2008)
+    with pytest.raises(ValueError, match="train-through-2006/start-2007"):
         conventions.validate()

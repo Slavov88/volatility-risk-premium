@@ -1,17 +1,13 @@
 # VIX methodology note
 
-**Tracker task:** W1-06
-**Status:** In review; the exact free-history `CLOSE` timestamp remains an open
-provenance limitation, not an implementation blocker.
+**Tracker task:** W1-06  
+**Status:** substantive methodology complete; exact free-history `CLOSE` timestamp remains an open provenance limitation.
 
 ## What VIX measures
 
-Cboe defines VIX as a constant 30-calendar-day measure of expected S&P 500
-volatility conveyed by SPX/SPXW option mid-quotes. It selects near- and
-next-term expirations, aggregates out-of-the-money puts and calls over strikes,
-computes a variance quantity for each term, and interpolates to 30 days.
+Cboe defines VIX as a constant **30-calendar-day** measure of expected S&P 500 volatility derived from SPX/SPXW option prices. The methodology uses near- and next-term option strips, aggregates out-of-the-money puts and calls across strikes, computes variance quantities for the two maturities, and interpolates them to a constant 30-day maturity.
 
-For one maturity \(T\), the core variance expression is
+For one maturity `T`, the core variance expression is
 
 \[
 \sigma^2(T)=\frac{2}{T}\sum_i
@@ -19,67 +15,78 @@ For one maturity \(T\), the core variance expression is
 -\frac{1}{T}\left(\frac{F}{K_0}-1\right)^2.
 \]
 
-Here \(K_i\) is a strike, \(\Delta K_i\) its strike interval, \(Q(K_i)\) the
-methodology quote, \(R\) the relevant rate, \(F\) the option-implied forward,
-and \(K_0\) the first strike at or below \(F\). After interpolation, VIX is 100
-times the square root of annualized variance.
+Here `K_i` is strike, `Delta K_i` its interval, `Q(K_i)` the methodology option quote, `R` the relevant rate, `F` the option-implied forward, and `K_0` the first strike at or below `F`. The final VIX level is 100 times the square root of the interpolated annualized variance.
 
-Primary methodology (version 6.0, revised 2026-02-26):
-https://cdn.cboe.com/resources/indices/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf
+Primary methodology reference:
+https://cdn.cboe.com/api/global/us_indices/governance/VIX_Methodology.pdf
 
-## Why VIX is not a single-option Black-Scholes IV
+Historical VIX data:
+https://www.cboe.com/tradable_products/vix/vix_historical_data/
 
-A Black-Scholes implied volatility inverts one pricing equation for one option
-under a parametric model. VIX aggregates many option quotes across strikes and
-two maturities using variance-replication logic. “Model-free” means that it does
-not require a constant-volatility Black-Scholes surface; it does not mean
-assumption-free. Quote quality, strike filtering, forward/rate construction,
-interpolation, and no-arbitrage replication remain material.
+## Why VIX is not a single-option Black–Scholes IV
+
+A Black–Scholes implied volatility inverts one parametric pricing equation for one option. VIX aggregates many SPX option quotes across strikes and two maturities using variance-replication logic.
+
+“Model-free” does **not** mean assumption-free. Option selection, quote quality, strike filtering, forward construction, interest rates, maturity interpolation, and no-arbitrage replication logic remain material.
+
+Track A's single-option Black–Scholes IV and Track B's VIX must remain separate in code, equations, figures, and prose.
 
 ## Canonical interpretation in this project
 
-- \(IVOL_t=VIX_t/100\) and \(IVAR_t=IVOL_t^2\).
-- The primary empirical object is
-  \(VRP^X_t=IVAR_t-RVAR_{t,30c}\), called an **ex-post variance-risk-premium
-  proxy** when precision matters.
-- \(VOLGAP_t=IVOL_t-RVOL_{t,30c}\) is secondary and is never labelled VRP.
-- The theoretical object \(E_t^Q[\mathrm{variance}]-E_t^P[\mathrm{variance}]\)
-  is conditional and unobserved. The ex-post proxy also contains forecast error
-  and measurement effects.
-- The primary realized target uses actual calendar dates; a fixed 21-trading-day
-  target and 20/22-day variants are robustness checks.
+\[
+IVOL_t=VIX_t/100,
+\qquad
+IVAR_t=IVOL_t^2.
+\]
+
+The primary empirical target is the S&P 500 variance realized over the exact forward 30-calendar-day interval:
+
+\[
+RVAR^{CC}_{t,30c}
+=
+\frac{365}{30}\sum_{d:t<d\le t+30c}r_d^2.
+\]
+
+Primary empirical proxy:
+
+\[
+VRP_t^X=IVAR_t-RVAR^{CC}_{t,30c}.
+\]
+
+This is called the **ex-post variance-risk-premium proxy**. The theoretical object
+
+\[
+E_t^Q[\mathrm{variance}]-E_t^P[\mathrm{variance}]
+\]
+
+is conditional and unobserved, so the ex-post proxy also contains forecast error and measurement effects.
+
+Secondary intuitive quantity:
+
+\[
+VOLGAP_t=IVOL_t-RVOL^{CC}_{t,30c}.
+\]
+
+The fixed next-21-trading-day target is mandatory robustness because roughly one trading month is a conventional empirical approximation to VIX's 30-calendar-day horizon. It is not the primary horizon.
+
+## Historical methodology and sample interpretation
+
+Cboe introduced the original VIX in 1993 using S&P 100 option prices and changed the methodology in 2003 to the current broad-strike SPX option-strip approach. Cboe supplies VIX history from 1990 to present and separately identifies the older VXO series for the original methodology.
+
+The core study therefore uses the official VIX historical series while reporting a **post-2003 sensitivity analysis** so conclusions do not depend entirely on the pre-2003/back-history portion of the series.
 
 ## Historical `CLOSE` timestamp audit
 
-Primary-source evidence checked on 2026-08-10:
+Cboe's historical-data page describes the downloadable series as daily closing values. Current VIX documentation describes repeated intraday calculation and an end-of-day/last-published value. However, the free historical CSV does not explicitly bind every `CLOSE` observation across the full history to one perfectly unchanged timestamp convention.
 
-1. Cboe's historical-data page labels the downloadable observations “daily
-   closing values.”
-2. Current VIX methodology states that RTH calculation and dissemination occur
-   approximately every 15 seconds from 09:31 a.m. to 4:15 p.m. ET, adjusted for
-   shortened sessions.
-3. Cboe's VIX EOD Calculation Inputs notice describes the product as containing
-   inputs for the “last published value” on each trading day.
+The S&P 500 cash close is normally around 4:00 p.m. ET, while current VIX dissemination extends beyond that point. Exact historical synchronization is therefore not assumed.
 
-Sources:
+Operationally:
 
-- https://www.cboe.com/tradable_products/vix/vix_historical_data/
-- https://cdn.cboe.com/resources/indices/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf
-- https://cdn.cboe.com/resources/trader_news/2022/Trader-E-News-7-8-22.pdf
+1. daily VIX `CLOSE` is treated as the end-of-day predictor at origin `t`;
+2. the realized target begins with the first S&P 500 return ending strictly after `t`;
+3. no same-date return is included in the forward target;
+4. the timestamp limitation is documented rather than “solved” by an unsupported adjustment.
 
-Together these documents support treating current end-of-day VIX as the last
-RTH spot value, normally near 4:15 p.m. ET. However, the free-history page and
-CSV schema do not explicitly state that every `CLOSE` observation, including
-back-calculated history, uses that exact timestamp or an unchanged convention.
-That final field-to-timestamp mapping remains open. SPX `SP500` cash close is
-normally 4:00 p.m. ET, so exact synchronization will not be silently assumed.
-
-Operationally, daily VIX `CLOSE` is treated as the end-of-day predictor at
-origin \(t\). The forward target begins with the first return ending strictly
-after \(t\) and includes no same-date return. The exact historical timestamp
-mapping should be resolved and documented before final analysis, but it does
-not block target construction. No exact synchronization with the normally
-4:00 p.m. SPX cash close is assumed.
-
-Historical VIX CSV:
-https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv
+Cboe EOD-input reference:
+https://datashop.cboe.com/vix-index-eod-calculation-inputs

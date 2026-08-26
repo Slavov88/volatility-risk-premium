@@ -1,46 +1,122 @@
 """Central scientific conventions locked before empirical analysis.
 
-Internal volatility values are annualized decimals. For example, 0.20 means
-20 percent annualized volatility. Internal variance is the square of decimal
-volatility, and the empirical sign is always implied minus realized variance.
+The authoritative specification is ``paper/method_protocol.md`` dated
+2026-08-26. Internal volatility values are annualized decimals and internal
+variance values are the square of decimal volatility. The empirical sign is
+always implied minus realized.
 """
 
 from dataclasses import dataclass
+from datetime import date
 
 
 @dataclass(frozen=True)
 class ScientificConventions:
-    """Units and horizons shared by code and paper."""
+    """Units, horizons, inference, and forecast-design constants."""
+
+    protocol_version: str = "1.0"
+    protocol_decision_date: str = "2026-08-26"
+    sample_start: str = "1990-01-02"
+    sample_end: str = "2025-12-31"
 
     trading_days_per_year: int = 252
+    calendar_days_per_year: int = 365
     primary_calendar_days: int = 30
     primary_calendar_annualization_days: int = 365
     robustness_trading_days: int = 21
-    robustness_trading_day_sensitivities: tuple[int, int] = (20, 22)
+
+    primary_horizon: str = "30_calendar_days"
+    robustness_horizon: str = "21_trading_days"
+    primary_empirical_object: str = "implied_variance_minus_realized_variance"
+    secondary_empirical_object: str = "implied_volatility_minus_realized_volatility"
+    empirical_sign_convention: str = "implied_minus_realized"
+
+    primary_hac_rule: str = "derive_L0_from_calendar_target_overlap"
+    primary_hac_sensitivity_maxlags: tuple[int, int] = (42, 63)
     fixed_21_hac_maxlags: int = 20
+    fixed_21_hac_sensitivity_maxlags: tuple[int, int, int] = (10, 21, 42)
+
+    significance_level: float = 0.05
+    confidence_level: float = 0.95
+    test_direction: str = "two_sided"
+
+    garch_model: str = "GARCH(1,1)"
+    garch_mean: str = "constant"
+    garch_primary_distribution: str = "normal"
+    garch_robustness_distribution: str = "student_t"
+    garch_primary_window: str = "expanding"
+    garch_robustness_window_years: int = 5
+
+    oos_initial_estimation_end_year: int = 2006
+    oos_start_year: int = 2007
+    formal_regime_chronology: str = "NBER_monthly_business_cycle"
+
     percent_scale: float = 100.0
-    empirical_sign_convention: str = "implied_variance_minus_realized_variance"
-    horizon_decision_status: str = "locked-2026-08-10"
+    random_seed: int = 42
 
     def validate(self) -> None:
-        """Raise if a convention is internally inconsistent."""
+        """Raise if a locked convention is internally inconsistent."""
 
-        if self.trading_days_per_year <= 0:
-            raise ValueError("trading_days_per_year must be positive")
-        if not 1 <= self.robustness_trading_days < self.trading_days_per_year:
-            raise ValueError("robustness_trading_days must be within one year")
-        if self.primary_calendar_days <= 0:
-            raise ValueError("primary_calendar_days must be positive")
+        start = date.fromisoformat(self.sample_start)
+        end = date.fromisoformat(self.sample_end)
+        if start >= end:
+            raise ValueError("sample_start must precede sample_end")
+        if end.year != 2025:
+            raise ValueError("confirmatory sample must end with calendar year 2025")
+
+        if self.trading_days_per_year != 252:
+            raise ValueError("trading_days_per_year must remain 252")
+        if self.calendar_days_per_year != 365:
+            raise ValueError("calendar_days_per_year must remain 365")
+        if self.primary_calendar_days != 30:
+            raise ValueError("primary horizon must remain 30 calendar days")
         if self.primary_calendar_annualization_days != 365:
-            raise ValueError("primary calendar annualization must remain 365 days")
-        if self.robustness_trading_day_sensitivities != (20, 22):
-            raise ValueError("robustness sensitivities must remain (20, 22)")
+            raise ValueError("primary calendar annualization must remain 365")
+        if self.robustness_trading_days != 21:
+            raise ValueError("mandatory robustness horizon must remain 21 trading days")
         if self.fixed_21_hac_maxlags != self.robustness_trading_days - 1:
             raise ValueError("fixed-21 HAC maxlags must remain 20")
-        if self.percent_scale != 100.0:
-            raise ValueError("percent_scale must remain 100 for percent display")
-        if self.empirical_sign_convention != "implied_variance_minus_realized_variance":
+
+        if self.primary_horizon != "30_calendar_days":
+            raise ValueError("primary_horizon must remain 30_calendar_days")
+        if self.robustness_horizon != "21_trading_days":
+            raise ValueError("robustness_horizon must remain 21_trading_days")
+        if self.primary_empirical_object != "implied_variance_minus_realized_variance":
+            raise ValueError("primary empirical object must remain variance-space VRP proxy")
+        if self.secondary_empirical_object != "implied_volatility_minus_realized_volatility":
+            raise ValueError("secondary empirical object must remain volatility gap")
+        if self.empirical_sign_convention != "implied_minus_realized":
             raise ValueError("empirical sign convention must remain implied minus realized")
+
+        if self.primary_hac_rule != "derive_L0_from_calendar_target_overlap":
+            raise ValueError("primary HAC lag must be derived from calendar-target overlap")
+        if self.primary_hac_sensitivity_maxlags != (42, 63):
+            raise ValueError("primary HAC sensitivities must remain (42, 63)")
+        if self.fixed_21_hac_sensitivity_maxlags != (10, 21, 42):
+            raise ValueError("fixed-21 HAC sensitivities must remain (10, 21, 42)")
+
+        if not 0 < self.significance_level < 1:
+            raise ValueError("significance_level must lie in (0, 1)")
+        if self.confidence_level != 1.0 - self.significance_level:
+            raise ValueError("confidence_level must equal 1 - significance_level")
+        if self.test_direction != "two_sided":
+            raise ValueError("confirmatory tests must remain two-sided")
+
+        if self.garch_model != "GARCH(1,1)":
+            raise ValueError("primary model must remain GARCH(1,1)")
+        if self.garch_primary_window != "expanding":
+            raise ValueError("primary GARCH estimation window must remain expanding")
+        if self.garch_robustness_window_years != 5:
+            raise ValueError("rolling-window robustness must remain five years")
+        if self.oos_initial_estimation_end_year != 2006 or self.oos_start_year != 2007:
+            raise ValueError("OOS design must remain train-through-2006/start-2007")
+        if self.formal_regime_chronology != "NBER_monthly_business_cycle":
+            raise ValueError("formal regime chronology must remain NBER monthly")
+
+        if self.percent_scale != 100.0:
+            raise ValueError("percent_scale must remain 100")
+        if self.random_seed != 42:
+            raise ValueError("random_seed must remain 42")
 
 
 CONVENTIONS = ScientificConventions()

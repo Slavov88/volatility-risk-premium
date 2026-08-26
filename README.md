@@ -1,85 +1,53 @@
 # Volatility Risk Premium
 
-Reproducible research code for **The Volatility Risk Premium: An Empirical and
-Theoretical Investigation of the Gap Between Implied and Realized Volatility in
-Equity Index Markets**.
+Reproducible research code for **The Volatility Risk Premium: An Empirical and Theoretical Investigation of the Gap Between Implied and Realized Volatility in Equity Index Markets**.
 
 ## Research question
 
-Is the excess of S&P 500 option-implied variance over subsequently realized
-variance statistically robust and economically explicable, or does it weaken
-after accounting for overlapping observations, non-normality, forecast
-construction, and market regimes?
+Is the excess of S&P 500 option-implied variance over subsequently realized variance statistically robust and economically explicable, or does it weaken after careful horizon matching, overlap-aware inference, out-of-sample forecasting, and regime analysis?
 
-This is a financial-economics replication and extension project. It is not a
-trading strategy, a return-prediction competition, or an exercise with a
-pre-selected conclusion.
+This is a financial-economics research project. It is not a trading strategy, a return-prediction competition, or an exercise with a pre-selected conclusion.
 
 ## Two-track design
 
-- **Track A - theory and small-scale validation:** derive Black-Scholes,
-  implement a European-option pricer and implied-volatility inversion, and
-  validate them on a small set of quotes.
-- **Track B - large-N empirical study:** acquire VIX and equity-index data,
-  construct forward realized-variance targets, estimate the ex-post variance-
-  risk-premium proxy, use robust inference, and compare VIX with genuinely out-
-  of-sample GARCH variance forecasts.
+- **Track A — theory and small-scale validation:** derive Black–Scholes, implement a European-option pricer and implied-volatility inversion, and validate them on a small set of quotes.
+- **Track B — large-N empirical study:** acquire VIX and S&P 500 index data, construct forward realized-variance targets, estimate an ex-post variance-risk-premium proxy, use overlap-robust inference, and compare VIX with genuinely out-of-sample GARCH and naive forecasts.
 
-VIX is a model-free index constructed from a strip of SPX option prices. It is
-not the Black-Scholes implied volatility of one option. The two tracks use
-related but distinct objects.
+VIX is a model-free index constructed from a strip of SPX option prices. It is not the Black–Scholes implied volatility of one option.
 
-## Current status
+## Source of truth
 
-The repository has a current pre-analysis methodological specification and a
-tested exact-index acquisition layer. No empirical VRP,
-forecast-ranking, or crisis result has been estimated yet. Any expected sign in
-the protocol is a literature-motivated hypothesis, not a project finding.
+The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), dated 2026-08-26. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) records how the specification evolved before empirical VRP or forecast-ranking results were generated.
 
-The current empirical-track work products are:
-
-- the substantively locked research design and analysis protocol, recorded in
-  version control and awaiting coauthor review;
-- VIX methodology and terminology notes;
-- an eight-source literature matrix;
-- a tested acquisition architecture and local feasibility snapshots for Cboe
-  VIX, Treasury rates, and engineering-only SPY data; and
-- the Yahoo Finance `^GSPC` exact-index OHLC pipeline with
-  `auto_adjust=False`, immutable manifests, and FRED `SP500` close validation.
-
-## Canonical notation
+## Canonical empirical objects
 
 | Symbol | Definition | Role |
 |---|---|---|
 | `IVOL_t` | `VIX_t / 100` | Annualized decimal implied volatility. |
 | `IVAR_t` | `IVOL_t**2` | Annualized decimal implied variance. |
-| `RVAR_t,30c` | `(365 / 30) * sum(r_d**2 for t < d <= t + 30 calendar days)` | Primary annualized forward realized variance. |
-| `RVOL_t,30c` | `sqrt(RVAR_t,30c)` | Annualized forward realized volatility. |
-| `VRP_X_t` | `IVAR_t - RVAR_t,30c` | Primary **ex-post variance-risk-premium proxy**. |
-| `VOLGAP_t` | `IVOL_t - RVOL_t,30c` | Secondary volatility gap; never called VRP. |
+| `RVAR_t,30c` | `(365 / 30) * sum(r_d**2 for t < d <= t + 30 calendar days)` | **Primary** annualized forward realized variance. |
+| `RVOL_t,30c` | `sqrt(RVAR_t,30c)` | Primary-horizon realized volatility. |
+| `VRP_X_t` | `IVAR_t - RVAR_t,30c` | **Primary ex-post variance-risk-premium proxy.** |
+| `VOLGAP_t` | `IVOL_t - RVOL_t,30c` | Secondary intuitive volatility gap. |
+| `RVAR_t,21t` | `(252 / 21) * sum(next 21 trading-day squared returns)` | Mandatory horizon robustness target. |
 
-The empirical sign convention is always implied variance minus realized
-variance. The theoretical conditional object
-`E_t^Q[variance] - E_t^P[variance]` is not directly observed.
+The sign convention is always **implied minus realized**. The theoretical conditional object `E_t^Q[variance] - E_t^P[variance]` is not directly observed.
 
 ## Methodological invariants
 
-1. A forecast formed at date `t` is compared with volatility realized **after**
-   `t`; predictor construction must not access future observations.
-2. The primary target uses actual return-ending dates strictly after `t` and no
-   later than `t + 30` calendar days; incomplete end targets are rejected.
-3. Overlapping targets require HAC/Newey-West inference and a predetermined
-   non-overlapping robustness design.
-4. VIX and GARCH forecasts must be evaluated against the same realized
-   target, horizon, units, and test dates.
-5. Internal volatility units are decimal annualized volatility; percentages are
-   presentation-only conversions.
-6. No empirical claim enters the paper until generated reproducibly and audited
-   by the other coauthor.
+1. A predictor formed at date `t` is compared only with returns realized strictly after `t`.
+2. The primary target is the exact forward **30-calendar-day** interval because VIX is a constant 30-day measure.
+3. The fixed **21-trading-day** target is mandatory robustness, not the primary estimand.
+4. Rolling targets require HAC/Newey–West or deterministic non-overlapping inference.
+5. VIX, GARCH, and naive forecasts use the same target, horizon, units, dates, and missing-value mask.
+6. Internal volatility and variance units are decimal annualized quantities; percentage conversion is presentation only.
+7. No empirical claim enters the paper until it is reproducibly generated and audited by the other coauthor.
 
-See [the current protocol](paper/method_protocol.md),
-[methodology decisions](docs/methodology_decisions.md), and
-[the VIX note](docs/vix_methodology.md).
+## Current status
+
+The repository contains a locked pre-analysis protocol, research-design documentation, literature and VIX notes, and a tested exact-index acquisition layer. No empirical VRP, forecast-ranking, or crisis result should be treated as established until the post-protocol pipeline is implemented and audited.
+
+The Yahoo/FRED feasibility comparison identified several close discrepancies that must be investigated during cleaning, and the earlier Yahoo feasibility acquisition used a local TLS-verification workaround. The final core-data freeze must use verified TLS.
 
 ## Installation
 
@@ -91,37 +59,29 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
-## Reproduce exact-index acquisition
+## Reproduce the exact-index core acquisition
 
-The core empirical-track command uses an inclusive start and exclusive frozen
-end:
+The confirmatory sample ends on 2025-12-31, so the canonical acquisition request uses an exclusive 2026-01-01 end:
 
 ```bash
-vrp-download-spx --start-date 1990-01-01 --end-exclusive 2026-08-10
+vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-01-01
 ```
 
-It requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects any current-
-day bar, and persists an immutable normalized acquisition snapshot. The Yahoo
-artifact is produced from the `yfinance` DataFrame by schema and numeric
-normalization, date normalization and sorting, and deterministic CSV
-serialization; it is not a byte-identical Yahoo network response. The command
-also stores the FRED validation response as fetched bytes, records hashes and
-manifest metadata, and reports close discrepancies without correcting the
-persisted Yahoo values. See [data source feasibility](docs/data_sources.md).
+The command requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects current-day bars, stores an immutable normalized acquisition snapshot, preserves FRED validation response bytes, records hashes and metadata, and reports close discrepancies without silently correcting either source.
+
+After a reviewed production acquisition, copy a sanitized provenance manifest into `data/manifests/`; raw provider files remain ignored by Git.
 
 ### Legacy feasibility utility
 
-The following source-access utility is retained for reproducibility of the
-initial feasibility check, not as the core empirical-data pipeline:
+The initial source-access utility remains for reproducibility only:
 
 ```bash
 vrp-download-samples --start-date 2026-05-01 --end-date 2026-08-10
 ```
 
-It includes an engineering-only SPY sample. SPY is not part of the final
-empirical dataset and must never replace the S&P 500 index.
+It includes an engineering-only SPY sample and a provisional Treasury source. SPY must never replace the S&P 500 price index in the core study.
 
-Run the test suite with:
+Run tests with:
 
 ```bash
 pytest
@@ -130,20 +90,15 @@ pytest
 ## Repository map
 
 ```text
-data/                  Local raw/interim/processed data (downloads ignored)
-docs/                  Research design, source, methodology, and literature notes
-paper/                 Pre-analysis protocol and eventual manuscript
+data/raw/              Local immutable acquisition artifacts (ignored)
+data/manifests/        Sanitized provenance manifests (tracked)
+data/processed/        Reproducibly generated cleaned/analysis data (ignored except README)
+docs/                  Research design, sources, methodology, and literature notes
+paper/                 Locked protocol, regime definitions, deviations, manuscript
 src/vrp/               Reusable research code
 tests/                 Unit and integration tests
 ```
 
 ## Data and result provenance
 
-Every acquisition records the source URL, retrieval timestamp, SHA-256 digest,
-byte count, schema, coverage, and missingness. Provider responses stored as
-fetched bytes remain distinguishable from normalized acquisition snapshots.
-Processed data will be rebuilt from these immutable acquisition artifacts;
-cleaning decisions and row losses will be logged.
-
-Source and licensing restrictions may prevent redistributing some raw files.
-The repository therefore tracks code and provenance, not unreviewed bulk data.
+Every production acquisition must record source URL, retrieval timestamp, request parameters, SHA-256 digest, schema, coverage, missingness, software version, validation results, and TLS/transport status. Restricted or redistributable-provider data remain local; compact sanitized manifests are committed so the provenance of local snapshots is independently auditable.
