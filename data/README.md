@@ -1,21 +1,7 @@
-# Sanitized acquisition manifests
+# Processed data
 
-This directory is intentionally version-controlled.
+This directory contains reproducibly generated cleaned panels, return series, realized-variance targets, forecast panels, and analysis-ready datasets.
 
-Each reviewed production acquisition should contribute a compact JSON or Markdown manifest containing reproducibility metadata but **no restricted provider market data**.
+Generated data files are ignored by Git. They must be rebuildable from immutable local acquisitions plus version-controlled code and manifests.
 
-At minimum record:
-
-- dataset and scientific role;
-- retrieval timestamp;
-- source URLs/endpoints;
-- request parameters;
-- software/library versions;
-- coverage and row counts;
-- schema and missingness;
-- SHA-256 hashes of local immutable artifacts;
-- validation results and discrepancy summary;
-- TLS/transport verification status;
-- any licensing/redistribution note.
-
-Raw files referenced by these hashes remain local under `data/raw/`.
+Every processing stage must log row losses, transformations, source-artifact hashes, and any identified data corrections. Manual spreadsheet editing of processed research data is prohibited.
