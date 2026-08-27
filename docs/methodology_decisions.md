@@ -3,6 +3,7 @@
 **Initial protocol freeze:** 2026-08-10  
 **Expanded draft:** 2026-08-23  
 **Final pre-analysis methodological review:** 2026-08-26  
+**Technical sample-tail amendment:** 2026-08-27  
 **Authoritative protocol:** `paper/method_protocol.md`  
 **Result state at final review:** no empirical VRP, forecast-ranking, or regime result had been generated or inspected.
 
@@ -24,7 +25,7 @@ This file preserves the evolution of the design rather than pretending that earl
 | M-010 | VIX is a model-free SPX option-strip measure and is never treated as a single-option Black–Scholes IV. | **Required invariant.** | Core conceptual requirement. |
 | M-011 | Primary GARCH 30c forecast sums daily conditional-variance forecasts for known exchange sessions whose return-ending dates satisfy `t < d <= t+30c`, then annualizes by `365/30`. | **Closed 2026-08-26; resolves former O-002.** | Gives GARCH exactly the same calendar target as VIX and realized variance. |
 | M-012 | Primary naive forecast is trailing 30-calendar-day realized variance using only returns ending at or before `t`; fixed trailing 21 trading days accompanies the 21t robustness design. | **Locked 2026-08-26.** | Keeps the benchmark horizon symmetric without future information. |
-| M-013 | Final core sample ends 2025-12-31. 2026 observations do not enter confirmatory results. | **Locked 2026-08-26.** | Prevents an expanding sample after protocol lock and uses the last complete calendar year. |
+| M-013 | Final **forecast-origin** sample ends 2025-12-31. Later S&P 500 observations may be retained only as outcome support needed to realize forward targets for late-2025 origins; they never become 2026 forecast origins or extend the predictor/training information set. | **Clarified 2026-08-27; substantive sample lock unchanged.** | Preserves the last-complete-calendar-year origin sample while avoiding mechanical truncation of valid forward targets at the boundary. |
 | M-014 | Final core data must be reacquired with verified TLS; the prior `verify=False` Yahoo feasibility run cannot be the production freeze. | **Locked 2026-08-26.** | Separates feasibility evidence from final provenance. |
 | M-015 | Sanitized acquisition manifests are committed under `data/manifests/`; provider/raw market data remain ignored. | **Locked 2026-08-26.** | Makes hashes, source parameters, and validation state auditable from Git without redistributing market data. |
 
@@ -42,7 +43,7 @@ The feasibility comparison found seven discrepancies above one cent, including t
 
 ### O-003 — Final production acquisition
 
-The final 1990-01-02 through 2025-12-31 core snapshot must be reacquired under normal certificate verification and recorded in a sanitized version-controlled manifest.
+The final production snapshot must be reacquired under normal certificate verification and recorded in a sanitized version-controlled manifest. Forecast origins remain 1990-01-02 through 2025-12-31, while S&P 500 outcome-support rows extend through 2026-02-02 (`--end-exclusive 2026-02-03`) solely to complete late-2025 forward targets.
 
 ## Non-negotiable implementation tests
 

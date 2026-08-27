@@ -30,10 +30,11 @@ Never edit an acquisition artifact in place. Cleaning and target construction be
 
 The final core acquisition must:
 
-1. cover the confirmatory sample through 2025-12-31;
-2. use verified TLS/certificate checking;
-3. record retrieval time, source URLs, request parameters, software versions, schema, coverage, missingness, byte counts, hashes, and validation statistics;
-4. investigate the material Yahoo/FRED close discrepancies documented in `docs/data_sources.md` before the cleaned panel is frozen;
-5. copy a sanitized manifest into `data/manifests/` for version control.
+1. cover forecast origins through 2025-12-31 and retain S&P 500 target-support observations through 2026-02-02 (`--end-exclusive 2026-02-03`);
+2. mark post-2025 S&P observations as outcome support only and prevent them from becoming forecast origins or predictor/training observations;
+3. use verified TLS/certificate checking;
+4. record retrieval time, source URLs, request parameters, software versions, schema, coverage, missingness, byte counts, hashes, and validation statistics;
+5. investigate the material Yahoo/FRED close discrepancies documented in `docs/data_sources.md` before the cleaned panel is frozen;
+6. copy a sanitized manifest into `data/manifests/` for version control.
 
 The earlier feasibility run that required `verify=False` for Yahoo remains historical evidence only and must not become the final core-data freeze.

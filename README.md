@@ -17,7 +17,7 @@ VIX is a model-free index constructed from a strip of SPX option prices. It is n
 
 ## Source of truth
 
-The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), dated 2026-08-26. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) records how the specification evolved before empirical VRP or forecast-ranking results were generated.
+The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), originally locked on 2026-08-26 and technically amended on 2026-08-27 to clarify end-of-sample target support. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail.
 
 ## Canonical empirical objects
 
@@ -61,11 +61,13 @@ python -m pip install -e ".[dev]"
 
 ## Reproduce the exact-index core acquisition
 
-The confirmatory sample ends on 2025-12-31, so the canonical acquisition request uses an exclusive 2026-01-01 end:
+The **forecast-origin sample** is frozen through 2025-12-31. Forward targets for late-2025 origins require S&P 500 outcome data after that date: the 30-calendar-day target for 2025-12-31 extends through 2026-01-30, and the fixed 21-trading-day robustness target extends through 2026-02-02. Therefore the canonical S&P 500 acquisition deliberately includes target-support observations through 2026-02-02 using an exclusive 2026-02-03 end:
 
 ```bash
-vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-01-01
+vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-02-03
 ```
+
+Observations after 2025-12-31 are **target-support outcomes only**. They must never be treated as new forecast origins, VIX predictors, training-period extensions, or separate 2026 confirmatory observations.
 
 The command requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects current-day bars, stores an immutable normalized acquisition snapshot, preserves FRED validation response bytes, records hashes and metadata, and reports close discrepancies without silently correcting either source.
 

@@ -3,12 +3,14 @@
 ## The Volatility Risk Premium: An Empirical and Theoretical Investigation of the Gap Between Implied and Realized Volatility in Equity Index Markets
 
 **File:** `paper/method_protocol.md`  
-**Protocol version:** 1.0  
-**Decision date:** 2026-08-26  
+**Protocol version:** 1.0.1  
+**Original decision date:** 2026-08-26  
+**Technical amendment:** 2026-08-27 — end-of-sample target-support clarification; no substantive hypothesis/horizon change  
 **Tracker task:** W1-03  
 **Status:** Locked core-analysis protocol pending co-author review  
 **Primary market:** S&P 500 / Cboe VIX  
-**Core sample:** first common valid trading date on or after 1990-01-02 through 2025-12-31  
+**Forecast-origin sample:** first common valid trading date on or after 1990-01-02 through 2025-12-31  
+**S&P 500 target-support end:** 2026-02-02 (acquisition end-exclusive 2026-02-03)  
 **Primary horizon:** exact forward 30 calendar days  
 **Mandatory horizon robustness:** next 21 S&P 500 trading days  
 **Primary significance level:** 5%, two-sided; 95% confidence intervals  
@@ -200,7 +202,11 @@ Rates quoted in annual percentage points must be converted explicitly before ent
 
 ### 4.4 Core sample and raw-data freeze
 
-The confirmatory sample ends at 2025-12-31, the last complete calendar year before protocol lock. Data from 2026 do not enter the confirmatory core.
+The confirmatory **forecast-origin** sample ends at 2025-12-31, the last complete calendar year before protocol lock. No VIX observation dated after 2025-12-31 may become a confirmatory forecast origin, and the OOS evaluation-origin window does not extend into 2026.
+
+This origin cutoff is distinct from the outcome-data requirement. Forward realized targets for late-2025 origins necessarily use later S&P 500 returns. For the final allowed origin, 2025-12-31, the primary 30-calendar-day target requires return-ending dates through 2026-01-30 and the mandatory 21-trading-day robustness target requires return-ending dates through 2026-02-02. The final S&P 500 acquisition therefore extends through 2026-02-02 using an exclusive end of 2026-02-03.
+
+Post-2025 S&P observations are **target-support outcomes only**. They may enter realized targets attached to valid 2025 origins, but they may not create 2026 forecast origins, extend the GARCH predictor/training information set beyond the applicable origin, or be interpreted as standalone 2026 confirmatory observations.
 
 Every acquisition must record:
 - source and endpoint;
@@ -285,7 +291,7 @@ RVOL^{CC}_{t,30c}
 \sqrt{RVAR^{CC}_{t,30c}}.
 \]
 
-The number of exchange-session returns inside the 30-calendar-day interval may vary across origins. This is intentional. The target is missing unless the full calendar interval is observed; end-of-sample targets are never shortened.
+The number of exchange-session returns inside the 30-calendar-day interval may vary across origins. This is intentional. The target is missing unless the full calendar interval is observed; end-of-sample targets are never shortened. For a valid 2025-12-31 origin, outcome support through 2026-01-30 is therefore required even though the forecast-origin sample itself ends in 2025.
 
 ### 6.2 Mandatory robustness — next 21 trading days
 
@@ -303,7 +309,7 @@ RVOL^{CC}_{t,21t}
 \sqrt{RVAR^{CC}_{t,21t}}.
 \]
 
-This is a mandatory robustness design, not the primary target. It tests whether the result is sensitive to exact calendar matching versus a fixed-session approximation.
+This is a mandatory robustness design, not the primary target. It tests whether the result is sensitive to exact calendar matching versus a fixed-session approximation. For a valid 2025-12-31 origin, the 21st subsequent S&P 500 trading-session return ends on 2026-02-02, so target-support data must extend through that date.
 
 For both horizons, the first target return must end strictly after \(t\).
 
@@ -689,18 +695,20 @@ A genuine data or implementation constraint may require an amendment. Record eve
 
 If a specification changes after relevant results have been viewed, the modified analysis is exploratory unless the original pre-specified result is also retained.
 
-Earlier August 10 and August 23 protocol drafts remain part of Git history. `docs/methodology_decisions.md` records how the design evolved before empirical VRP or forecast-ranking results were generated. The present August 26 protocol is authoritative.
+Earlier August 10 and August 23 protocol drafts remain part of Git history. `docs/methodology_decisions.md` records how the design evolved before empirical VRP or forecast-ranking results were generated. The August 26 protocol remains the substantive methodological lock; the 2026-08-27 version 1.0.1 amendment only clarifies the distinction between the frozen forecast-origin sample and later S&P 500 observations required to realize already-valid forward targets. The amendment is recorded in `paper/protocol_deviations.md`.
 
 ---
 
 ## 21. Locked implementation defaults
 
 ```yaml
-protocol_version: "1.0"
+protocol_version: "1.0.1"
 protocol_decision_date: "2026-08-26"
+protocol_amendment_date: "2026-08-27"
 
 sample_start: "1990-01-02"
-sample_end: "2025-12-31"
+sample_end: "2025-12-31"  # forecast-origin cutoff
+spx_target_support_end_exclusive: "2026-02-03"
 
 primary_horizon: "30_calendar_days"
 primary_calendar_days: 30

@@ -3,6 +3,7 @@
 **Tracker task:** W1-08  
 **Initial feasibility date:** 2026-08-10  
 **Methodological reconciliation:** 2026-08-26  
+**Technical sample-tail amendment:** 2026-08-27  
 **Status:** source hierarchy and exact-index feasibility are established; final production freeze remains pending verified TLS and discrepancy review.
 
 ## Locked hierarchy
@@ -31,11 +32,13 @@ The production S&P 500 acquisition must:
 - record schema, coverage, missingness, byte counts, source URLs, request parameters, software versions, transport/TLS state, and validation statistics;
 - report FRED discrepancies without modifying either source.
 
-The final confirmatory sample is frozen through 2025-12-31, so the canonical production request is:
+The confirmatory **forecast-origin** sample is frozen through 2025-12-31, but forward realized targets for the final 2025 origins require later S&P 500 returns. The primary 30-calendar-day target for a 2025-12-31 origin requires returns through 2026-01-30, while the 21-trading-day robustness target requires returns through 2026-02-02. The canonical production S&P 500 request is therefore:
 
 ```bash
-vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-01-01
+vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-02-03
 ```
+
+The post-2025 S&P observations are **target-support outcomes only**. They do not extend the VIX forecast-origin sample, the OOS evaluation-origin window, or the confirmatory predictor information set. The target-construction code must enforce `origin_date <= 2025-12-31` even when later S&P rows are present.
 
 ## Why FRED is validation rather than the primary index source
 

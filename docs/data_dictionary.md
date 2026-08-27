@@ -1,6 +1,6 @@
 # Data dictionary — planned analysis schema
 
-This versioned schema follows `paper/method_protocol.md` dated 2026-08-26. It describes intended variables; it is not evidence that the cleaned panel, realized-variance targets, or forecast results already exist.
+This versioned schema follows `paper/method_protocol.md` version 1.0.1: substantive lock 2026-08-26, technical sample-tail amendment 2026-08-27. It describes intended variables; it is not evidence that the cleaned panel, realized-variance targets, or forecast results already exist.
 
 ## Market and return variables
 
@@ -16,6 +16,14 @@ This versioned schema follows `paper/method_protocol.md` dated 2026-08-26. It de
 | `ivol` | float | annualized decimal volatility | `vix_close_pct / 100` | origin information | VIX is not a single-option Black–Scholes IV. |
 | `ivar` | float | annualized decimal variance | `ivol**2` | origin information | Primary implied-side forecast quantity. |
 
+## Forecast-origin and target-support boundary
+
+- Confirmatory forecast origins satisfy `date <= 2025-12-31`.
+- S&P 500 OHLC/return rows through **2026-02-02** may be retained solely to realize forward targets for late-2025 origins.
+- Post-2025 S&P rows are never eligible VIX forecast origins, never extend the GARCH training/evaluation-origin sample, and never create standalone 2026 confirmatory observations.
+- The production acquisition therefore uses `--end-exclusive 2026-02-03`.
+- Target construction must keep the origin-eligibility mask separate from the availability of future outcome rows.
+
 ## Primary 30-calendar-day target
 
 For origin `t`, the eligible return-ending exchange dates satisfy `t < d <= t + 30 calendar days`.
@@ -30,7 +38,7 @@ For origin `t`, the eligible return-ending exchange dates satisfy `t < d <= t + 
 | `target_session_count_30c` | integer | number of exchange-session returns in the calendar target | Audit variable; varies by origin. |
 | `target_end_date_30c` | date | `t + 30 calendar days` | Calendar-horizon audit variable. |
 
-The primary target is missing unless the full 30-calendar-day interval is observable; it is never shortened at the sample edge.
+The primary target is missing unless the full 30-calendar-day interval is observable; it is never shortened at the sample edge. For the final allowed origin, 2025-12-31, this requires S&P 500 return support through 2026-01-30.
 
 ## Mandatory 21-trading-day horizon robustness
 
@@ -40,6 +48,8 @@ The primary target is missing unless the full 30-calendar-day interval is observ
 | `rvol_cc_fwd_21t` | annualized decimal volatility | `sqrt(rvar_cc_fwd_21t)` | Robustness volatility. |
 | `vrp_x_cc_21t` | annualized decimal variance | `ivar - rvar_cc_fwd_21t` | Robustness variance-premium proxy. |
 | `volgap_cc_21t` | annualized decimal volatility | `ivol - rvol_cc_fwd_21t` | Robustness volatility gap. |
+
+For the final allowed origin, 2025-12-31, the 21-trading-day robustness target requires S&P 500 return support through 2026-02-02.
 
 ## Range-estimator robustness
 
