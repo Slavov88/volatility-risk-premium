@@ -1,8 +1,8 @@
 # Brownian motion, geometric Brownian motion, and Itô's lemma
 
-**Tracker task:** W1-04  
-**Workstream:** Foundations  
-**Role:** Econometrics  
+**Tracker task:** W1-04
+**Workstream:** Foundations
+**Role:** Econometrics
 **Status:** Worked notes; no change to the locked empirical protocol
 
 ## 1. Brownian motion
@@ -70,14 +70,16 @@ known or the sampling approximation is justified.
 
 Let \(X_t\) follow the Itô process above and let \(f(t,x)\) have one continuous
 time derivative and two continuous state derivatives. A second-order Taylor
-expansion gives
+expansion gives the heuristic differential argument
 
 \[
 df=f_tdt+f_xdX+\frac12f_{xx}(dX)^2.
 \]
 
-Substitute \(dX=a\,dt+b\,dW\). Terms of order above \(dt\) vanish, while
-\((dW)^2=dt\), so
+Substitute \(dX=a\,dt+b\,dW\). Brownian quadratic variation makes this
+heuristic precise: sums of squared increments converge to elapsed time, so
+\((dW)^2\) contributes \(dt\), while higher-order remainder terms vanish
+appropriately. Thus
 
 \[
 (dX)^2=(a\,dt+b\,dW)^2=b^2dt.
@@ -94,11 +96,6 @@ df(t,X_t)=
 The term \(\tfrac12b^2f_{xx}\) is the Itô correction. Ordinary chain-rule
 reasoning misses it because ordinary differentiable paths have zero quadratic
 variation, whereas Brownian motion does not.
-
-For \(f(t,X_t,Y_t)\), where the shocks have instantaneous correlation \(\rho\),
-the formula additionally contains \(f_{xy}\,dX_t dY_t\), with
-\(dW_t^X dW_t^Y=\rho\,dt\). This cross-variation term matters in multivariate
-asset-pricing and stochastic-volatility models.
 
 ## 3. Geometric Brownian motion
 
@@ -145,18 +142,17 @@ E[S_t]=S_0e^{\mu t},
 =S_0^2e^{2\mu t}(e^{\sigma^2t}-1).
 \]
 
-The distinction between the arithmetic expected-return parameter \(\mu\) and
-the log-growth rate \(\mu-\sigma^2/2\) is economically important. In derivative
-pricing, a change from the physical measure \(P\) to a risk-neutral measure
-\(Q\) replaces the appropriate asset drift by the risk-free carry (under the
-model's assumptions), but does not make \(P\)- and \(Q\)-expectations of future
-variance interchangeable.
+The arithmetic expected-return parameter \(\mu\) differs from the log-growth
+rate \(\mu-\sigma^2/2\). A risk-neutral measure changes the appropriate asset
+drift under its assumptions, but does not make \(P\)- and \(Q\)-expectations of
+future variance interchangeable.
 
 GBM is the constant-volatility foundation for Black--Scholes, not a maintained
-empirical description of equity-index volatility. It has no volatility
-clustering, leverage effect, stochastic volatility, or jumps. The project's
-VIX is a model-free SPX option-strip variance measure, never the
-Black--Scholes implied volatility of a single option.
+empirical description of equity-index volatility. VIX is quoted as 100 times
+annualized 30-day expected volatility derived from the SPX option strip; it is
+not single-option Black--Scholes implied volatility. Accordingly,
+\(IVOL_t=VIX_t/100\), while \(IVAR_t=(VIX_t/100)^2\) is the variance-space
+quantity used in this project.
 
 ## 4. Solved examples
 
@@ -240,77 +236,14 @@ the needed moments exist, removes the stochastic integral:
 This illustrates why second-moment dynamics cannot be obtained by applying an
 ordinary chain rule.
 
-### Example 4 — Expected integrated variance under GBM
-
-Under GBM, the instantaneous variance rate of the log price is constant:
-
-\[
-d\log S_t=(\mu-\tfrac12\sigma^2)dt+\sigma dW_t.
-\]
-
-Over a horizon \(T\), integrated variance is therefore
-
-\[
-\int_t^{t+T}\sigma^2du=\sigma^2T.
-\]
-
-If \(\sigma=0.20\) per square-root year and \(T=30/365\), then
-
-\[
-\sigma^2T=0.20^2\frac{30}{365}\approx0.003288.
-\]
-
-Annualizing the horizon variance with the project's exact-calendar convention
-recovers
-
-\[
-\frac{365}{30}(0.003288)=0.0400,
-\]
-
-an annualized variance of \(0.04\), corresponding to annualized volatility
-\(\sqrt{0.04}=0.20\). In data, the primary ex-post target replaces the
-unobserved integral by the sum of squared close-to-close log returns ending on
-exchange dates \(d\) such that \(t<d\leq t+30\) calendar days, annualized by
-\(365/30\). The strict inequality ensures that no return dated \(t\) enters a
-forward target.
-
 ## 5. Econometric takeaways for this project
 
-- Diffusion variance accumulates in time, so variance is additive across a
-  horizon; volatility is its square root and is not additive. This supports
-  conducting the primary VRP analysis in variance space.
-- Under constant \(\sigma\), squared high-frequency increments estimate
-  integrated variance. With discrete daily observations, realized variance is
-  an ex-post noisy proxy and not itself \(E_t^P[\text{future variance}]\).
+- Variance accumulates across a horizon; volatility is its square root and is
+  not additive. Daily realized variance is an ex-post noisy outcome, not
+  \(E_t^P[\text{future variance}]\).
 - The theoretical variance risk premium compares conditional expectations
-  under \(Q\) and \(P\). The project's empirical \(VRP_t^X=IVAR_t-RVAR_t\)
-  instead subtracts a realized outcome, so it also contains forecast error and
-  measurement effects.
-- Overlapping forward horizons reuse many of the same squared returns, inducing
-  serial dependence even if primitive returns were independent. This is why
-  the locked design requires overlap-aware HAC/Newey--West inference and a
-  deterministic non-overlapping robustness sample.
-- GBM provides transparent derivations and Black--Scholes foundations, but its
-  constant conditional variance is precisely why richer conditional-variance
-  models such as the protocol's GARCH(1,1) are needed for forecast comparison.
-
-## 6. Formula checklist
-
-\[
-W_t-W_s\sim N(0,t-s),\qquad [W]_t=t,
-\]
-
-\[
-df=(f_t+af_x+\tfrac12b^2f_{xx})dt+bf_xdW,
-\]
-
-\[
-dS=\mu Sdt+\sigma SdW
-\Longrightarrow
-S_t=S_0e^{(\mu-\sigma^2/2)t+\sigma W_t},
-\]
-
-\[
-E[S_t]=S_0e^{\mu t},\qquad
-\operatorname{Var}(S_t)=S_0^2e^{2\mu t}(e^{\sigma^2t}-1).
-\]
+  under \(Q\) and \(P\). The empirical \(VRP_t^X=IVAR_t-RVAR_t\) also contains
+  forecast error and measurement effects.
+- Overlapping forward horizons induce serial dependence. The locked protocol
+  therefore uses overlap-aware HAC inference and a deterministic
+  non-overlapping robustness sample; these notes do not alter that methodology.
