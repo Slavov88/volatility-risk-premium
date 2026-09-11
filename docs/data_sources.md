@@ -6,6 +6,33 @@
 **Technical sample-tail amendment:** 2026-08-27  
 **Status:** source hierarchy and exact-index feasibility are established; final production freeze remains pending verified TLS and discrepancy review.
 
+## Corrective access evidence (2026-09-11)
+
+The three selected public sources were re-checked over the fixed
+2024-01-01--2024-01-12 feasibility window. Small, provider-shaped excerpts are
+tracked under `data/raw/samples/w1_08/` so W1-08 has repository evidence rather
+than relying only on prose. They are access-test samples, not the production
+data freeze and not inputs to empirical results.
+
+| Research object | Tracked sample | Rows / coverage | Missingness | SHA-256 |
+|---|---|---|---|---|
+| S&P 500 price-index OHLC | `yahoo_gspc_ohlc_2024-01-01_2024-01-12.csv` | 9 exchange sessions; 2024-01-02 through 2024-01-12 | 0 in `Open`, `High`, `Low`, `Close`, `Adj Close`, and `Volume` | `1011e26a15620c7a0395b31d61a6aaafae6118cebf3b5594554227ab9935af12` |
+| VIX history | `cboe_vix_2024-01-01_2024-01-12.csv` | 9 exchange sessions; 2024-01-02 through 2024-01-12 | 0 in `OPEN`, `HIGH`, `LOW`, and `CLOSE` | `adbee4a01ee60fdb60edfdbfc7cc4af38b05e47f657726fa5d7872166bd1d56c` |
+| One-month risk-free-rate proxy | `fred_dgs1mo_2024-01-01_2024-01-12.csv` | 10 weekday observations; 2024-01-01 through 2024-01-12; 9 usable yields | 1 missing `DGS1MO` value (New Year's Day, retained as `.`) | `e36abb46ee4202d6f9b62f8491309ed41536533d281331c2dd10f054fe764731` |
+
+The Yahoo file is the deterministic normalized `^GSPC` sample shape produced
+with unadjusted OHLC (`auto_adjust=False`); it is not represented as
+byte-identical Yahoo response data. The Cboe and FRED files retain their source
+CSV schemas and missing-value conventions. Provider pages were reachable in
+the research browser during this retry. The command sandbox itself could not
+resolve external hosts, so this retry does not claim a fresh successful CLI
+transport test; the verified-TLS production reacquisition requirement below
+remains open.
+
+**Decision:** no source-role change. Use Yahoo `^GSPC` for long-history exact-
+index OHLC subject to FRED close validation, official Cboe history for VIX, and
+FRED `DGS1MO` as the preferred one-month rate proxy when maturity-matched.
+
 ## Locked hierarchy
 
 | Research object | Source | Decision | Reason / caveat |

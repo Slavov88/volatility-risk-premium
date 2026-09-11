@@ -1,6 +1,6 @@
 # Raw data
 
-This directory contains local immutable acquisition artifacts. Raw/provider data are ignored by Git because redistribution and licensing conditions differ by provider.
+This directory contains local immutable acquisition artifacts. Raw/provider data are ignored by Git because redistribution and licensing conditions differ by provider. The only tracked data exception is the small W1-08 access-test set under `samples/w1_08/`; those files are feasibility evidence, not a production freeze.
 
 ## Canonical source roles
 

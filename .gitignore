@@ -25,6 +25,9 @@ Thumbs.db
 # Raw and generated research data
 data/raw/*
 !data/raw/README.md
+!data/raw/samples/
+!data/raw/samples/w1_08/
+!data/raw/samples/w1_08/*.csv
 data/interim/**/*
 data/processed/**/*
 !data/processed/README.md
