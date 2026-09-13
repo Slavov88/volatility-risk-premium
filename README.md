@@ -17,7 +17,7 @@ VIX is a model-free index constructed from a strip of SPX option prices. It is n
 
 ## Source of truth
 
-The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), originally locked on 2026-08-26 and technically amended on 2026-08-27 to clarify end-of-sample target support. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail.
+The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), originally locked on 2026-08-26 and technically amended on 2026-08-27 to clarify end-of-sample target support. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail. The Week 1 auditor's [`scope review`](docs/w1_09_scope_review.md) approves the bounded core and keeps stretch goals outside it until a separate extension gate is passed.
 
 ## Canonical empirical objects
 
