@@ -31,6 +31,7 @@ dev = [
 [project.scripts]
 vrp-download-samples = "vrp.data:main"
 vrp-download-spx = "vrp.spx_data:main"
+vrp-option-sensitivity = "vrp.option_sensitivity:main"
 vrp-validate-options = "vrp.option_validation:main"
 
 [tool.setuptools]
