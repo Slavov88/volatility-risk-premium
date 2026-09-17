@@ -1,6 +1,13 @@
 """Research utilities for the volatility risk premium project."""
 
 from vrp.config import CONVENTIONS
+from vrp.evaluation import (
+    common_evaluation_mask,
+    estimation_window,
+    naive_variance_21t,
+    naive_variance_30c,
+    out_of_sample_split,
+)
 from vrp.inference import newey_west_mean, overlap_l0
 from vrp.premium import ivar_from_vix, ivol_from_vix, volgap, vrp_x
 from vrp.range_estimators import garman_klass_daily, parkinson_daily
@@ -11,12 +18,17 @@ from vrp.targets import realized_variance_21t, realized_variance_30c, realized_v
 
 __all__ = [
     "CONVENTIONS",
+    "common_evaluation_mask",
+    "estimation_window",
     "garman_klass_daily",
     "ivar_from_vix",
     "ivol_from_vix",
     "label_nber_regimes",
     "log_returns",
+    "naive_variance_21t",
+    "naive_variance_30c",
     "newey_west_mean",
+    "out_of_sample_split",
     "overlap_l0",
     "parkinson_daily",
     "realized_variance_21t",

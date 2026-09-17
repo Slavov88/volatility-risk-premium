@@ -45,6 +45,7 @@ def test_default_conventions_match_locked_protocol() -> None:
     assert CONVENTIONS.garch_robustness_window_years == 5
     assert CONVENTIONS.oos_initial_estimation_end_year == 2006
     assert CONVENTIONS.oos_start_year == 2007
+    assert CONVENTIONS.oos_test_period_tuning_allowed is False
     assert CONVENTIONS.formal_regime_chronology == "NBER_monthly_business_cycle"
 
 
@@ -85,6 +86,7 @@ def test_invalid_oos_design_is_rejected() -> None:
         ({"garch_mean": "zero"}, "mean specification"),
         ({"garch_primary_distribution": "student_t"}, "primary GARCH distribution"),
         ({"garch_robustness_distribution": "normal"}, "robustness distribution"),
+        ({"oos_test_period_tuning_allowed": True}, "test-period tuning"),
     ],
 )
 def test_locked_defaults_cannot_drift(kwargs: dict[str, object], message: str) -> None:

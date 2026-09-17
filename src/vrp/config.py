@@ -55,6 +55,7 @@ class ScientificConventions:
 
     oos_initial_estimation_end_year: int = 2006
     oos_start_year: int = 2007
+    oos_test_period_tuning_allowed: bool = False
     formal_regime_chronology: str = "NBER_monthly_business_cycle"
 
     percent_scale: float = 100.0
@@ -139,6 +140,8 @@ class ScientificConventions:
             raise ValueError("rolling-window robustness must remain five years")
         if self.oos_initial_estimation_end_year != 2006 or self.oos_start_year != 2007:
             raise ValueError("OOS design must remain train-through-2006/start-2007")
+        if self.oos_test_period_tuning_allowed:
+            raise ValueError("test-period tuning must remain prohibited")
         if self.formal_regime_chronology != "NBER_monthly_business_cycle":
             raise ValueError("formal regime chronology must remain NBER monthly")
 
