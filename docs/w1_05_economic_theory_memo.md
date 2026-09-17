@@ -186,7 +186,7 @@ push otherwise identical payoffs to different prices without creating a trade,
 but it can change the common arbitrage-free price by changing the compensation
 required to hold the unhedgeable aggregate risk. Demand-based option-pricing
 models formalize this mechanism; see [Gârleanu, Pedersen, and Poteshman
-(2009)](https://doi.org/10.1093/rfs/hhn075).
+(2009)](https://doi.org/10.1093/rfs/hhp005).
 
 ### 2.3 The sign from the buyer's and seller's perspectives
 
@@ -370,4 +370,4 @@ locked scientific choice:
   <https://cdn.cboe.com/api/global/us_indices/governance/VIX_Methodology.pdf>.
 - Gârleanu, N., L. H. Pedersen, and A. M. Poteshman. 2009. “Demand-Based Option
   Pricing.” *Review of Financial Studies* 22 (10): 4259–4299.
-  <https://doi.org/10.1093/rfs/hhn075>.
+  <https://doi.org/10.1093/rfs/hhp005>.
