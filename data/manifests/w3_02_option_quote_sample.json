@@ -1,0 +1,63 @@
+{
+  "task_id": "W3-02",
+  "source_name": "HistoricalData.net free options sample",
+  "source_page": "https://historicaldata.net/options.html",
+  "source_artifact": "https://historicaldata.net/file/options_sample_2022H2.zip",
+  "retrieved_utc": "2026-09-17T19:44:35Z",
+  "transport": {
+    "scheme": "https",
+    "tls_verification": true
+  },
+  "artifacts": {
+    "options_sample_2022H2.zip_sha256": "8517b069f4d41e44f950dc79a3cdab694359b0fae91664190011e39dd8e48b76",
+    "2022-09-15_options.csv_sha256_from_source_manifest": "054acc61106b15a21a2b166e975a506fb0559b9a8d7ec896817ab5e6eb8c208a"
+  },
+  "selection": {
+    "quote_date": "2022-09-15",
+    "underlying": "SPX",
+    "expiration": "2022-10-21",
+    "style": "European",
+    "settlement": "AM",
+    "strikes": [
+      3850,
+      3900,
+      3950
+    ],
+    "option_types": [
+      "call",
+      "put"
+    ],
+    "requirements": [
+      "two-sided positive bid and ask",
+      "published midpoint IV present",
+      "source iv_flag equals 0"
+    ],
+    "quote_count": 6,
+    "contract_ids": [
+      "SPX221021C03850000",
+      "SPX221021P03850000",
+      "SPX221021C03900000",
+      "SPX221021P03900000",
+      "SPX221021C03950000",
+      "SPX221021P03950000"
+    ]
+  },
+  "source_inputs": {
+    "spx_official_close": 3901.35,
+    "treasury_par_curve_percent": {
+      "1_month": 2.76,
+      "3_month": 3.22,
+      "1_year": 4.0,
+      "2_year": 3.87,
+      "5_year": 3.66,
+      "10_year": 3.45,
+      "30_year": 3.48
+    }
+  },
+  "repository_storage": {
+    "full_raw_artifact_committed": false,
+    "limited_example_rows_location": "src/vrp/option_validation.py",
+    "generated_report": "docs/w3_02_pricer_iv_validation.md"
+  },
+  "license_note": "The supplied sample license permits limited example rows in research reports, prohibits redistribution of data files, and requires attribution for published research."
+}

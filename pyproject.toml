@@ -19,7 +19,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+validation = [
+  "QuantLib>=1.43,<2",
+]
 dev = [
+  "QuantLib>=1.43,<2",
   "pytest>=8.2,<9",
   "pytest-cov>=5,<7",
 ]
@@ -27,6 +31,10 @@ dev = [
 [project.scripts]
 vrp-download-samples = "vrp.data:main"
 vrp-download-spx = "vrp.spx_data:main"
+vrp-validate-options = "vrp.option_validation:main"
+
+[tool.setuptools]
+py-modules = ["black_scholes"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
