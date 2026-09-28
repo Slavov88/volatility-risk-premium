@@ -188,9 +188,7 @@ Required fields:
 - low;
 - close.
 
-Primary long-history free-source candidate: Yahoo Finance `^GSPC` through a pinned `yfinance` environment with `auto_adjust=False`.
-
-FRED `SP500` close data are used to validate the overlapping recent period. A discrepancy is reported and investigated; neither source is silently overwritten by the other.
+Primary long-history source: Yahoo Finance `^GSPC` through a pinned `yfinance` environment with `auto_adjust=False`. FRED `SP500` is not a validation source and is not fetched for the index.
 
 If reliable OHLC coverage begins later than reliable close coverage, the close-to-close core sample may be longer than the Parkinson/Garman–Klass robustness samples. Sample differences must be explicit.
 

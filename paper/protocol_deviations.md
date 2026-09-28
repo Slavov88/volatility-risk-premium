@@ -14,6 +14,16 @@
 
 The August 10 and August 23 design drafts are not recorded here as post-lock deviations because they pre-date the final August 26 protocol and no empirical VRP, forecast-ranking, or regime results had been generated before the methodological reconciliation. Their history is documented in `docs/methodology_decisions.md` and preserved in Git.
 
+## 2026-09-28 — Drop FRED SP500 close validation
+
+1. **Original rule:** FRED `SP500` closes validated the overlapping recent Yahoo `^GSPC` window. Discrepancies were reported and neither source was overwritten.
+2. **Reason for change:** The operator removed FRED `SP500` validation after repeated official-transport timeouts. Yahoo `^GSPC` remains the sole S&P 500 OHLC source. FRED `DGS1MO` remains the short risk-free-rate source.
+3. **Replacement rule:** Production S&P 500 acquisition uses Yahoo Finance `^GSPC` only. FRED `SP500` is not fetched and is not a validation overlay.
+4. **Relevant results viewed before change:** No empirical VRP or forecast-ranking result prompted this change. The trigger was transport failure during raw acquisition.
+5. **Likely effect:** Recent Yahoo closes are no longer checked against the FRED redistribution of the S&P 500 close. Index levels remain Yahoo `^GSPC`.
+6. **Affected files:** `paper/method_protocol.md`, `docs/data_sources.md`, `docs/methodology_decisions.md`, `data/raw/README.md`, `src/vrp/spx_data.py`, and the vrp-agent SPX acquisition wrapper.
+7. **Coauthor review/approval status:** Requested by the operator on 2026-09-28.
+
 ## Required format for future deviations
 
 For every deviation, add a dated entry containing:

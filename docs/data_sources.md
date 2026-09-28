@@ -29,17 +29,16 @@ resolve external hosts, so this retry does not claim a fresh successful CLI
 transport test; the verified-TLS production reacquisition requirement below
 remains open.
 
-**Decision:** no source-role change. Use Yahoo `^GSPC` for long-history exact-
-index OHLC subject to FRED close validation, official Cboe history for VIX, and
-FRED `DGS1MO` as the preferred one-month rate proxy when maturity-matched.
+**Decision:** Yahoo `^GSPC` is the S&P 500 OHLC source, with no FRED `SP500`
+close validation. Official Cboe history remains VIX. FRED `DGS1MO` remains the
+preferred one-month risk-free-rate proxy when maturity-matched.
 
 ## Locked hierarchy
 
 | Research object | Source | Decision | Reason / caveat |
 |---|---|---|---|
 | VIX history | Cboe historical VIX data | **Primary** | Issuer source with public daily history from 1990 to present. Exact historical `CLOSE` timestamp convention remains a documented provenance limitation. |
-| S&P 500 OHLC | Yahoo Finance `^GSPC` through pinned `yfinance`, `auto_adjust=False` | **Primary long-history free-source candidate** | Exact price index rather than SPY; supplies OHLC. The persisted CSV is a deterministic normalized acquisition snapshot, not byte-identical Yahoo response data. Yahoo/yfinance is not an exchange-authoritative feed, so provenance and validation are mandatory. |
-| S&P 500 close validation | FRED `SP500` | **Validation only** | S&P Dow Jones-sourced daily close; FRED distributes a rolling ten-year window. Never silently overwrites Yahoo values. |
+| S&P 500 OHLC | Yahoo Finance `^GSPC` through pinned `yfinance`, `auto_adjust=False` | **Primary** | Exact price index rather than SPY; supplies OHLC. The persisted CSV is a deterministic normalized acquisition snapshot, not byte-identical Yahoo response data. FRED `SP500` is not fetched. |
 | Engineering fallback | SPY | **Engineering-only** | ETF tracking, dividends, microstructure, and adjustment differences prevent substitution for the S&P 500 index. |
 | Short risk-free rate for Track A | FRED / Federal Reserve H.15; prefer `DGS1MO` when available and maturity-matched | **Primary rate hierarchy** | One-month constant maturity is the natural first choice for approximately one-month option validation; use the nearest defensible short maturity otherwise and document conversions. |
 | Legacy feasibility Treasury feed | U.S. Treasury daily yield-curve XML, three-month field | **Legacy/provisional only** | Retained for reproducibility of the initial feasibility utility; it does not override the Track A rate hierarchy. |
@@ -54,10 +53,8 @@ The production S&P 500 acquisition must:
 - reject any returned bar dated on or after the retrieval's current New York date;
 - record the installed `yfinance` version and all request parameters;
 - schema-normalize, numerically parse, date-normalize, sort, and deterministically serialize the `yfinance` DataFrame before first persistence;
-- preserve FRED validation bytes as fetched;
 - hash all local artifacts with SHA-256;
-- record schema, coverage, missingness, byte counts, source URLs, request parameters, software versions, transport/TLS state, and validation statistics;
-- report FRED discrepancies without modifying either source.
+- record schema, coverage, missingness, byte counts, source URLs, request parameters, software versions, and transport/TLS state.
 
 The confirmatory **forecast-origin** sample is frozen through 2025-12-31, but forward realized targets for the final 2025 origins require later S&P 500 returns. The primary 30-calendar-day target for a 2025-12-31 origin requires returns through 2026-01-30, while the 21-trading-day robustness target requires returns through 2026-02-02. The canonical production S&P 500 request is therefore:
 
@@ -67,11 +64,9 @@ vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-02-03
 
 The post-2025 S&P observations are **target-support outcomes only**. They do not extend the VIX forecast-origin sample, the OOS evaluation-origin window, or the confirmatory predictor information set. The target-construction code must enforce `origin_date <= 2025-12-31` even when later S&P rows are present.
 
-## Why FRED is validation rather than the primary index source
+## Historical FRED SP500 feasibility check
 
-FRED describes `SP500` as the S&P 500 daily market-close price index, normally observed around the 4:00 p.m. ET cash close. It is authoritative for the recent validation window, but its public service distributes only ten years of daily history. It therefore cannot supply the full 1990–2025 OHLC panel.
-
-Agreement with FRED supports recent Yahoo close quality but cannot authenticate pre-overlap Yahoo OHLC. Material disagreement triggers investigation, not automatic source replacement.
+The 2026-08-10 feasibility run compared Yahoo closes with FRED `SP500`. That comparison is historical evidence only. Production acquisition does not fetch FRED `SP500`.
 
 ## Frozen feasibility result from 2026-08-10
 
