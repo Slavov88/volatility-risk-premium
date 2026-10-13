@@ -42,7 +42,9 @@ def publish():
     if audit['primary_results_sha256']!=sha(OUT/'results.json'): raise ValueError('Audit parent mismatch')
     h6,panel,meta,spy,_,logs=load_inputs()
     FIG.mkdir(parents=True,exist_ok=True); TABLE.mkdir(parents=True,exist_ok=True)
-    for source in OUT.glob('*.csv'):
+    # Freeze the scientific table inventory; later QA/addenda must not alter it.
+    for name in sorted(set(x['table_sha256']) | set(audit['table_sha256'])):
+        source=OUT/name
         # Derived numerical tables only: no vendor prices or raw source rows.
         shutil.copyfile(source,TABLE/source.name)
     plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,
@@ -175,10 +177,12 @@ def publish():
     text+='Reproduce from this checkout and the pinned local source artifacts with `.venv/Scripts/python.exe scripts/run_quant_failure.py`, then `scripts/run_quant_failure_audit.py`, then `scripts/publish_quant_failure.py`. Producers require committed source. Immutable result replay at a later Git head uses `scripts/replay_quant_failure.py` to compare numerical content and original source hashes while preserving the producer commit. Exact Python/package versions are captured in the execution manifest. Missing original artifacts cause failure, not synthetic data substitution; provider-price files remain excluded from Git.\n\n'
     text+='Verification: independent compensated-sum Brier/QLIKE/RMSE checks, tie-aware ROC/AP against sklearn, moment-versus-linear-system calibration, raw coefficient replay, every25-ledger share/cash return and covariance identity, preserved inputs before/after computations, deterministic numerical and publication replay, adversarial boundaries/terminal/cap/dividend/fee tests and full pytest/compileall/diff-check. These qualify the implementation; independent coauthor acceptance remains pending. The full execution manifest records actual final check results.\n\n'+provenance
     (DOC/'quant_failure_mechanisms.md').write_text(text,encoding='utf-8',newline='\n')
-    files={p.relative_to(ROOT).as_posix():sha(p) for folder in [FIG,TABLE] for p in sorted(folder.glob('*'))}
+    files={p.relative_to(ROOT).as_posix():sha(p) for p in sorted(FIG.glob('*'))}
+    files.update({(TABLE/name).relative_to(ROOT).as_posix():sha(TABLE/name)
+                  for name in sorted(set(x['table_sha256']) | set(audit['table_sha256']))})
     for name in ['h6_failure_analysis.md','h7_failure_analysis.md','h8_failure_analysis.md','quant_failure_mechanisms.md']: files['docs/'+name]=sha(DOC/name)
     publication={'implementation':code,'results_sha256':sha(OUT/'results.json'),'audit_sha256':sha(OUT/'independent_audit.json'),'files_sha256':files}
-    persist(OUT/'publication.json',publication);persist(ROOT/'data/manifests/quant_failure_publication_v1.json',publication)
+    persist(OUT/'publication_v2.json',publication);persist(ROOT/'data/manifests/quant_failure_publication_v2.json',publication)
     print('Published reports, tables and five PNG/PDF figures',flush=True)
     return publication
 
