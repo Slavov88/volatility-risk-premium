@@ -1,15 +1,22 @@
 """Ex-ante regular schedule; future ad-hoc closures never enter forecasts."""
 from datetime import timedelta
+from functools import lru_cache
 import pandas as pd
 from vrp.calendar import xnys_calendar
+
+
+@lru_cache(maxsize=1)
+def regular_holiday_dates():
+    """Cache fixed rule-generated dates, never ad-hoc closures."""
+    return frozenset(x.date() for x in xnys_calendar().regular_holidays.holidays("1989-01-01", "2030-12-31"))
 
 
 def scheduled_forward_sessions(origin):
     day = pd.Timestamp(origin).normalize()
     end = day+timedelta(days=30)
     candidates = pd.date_range(day+timedelta(days=1), end, freq="B")
-    holidays = xnys_calendar().regular_holidays.holidays(day+timedelta(days=1), end)
-    return tuple(x.date() for x in candidates.difference(holidays))
+    holidays = regular_holiday_dates()
+    return tuple(x.date() for x in candidates if x.date() not in holidays)
 
 
 def reaggregate_garch(record):
