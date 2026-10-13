@@ -5,7 +5,8 @@ This directory contains local immutable acquisition artifacts. Raw/provider data
 ## Canonical source roles
 
 - **Cboe VIX history:** primary official VIX source.
-- **Yahoo Finance `^GSPC`:** canonical S&P 500 price-index OHLC source, acquired through pinned `yfinance` with `auto_adjust=False`.\n- **FRED `SP500`:** optional, non-blocking recent close validation. It never overwrites Yahoo; transport failure and malformed validation responses are recorded as distinct states rather than treated as canonical-data corrections.
+- **Yahoo Finance `^GSPC`:** canonical S&P 500 price-index OHLC source, acquired through pinned `yfinance` with `auto_adjust=False`.
+- **FRED `SP500`:** optional, non-blocking recent close validation. It never overwrites Yahoo; transport failure and malformed validation responses are recorded as distinct states rather than treated as canonical-data corrections.
 - **FRED / Federal Reserve H.15 short Treasury yields:** Track A rate source. The one-month constant-maturity series `DGS1MO` is preferred when it is available and maturity-matched.
 - **Nasdaq SPY:** legacy engineering proxy only. It is not final S&P 500 index data.
 
@@ -32,7 +33,9 @@ The final core acquisition must:
 2. mark post-2025 S&P observations as outcome support only and prevent them from becoming forecast origins or predictor/training observations;
 3. use verified TLS/certificate checking;
 4. record retrieval time, source URLs, request parameters, software versions, schema, coverage, missingness, byte counts, and hashes;
-5. record the deterministic production-quality gate (OHLC validity and expected-session coverage);\n6. optionally record FRED close-validation status and discrepancies without making that transport a dependency;\n7. copy a sanitized manifest into `data/manifests/` for version control.
+5. record the deterministic production-quality gate (OHLC validity and expected-session coverage);
+6. optionally record FRED close-validation status and discrepancies without making that transport a dependency;
+7. copy a sanitized manifest into `data/manifests/` for version control.
 
 The earlier feasibility run that required `verify=False` for Yahoo remains historical evidence only and must not become the final core-data freeze.
 

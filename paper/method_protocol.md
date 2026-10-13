@@ -394,7 +394,7 @@ For the 21-trading-day robustness design, adjacent targets share 20 of 21 return
 Before fitting GARCH, document the relevant properties of S&P 500 returns.
 
 Required outputs:
-- mean, standard deviation, skewness, excess kurtosis, selected quantiles;
+- mean, **sample standard deviation (ddof=1)**, **bias-corrected Fisher-Pearson skewness**, **bias-corrected Fisher excess kurtosis**, and selected quantiles;
 - return time series;
 - histogram/density;
 - normal Q–Q plot;
@@ -444,6 +444,12 @@ r_t=\mu+\epsilon_t,
 
 Primary innovation distribution: Gaussian.  
 Mandatory distributional robustness: Student-\(t\).
+
+Internal returns are decimal log returns. For numerical conditioning, the
+`arch` implementation is fit to percentage returns \(100r_t\). Conditional
+variance forecasts returned in percentage-squared units are divided by
+10,000 before any aggregation or comparison with decimal-unit `IVAR` or
+`RVAR`. This scaling is fixed before model estimation and unit-tested.
 
 Report:
 - \(\omega,\alpha,\beta\);
@@ -760,6 +766,10 @@ garch_primary_distribution: "normal"
 garch_robustness_distribution: "student_t"
 garch_primary_window: "expanding"
 garch_robustness_window: "5_year_rolling"
+garch_fit_return_scale: 100
+garch_variance_backscale: 10000
+
+summary_moment_convention: "sample_sd_bias_corrected_fisher"
 
 oos_initial_estimation_end: "last_trading_day_2006"
 oos_start: "first_trading_day_2007"

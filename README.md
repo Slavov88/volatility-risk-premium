@@ -22,7 +22,7 @@ VIX is a model-free index constructed from a strip of SPX option prices. It is n
 
 ## Source of truth
 
-The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), version 1.0.2. It was substantively locked on 2026-08-26, amended on 2026-08-27 for end-of-sample target support, and amended on 2026-10-13 only for provenance/validation handling and deterministic calendar-versioning. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail. The Week 1 auditor's [`scope review`](docs/w1_09_scope_review.md) approves the bounded core and keeps stretch goals outside it until a separate extension gate is passed.
+The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), version 1.1.0. It was substantively locked on 2026-08-26, amended on 2026-08-27 for end-of-sample target support, and refined on 2026-10-13 before any empirical VRP/forecast-ranking result to lock provenance, H3/H5 inference, calendar-versioning, and the post-2014 VIX methodology sensitivity. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail. The Week 1 auditor's [`scope review`](docs/w1_09_scope_review.md) approves the bounded core and keeps stretch goals outside it until a separate extension gate is passed.
 
 ## Canonical empirical objects
 
@@ -77,6 +77,16 @@ Observations after 2025-12-31 are **target-support outcomes only**. They must ne
 The command requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects current-day bars, stores an immutable normalized acquisition snapshot, applies the production-quality gate, and records hashes and metadata. With `--validate-fred`, it also attempts the independent FRED close cross-check. FRED transport failure is recorded but does not invalidate an otherwise accepted Yahoo snapshot; malformed validation responses are distinguished from transport failures, and FRED never overwrites Yahoo.
 
 A production-quality rejection preserves the immutable acquisition artifact and manifest but the CLI exits non-zero, so the snapshot cannot be mistaken for an accepted analysis input. After review, copy a sanitized provenance manifest into `data/manifests/`; raw provider files remain ignored by Git.
+
+## Reproduce the VIX predictor acquisition
+
+The predictor-origin sample ends on 2025-12-31, so the frozen Cboe VIX window is:
+
+```bash
+vrp-download-vix --start-date 1990-01-02 --end-exclusive 2026-01-01
+```
+
+The production VIX layer preserves the raw official Cboe history locally, writes a deterministic normalized frozen window, audits exact XNYS-session coverage and OHLC validity, and records the 2014-10-06 weekly-option methodology transition in the manifest. No VRP result is computed by acquisition.
 
 ### Legacy feasibility utility
 
