@@ -21,10 +21,10 @@ dependencies = [
 
 [project.optional-dependencies]
 validation = [
-  "QuantLib>=1.43,<2",
+  "QuantLib==1.43",
 ]
 dev = [
-  "QuantLib>=1.43,<2",
+  "QuantLib==1.43",
   "pytest>=8.2,<9",
   "pytest-cov>=5,<7",
 ]
