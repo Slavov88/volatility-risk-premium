@@ -9,6 +9,7 @@ any empirical specification by itself.
 from __future__ import annotations
 
 import math
+from bisect import bisect_left
 from datetime import date
 from typing import Sequence
 
@@ -155,17 +156,16 @@ def overlap_l0(
         if len(supplied) != len(set(supplied)):
             raise ValueError("trading_dates must be unique")
 
-    targets = [
-        set(forward_30c_sessions(origin, horizon))
-        for origin in origin_days
-    ]
+    # For ordered XNYS origins and a common calendar horizon, endpoints are
+    # monotone. A later target overlaps iff its origin precedes this target's
+    # last session. Avoid the former quadratic all-lag scan without changing
+    # the exact set-overlap definition (checked against a brute-force oracle).
     l0 = 0
-    for lag in range(1, len(origin_days)):
-        if any(
-            targets[index] & targets[index + lag]
-            for index in range(len(origin_days) - lag)
-        ):
-            l0 = lag
+    for index, origin in enumerate(origin_days):
+        target = forward_30c_sessions(origin, horizon)
+        if target:
+            last_overlapping = bisect_left(origin_days, target[-1]) - 1
+            l0 = max(l0, last_overlapping - index)
     return l0
 
 
