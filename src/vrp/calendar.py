@@ -2,8 +2,8 @@
 
 All target completeness rules are expressed against the official exchange
 session calendar, never against weekdays or the rows that happen to survive
-cleaning. This prevents missing sessions from being silently replaced by later
-observations.
+cleaning. The calendar is instantiated over the full research sample rather
+than relying on exchange_calendars' moving default date bounds.
 """
 
 from __future__ import annotations
@@ -15,12 +15,19 @@ import exchange_calendars as xcals
 
 from vrp.dates import as_date
 
+_CALENDAR_START = "1989-01-01"
+_CALENDAR_END = "2030-12-31"
+
 
 @lru_cache(maxsize=1)
 def xnys_calendar():
-    """Return the cached NYSE/XNYS exchange calendar."""
+    """Return the cached NYSE/XNYS calendar covering the full study window."""
 
-    return xcals.get_calendar("XNYS")
+    return xcals.get_calendar(
+        "XNYS",
+        start=_CALENDAR_START,
+        end=_CALENDAR_END,
+    )
 
 
 def exchange_sessions(start: date, end: date) -> tuple[date, ...]:

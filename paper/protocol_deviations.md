@@ -37,3 +37,14 @@ For every deviation, add a dated entry containing:
 7. **Coauthor review/approval status**
 
 If a change is made after relevant results have been viewed, the modified specification is exploratory unless the original pre-specified analysis remains reported.
+
+
+## 2026-10-13 — Restore independent close validation as non-blocking
+
+1. **Original rule:** The 2026-09-28 deviation removed FRED SP500 close validation because repeated transport failures blocked acquisition.
+2. **Reason for change:** Scientific-correctness review separated the canonical data source from the validation transport. Independent validation remains useful, especially because earlier feasibility work found several Yahoo/FRED close discrepancies, but a validation endpoint outage should not determine whether the canonical Yahoo snapshot can be acquired.
+3. **Replacement rule:** Yahoo ^GSPC remains the canonical S&P 500 OHLC source. FRED SP500 is optional validation only. Validation failure is recorded as unavailable/pending and does not block acquisition. When validation succeeds, discrepancies are reported and Yahoo is never overwritten automatically.
+4. **Relevant results viewed before change:** No empirical VRP, forecast-ranking, regression, GARCH, or regime result was generated to motivate this refinement.
+5. **Likely effect:** Restores an independent recent close-quality check without reintroducing a network single point of failure.
+6. **Affected files:** src/vrp/spx_data.py, tests/test_spx_data.py, docs/data_sources.md, docs/methodology_decisions.md, paper/method_protocol.md, and data/raw/README.md.
+7. **Coauthor review/approval status:** Pending.

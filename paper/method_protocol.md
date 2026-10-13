@@ -188,7 +188,7 @@ Required fields:
 - low;
 - close.
 
-Primary long-history source: Yahoo Finance `^GSPC` through a pinned `yfinance` environment with `auto_adjust=False`. FRED `SP500` is not a validation source and is not fetched for the index.
+Primary long-history source: Yahoo Finance `^GSPC` through a pinned `yfinance` environment with `auto_adjust=False`. Yahoo is the canonical OHLC series. FRED `SP500` may be used as an independent close-validation overlay over its available history, but validation is non-blocking: FRED transport failure does not invalidate a verified Yahoo acquisition, and FRED values never overwrite Yahoo automatically.
 
 If reliable OHLC coverage begins later than reliable close coverage, the close-to-close core sample may be longer than the Parkinson/Garman–Klass robustness samples. Sample differences must be explicit.
 

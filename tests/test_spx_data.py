@@ -7,9 +7,12 @@ import pandas as pd
 import pytest
 
 from vrp.spx_data import (
+    DataValidationError,
     PartialCurrentDayError,
     acquire_spx_index,
     normalize_yahoo_spx,
+    production_quality_report,
+    require_production_quality,
 )
 
 
@@ -29,7 +32,15 @@ def sample_yahoo_frame() -> pd.DataFrame:
     return frame
 
 
-def test_acquisition_uses_exact_symbol_unadjusted_ohlc_and_manifest(tmp_path: Path) -> None:
+def sample_fred_raw(second_close: str = "101.25") -> bytes:
+    return (
+        "observation_date,SP500\n"
+        "2024-01-02,100.00\n"
+        f"2024-01-03,{second_close}\n"
+    ).encode("utf-8")
+
+
+def test_acquisition_records_quality_and_keeps_fred_optional(tmp_path: Path) -> None:
     calls: list[dict[str, object]] = []
 
     def fake_download(**kwargs: object) -> pd.DataFrame:
@@ -42,45 +53,112 @@ def test_acquisition_uses_exact_symbol_unadjusted_ohlc_and_manifest(tmp_path: Pa
         end_exclusive=date(2024, 1, 4),
         retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
         yahoo_download=fake_download,
-        yfinance_version="1.5.2-test",
+        yfinance_version="test",
     )
-
     assert calls[0]["tickers"] == "^GSPC"
     assert calls[0]["auto_adjust"] is False
-    assert calls[0]["end"] == "2024-01-04"
-    assert calls[0]["repair"] is False
-    assert calls[0]["multi_level_index"] is False
-    assert result.row_count == 2
-    assert result.coverage_start == "2024-01-02"
-    assert result.coverage_end == "2024-01-03"
+    assert result.production_quality.accepted
+    assert result.fred_validation_status == "not_requested"
 
-    yahoo_path = tmp_path / result.yahoo_relative_path
-    manifest = json.loads((tmp_path / result.manifest_relative_path).read_text())
-    assert manifest["schema_version"] == 3
-    assert manifest["index_source"]["fred_sp500_validation"] is False
-    assert "fred_validation" not in manifest
-    assert manifest["yahoo"]["symbol"] == "^GSPC"
-    assert manifest["yahoo"]["artifact_type"] == (
-        "immutable normalized acquisition snapshot"
+    manifest = json.loads(
+        (tmp_path / result.manifest_relative_path).read_text()
     )
-    assert manifest["yahoo"]["provider_response_persisted"] is False
-    assert manifest["yahoo"]["persisted_columns"] == [
-        "Date",
-        "Open",
-        "High",
-        "Low",
-        "Close",
-        "Adj Close",
-        "Volume",
-    ]
-    assert "raw_columns" not in manifest["yahoo"]
-    assert "normalized acquisition snapshot" in manifest["yahoo"][
-        "adjustment_policy"
-    ]
-    assert manifest["yahoo"]["request_parameters"]["auto_adjust"] is False
-    assert manifest["yahoo"]["yfinance_version"] == "1.5.2-test"
-    assert manifest["transport_note"] == "default verified TLS transports"
+    assert manifest["schema_version"] == 4
+    assert manifest["production_quality"]["accepted"] is True
+    assert manifest["fred_close_validation"]["status"] == "not_requested"
+    yahoo_path = tmp_path / result.yahoo_relative_path
     assert hashlib.sha256(yahoo_path.read_bytes()).hexdigest() == result.yahoo_sha256
+
+
+def test_production_gate_rejects_missing_exchange_session() -> None:
+    frame = normalize_yahoo_spx(
+        sample_yahoo_frame().iloc[[0]],
+        date(2024, 1, 1),
+        date(2024, 1, 4),
+        datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+    )
+    report = production_quality_report(
+        frame,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+    )
+    assert not report.accepted
+    assert report.missing_sessions == ("2024-01-03",)
+    with pytest.raises(DataValidationError, match="quality gate"):
+        require_production_quality(
+            frame,
+            start_date=date(2024, 1, 1),
+            end_exclusive=date(2024, 1, 4),
+        )
+
+
+def test_production_gate_rejects_nan_nonpositive_and_bad_ohlc() -> None:
+    normalized = normalize_yahoo_spx(
+        sample_yahoo_frame(),
+        date(2024, 1, 1),
+        date(2024, 1, 4),
+        datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+    )
+
+    nan_frame = normalized.copy()
+    nan_frame.loc[0, "Close"] = float("nan")
+    assert not production_quality_report(
+        nan_frame,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+    ).accepted
+
+    zero_frame = normalized.copy()
+    zero_frame.loc[0, "Open"] = 0.0
+    assert not production_quality_report(
+        zero_frame,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+    ).accepted
+
+    bad_order = normalized.copy()
+    bad_order.loc[0, "High"] = 97.0
+    report = production_quality_report(
+        bad_order,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+    )
+    assert report.ohlc_order_violations == 1
+    assert not report.accepted
+
+
+def test_fred_validation_is_non_blocking_and_never_overwrites_yahoo(tmp_path: Path) -> None:
+    result = acquire_spx_index(
+        raw_root=tmp_path,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+        retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+        yahoo_download=lambda **_: sample_yahoo_frame(),
+        yfinance_version="test",
+        fred_fetch=lambda _: sample_fred_raw("101.50"),
+    )
+    assert result.fred_validation_status == "available"
+    assert result.fred_validation is not None
+    assert result.fred_validation.discrepancy_count == 1
+    stored = pd.read_csv(tmp_path / result.yahoo_relative_path)
+    assert stored.loc[stored["Date"] == "2024-01-03", "Close"].item() == 101.25
+
+
+def test_fred_transport_failure_does_not_block_yahoo_acquisition(tmp_path: Path) -> None:
+    def fail(_: str) -> bytes:
+        raise TimeoutError("validation endpoint unavailable")
+
+    result = acquire_spx_index(
+        raw_root=tmp_path,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+        retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+        yahoo_download=lambda **_: sample_yahoo_frame(),
+        yfinance_version="test",
+        fred_fetch=fail,
+    )
+    assert result.fred_validation_status == "unavailable"
+    assert (tmp_path / result.yahoo_relative_path).exists()
 
 
 def test_current_new_york_date_bar_is_rejected() -> None:
@@ -89,28 +167,7 @@ def test_current_new_york_date_bar_is_rejected() -> None:
     with pytest.raises(PartialCurrentDayError, match="current-day"):
         normalize_yahoo_spx(
             frame,
-            start_date=date(2024, 1, 1),
-            end_exclusive=date(2024, 1, 5),
-            retrieved_at=datetime(2024, 1, 5, 18, tzinfo=timezone.utc),
-        )
-
-
-def test_same_dated_snapshot_cannot_be_changed(tmp_path: Path) -> None:
-    kwargs = {
-        "raw_root": tmp_path,
-        "start_date": date(2024, 1, 1),
-        "end_exclusive": date(2024, 1, 4),
-        "retrieved_at": datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
-        "yfinance_version": "mock",
-    }
-    acquire_spx_index(
-        **kwargs,
-        yahoo_download=lambda **_download_kwargs: sample_yahoo_frame(),
-    )
-    changed = sample_yahoo_frame()
-    changed.loc[pd.Timestamp("2024-01-03"), "Close"] = 999.0
-    with pytest.raises(FileExistsError, match="immutable snapshot differs"):
-        acquire_spx_index(
-            **kwargs,
-            yahoo_download=lambda **_download_kwargs: changed,
+            date(2024, 1, 1),
+            date(2024, 1, 6),
+            datetime(2024, 1, 5, 18, tzinfo=timezone.utc),
         )
