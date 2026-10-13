@@ -18,7 +18,7 @@ from scipy.signal import lfilter
 from statsmodels.stats.diagnostic import acorr_ljungbox, het_arch
 from statsmodels.stats.stattools import jarque_bera
 
-from vrp.calendar import forward_30c_sessions, next_exchange_sessions
+from vrp.asof_garch_calendar import forecast_schedule, POLICY
 from vrp.dates import as_date
 from vrp.evaluation import _subtract_years
 from vrp.garch_units import from_garch_variance, to_garch_fit_returns
@@ -128,6 +128,7 @@ def run(variant,commit,out_root,limit=None):
     origins=targets.loc[targets.origin>="2007-01-01","origin"].tolist()
     dist,window=VARIANTS[variant]
     config={"variant":variant,"distribution":dist,"window":window,"fit":FIT_CONFIG,
+        "forecast_calendar_policy":POLICY,
         "implementation":ident,"freeze_sha256":FREEZE_SHA,"target_manifest_sha256":EMPIRICAL_SHA,
         "software":{"arch":version("arch"),"numpy":version("numpy"),"scipy":version("scipy"),"python":sys.version.split()[0]},
         "status":STATUS,"authorization":AUTHORIZATION,"origins":origins,
@@ -145,8 +146,7 @@ def run(variant,commit,out_root,limit=None):
     for index,text in enumerate(origins):
         if limit is not None and index>=limit:break
         origin=as_date(text);start,end,train=training_slice(days,values,origin,window)
-        sessions30=forward_30c_sessions(origin);sessions21=next_exchange_sessions(origin,21)
-        sessions=next_exchange_sessions(origin,max(len(sessions30),21))
+        sessions30,sessions=forecast_schedule(origin)
         if sessions[:len(sessions30)]!=sessions30:raise ValueError("Forward step/session mapping mismatch")
         expected={"origin":text,"training_start":days[start].isoformat(),"training_end":days[end-1].isoformat(),
             "training_n":len(train),"training_sha256":hashlib.sha256(train.astype('<f8').tobytes()).hexdigest(),
