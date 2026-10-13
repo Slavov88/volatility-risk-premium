@@ -16,6 +16,8 @@ from vrp.spx_data import parse_fred_sp500
 
 
 def run(raw_root, processed_root, freeze_manifest, authorization, commit):
+    raw_root, processed_root = raw_root.resolve(), processed_root.resolve()
+    freeze_manifest, authorization = freeze_manifest.resolve(), authorization.resolve()
     identity = code_identity(commit)
     root = Path(__file__).resolve().parents[1]
     files = ["scripts/run_interim_targets.py"] + ["src/vrp/"+p+".py" for p in
