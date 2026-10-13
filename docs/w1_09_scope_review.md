@@ -4,7 +4,8 @@
 **Review date:** 2026-09-12  
 **Reviewer role:** auditor  
 **Dependency reviewed:** W1-01 research question and project scope  
-**Authoritative protocol:** `paper/method_protocol.md`, version 1.0.1  
+**Authoritative protocol at review:** `paper/method_protocol.md`, version 1.0.1  
+**Current execution protocol:** version 1.1.0; later pre-result amendments preserve this scope decision.  
 **Decision:** **approved for core execution**, subject to the protocol's existing pre-analysis gates
 
 This approval covers scope only. It does not approve empirical results, final conclusions, submission, a data-source change, or any alteration of the locked scientific design.

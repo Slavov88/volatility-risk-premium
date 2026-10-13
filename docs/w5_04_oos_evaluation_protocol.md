@@ -1,7 +1,8 @@
 # W5-04 — Out-of-sample evaluation protocol
 
 **Status:** frozen implementation specification before forecast comparison  
-**Authoritative source:** `paper/method_protocol.md`, version 1.0.1  
+**Authoritative source at freeze:** `paper/method_protocol.md`, version 1.0.1  
+**Current execution protocol:** version 1.1.0; the 2026-10-13 pre-result refinements do not change the split, windows, or leakage rules below.  
 **Substantive lock:** 2026-08-26  
 **Technical sample-tail amendment:** 2026-08-27
 
@@ -77,7 +78,10 @@ The formal three-model comparison is restricted to the single intersection of:
 5. non-missing naive variance.
 
 RMSE, MAE, squared-error loss differentials, and encompassing analysis must all
-use this same set of origins for a given formal comparison. Invalid negative or
+use this same set of origins for a given formal comparison. Under protocol
+1.1.0, VIX-versus-GARCH is the primary H3 loss-difference contrast; the two
+contrasts against the naive benchmark are secondary and use Holm adjustment
+across that two-test family. Invalid negative or
 infinite variance values are errors, not observations to silently drop. The
 rolling-window and Student-t analyses are separately labelled robustness
 comparisons and each uses its own explicitly reported common intersection.
@@ -109,3 +113,12 @@ establish the 2006/2007 boundary, complete-target requirement, 2026
 target-support restriction, exact endpoint conventions, annualization,
 common-mask intersection, and leakage invariant that changing a post-origin
 return cannot alter a predictor at `t`.
+
+
+## GARCH numerical units
+
+Internal returns remain decimal log returns. The `arch` fit receives
+percentage returns `100*r_t` for numerical conditioning. Its conditional
+variance forecasts are therefore percentage-squared and are divided by
+10,000 before aggregation or comparison with decimal-unit `IVAR`/`RVAR`.
+The conversion is a unit transformation, not a model choice.
