@@ -120,3 +120,16 @@ tests/                 Unit and integration tests
 ## Data and result provenance
 
 Every production acquisition must record source URL, retrieval timestamp, request parameters, SHA-256 digest, schema, coverage, missingness, software version, validation results, and TLS/transport status. Restricted or redistributable-provider data remain local; compact sanitized manifests are committed so the provenance of local snapshots is independently auditable.
+
+
+## Build the audited predictor-origin panel
+
+Once both complete production data acquisitions have passed review, use
+`vrp-build-verified-panel` with the exact SPX and Cboe VIX manifest
+paths and `--raw-root data/raw`. It independently verifies hashes,
+locked acquisition windows, XNYS-session completeness and source quality,
+then produces an immutable processed origin panel and row-loss/provenance
+manifest under `data/processed/`.
+
+It rejects unverified acquisitions and **does not** compute realized variance,
+VRP, GARCH fits, forecasts, or inferential results.

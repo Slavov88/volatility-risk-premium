@@ -84,10 +84,10 @@ def _verified_artifact(root: Path, info: Any, label: str) -> bytes:
 
 def _window(record: dict[str, Any], label: str, end: str) -> tuple[date, date]:
     frozen = record.get("frozen_window")
-    if not isinstance(frozen, dict) or frozen != {
-        "start_inclusive": CONVENTIONS.sample_start,
-        "end_exclusive": end,
-    }:
+    if not isinstance(frozen, dict) or (
+        frozen.get("start_inclusive") != CONVENTIONS.sample_start
+        or frozen.get("end_exclusive") != end
+    ):
         raise PanelProvenanceError(f"{label}: acquisition window differs from locked protocol")
     return as_date(CONVENTIONS.sample_start), as_date(end)
 
