@@ -1,0 +1,44 @@
+{
+  "cache_index_sha256": "36fc939a6be5e49e53f92331775d5ffb07902b833ec8c7e936650b2eef771518",
+  "followup": "Preserve exact cache-index CRLF bytes in Git as already required by execution SHA; formatting-only packaging correction, no numerical change.",
+  "scientific_delivery": {
+    "baseRefName": "agent/quant-failure-mechanisms",
+    "headRefName": "codex/cash-yield-robustness",
+    "headRefOid": "7a3ee50cce41aaa5b99d3c9bc9cdcd757feeeb3d",
+    "isDraft": true,
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-13T23:10:49Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Slavov88/volatility-risk-premium/actions/runs/38482511142/job/115588218531",
+        "name": "test",
+        "startedAt": "2026-10-13T23:09:47Z",
+        "status": "COMPLETED",
+        "workflowName": "quant-extension"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-13T23:10:00Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Slavov88/volatility-risk-premium/actions/runs/38482425524/job/115587927867",
+        "name": "test",
+        "startedAt": "2026-10-13T23:08:57Z",
+        "status": "COMPLETED",
+        "workflowName": "quant-extension"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-10-13T23:10:42Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/Slavov88/volatility-risk-premium/actions/runs/38482511134/job/115588218387",
+        "name": "test",
+        "startedAt": "2026-10-13T23:09:47Z",
+        "status": "COMPLETED",
+        "workflowName": "tests"
+      }
+    ],
+    "url": "https://github.com/Slavov88/volatility-risk-premium/pull/6"
+  },
+  "status": "ALL_THREE_SCIENTIFIC_DELIVERY_CHECKS_PASSED"
+}
