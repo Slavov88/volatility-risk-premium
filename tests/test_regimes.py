@@ -1,5 +1,7 @@
 from datetime import date
 
+import pytest
+
 from vrp.regimes import label_nber_regimes, recession_months_from_chronology
 
 
@@ -15,15 +17,23 @@ def test_daily_origin_inherits_calendar_month() -> None:
     ]
 
 
-def test_recession_months_from_supplied_chronology_table() -> None:
+def test_string_zero_is_expansion_not_truthy_recession() -> None:
     months = recession_months_from_chronology(
-        ["2008-12-01", "2009-01-01", "2009-02-01"],
-        [True, True, False],
+        ["2020-02-01", "2020-03-01"],
+        ["0", "1"],
     )
-    assert months == {"2008-12", "2009-01"}
-    labeled = label_nber_regimes(
-        [date(2008, 12, 15), date(2009, 2, 10)],
-        months,
-    )
-    assert labeled[0][1] == "recession"
-    assert labeled[1][1] == "expansion"
+    assert months == {"2020-03"}
+
+
+@pytest.mark.parametrize("bad", ["yes", "", 2, -1, None, 0.0])
+def test_ambiguous_flags_are_rejected(bad) -> None:
+    with pytest.raises(ValueError, match="recession flags|integer"):
+        recession_months_from_chronology(["2020-01-01"], [bad])
+
+
+def test_duplicate_chronology_month_is_rejected() -> None:
+    with pytest.raises(ValueError, match="duplicate"):
+        recession_months_from_chronology(
+            ["2020-01-01", "2020-01-15"],
+            [0, 1],
+        )

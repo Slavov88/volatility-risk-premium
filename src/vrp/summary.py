@@ -1,10 +1,4 @@
-"""Descriptive summary statistics required by Protocol 1.0.1 §9.
-
-Reported moments are mean, standard deviation, skewness, excess kurtosis,
-selected quantiles, median, min/max, and the proportion of positive values.
-Central moments use the sample-size divisor ``n`` so a constant series has
-zero variance. Quantiles use linear interpolation on the order statistics.
-"""
+"""Descriptive summary statistics required by Protocol 1.0.1."""
 
 from __future__ import annotations
 
@@ -13,9 +7,11 @@ from typing import Sequence
 
 
 def summary_statistics(values: Sequence[float]) -> dict[str, float]:
-    """Return the protocol-required descriptive statistics for a numeric series."""
+    """Return protocol-required descriptive statistics for a finite series."""
 
     sample = [float(item) for item in values]
+    if any(not math.isfinite(item) for item in sample):
+        raise ValueError("summary statistics require only finite values")
     n_obs = len(sample)
     if n_obs == 0:
         return {"n_obs": 0.0}
@@ -43,7 +39,9 @@ def summary_statistics(values: Sequence[float]) -> dict[str, float]:
         "q99": _quantile(ordered, 0.99),
         "skewness": skewness,
         "excess_kurtosis": excess_kurtosis,
-        "proportion_positive": sum(1 for item in sample if item > 0) / n_obs,
+        "proportion_positive": (
+            sum(1 for item in sample if item > 0) / n_obs
+        ),
     }
 
 
