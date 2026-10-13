@@ -5,6 +5,8 @@ import pytest
 from vrp.quant_failure import (brier_decomposition, projection, constraint_bridge,
     partitions, ledger_components, bootstrap_counts, mean_intervals)
 from vrp.quant_portfolio import simulate_spy
+from vrp.quant_failure_audit import weighted_rank, weighted_projection_draws
+from sklearn.metrics import roc_auc_score, average_precision_score
 
 
 def test_brier_exact_within_bin_and_imbalance():
@@ -74,3 +76,19 @@ def test_resampling_keeps_group_gaps_and_determinism():
     ci=mean_intervals(x,{'g':mask},a)['g'][0]
     independent=(a[:,mask]@x[mask]).ravel()/a[:,mask].sum(axis=1)
     assert np.allclose(ci['ci95'],np.quantile(independent,[.025,.975]))
+
+
+def test_weighted_rank_ties_zero_weights_and_independent_scores():
+    y=np.array([1,0,1,0,1,0]); p=np.array([.2,.2,.1,.1,.4,.9]); weights=np.array([3,2,0,1,2,1])
+    actual=weighted_rank(y,p,weights)
+    assert np.allclose(actual,[roc_auc_score(y,p,sample_weight=weights),average_precision_score(y,p,sample_weight=weights)])
+    assert weighted_rank(np.ones(4),np.arange(4),np.ones(4))[1]==1
+    assert np.isnan(weighted_rank(np.zeros(4),np.arange(4),np.ones(4))).all()
+
+
+def test_weighted_projection_bootstrap_matches_expanded_rows():
+    f=np.array([.01,.02,.05,.1]); y=np.array([.03,.01,.06,.2]); c=np.tile([1,2,3,1],(1000,1))
+    a,b=weighted_projection_draws(y,f,np.ones(4,bool),c)
+    idx=np.repeat(np.arange(4),c[0]); d,_,_=projection(y[idx],f[idx])
+    assert a['ci95']==pytest.approx([d['intercept']]*2)
+    assert b['ci95']==pytest.approx([d['slope']]*2)
