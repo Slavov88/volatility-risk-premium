@@ -1,2 +1,8 @@
 # Preserve byte-reproducible tracked scientific metadata across Windows/Linux.
 data/manifests/*.json text eol=lf
+docs/tables/quant_failure/*.csv text eol=lf
+docs/h6_failure_analysis.md text eol=lf
+docs/h7_failure_analysis.md text eol=lf
+docs/h8_failure_analysis.md text eol=lf
+docs/quant_failure*.md text eol=lf
+paper/quant_failure_diagnostic_plan.md text eol=lf

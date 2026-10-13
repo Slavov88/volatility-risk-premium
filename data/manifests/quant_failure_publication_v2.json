@@ -1,0 +1,50 @@
+{
+  "audit_sha256": "444073f5f35454dfa6c38d7d775bee60f1af37c840694f1da08659724dfef8f7",
+  "files_sha256": {
+    "docs/figures/quant_failure/h6_2020_chronology.pdf": "8f9bba2f75d5b5eeb9dcfe9746b13d51b79fed7e87ddaddbb3a80705f2e5eae5",
+    "docs/figures/quant_failure/h6_2020_chronology.png": "e462685e0ce5493642f958c390f2a70695420cf63a84b5100571bf09ace29158",
+    "docs/figures/quant_failure/h6_probability_drift.pdf": "965af05747127b576bf369205b4f337e113c96e5f5a9d31f8f8ed4e2e533d7d8",
+    "docs/figures/quant_failure/h6_probability_drift.png": "07e4fe6e227baab774cfe367540c75fa0c7786d8d9affae12dd6567a164f8d4d",
+    "docs/figures/quant_failure/h7_coefficient_drift.pdf": "84306e17d449cecf0d7a08109c436b21835236befab24332a8e42393cf67e0f2",
+    "docs/figures/quant_failure/h7_coefficient_drift.png": "1cba8fd30317d882e9e6b69ce870e0563b3a3297f955bbecf264238cff057d11",
+    "docs/figures/quant_failure/h7_cumulative_loss.pdf": "00092a184d230ee38ca0aaccb26f54b842b6fd2b05aa4bd41d693358b4f6a597",
+    "docs/figures/quant_failure/h7_cumulative_loss.png": "ea6f480d91b14f5a7979be88a33422f55e71b9c4f76768acb94556d63452f7f5",
+    "docs/figures/quant_failure/h8_variance_bridge.pdf": "13d2f12801491e3964137fa06fbbae0c6f2fee0980894d4d5610aafd5661246a",
+    "docs/figures/quant_failure/h8_variance_bridge.png": "2b80440bb09266737528710d01eb9989e20a76b6e2f3157b363897f50e97eabd",
+    "docs/h6_failure_analysis.md": "6ebe62f4c59c90aded7ad5ef336bcbd37994e4f2f369b0abd43d362114ad4ae4",
+    "docs/h7_failure_analysis.md": "123c670ca271f7e56df8593a544b76e734ba7f59e513d3c6ca552fb9faedd42d",
+    "docs/h8_failure_analysis.md": "5304b388feb0a9dd30212a7a1e34d2b31b737ae20bd24d7aa5df1087f895d420",
+    "docs/quant_failure_mechanisms.md": "f1371f6bf30c52e290bd793dca8e1f1040f9834c595f242804d04a5a139316bc",
+    "docs/tables/quant_failure/coefficients_contributions.csv": "4bb975397f3babc99e72055a9b3062c08201353c143d68008137b4ac91a0744a",
+    "docs/tables/quant_failure/coefficients_h6.csv": "bc6539091e5e1e276548d6b9faf5c1baf9f3064306808e90ba79f39cac68642b",
+    "docs/tables/quant_failure/coefficients_h7.csv": "531cc8b3feb3a6c08e1a79814795dc08ff2156b41f1d0e340c14c50dcc8ec7f6",
+    "docs/tables/quant_failure/h6_alerts.csv": "4baacc7a37a625f490fc61532de45184a40886172d615cd712bb7b23aee5d371",
+    "docs/tables/quant_failure/h6_bins.csv": "dc3cdd2154515916ab628d8266999a5526f8ae29a1de13eab2c3f1e2ed60b0b4",
+    "docs/tables/quant_failure/h6_contrasts.csv": "31691b27d118c0aa2246b28358a74e87037829ce2834f968b8b2a3283c871921",
+    "docs/tables/quant_failure/h6_false_negatives.csv": "f29eaf27d4819941758cc3521f668b893f7679ca19a3be4a82f4fc383e7c36ff",
+    "docs/tables/quant_failure/h6_scores.csv": "f05abbcc0085019460cff525e16f543ac8d286d71393d3c2e583fa4697a21cdf",
+    "docs/tables/quant_failure/h7_concentration.csv": "20b0c06fb2c79e18002ce1de4b8cc2cc651d2b0d5fb5f6d611be754d04cdf3bc",
+    "docs/tables/quant_failure/h7_contrasts.csv": "2a64275c34b76551f4e1d4b585076fc1a85f22bfaba5e0dcb005d1abb1180944",
+    "docs/tables/quant_failure/h7_leave_year_out.csv": "988804354b83869f8666c65fb079b17cf6739e715fbf72fcd31bd87fa5a5afeb",
+    "docs/tables/quant_failure/h7_scores.csv": "ccb89e056ee4e2da9f7d6ce4cce511c43356d5f796d51366d60d03c2256f39cf",
+    "docs/tables/quant_failure/h8_bridge.csv": "b62de73530befd607f077621c157d83b5e55dff96c79f38dad217d7579b7eb53",
+    "docs/tables/quant_failure/h8_daily_components.csv": "09682c8d933d372189331ab05c8b1a28188ed7e60b9edfaaeb176b67aac56660",
+    "docs/tables/quant_failure/h8_regimes.csv": "b62cfbae4c4f568d2da3667dbeafbc99fa9dd62a5681151d8a1d9efca418d661",
+    "docs/tables/quant_failure/h8_summary.csv": "5c475b098738cc98b322b755af1f0fee72f4e947ddbe38e685c84c13874648cb",
+    "docs/tables/quant_failure/h8_variance_components.csv": "a1f27a177527dc36db724aba8826f90be1f0a71937cac1e2ef5faea95188accd",
+    "docs/tables/quant_failure/portfolio_groups.csv": "37ae2cd6be41a07ceb6e1e3f0afe869c3adb8db34e7aedce00c987e96c8c7ecb",
+    "docs/tables/quant_failure/portfolio_paired_combined_minus_trailing.csv": "bde1e7acf2dd04fa3d168a8516118cd8fd49ab1a6e51c2b550c1bd908cf9b1c7",
+    "docs/tables/quant_failure/score_calibration.csv": "afe79fb358b2e4aeb5d1726bff0a53250e3742471eca9cb2a97edfadc798d534",
+    "docs/tables/quant_failure/score_ranking.csv": "05cfb38822902fb6c24de04e0fe681a72809091475410130bda4d6e0e58957f9",
+    "docs/tables/quant_failure/sensitivities.csv": "264912c73daf4ea5e86d1ee54f4c516c399fbd6dc7bd85dd427aec3ff6ca0fcd",
+    "docs/tables/quant_failure/split_bridge.csv": "8d1e53efbd91389320bff3bb22c437d2b0ee76b87e98325b8d0a36b74f50777e",
+    "docs/tables/quant_failure/split_daily_bridge.csv": "31a943f190808e8e99443f9d5d9232719b9d64d6fa45bdb98ab65e46e6e00b0e"
+  },
+  "implementation": {
+    "commit": "14da7b23542276b0f6b382de387c80855934b6e2",
+    "sources_sha256_lf": {
+      "scripts/publish_quant_failure.py": "a2200f9f98f6c9af69ab2675dfbe19195384b0aedcffdb00641c62449f0b0002"
+    }
+  },
+  "results_sha256": "165ee888a84dd8df8a406490ac81b67667eee7906e0cb98c4c579cd6672ac80d"
+}
