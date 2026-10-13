@@ -24,12 +24,22 @@ def test_future_adhoc_calendar_perturbation_does_not_change_forecast(monkeypatch
 
 
 def test_reaggregated_garch_uses_only_daily_forecast_and_schedule():
-    r = {"origin": "2012-10-01", "training_end": "2012-10-01", "daily_decimal_variances": [.0001]*22}
+    r = {"origin": "2012-10-01", "training_end": "2012-10-01", "daily_decimal_variances": [.0001]*22,
+         "parameters": {"omega": .1, "alpha[1]": .1, "beta[1]": .8}}
     assert reaggregate_garch(r) == pytest.approx(len(scheduled_forward_sessions(r["origin"]))*365/30*.0001)
     r["garch_30c"] = 1e9
     assert reaggregate_garch(r) < 1
     r["daily_decimal_variances"] = [.0001]
     with pytest.raises(ValueError, match="horizon"):
+        reaggregate_garch(r)
+
+
+def test_analytic_extension_and_corrupted_recurrence():
+    r = {"origin":"2012-10-01","training_end":"2012-10-01", "daily_decimal_variances":[.0001]*21,
+         "parameters":{"omega":.1,"alpha[1]":.1,"beta[1]":.8}}
+    assert reaggregate_garch(r) == pytest.approx(.0001*len(scheduled_forward_sessions(r["origin"]))*365/30)
+    r["daily_decimal_variances"][10] = .1
+    with pytest.raises(ValueError, match="recurrence"):
         reaggregate_garch(r)
 
 
