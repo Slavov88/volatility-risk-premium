@@ -450,7 +450,7 @@ def acquire_spx_index(
     yahoo_download: YahooDownload | None = None,
     yfinance_version: str | None = None,
     fred_fetch: ByteFetcher | None = None,
-    transport_note: str = "default verified TLS transports",
+    transport_note: str = "default library TLS configuration; no verification override requested",
 ) -> SpxAcquisitionResult:
     """Acquire Yahoo ^GSPC and optionally run a classified FRED cross-check.\n\n    The immutable Yahoo artifact is preserved even if the production-quality\n    gate rejects promotion into the analysis layer.\n    """
 
@@ -516,29 +516,7 @@ def acquire_spx_index(
         fred_url = fred_sp500_csv_url(start_date, end_exclusive)
         try:
             fred_raw = fred_fetch(fred_url)
-            fred_frame, fred_metadata = parse_fred_sp500(fred_raw)
-            fred_validation = validate_fred_closes(
-                yahoo_frame,
-                fred_frame,
-                fred_url,
-                fred_metadata,
-            )
-            fred_status = "available"
-            fred_relative_path = (
-                Path(stamp) / "fred" / "sp500_close.csv"
-            )
-            fred_digest = write_immutable(
-                raw_root / fred_relative_path, fred_raw
-            )
-            fred_manifest = {
-                "status": fred_status,
-                "validation": asdict(fred_validation),
-                "relative_path": fred_relative_path.as_posix(),
-                "sha256": fred_digest,
-                "bytes": len(fred_raw),
-                "correction_policy": "report only; never overwrite Yahoo",
-            }
-        except (TimeoutError, urllib.error.URLError, ConnectionError, OSError) as error:
+        except (TimeoutError, urllib.error.URLError, ConnectionError) as error:
             fred_status = "unavailable_transport"
             fred_manifest = {
                 "status": fred_status,
@@ -546,14 +524,41 @@ def acquire_spx_index(
                 "error": str(error)[:500],
                 "correction_policy": "Yahoo acquisition remains canonical",
             }
-        except DataValidationError as error:
-            fred_status = "invalid_validation_response"
-            fred_manifest = {
-                "status": fred_status,
-                "error_type": type(error).__name__,
-                "error": str(error)[:500],
-                "correction_policy": "Yahoo acquisition remains canonical",
-            }
+        else:
+            try:
+                fred_frame, fred_metadata = parse_fred_sp500(fred_raw)
+                fred_validation = validate_fred_closes(
+                    yahoo_frame,
+                    fred_frame,
+                    fred_url,
+                    fred_metadata,
+                )
+            except DataValidationError as error:
+                fred_status = "invalid_validation_response"
+                fred_manifest = {
+                    "status": fred_status,
+                    "error_type": type(error).__name__,
+                    "error": str(error)[:500],
+                    "correction_policy": "Yahoo acquisition remains canonical",
+                }
+            else:
+                fred_status = "available"
+                fred_relative_path = (
+                    Path(stamp) / "fred" / "sp500_close.csv"
+                )
+                # Persistence failures are local provenance failures, not
+                # network outages, and therefore intentionally propagate.
+                fred_digest = write_immutable(
+                    raw_root / fred_relative_path, fred_raw
+                )
+                fred_manifest = {
+                    "status": fred_status,
+                    "validation": asdict(fred_validation),
+                    "relative_path": fred_relative_path.as_posix(),
+                    "sha256": fred_digest,
+                    "bytes": len(fred_raw),
+                    "correction_policy": "report only; never overwrite Yahoo",
+                }
 
     missing_values = {
         column: int(yahoo_frame[column].isna().sum())
@@ -622,7 +627,10 @@ def acquire_spx_index(
         "redistribution_note": (
             "Acquisition artifacts are ignored by Git; review provider terms."
         ),
-        "transport_note": transport_note,
+        "transport": {
+            "note": transport_note,
+            "verification_override_requested": False,
+        },
     }
     write_immutable(
         raw_root / manifest_relative_path,

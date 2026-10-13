@@ -230,3 +230,47 @@ def test_cli_returns_nonzero_when_snapshot_fails_promotion_gate(
     )
     assert exit_code == 2
     assert "failed the production-quality promotion gate" in capsys.readouterr().out
+
+
+def test_fred_persistence_error_is_not_misclassified_as_transport(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import vrp.spx_data as module
+
+    real_write = module.write_immutable
+
+    def fail_only_fred(path: Path, raw: bytes) -> str:
+        if "fred" in path.parts:
+            raise PermissionError("local disk permission denied")
+        return real_write(path, raw)
+
+    monkeypatch.setattr(module, "write_immutable", fail_only_fred)
+    with pytest.raises(PermissionError, match="local disk"):
+        acquire_spx_index(
+            raw_root=tmp_path,
+            start_date=date(2024, 1, 1),
+            end_exclusive=date(2024, 1, 4),
+            retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+            yahoo_download=lambda **_: sample_yahoo_frame(),
+            yfinance_version="test",
+            fred_fetch=lambda _: sample_fred_raw(),
+        )
+
+
+def test_manifest_transport_claim_is_configuration_not_tls_attestation(
+    tmp_path: Path,
+) -> None:
+    result = acquire_spx_index(
+        raw_root=tmp_path,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+        retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+        yahoo_download=lambda **_: sample_yahoo_frame(),
+        yfinance_version="test",
+    )
+    manifest = json.loads(
+        (tmp_path / result.manifest_relative_path).read_text()
+    )
+    assert manifest["transport"]["verification_override_requested"] is False
+    assert "no verification override" in manifest["transport"]["note"]
