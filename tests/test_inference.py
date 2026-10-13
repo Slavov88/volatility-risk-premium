@@ -79,3 +79,16 @@ def test_overlap_l0_sorts_origins_and_rejects_duplicates() -> None:
 
 def test_fixed_21_hac_lag_is_protocol_constant() -> None:
     assert CONVENTIONS.fixed_21_hac_maxlags == 20
+
+
+def test_hac_rejects_excessive_lags_and_rank_deficient_designs() -> None:
+    with pytest.raises(ValueError, match="smaller than"):
+        newey_west_mean([0.1, 0.2], maxlags=2)
+    with pytest.raises(ValueError, match="smaller than"):
+        fit_hac_ols([1.0, 2.0, 3.0], [1.0, 2.0, 3.0], maxlags=3)
+    with pytest.raises(ValueError, match="rank-deficient"):
+        fit_hac_ols(
+            [1.0, 2.0, 3.0, 4.0, 5.0],
+            [[1.0, 2.0], [2.0, 4.0], [3.0, 6.0], [4.0, 8.0], [5.0, 10.0]],
+            maxlags=1,
+        )

@@ -21,8 +21,9 @@ from vrp.config import CONVENTIONS
 from vrp.data import write_immutable
 from vrp.dates import as_date
 from vrp.origin_panel import align_origin_panel
-from vrp.spx_data import production_quality_report
+from vrp.spx_data import YAHOO_SPX_HISTORY_URL, production_quality_report
 from vrp.vix_data import parse_cboe_vix, vix_quality_report
+from vrp.data import CBOE_VIX_URL
 
 CALENDAR_VERSION = "4.13.2"
 
@@ -121,7 +122,9 @@ def _load_spx(root: Path, record: dict[str, Any]) -> pd.DataFrame:
     if calendar.get("name") != "XNYS" or calendar.get("library_version") != CALENDAR_VERSION:
         raise PanelProvenanceError("SPX: calendar provenance mismatch")
     yahoo = record.get("yahoo", {})
-    if yahoo.get("symbol") != "^GSPC" or yahoo.get("provider_response_persisted") is not False:
+    if (yahoo.get("symbol") != "^GSPC"
+        or yahoo.get("provider_response_persisted") is not False
+        or yahoo.get("source_page") != YAHOO_SPX_HISTORY_URL):
         raise PanelProvenanceError("SPX: not a canonical Yahoo index snapshot")
     frame = _frame(_verified_artifact(root, yahoo, "SPX"), "SPX")
     quality = production_quality_report(frame, start_date=start, end_exclusive=end)
@@ -135,7 +138,9 @@ def _load_spx(root: Path, record: dict[str, Any]) -> pd.DataFrame:
 
 
 def _load_vix(root: Path, record: dict[str, Any]) -> pd.DataFrame:
-    if record.get("schema_version") != 1 or record.get("dataset") != "Cboe VIX daily history":
+    if (record.get("schema_version") != 1
+        or record.get("dataset") != "Cboe VIX daily history"
+        or record.get("source_url") != CBOE_VIX_URL):
         raise PanelProvenanceError("VIX: invalid schema/source")
     expected_end = (as_date(CONVENTIONS.sample_end) + timedelta(days=1)).isoformat()
     start, end = _window(record, "VIX", expected_end)

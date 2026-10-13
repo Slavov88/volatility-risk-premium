@@ -48,6 +48,8 @@ def fit_hac_ols(
     if maxlags < 0:
         raise ValueError("maxlags must be non-negative")
     y_array = _finite_vector(y, name="HAC regression dependent variable")
+    if maxlags >= y_array.size:
+        raise ValueError("maxlags must be smaller than the number of observations")
     x_array = np.asarray(predictors, dtype=float)
     if x_array.ndim == 1:
         x_array = x_array.reshape(-1, 1)
@@ -61,6 +63,8 @@ def fit_hac_ols(
         x_array = sm.add_constant(x_array, has_constant="add")
     if x_array.shape[0] <= x_array.shape[1]:
         raise ValueError("HAC regression requires more observations than parameters")
+    if np.linalg.matrix_rank(x_array) < x_array.shape[1]:
+        raise ValueError("HAC regression design matrix is rank-deficient")
     return sm.OLS(y_array, x_array).fit(
         cov_type="HAC",
         cov_kwds={"maxlags": maxlags, "use_correction": True},
@@ -76,6 +80,8 @@ def newey_west_mean(values: Sequence[float], maxlags: int) -> dict[str, float]:
     sample = _finite_vector(values, name="HAC mean")
     if sample.size < 2:
         raise ValueError("HAC mean requires at least two observations")
+    if maxlags >= sample.size:
+        raise ValueError("maxlags must be smaller than the number of observations")
 
     mean = float(sample.mean())
     residual_scale = float(np.max(np.abs(sample - mean)))

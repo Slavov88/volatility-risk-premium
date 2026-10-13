@@ -154,3 +154,12 @@ def test_manifest_quality_is_recomputed_not_trusted_blindly(sources) -> None:
     spx_manifest.write_text(json.dumps(record))
     with pytest.raises(PanelProvenanceError, match="independent quality"):
         build_verified_origin_panel(root, spx_manifest, vix_manifest, output)
+
+
+def test_source_identity_must_be_official_and_canonical(sources) -> None:
+    root, output, spx_manifest, vix_manifest = sources
+    record = json.loads(vix_manifest.read_text())
+    record["source_url"] = "https://example.org/fake-vix.csv"
+    vix_manifest.write_text(json.dumps(record))
+    with pytest.raises(PanelProvenanceError, match="VIX: invalid schema/source"):
+        build_verified_origin_panel(root, spx_manifest, vix_manifest, output)
