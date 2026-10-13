@@ -19,7 +19,7 @@ def stripped(record):
 
 def main():
     out=core.OUT;root=core.ROOT
-    originals={n:json.loads((out/(n+'.json')).read_bytes()) for n in ['results','independent_audit','income_uncertainty','publication']}
+    originals={n:json.loads((out/((n if n!='publication' else 'publication_p3')+'.json')).read_bytes()) for n in ['results','independent_audit','income_uncertainty','publication']}
     for record in originals.values():
         for name,digest in record['implementation']['sources_sha256_lf'].items():
             if hashlib.sha256((root/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()!=digest:raise ValueError('Producer source changed '+name)
@@ -28,6 +28,7 @@ def main():
              (module('publish_h8_cash_yield'),'publish','publication')]
     with threadpool_limits(limits=1):
         for producer,function,key in modules:
+            cache=module('h8_cash_cache_io');cache.install(producer)
             original=producer.persist;producer.persist=lambda path,value:None
             try:fresh=getattr(producer,function)()
             finally:producer.persist=original
@@ -54,12 +55,13 @@ def main():
                 if not (root/'docs'/dest).exists():raise ValueError('Missing report link '+dest)
                 count+=1
     report={'status':'PASSED_FULL_NUMERIC_TABLE_AND_PUBLICATION_REPLAY','implementation':implementation(['scripts/replay_h8_cash_yield.py']),
-            'results_sha256':sha(out/'results.json'),'publication_sha256':sha(out/'publication.json'),
+            'results_sha256':sha(out/'results.json'),'publication_sha256':sha(out/'publication_p3.json'),
+            'cache_io_implementation':implementation(['scripts/h8_cash_cache_io.py']),
             'original_zero_ledgers_exact':25,'original_zero_period_summaries_exact':25,
             'v1_v2_all_full_sample_numeric_fields_identical':True,'v1_v2_all100_ledger_hashes_identical':True,
             'v1_signal_date_period_summaries_superseded':changes,'local_report_links_checked':count,
             'original_input_files_preserved':len(new['input_sha256'])}
-    persist(out/'deterministic_replay.json',report);persist(root/'data/manifests/h8_cash_deterministic_replay_v2.json',report)
+    persist(out/'deterministic_replay_p3.json',report);persist(root/'data/manifests/h8_cash_deterministic_replay_v2p3.json',report)
     print(report['status'],flush=True)
 
 

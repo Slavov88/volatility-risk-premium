@@ -40,7 +40,9 @@ def publish():
     for folder in [TABLE,FIG]:folder.mkdir(parents=True,exist_ok=True)
     names=['summary','periods','attribution','uncertainty','ranking_uncertainty','DGS1MO_schedule','DTB4WK_schedule',
            'source_missing','vintage_checks','rankings','nominal_attribution','cash_income_uncertainty','annual_cash_credit']
-    for name in names:shutil.copyfile(OUT/(name+'.csv'),TABLE/(name+'.csv'))
+    for name in names:
+        source=OUT/(name+'.csv');target=TABLE/(name+'.csv')
+        if not target.exists() or sha(target)!=sha(source):shutil.copyfile(source,target)
     rows=x['summary'];comparison=[]
     for m in MODELS:
         old=get(rows,scenario='zero',strategy=m,cost_bps=5);new=get(rows,scenario='dgs1mo_full',strategy=m,cost_bps=5)
@@ -64,14 +66,17 @@ def publish():
         ax.bar(ticks-width/2,zero,width,label='Zero cash interest',color='#999999')
         ax.bar(ticks+width/2,full,width,label='Full DGS pass-through',color='#0072b2')
         ax.set(xticks=ticks,xticklabels=MODELS,title=title);ax.tick_params(axis='x',labelrotation=25)
-    axes[0].set_ylabel('Sharpe (√252 annualization)');fig.legend(loc='upper center',bbox_to_anchor=(.5,1.12),ncol=2,frameon=False)
+    axes[0].set_ylabel('Sharpe (√252 annualization)')
+    handles,labels=axes[0].get_legend_handles_labels()
+    fig.legend(handles,labels,loc='upper center',bbox_to_anchor=(.5,1.12),ncol=2,frameon=False)
     save(fig,'cash_sharpe_references')
     fig,ax=plt.subplots(figsize=(8.5,3.6))
     colors={'trailing':'#777777','vix':'#0072b2','garch':'#009e73','combined':'#d55e00'}
     years=list(range(2012,2027))
     for m in MODELS[1:]:
         values=[get(income['annual_cash_credit'],scenario='dgs1mo_full',strategy=m,cash_credit_year=y)['cash_income_normalized_sum']*100 for y in years]
-        ax.plot(years,values,'o-',lw=1.4,label=m,color=colors[m])
+        ax.plot(years[:-1],values[:-1],'o-',lw=1.4,label=m,color=colors[m])
+        ax.scatter([years[-1]],[values[-1]],facecolors='none',edgecolors=colors[m],s=30)
     ax.set(xlabel='Cash credit year (2026 is the terminal two-day stub)',ylabel='Sum of interest / prior NAV (%)',xticks=years[::2]);ax.legend(ncol=4,loc='lower center',bbox_to_anchor=(.5,1.02),frameon=False)
     save(fig,'annual_cash_income')
     preamble='**EXPLORATORY CASH-YIELD SENSITIVITY — PENDING INDEPENDENT COAUTHOR REVIEW**\n\nPlan committed as `669af87`, source-batching / common-Sharpe clarification `f952067`, before any portfolio comparisons. Corrected sensitivity v2 restores the original H8 execution-date period masks; v1 full-sample results are unchanged and preserved. Same3520 marks2012-01-04 open–2026-01-02 open,3519 trades/signals, five strategies and0/1/5/10/25bps costs. No model refit, exposure change, new strategy, threshold search or future-hypothesis execution.\n\n'
@@ -132,7 +137,7 @@ def publish():
     files.update({p.relative_to(ROOT).as_posix():sha(p) for p in FIG.glob('*')})
     for n in ['h8_cash_yield_sensitivity.md','h8_economic_attribution.md']:files['docs/'+n]=sha(DOC/n)
     publication={'implementation':code,'results_sha256':sha(OUT/'results.json'),'audit_sha256':sha(OUT/'independent_audit.json'),'files_sha256':files}
-    persist(OUT/'publication.json',publication);persist(ROOT/'data/manifests/h8_cash_publication_v2.json',publication)
+    persist(OUT/'publication_p3.json',publication);persist(ROOT/'data/manifests/h8_cash_publication_v2p3.json',publication)
     print('Published two reports, full tables and three PNG/PDF figures',flush=True);return publication
 
 
