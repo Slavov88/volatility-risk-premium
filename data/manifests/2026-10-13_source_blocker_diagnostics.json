@@ -1,0 +1,717 @@
+{
+  "approval_status": "CANDIDATE_UNAPPROVED",
+  "candidate_manifest_sha256": "f346c8b0bb1f68270243f87f523c799ea5565812036d9e029f18b2f32c2c84e9",
+  "changes_to_source_prices": 0,
+  "fred_vix_publication_manifest_sha256": "b704f101c96d99e86661a3af9e8af0900d9f77e5ed05994df37094d35d65888b",
+  "hypothetical_single_close_correction_footprints": [
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 23
+      },
+      "affected_origins": {
+        "21t": [
+          "2021-07-13",
+          "2021-07-14",
+          "2021-07-15",
+          "2021-07-16",
+          "2021-07-19",
+          "2021-07-20",
+          "2021-07-21",
+          "2021-07-22",
+          "2021-07-23",
+          "2021-07-26",
+          "2021-07-27",
+          "2021-07-28",
+          "2021-07-29",
+          "2021-07-30",
+          "2021-08-02",
+          "2021-08-03",
+          "2021-08-04",
+          "2021-08-05",
+          "2021-08-06",
+          "2021-08-09",
+          "2021-08-10",
+          "2021-08-11"
+        ],
+        "30c": [
+          "2021-07-12",
+          "2021-07-13",
+          "2021-07-14",
+          "2021-07-15",
+          "2021-07-16",
+          "2021-07-19",
+          "2021-07-20",
+          "2021-07-21",
+          "2021-07-22",
+          "2021-07-23",
+          "2021-07-26",
+          "2021-07-27",
+          "2021-07-28",
+          "2021-07-29",
+          "2021-07-30",
+          "2021-08-02",
+          "2021-08-03",
+          "2021-08-04",
+          "2021-08-05",
+          "2021-08-06",
+          "2021-08-09",
+          "2021-08-10",
+          "2021-08-11"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2021-08-11",
+        "2021-08-12"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2021-08-11",
+      "signed_log_return_adjustments": [
+        0.0011900515362522743,
+        -0.0011900515362522743
+      ],
+      "source_discrepancy_classification": "UNRESOLVED_BUT_DOCUMENTED",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    },
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 21
+      },
+      "affected_origins": {
+        "21t": [
+          "2019-07-12",
+          "2019-07-15",
+          "2019-07-16",
+          "2019-07-17",
+          "2019-07-18",
+          "2019-07-19",
+          "2019-07-22",
+          "2019-07-23",
+          "2019-07-24",
+          "2019-07-25",
+          "2019-07-26",
+          "2019-07-29",
+          "2019-07-30",
+          "2019-07-31",
+          "2019-08-01",
+          "2019-08-02",
+          "2019-08-05",
+          "2019-08-06",
+          "2019-08-07",
+          "2019-08-08",
+          "2019-08-09",
+          "2019-08-12"
+        ],
+        "30c": [
+          "2019-07-15",
+          "2019-07-16",
+          "2019-07-17",
+          "2019-07-18",
+          "2019-07-19",
+          "2019-07-22",
+          "2019-07-23",
+          "2019-07-24",
+          "2019-07-25",
+          "2019-07-26",
+          "2019-07-29",
+          "2019-07-30",
+          "2019-07-31",
+          "2019-08-01",
+          "2019-08-02",
+          "2019-08-05",
+          "2019-08-06",
+          "2019-08-07",
+          "2019-08-08",
+          "2019-08-09",
+          "2019-08-12"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2019-08-12",
+        "2019-08-13"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2019-08-12",
+      "signed_log_return_adjustments": [
+        0.0003641925345850558,
+        -0.0003641925345850558
+      ],
+      "source_discrepancy_classification": "INDEPENDENTLY_EXPLAINED_REQUIRES_METHODOLOGICAL_DECISION",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    },
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 21
+      },
+      "affected_origins": {
+        "21t": [
+          "2020-04-09",
+          "2020-04-13",
+          "2020-04-14",
+          "2020-04-15",
+          "2020-04-16",
+          "2020-04-17",
+          "2020-04-20",
+          "2020-04-21",
+          "2020-04-22",
+          "2020-04-23",
+          "2020-04-24",
+          "2020-04-27",
+          "2020-04-28",
+          "2020-04-29",
+          "2020-04-30",
+          "2020-05-01",
+          "2020-05-04",
+          "2020-05-05",
+          "2020-05-06",
+          "2020-05-07",
+          "2020-05-08",
+          "2020-05-11"
+        ],
+        "30c": [
+          "2020-04-13",
+          "2020-04-14",
+          "2020-04-15",
+          "2020-04-16",
+          "2020-04-17",
+          "2020-04-20",
+          "2020-04-21",
+          "2020-04-22",
+          "2020-04-23",
+          "2020-04-24",
+          "2020-04-27",
+          "2020-04-28",
+          "2020-04-29",
+          "2020-04-30",
+          "2020-05-01",
+          "2020-05-04",
+          "2020-05-05",
+          "2020-05-06",
+          "2020-05-07",
+          "2020-05-08",
+          "2020-05-11"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2020-05-11",
+        "2020-05-12"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2020-05-11",
+      "signed_log_return_adjustments": [
+        4.4384874808001674e-05,
+        -4.4384874808001674e-05
+      ],
+      "source_discrepancy_classification": "UNRESOLVED_BUT_DOCUMENTED",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    },
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 22
+      },
+      "affected_origins": {
+        "21t": [
+          "2018-10-30",
+          "2018-10-31",
+          "2018-11-01",
+          "2018-11-02",
+          "2018-11-05",
+          "2018-11-06",
+          "2018-11-07",
+          "2018-11-08",
+          "2018-11-09",
+          "2018-11-12",
+          "2018-11-13",
+          "2018-11-14",
+          "2018-11-15",
+          "2018-11-16",
+          "2018-11-19",
+          "2018-11-20",
+          "2018-11-21",
+          "2018-11-23",
+          "2018-11-26",
+          "2018-11-27",
+          "2018-11-28",
+          "2018-11-29"
+        ],
+        "30c": [
+          "2018-10-30",
+          "2018-10-31",
+          "2018-11-01",
+          "2018-11-02",
+          "2018-11-05",
+          "2018-11-06",
+          "2018-11-07",
+          "2018-11-08",
+          "2018-11-09",
+          "2018-11-12",
+          "2018-11-13",
+          "2018-11-14",
+          "2018-11-15",
+          "2018-11-16",
+          "2018-11-19",
+          "2018-11-20",
+          "2018-11-21",
+          "2018-11-23",
+          "2018-11-26",
+          "2018-11-27",
+          "2018-11-28",
+          "2018-11-29"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2018-11-29",
+        "2018-11-30"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2018-11-29",
+      "signed_log_return_adjustments": [
+        -1.4628275333333647e-05,
+        1.4628275333333647e-05
+      ],
+      "source_discrepancy_classification": "UNRESOLVED_BUT_DOCUMENTED",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    },
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 20
+      },
+      "affected_origins": {
+        "21t": [
+          "2020-09-03",
+          "2020-09-04",
+          "2020-09-08",
+          "2020-09-09",
+          "2020-09-10",
+          "2020-09-11",
+          "2020-09-14",
+          "2020-09-15",
+          "2020-09-16",
+          "2020-09-17",
+          "2020-09-18",
+          "2020-09-21",
+          "2020-09-22",
+          "2020-09-23",
+          "2020-09-24",
+          "2020-09-25",
+          "2020-09-28",
+          "2020-09-29",
+          "2020-09-30",
+          "2020-10-01",
+          "2020-10-02",
+          "2020-10-05"
+        ],
+        "30c": [
+          "2020-09-08",
+          "2020-09-09",
+          "2020-09-10",
+          "2020-09-11",
+          "2020-09-14",
+          "2020-09-15",
+          "2020-09-16",
+          "2020-09-17",
+          "2020-09-18",
+          "2020-09-21",
+          "2020-09-22",
+          "2020-09-23",
+          "2020-09-24",
+          "2020-09-25",
+          "2020-09-28",
+          "2020-09-29",
+          "2020-09-30",
+          "2020-10-01",
+          "2020-10-02",
+          "2020-10-05"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2020-10-05",
+        "2020-10-06"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2020-10-05",
+      "signed_log_return_adjustments": [
+        8.772477845288932e-06,
+        -8.772477845288932e-06
+      ],
+      "source_discrepancy_classification": "UNRESOLVED_BUT_DOCUMENTED",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    },
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 22
+      },
+      "affected_origins": {
+        "21t": [
+          "2020-09-02",
+          "2020-09-03",
+          "2020-09-04",
+          "2020-09-08",
+          "2020-09-09",
+          "2020-09-10",
+          "2020-09-11",
+          "2020-09-14",
+          "2020-09-15",
+          "2020-09-16",
+          "2020-09-17",
+          "2020-09-18",
+          "2020-09-21",
+          "2020-09-22",
+          "2020-09-23",
+          "2020-09-24",
+          "2020-09-25",
+          "2020-09-28",
+          "2020-09-29",
+          "2020-09-30",
+          "2020-10-01",
+          "2020-10-02"
+        ],
+        "30c": [
+          "2020-09-02",
+          "2020-09-03",
+          "2020-09-04",
+          "2020-09-08",
+          "2020-09-09",
+          "2020-09-10",
+          "2020-09-11",
+          "2020-09-14",
+          "2020-09-15",
+          "2020-09-16",
+          "2020-09-17",
+          "2020-09-18",
+          "2020-09-21",
+          "2020-09-22",
+          "2020-09-23",
+          "2020-09-24",
+          "2020-09-25",
+          "2020-09-28",
+          "2020-09-29",
+          "2020-09-30",
+          "2020-10-01",
+          "2020-10-02"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2020-10-02",
+        "2020-10-05"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2020-10-02",
+      "signed_log_return_adjustments": [
+        5.996243085289107e-06,
+        -5.996243085289107e-06
+      ],
+      "source_discrepancy_classification": "UNRESOLVED_BUT_DOCUMENTED",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    },
+    {
+      "affected_origin_counts": {
+        "21t": 22,
+        "30c": 21
+      },
+      "affected_origins": {
+        "21t": [
+          "2020-09-04",
+          "2020-09-08",
+          "2020-09-09",
+          "2020-09-10",
+          "2020-09-11",
+          "2020-09-14",
+          "2020-09-15",
+          "2020-09-16",
+          "2020-09-17",
+          "2020-09-18",
+          "2020-09-21",
+          "2020-09-22",
+          "2020-09-23",
+          "2020-09-24",
+          "2020-09-25",
+          "2020-09-28",
+          "2020-09-29",
+          "2020-09-30",
+          "2020-10-01",
+          "2020-10-02",
+          "2020-10-05",
+          "2020-10-06"
+        ],
+        "30c": [
+          "2020-09-08",
+          "2020-09-09",
+          "2020-09-10",
+          "2020-09-11",
+          "2020-09-14",
+          "2020-09-15",
+          "2020-09-16",
+          "2020-09-17",
+          "2020-09-18",
+          "2020-09-21",
+          "2020-09-22",
+          "2020-09-23",
+          "2020-09-24",
+          "2020-09-25",
+          "2020-09-28",
+          "2020-09-29",
+          "2020-09-30",
+          "2020-10-01",
+          "2020-10-02",
+          "2020-10-05",
+          "2020-10-06"
+        ]
+      },
+      "affected_return_end_dates": [
+        "2020-10-06",
+        "2020-10-07"
+      ],
+      "combined_corrections_note": "Adjacent proposed close changes can affect the same return; combine signed adjustments before squaring, never add single-correction squared impacts blindly.",
+      "correction_date": "2020-10-06",
+      "signed_log_return_adjustments": [
+        -5.9420522965053915e-06,
+        5.9420522965053915e-06
+      ],
+      "source_discrepancy_classification": "UNRESOLVED_BUT_DOCUMENTED",
+      "status": "HYPOTHETICAL_ONLY_NO_SOURCE_CORRECTION",
+      "variance_change_formula": "For included affected returns: (r+delta)^2-r^2 = 2*r*delta+delta^2; multiply by locked horizon annualizer. No target value computed."
+    }
+  ],
+  "limitations": [
+    "Holiday options trading schedules do not prove the timestamp of CSV CLOSE for each date.",
+    "FRED VIXCLS is Cboe-sourced republication, not an independent calculation or authorized source substitute.",
+    "Only 2019-08-12 has an independently verified correction explanation; source choice remains unapproved.",
+    "Signed return changes are diagnostic counterfactuals; no empirical RVAR/VRP, H1-H5 or GARCH output generated."
+  ],
+  "missing_date_publication_checks": [
+    {
+      "date": "1991-03-01",
+      "finite_positive_close": false,
+      "row_present": true
+    },
+    {
+      "date": "1997-01-31",
+      "finite_positive_close": false,
+      "row_present": true
+    },
+    {
+      "date": "1997-11-26",
+      "finite_positive_close": false,
+      "row_present": true
+    },
+    {
+      "date": "1999-12-31",
+      "finite_positive_close": true,
+      "row_present": true
+    }
+  ],
+  "non_session_publication_diagnostics": [
+    {
+      "classification": "OFFICIAL_FULL_CLOSURE_PUBLICATION_VALUE_UNEXPLAINED",
+      "date": "2004-06-11",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": true
+    },
+    {
+      "classification": "GTH_TRADING_DOCUMENTED_CSV_TIMESTAMP_UNCONFIRMED",
+      "date": "2022-05-30",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2022-06-20",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2022-07-04",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2022-09-05",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2022-11-24",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-01-16",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-02-20",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-05-29",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-06-19",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-07-04",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-09-04",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2023-11-23",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-01-15",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-02-19",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-05-27",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-06-19",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-07-04",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-09-02",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2024-11-28",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "GTH_TRADING_DOCUMENTED_CSV_TIMESTAMP_UNCONFIRMED",
+      "date": "2025-01-09",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-01-20",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-02-17",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-05-26",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-06-19",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-07-04",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-09-01",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    },
+    {
+      "classification": "HOLIDAY_PATTERN_GTH_EXPLANATION_PLAUSIBLE_NOT_INDIVIDUALLY_CONFIRMED",
+      "date": "2025-11-27",
+      "predictor_eligible": false,
+      "same_close_as_previous_provider_row": false
+    }
+  ],
+  "notice_manifest_sha256": "941c5eca9d2188ff66d632f87c293b7f889856458a4f48e3341336f65eb00472",
+  "notice_sources": [
+    {
+      "bytes": 120113,
+      "name": "memorial_2022.pdf",
+      "relative_path": "2026-10-13T150635Z/notices/memorial_2022.pdf",
+      "sha256": "0fae517b3d8ceda1db4d99e3c99d9b2824c3982e37fbdeb26cb6a926c2808104",
+      "source_url": "https://cdn.cboe.com/resources/schedule_update/2022/Cboe-Holiday-Reminder-Closed-on-Monday-May-30-2022.pdf"
+    },
+    {
+      "bytes": 115210,
+      "name": "mourning_2025.pdf",
+      "relative_path": "2026-10-13T150635Z/notices/mourning_2025.pdf",
+      "sha256": "ecabcf3de38b3eaa3a9c7b8a384082a66405401299fba8bc733e44061bbfc6ba",
+      "source_url": "https://cdn.cboe.com/resources/schedule_update/2025/Update-Cboe-to-Observe-National-Day-of-Mourning-on-Thursday-January-9-2025.pdf"
+    },
+    {
+      "bytes": 24098,
+      "name": "mourning_2004.pdf",
+      "relative_path": "2026-10-13T150635Z/notices/mourning_2004.pdf",
+      "sha256": "15cbdec8b2bbe881e3458d33763ed26830bd9f7a6faa0b853fbd982a01ed5c2f",
+      "source_url": "https://cdn.cboe.com/resources/regulation/circulars/regulatory/RG04-69.pdf"
+    }
+  ],
+  "production_targets_or_hypothesis_tests_run": false,
+  "protocol_version": "1.1.0",
+  "purpose": "Source validity / origin eligibility and hypothetical SPX correction footprint; no source correction or RVAR computation",
+  "source_data_hashes": {
+    "spx": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+    "vix_normalized": "10b2faa178208d7553f96597b40e63807668af77b3f8242f73afb8b8a40b0f94",
+    "vix_raw": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7"
+  }
+}

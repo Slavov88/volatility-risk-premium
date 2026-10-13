@@ -20,3 +20,9 @@ At minimum record:
 - any licensing/redistribution note.
 
 Raw files referenced by these hashes remain local under `data/raw/`.
+
+The 2026-10-13 interim manifests additionally record communicated
+authorization, the one expressly authorized archival insertion (date/value/
+cell), source-code/commit identities and derived output hashes. Target audit,
+descriptive aggregates and alternate-close sensitivity metadata contain no
+raw market-price rows. Independent scientific acceptance remains pending.

@@ -1,0 +1,386 @@
+{
+  "approval_status": "CANDIDATE_UNAPPROVED",
+  "calendar": {
+    "library_version": "4.13.2",
+    "name": "XNYS"
+  },
+  "confirmatory_execution_allowed": false,
+  "contract_version": "vix-close-candidate/1.0.0",
+  "coverage": {
+    "from_2003_01_01_boundary_review": {
+      "available": 5787,
+      "expected": 5787,
+      "missing": [],
+      "start_inclusive": "2003-01-01"
+    },
+    "full_sample": {
+      "available": 9063,
+      "expected": 9067,
+      "missing": [
+        "1991-03-01",
+        "1997-01-31",
+        "1997-11-26",
+        "1999-12-31"
+      ],
+      "start_inclusive": "1990-01-02"
+    },
+    "oos_from_2007": {
+      "available": 4780,
+      "expected": 4780,
+      "missing": [],
+      "start_inclusive": "2007-01-01"
+    },
+    "post_2003_calendar_year_proposed": {
+      "available": 5535,
+      "expected": 5535,
+      "missing": [],
+      "start_inclusive": "2004-01-01"
+    },
+    "post_2014_10_06": {
+      "available": 2827,
+      "expected": 2827,
+      "missing": [],
+      "start_inclusive": "2014-10-06"
+    }
+  },
+  "dataset": "Candidate SPX / VIX CLOSE predictor origins",
+  "implementation_sha256": "36777fcfdc6bf7de556dd99655a353cc17766311a29ba7aed2dfe32f534df5e2",
+  "original_vix_acquisition_accepted": false,
+  "original_vix_strict_quality": {
+    "accepted": false,
+    "expected_session_count": 9067,
+    "missing_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "missing_sessions": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "nonpositive_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "observed_session_count": 9091,
+    "ohlc_order_violations": 47,
+    "unexpected_sessions": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ]
+  },
+  "outputs": {
+    "candidate_origin_panel.csv": {
+      "bytes": 807620,
+      "relative_path": "candidates/ad54efed0d346f17/candidate_origin_panel.csv",
+      "rows": 9063,
+      "sha256": "3a0f110988728dd82e571c318749aa852b0d32dc2f915bd9cbdbcecf11261384"
+    },
+    "candidate_vix_close.csv": {
+      "bytes": 224357,
+      "relative_path": "candidates/ad54efed0d346f17/candidate_vix_close.csv",
+      "rows": 9063,
+      "sha256": "9f8790dcafd695b9d59a6cbb97189a3490ef7255c4cdf82a715ec1f945138f60"
+    }
+  },
+  "protocol_version": "1.1.0",
+  "purpose": "inspection only; no RVAR, VRP or hypothesis outputs",
+  "row_losses": {
+    "common_origins": 9063,
+    "missing_vix_on_spx": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "spx_origin_candidates": 9067,
+    "vix_rows_in_sample": 9063,
+    "vix_without_spx": []
+  },
+  "schema_version": 1,
+  "source_artifacts": {
+    "spx": {
+      "artifact_type": "immutable normalized acquisition snapshot",
+      "bytes": 726983,
+      "coverage_end": "2026-02-02",
+      "coverage_start": "1990-01-02",
+      "missing_values": {
+        "Adj Close": 0,
+        "Close": 0,
+        "High": 0,
+        "Low": 0,
+        "Open": 0,
+        "Volume": 0
+      },
+      "persisted_columns": [
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Adj Close",
+        "Volume"
+      ],
+      "provider": "Yahoo Finance via yfinance",
+      "provider_response_persisted": false,
+      "relative_path": "2026-10-13T142430Z/yahoo/gspc_ohlc_unadjusted.csv",
+      "request_parameters": {
+        "actions": false,
+        "auto_adjust": false,
+        "end": "2026-02-03",
+        "group_by": "column",
+        "interval": "1d",
+        "keepna": true,
+        "multi_level_index": false,
+        "prepost": false,
+        "progress": false,
+        "repair": false,
+        "start": "1990-01-02",
+        "threads": false,
+        "tickers": "^GSPC"
+      },
+      "row_count": 9088,
+      "sha256": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+      "source_page": "https://finance.yahoo.com/quote/%5EGSPC/history/",
+      "symbol": "^GSPC",
+      "yfinance_version": "1.5.2"
+    },
+    "vix_normalized": {
+      "columns": [
+        "Date",
+        "OPEN",
+        "HIGH",
+        "LOW",
+        "CLOSE"
+      ],
+      "coverage_end": "2025-12-31",
+      "coverage_start": "1990-01-02",
+      "relative_path": "2026-10-13T142430Z/cboe/vix_frozen_normalized.csv",
+      "row_count": 9091,
+      "sha256": "10b2faa178208d7553f96597b40e63807668af77b3f8242f73afb8b8a40b0f94"
+    },
+    "vix_raw": {
+      "bytes": 473635,
+      "relative_path": "2026-10-13T142430Z/cboe/VIX_History.csv",
+      "sha256": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7"
+    }
+  },
+  "source_manifests": {
+    "spx": {
+      "relative_path": "2026-10-13T142430Z/gspc_manifest.json",
+      "sha256": "29bb559550a8470b1b8c034cf752b8bd3919b2585069ed27d252ddc2bb6873a5"
+    },
+    "vix": {
+      "relative_path": "2026-10-13T142430Z/vix_manifest.json",
+      "sha256": "68c11d8fe5a9f454761a898b1bd6bdee499c7a55b30ce370ec28549fc8805d92"
+    }
+  },
+  "spx_outcome_support": {
+    "policy": "all original SPX observations retained for later outcome construction; no returns computed",
+    "post_cutoff_rows": 21,
+    "preserved_source_rows": 9088,
+    "removed_rows": 0
+  },
+  "validation": {
+    "approval_status": "CANDIDATE_UNAPPROVED",
+    "available_eligible_closes": 9063,
+    "contract_version": "vix-close-candidate/1.0.0",
+    "expected_eligible_origins": 9067,
+    "fill_or_stitch_count": 0,
+    "input_rows": 9091,
+    "missing_oos_origins": [],
+    "missing_origins_by_year": {
+      "1991": 1,
+      "1997": 2,
+      "1999": 1
+    },
+    "missing_predictor_origins": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "non_session_exclusions_by_year": {
+      "2004": 1,
+      "2022": 5,
+      "2023": 7,
+      "2024": 7,
+      "2025": 8
+    },
+    "outside_origin_window_dates": [],
+    "outside_window_exclusions_by_year": {},
+    "rejected_non_session_dates": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ],
+    "retained_close_invalid_count": 0,
+    "retained_close_range_violation_count": 0,
+    "retention_rule": "XNYS origins in frozen window with original finite positive CLOSE; missing origins excluded only",
+    "source_ohlc_diagnostics": {
+      "categories": {
+        "high_below_close": [],
+        "high_below_low": [],
+        "high_below_open": [
+          "1992-02-11",
+          "1992-02-19",
+          "1992-08-27",
+          "1992-11-09",
+          "1992-11-20",
+          "1992-12-21",
+          "1993-03-19",
+          "1993-04-28",
+          "1993-09-15",
+          "1993-10-15",
+          "1993-10-29",
+          "1993-11-23",
+          "1993-11-24",
+          "1994-01-05",
+          "1994-02-23",
+          "1996-01-08",
+          "1998-11-20",
+          "2002-09-11",
+          "2004-10-26",
+          "2006-02-08"
+        ],
+        "low_above_close": [],
+        "low_above_open": [
+          "1992-08-24",
+          "1992-09-16",
+          "1992-10-09",
+          "1992-12-09",
+          "1992-12-23",
+          "1993-04-19",
+          "1993-06-01",
+          "1993-07-13",
+          "1993-07-14",
+          "1993-10-27",
+          "1993-11-30",
+          "1994-01-31",
+          "1994-02-07",
+          "1994-03-08",
+          "1994-03-10",
+          "1994-03-14",
+          "1994-04-04",
+          "1994-09-20",
+          "1994-12-19",
+          "1995-02-21",
+          "1995-10-10",
+          "1996-02-13",
+          "1996-04-08",
+          "1998-01-12",
+          "1998-04-27",
+          "1999-04-01",
+          "2004-11-08"
+        ]
+      },
+      "dates": [
+        "1992-02-11",
+        "1992-02-19",
+        "1992-08-24",
+        "1992-08-27",
+        "1992-09-16",
+        "1992-10-09",
+        "1992-11-09",
+        "1992-11-20",
+        "1992-12-09",
+        "1992-12-21",
+        "1992-12-23",
+        "1993-03-19",
+        "1993-04-19",
+        "1993-04-28",
+        "1993-06-01",
+        "1993-07-13",
+        "1993-07-14",
+        "1993-09-15",
+        "1993-10-15",
+        "1993-10-27",
+        "1993-10-29",
+        "1993-11-23",
+        "1993-11-24",
+        "1993-11-30",
+        "1994-01-05",
+        "1994-01-31",
+        "1994-02-07",
+        "1994-02-23",
+        "1994-03-08",
+        "1994-03-10",
+        "1994-03-14",
+        "1994-04-04",
+        "1994-09-20",
+        "1994-12-19",
+        "1995-02-21",
+        "1995-10-10",
+        "1996-01-08",
+        "1996-02-13",
+        "1996-04-08",
+        "1998-01-12",
+        "1998-04-27",
+        "1998-11-20",
+        "1999-04-01",
+        "2002-09-11",
+        "2004-10-26",
+        "2004-11-08",
+        "2006-02-08"
+      ],
+      "row_count": 47
+    },
+    "unavailable_high_or_low_dates": []
+  }
+}

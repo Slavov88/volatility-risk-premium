@@ -1,0 +1,145 @@
+{
+  "dataset": "S&P 500 price index daily OHLC",
+  "exchange_calendar": {
+    "expected_session_count": 9088,
+    "library": "exchange-calendars",
+    "library_version": "4.13.2",
+    "name": "XNYS"
+  },
+  "fred_close_validation": {
+    "bytes": 45525,
+    "correction_policy": "report only; never overwrite Yahoo",
+    "relative_path": "2026-10-13T142430Z/fred/sp500_close.csv",
+    "sha256": "4590145f9ed88e20b41bc1325fa7c538e7532e8b1289dac4b801b216c9bd77e6",
+    "status": "available",
+    "validation": {
+      "discrepancy_count": 7,
+      "discrepancy_sample": [
+        {
+          "absolute_difference": 5.289999999999964,
+          "date": "2021-08-11"
+        },
+        {
+          "absolute_difference": 1.050000000000182,
+          "date": "2019-08-12"
+        },
+        {
+          "absolute_difference": 0.13000000000010914,
+          "date": "2020-05-11"
+        },
+        {
+          "absolute_difference": 0.03999999999996362,
+          "date": "2018-11-29"
+        },
+        {
+          "absolute_difference": 0.03000000000020009,
+          "date": "2020-10-05"
+        },
+        {
+          "absolute_difference": 0.01999999999998181,
+          "date": "2020-10-02"
+        },
+        {
+          "absolute_difference": 0.01999999999998181,
+          "date": "2020-10-06"
+        }
+      ],
+      "fred_coverage_end": "2026-02-02",
+      "fred_coverage_start": "2016-10-13",
+      "fred_missing_close": 90,
+      "fred_row_count": 2428,
+      "fred_source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500&cosd=1990-01-02&coed=2026-02-02",
+      "maximum_absolute_difference": 5.289999999999964,
+      "mean_absolute_difference": 0.0028229255774165564,
+      "overlap_end": "2026-02-02",
+      "overlap_row_count": 2338,
+      "overlap_start": "2016-10-13",
+      "tolerance_index_points": 0.01,
+      "within_tolerance_count": 2331
+    }
+  },
+  "frozen_window": {
+    "current_day_policy": "reject any bar dated on or after retrieval's New York date",
+    "end_exclusive": "2026-02-03",
+    "start_inclusive": "1990-01-02"
+  },
+  "index_source": {
+    "canonical_provider": "Yahoo Finance",
+    "symbol": "^GSPC",
+    "validation_is_non_blocking": true
+  },
+  "production_quality": {
+    "accepted": true,
+    "expected_session_count": 9088,
+    "missing_required_values": {
+      "Close": 0,
+      "High": 0,
+      "Low": 0,
+      "Open": 0
+    },
+    "missing_sessions": [],
+    "nonpositive_required_values": {
+      "Close": 0,
+      "High": 0,
+      "Low": 0,
+      "Open": 0
+    },
+    "observed_session_count": 9088,
+    "ohlc_order_violations": 0,
+    "unexpected_sessions": []
+  },
+  "redistribution_note": "Acquisition artifacts are ignored by Git; review provider terms.",
+  "research_scope": "Exact-index acquisition and quality assessment only; no realized-variance calculation",
+  "retrieved_at_utc": "2026-10-13T14:24:30.131093+00:00",
+  "schema_version": 4,
+  "transport": {
+    "note": "default library TLS configuration; no verification override requested",
+    "verification_override_requested": false
+  },
+  "yahoo": {
+    "artifact_type": "immutable normalized acquisition snapshot",
+    "bytes": 726983,
+    "coverage_end": "2026-02-02",
+    "coverage_start": "1990-01-02",
+    "missing_values": {
+      "Adj Close": 0,
+      "Close": 0,
+      "High": 0,
+      "Low": 0,
+      "Open": 0,
+      "Volume": 0
+    },
+    "persisted_columns": [
+      "Date",
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Adj Close",
+      "Volume"
+    ],
+    "provider": "Yahoo Finance via yfinance",
+    "provider_response_persisted": false,
+    "relative_path": "2026-10-13T142430Z/yahoo/gspc_ohlc_unadjusted.csv",
+    "request_parameters": {
+      "actions": false,
+      "auto_adjust": false,
+      "end": "2026-02-03",
+      "group_by": "column",
+      "interval": "1d",
+      "keepna": true,
+      "multi_level_index": false,
+      "prepost": false,
+      "progress": false,
+      "repair": false,
+      "start": "1990-01-02",
+      "threads": false,
+      "tickers": "^GSPC"
+    },
+    "row_count": 9088,
+    "sha256": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+    "source_page": "https://finance.yahoo.com/quote/%5EGSPC/history/",
+    "symbol": "^GSPC",
+    "yfinance_version": "1.5.2"
+  }
+}

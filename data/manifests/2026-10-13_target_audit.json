@@ -1,0 +1,56 @@
+{
+  "checks": [
+    "source preservation",
+    "all SPX returns before VIX masking",
+    "all expected XNYS sessions",
+    "no same-origin return",
+    "no 2026 origins",
+    "six independent numpy formulas",
+    "annualization and variance units",
+    "premium sign and volatility square root",
+    "exact endpoints",
+    "explicit incomplete-target missingness",
+    "unchanged predictors"
+  ],
+  "counts": {
+    "cc_21t": {
+      "complete": 9064,
+      "missing": 0
+    },
+    "cc_30c": {
+      "complete": 9064,
+      "missing": 0
+    },
+    "gk_21t": {
+      "complete": 9064,
+      "missing": 0
+    },
+    "gk_30c": {
+      "complete": 9064,
+      "missing": 0
+    },
+    "parkinson_21t": {
+      "complete": 9064,
+      "missing": 0
+    },
+    "parkinson_30c": {
+      "complete": 9064,
+      "missing": 0
+    }
+  },
+  "first_price_return": "UNAVAILABLE_NO_PREVIOUS_PRICE",
+  "forecast_ranking_executed": false,
+  "inference_executed": false,
+  "max_independent_rvar_absolute_error": 2.220446049250313e-16,
+  "origin_count": 9064,
+  "post_2025_support_rows": 21,
+  "return_count": 9087,
+  "review_status": "PROVISIONAL / NOT INDEPENDENTLY ACCEPTED",
+  "spx_rows_preserved": 9088,
+  "status": "PASSED_ALL_ORIGINS_ALL_SIX_TARGETS",
+  "target_session_count_30c_range": [
+    15,
+    22
+  ],
+  "target_version": "complete-forward-targets/1.0.0"
+}

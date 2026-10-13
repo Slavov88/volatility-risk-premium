@@ -1,0 +1,2194 @@
+{
+  "chronology_role": "ex-post, never a predictor; current-vintage labels may be revised",
+  "episodes": [
+    {
+      "peak": "1990-07",
+      "trough": "1991-03"
+    },
+    {
+      "peak": "2001-03",
+      "trough": "2001-11"
+    },
+    {
+      "peak": "2007-12",
+      "trough": "2009-06"
+    },
+    {
+      "peak": "2020-02",
+      "trough": "2020-04"
+    }
+  ],
+  "monthly_flags": [
+    {
+      "date": "1990-01-01",
+      "month": "1990-01",
+      "recession": 0
+    },
+    {
+      "date": "1990-02-01",
+      "month": "1990-02",
+      "recession": 0
+    },
+    {
+      "date": "1990-03-01",
+      "month": "1990-03",
+      "recession": 0
+    },
+    {
+      "date": "1990-04-01",
+      "month": "1990-04",
+      "recession": 0
+    },
+    {
+      "date": "1990-05-01",
+      "month": "1990-05",
+      "recession": 0
+    },
+    {
+      "date": "1990-06-01",
+      "month": "1990-06",
+      "recession": 0
+    },
+    {
+      "date": "1990-07-01",
+      "month": "1990-07",
+      "recession": 0
+    },
+    {
+      "date": "1990-08-01",
+      "month": "1990-08",
+      "recession": 1
+    },
+    {
+      "date": "1990-09-01",
+      "month": "1990-09",
+      "recession": 1
+    },
+    {
+      "date": "1990-10-01",
+      "month": "1990-10",
+      "recession": 1
+    },
+    {
+      "date": "1990-11-01",
+      "month": "1990-11",
+      "recession": 1
+    },
+    {
+      "date": "1990-12-01",
+      "month": "1990-12",
+      "recession": 1
+    },
+    {
+      "date": "1991-01-01",
+      "month": "1991-01",
+      "recession": 1
+    },
+    {
+      "date": "1991-02-01",
+      "month": "1991-02",
+      "recession": 1
+    },
+    {
+      "date": "1991-03-01",
+      "month": "1991-03",
+      "recession": 1
+    },
+    {
+      "date": "1991-04-01",
+      "month": "1991-04",
+      "recession": 0
+    },
+    {
+      "date": "1991-05-01",
+      "month": "1991-05",
+      "recession": 0
+    },
+    {
+      "date": "1991-06-01",
+      "month": "1991-06",
+      "recession": 0
+    },
+    {
+      "date": "1991-07-01",
+      "month": "1991-07",
+      "recession": 0
+    },
+    {
+      "date": "1991-08-01",
+      "month": "1991-08",
+      "recession": 0
+    },
+    {
+      "date": "1991-09-01",
+      "month": "1991-09",
+      "recession": 0
+    },
+    {
+      "date": "1991-10-01",
+      "month": "1991-10",
+      "recession": 0
+    },
+    {
+      "date": "1991-11-01",
+      "month": "1991-11",
+      "recession": 0
+    },
+    {
+      "date": "1991-12-01",
+      "month": "1991-12",
+      "recession": 0
+    },
+    {
+      "date": "1992-01-01",
+      "month": "1992-01",
+      "recession": 0
+    },
+    {
+      "date": "1992-02-01",
+      "month": "1992-02",
+      "recession": 0
+    },
+    {
+      "date": "1992-03-01",
+      "month": "1992-03",
+      "recession": 0
+    },
+    {
+      "date": "1992-04-01",
+      "month": "1992-04",
+      "recession": 0
+    },
+    {
+      "date": "1992-05-01",
+      "month": "1992-05",
+      "recession": 0
+    },
+    {
+      "date": "1992-06-01",
+      "month": "1992-06",
+      "recession": 0
+    },
+    {
+      "date": "1992-07-01",
+      "month": "1992-07",
+      "recession": 0
+    },
+    {
+      "date": "1992-08-01",
+      "month": "1992-08",
+      "recession": 0
+    },
+    {
+      "date": "1992-09-01",
+      "month": "1992-09",
+      "recession": 0
+    },
+    {
+      "date": "1992-10-01",
+      "month": "1992-10",
+      "recession": 0
+    },
+    {
+      "date": "1992-11-01",
+      "month": "1992-11",
+      "recession": 0
+    },
+    {
+      "date": "1992-12-01",
+      "month": "1992-12",
+      "recession": 0
+    },
+    {
+      "date": "1993-01-01",
+      "month": "1993-01",
+      "recession": 0
+    },
+    {
+      "date": "1993-02-01",
+      "month": "1993-02",
+      "recession": 0
+    },
+    {
+      "date": "1993-03-01",
+      "month": "1993-03",
+      "recession": 0
+    },
+    {
+      "date": "1993-04-01",
+      "month": "1993-04",
+      "recession": 0
+    },
+    {
+      "date": "1993-05-01",
+      "month": "1993-05",
+      "recession": 0
+    },
+    {
+      "date": "1993-06-01",
+      "month": "1993-06",
+      "recession": 0
+    },
+    {
+      "date": "1993-07-01",
+      "month": "1993-07",
+      "recession": 0
+    },
+    {
+      "date": "1993-08-01",
+      "month": "1993-08",
+      "recession": 0
+    },
+    {
+      "date": "1993-09-01",
+      "month": "1993-09",
+      "recession": 0
+    },
+    {
+      "date": "1993-10-01",
+      "month": "1993-10",
+      "recession": 0
+    },
+    {
+      "date": "1993-11-01",
+      "month": "1993-11",
+      "recession": 0
+    },
+    {
+      "date": "1993-12-01",
+      "month": "1993-12",
+      "recession": 0
+    },
+    {
+      "date": "1994-01-01",
+      "month": "1994-01",
+      "recession": 0
+    },
+    {
+      "date": "1994-02-01",
+      "month": "1994-02",
+      "recession": 0
+    },
+    {
+      "date": "1994-03-01",
+      "month": "1994-03",
+      "recession": 0
+    },
+    {
+      "date": "1994-04-01",
+      "month": "1994-04",
+      "recession": 0
+    },
+    {
+      "date": "1994-05-01",
+      "month": "1994-05",
+      "recession": 0
+    },
+    {
+      "date": "1994-06-01",
+      "month": "1994-06",
+      "recession": 0
+    },
+    {
+      "date": "1994-07-01",
+      "month": "1994-07",
+      "recession": 0
+    },
+    {
+      "date": "1994-08-01",
+      "month": "1994-08",
+      "recession": 0
+    },
+    {
+      "date": "1994-09-01",
+      "month": "1994-09",
+      "recession": 0
+    },
+    {
+      "date": "1994-10-01",
+      "month": "1994-10",
+      "recession": 0
+    },
+    {
+      "date": "1994-11-01",
+      "month": "1994-11",
+      "recession": 0
+    },
+    {
+      "date": "1994-12-01",
+      "month": "1994-12",
+      "recession": 0
+    },
+    {
+      "date": "1995-01-01",
+      "month": "1995-01",
+      "recession": 0
+    },
+    {
+      "date": "1995-02-01",
+      "month": "1995-02",
+      "recession": 0
+    },
+    {
+      "date": "1995-03-01",
+      "month": "1995-03",
+      "recession": 0
+    },
+    {
+      "date": "1995-04-01",
+      "month": "1995-04",
+      "recession": 0
+    },
+    {
+      "date": "1995-05-01",
+      "month": "1995-05",
+      "recession": 0
+    },
+    {
+      "date": "1995-06-01",
+      "month": "1995-06",
+      "recession": 0
+    },
+    {
+      "date": "1995-07-01",
+      "month": "1995-07",
+      "recession": 0
+    },
+    {
+      "date": "1995-08-01",
+      "month": "1995-08",
+      "recession": 0
+    },
+    {
+      "date": "1995-09-01",
+      "month": "1995-09",
+      "recession": 0
+    },
+    {
+      "date": "1995-10-01",
+      "month": "1995-10",
+      "recession": 0
+    },
+    {
+      "date": "1995-11-01",
+      "month": "1995-11",
+      "recession": 0
+    },
+    {
+      "date": "1995-12-01",
+      "month": "1995-12",
+      "recession": 0
+    },
+    {
+      "date": "1996-01-01",
+      "month": "1996-01",
+      "recession": 0
+    },
+    {
+      "date": "1996-02-01",
+      "month": "1996-02",
+      "recession": 0
+    },
+    {
+      "date": "1996-03-01",
+      "month": "1996-03",
+      "recession": 0
+    },
+    {
+      "date": "1996-04-01",
+      "month": "1996-04",
+      "recession": 0
+    },
+    {
+      "date": "1996-05-01",
+      "month": "1996-05",
+      "recession": 0
+    },
+    {
+      "date": "1996-06-01",
+      "month": "1996-06",
+      "recession": 0
+    },
+    {
+      "date": "1996-07-01",
+      "month": "1996-07",
+      "recession": 0
+    },
+    {
+      "date": "1996-08-01",
+      "month": "1996-08",
+      "recession": 0
+    },
+    {
+      "date": "1996-09-01",
+      "month": "1996-09",
+      "recession": 0
+    },
+    {
+      "date": "1996-10-01",
+      "month": "1996-10",
+      "recession": 0
+    },
+    {
+      "date": "1996-11-01",
+      "month": "1996-11",
+      "recession": 0
+    },
+    {
+      "date": "1996-12-01",
+      "month": "1996-12",
+      "recession": 0
+    },
+    {
+      "date": "1997-01-01",
+      "month": "1997-01",
+      "recession": 0
+    },
+    {
+      "date": "1997-02-01",
+      "month": "1997-02",
+      "recession": 0
+    },
+    {
+      "date": "1997-03-01",
+      "month": "1997-03",
+      "recession": 0
+    },
+    {
+      "date": "1997-04-01",
+      "month": "1997-04",
+      "recession": 0
+    },
+    {
+      "date": "1997-05-01",
+      "month": "1997-05",
+      "recession": 0
+    },
+    {
+      "date": "1997-06-01",
+      "month": "1997-06",
+      "recession": 0
+    },
+    {
+      "date": "1997-07-01",
+      "month": "1997-07",
+      "recession": 0
+    },
+    {
+      "date": "1997-08-01",
+      "month": "1997-08",
+      "recession": 0
+    },
+    {
+      "date": "1997-09-01",
+      "month": "1997-09",
+      "recession": 0
+    },
+    {
+      "date": "1997-10-01",
+      "month": "1997-10",
+      "recession": 0
+    },
+    {
+      "date": "1997-11-01",
+      "month": "1997-11",
+      "recession": 0
+    },
+    {
+      "date": "1997-12-01",
+      "month": "1997-12",
+      "recession": 0
+    },
+    {
+      "date": "1998-01-01",
+      "month": "1998-01",
+      "recession": 0
+    },
+    {
+      "date": "1998-02-01",
+      "month": "1998-02",
+      "recession": 0
+    },
+    {
+      "date": "1998-03-01",
+      "month": "1998-03",
+      "recession": 0
+    },
+    {
+      "date": "1998-04-01",
+      "month": "1998-04",
+      "recession": 0
+    },
+    {
+      "date": "1998-05-01",
+      "month": "1998-05",
+      "recession": 0
+    },
+    {
+      "date": "1998-06-01",
+      "month": "1998-06",
+      "recession": 0
+    },
+    {
+      "date": "1998-07-01",
+      "month": "1998-07",
+      "recession": 0
+    },
+    {
+      "date": "1998-08-01",
+      "month": "1998-08",
+      "recession": 0
+    },
+    {
+      "date": "1998-09-01",
+      "month": "1998-09",
+      "recession": 0
+    },
+    {
+      "date": "1998-10-01",
+      "month": "1998-10",
+      "recession": 0
+    },
+    {
+      "date": "1998-11-01",
+      "month": "1998-11",
+      "recession": 0
+    },
+    {
+      "date": "1998-12-01",
+      "month": "1998-12",
+      "recession": 0
+    },
+    {
+      "date": "1999-01-01",
+      "month": "1999-01",
+      "recession": 0
+    },
+    {
+      "date": "1999-02-01",
+      "month": "1999-02",
+      "recession": 0
+    },
+    {
+      "date": "1999-03-01",
+      "month": "1999-03",
+      "recession": 0
+    },
+    {
+      "date": "1999-04-01",
+      "month": "1999-04",
+      "recession": 0
+    },
+    {
+      "date": "1999-05-01",
+      "month": "1999-05",
+      "recession": 0
+    },
+    {
+      "date": "1999-06-01",
+      "month": "1999-06",
+      "recession": 0
+    },
+    {
+      "date": "1999-07-01",
+      "month": "1999-07",
+      "recession": 0
+    },
+    {
+      "date": "1999-08-01",
+      "month": "1999-08",
+      "recession": 0
+    },
+    {
+      "date": "1999-09-01",
+      "month": "1999-09",
+      "recession": 0
+    },
+    {
+      "date": "1999-10-01",
+      "month": "1999-10",
+      "recession": 0
+    },
+    {
+      "date": "1999-11-01",
+      "month": "1999-11",
+      "recession": 0
+    },
+    {
+      "date": "1999-12-01",
+      "month": "1999-12",
+      "recession": 0
+    },
+    {
+      "date": "2000-01-01",
+      "month": "2000-01",
+      "recession": 0
+    },
+    {
+      "date": "2000-02-01",
+      "month": "2000-02",
+      "recession": 0
+    },
+    {
+      "date": "2000-03-01",
+      "month": "2000-03",
+      "recession": 0
+    },
+    {
+      "date": "2000-04-01",
+      "month": "2000-04",
+      "recession": 0
+    },
+    {
+      "date": "2000-05-01",
+      "month": "2000-05",
+      "recession": 0
+    },
+    {
+      "date": "2000-06-01",
+      "month": "2000-06",
+      "recession": 0
+    },
+    {
+      "date": "2000-07-01",
+      "month": "2000-07",
+      "recession": 0
+    },
+    {
+      "date": "2000-08-01",
+      "month": "2000-08",
+      "recession": 0
+    },
+    {
+      "date": "2000-09-01",
+      "month": "2000-09",
+      "recession": 0
+    },
+    {
+      "date": "2000-10-01",
+      "month": "2000-10",
+      "recession": 0
+    },
+    {
+      "date": "2000-11-01",
+      "month": "2000-11",
+      "recession": 0
+    },
+    {
+      "date": "2000-12-01",
+      "month": "2000-12",
+      "recession": 0
+    },
+    {
+      "date": "2001-01-01",
+      "month": "2001-01",
+      "recession": 0
+    },
+    {
+      "date": "2001-02-01",
+      "month": "2001-02",
+      "recession": 0
+    },
+    {
+      "date": "2001-03-01",
+      "month": "2001-03",
+      "recession": 0
+    },
+    {
+      "date": "2001-04-01",
+      "month": "2001-04",
+      "recession": 1
+    },
+    {
+      "date": "2001-05-01",
+      "month": "2001-05",
+      "recession": 1
+    },
+    {
+      "date": "2001-06-01",
+      "month": "2001-06",
+      "recession": 1
+    },
+    {
+      "date": "2001-07-01",
+      "month": "2001-07",
+      "recession": 1
+    },
+    {
+      "date": "2001-08-01",
+      "month": "2001-08",
+      "recession": 1
+    },
+    {
+      "date": "2001-09-01",
+      "month": "2001-09",
+      "recession": 1
+    },
+    {
+      "date": "2001-10-01",
+      "month": "2001-10",
+      "recession": 1
+    },
+    {
+      "date": "2001-11-01",
+      "month": "2001-11",
+      "recession": 1
+    },
+    {
+      "date": "2001-12-01",
+      "month": "2001-12",
+      "recession": 0
+    },
+    {
+      "date": "2002-01-01",
+      "month": "2002-01",
+      "recession": 0
+    },
+    {
+      "date": "2002-02-01",
+      "month": "2002-02",
+      "recession": 0
+    },
+    {
+      "date": "2002-03-01",
+      "month": "2002-03",
+      "recession": 0
+    },
+    {
+      "date": "2002-04-01",
+      "month": "2002-04",
+      "recession": 0
+    },
+    {
+      "date": "2002-05-01",
+      "month": "2002-05",
+      "recession": 0
+    },
+    {
+      "date": "2002-06-01",
+      "month": "2002-06",
+      "recession": 0
+    },
+    {
+      "date": "2002-07-01",
+      "month": "2002-07",
+      "recession": 0
+    },
+    {
+      "date": "2002-08-01",
+      "month": "2002-08",
+      "recession": 0
+    },
+    {
+      "date": "2002-09-01",
+      "month": "2002-09",
+      "recession": 0
+    },
+    {
+      "date": "2002-10-01",
+      "month": "2002-10",
+      "recession": 0
+    },
+    {
+      "date": "2002-11-01",
+      "month": "2002-11",
+      "recession": 0
+    },
+    {
+      "date": "2002-12-01",
+      "month": "2002-12",
+      "recession": 0
+    },
+    {
+      "date": "2003-01-01",
+      "month": "2003-01",
+      "recession": 0
+    },
+    {
+      "date": "2003-02-01",
+      "month": "2003-02",
+      "recession": 0
+    },
+    {
+      "date": "2003-03-01",
+      "month": "2003-03",
+      "recession": 0
+    },
+    {
+      "date": "2003-04-01",
+      "month": "2003-04",
+      "recession": 0
+    },
+    {
+      "date": "2003-05-01",
+      "month": "2003-05",
+      "recession": 0
+    },
+    {
+      "date": "2003-06-01",
+      "month": "2003-06",
+      "recession": 0
+    },
+    {
+      "date": "2003-07-01",
+      "month": "2003-07",
+      "recession": 0
+    },
+    {
+      "date": "2003-08-01",
+      "month": "2003-08",
+      "recession": 0
+    },
+    {
+      "date": "2003-09-01",
+      "month": "2003-09",
+      "recession": 0
+    },
+    {
+      "date": "2003-10-01",
+      "month": "2003-10",
+      "recession": 0
+    },
+    {
+      "date": "2003-11-01",
+      "month": "2003-11",
+      "recession": 0
+    },
+    {
+      "date": "2003-12-01",
+      "month": "2003-12",
+      "recession": 0
+    },
+    {
+      "date": "2004-01-01",
+      "month": "2004-01",
+      "recession": 0
+    },
+    {
+      "date": "2004-02-01",
+      "month": "2004-02",
+      "recession": 0
+    },
+    {
+      "date": "2004-03-01",
+      "month": "2004-03",
+      "recession": 0
+    },
+    {
+      "date": "2004-04-01",
+      "month": "2004-04",
+      "recession": 0
+    },
+    {
+      "date": "2004-05-01",
+      "month": "2004-05",
+      "recession": 0
+    },
+    {
+      "date": "2004-06-01",
+      "month": "2004-06",
+      "recession": 0
+    },
+    {
+      "date": "2004-07-01",
+      "month": "2004-07",
+      "recession": 0
+    },
+    {
+      "date": "2004-08-01",
+      "month": "2004-08",
+      "recession": 0
+    },
+    {
+      "date": "2004-09-01",
+      "month": "2004-09",
+      "recession": 0
+    },
+    {
+      "date": "2004-10-01",
+      "month": "2004-10",
+      "recession": 0
+    },
+    {
+      "date": "2004-11-01",
+      "month": "2004-11",
+      "recession": 0
+    },
+    {
+      "date": "2004-12-01",
+      "month": "2004-12",
+      "recession": 0
+    },
+    {
+      "date": "2005-01-01",
+      "month": "2005-01",
+      "recession": 0
+    },
+    {
+      "date": "2005-02-01",
+      "month": "2005-02",
+      "recession": 0
+    },
+    {
+      "date": "2005-03-01",
+      "month": "2005-03",
+      "recession": 0
+    },
+    {
+      "date": "2005-04-01",
+      "month": "2005-04",
+      "recession": 0
+    },
+    {
+      "date": "2005-05-01",
+      "month": "2005-05",
+      "recession": 0
+    },
+    {
+      "date": "2005-06-01",
+      "month": "2005-06",
+      "recession": 0
+    },
+    {
+      "date": "2005-07-01",
+      "month": "2005-07",
+      "recession": 0
+    },
+    {
+      "date": "2005-08-01",
+      "month": "2005-08",
+      "recession": 0
+    },
+    {
+      "date": "2005-09-01",
+      "month": "2005-09",
+      "recession": 0
+    },
+    {
+      "date": "2005-10-01",
+      "month": "2005-10",
+      "recession": 0
+    },
+    {
+      "date": "2005-11-01",
+      "month": "2005-11",
+      "recession": 0
+    },
+    {
+      "date": "2005-12-01",
+      "month": "2005-12",
+      "recession": 0
+    },
+    {
+      "date": "2006-01-01",
+      "month": "2006-01",
+      "recession": 0
+    },
+    {
+      "date": "2006-02-01",
+      "month": "2006-02",
+      "recession": 0
+    },
+    {
+      "date": "2006-03-01",
+      "month": "2006-03",
+      "recession": 0
+    },
+    {
+      "date": "2006-04-01",
+      "month": "2006-04",
+      "recession": 0
+    },
+    {
+      "date": "2006-05-01",
+      "month": "2006-05",
+      "recession": 0
+    },
+    {
+      "date": "2006-06-01",
+      "month": "2006-06",
+      "recession": 0
+    },
+    {
+      "date": "2006-07-01",
+      "month": "2006-07",
+      "recession": 0
+    },
+    {
+      "date": "2006-08-01",
+      "month": "2006-08",
+      "recession": 0
+    },
+    {
+      "date": "2006-09-01",
+      "month": "2006-09",
+      "recession": 0
+    },
+    {
+      "date": "2006-10-01",
+      "month": "2006-10",
+      "recession": 0
+    },
+    {
+      "date": "2006-11-01",
+      "month": "2006-11",
+      "recession": 0
+    },
+    {
+      "date": "2006-12-01",
+      "month": "2006-12",
+      "recession": 0
+    },
+    {
+      "date": "2007-01-01",
+      "month": "2007-01",
+      "recession": 0
+    },
+    {
+      "date": "2007-02-01",
+      "month": "2007-02",
+      "recession": 0
+    },
+    {
+      "date": "2007-03-01",
+      "month": "2007-03",
+      "recession": 0
+    },
+    {
+      "date": "2007-04-01",
+      "month": "2007-04",
+      "recession": 0
+    },
+    {
+      "date": "2007-05-01",
+      "month": "2007-05",
+      "recession": 0
+    },
+    {
+      "date": "2007-06-01",
+      "month": "2007-06",
+      "recession": 0
+    },
+    {
+      "date": "2007-07-01",
+      "month": "2007-07",
+      "recession": 0
+    },
+    {
+      "date": "2007-08-01",
+      "month": "2007-08",
+      "recession": 0
+    },
+    {
+      "date": "2007-09-01",
+      "month": "2007-09",
+      "recession": 0
+    },
+    {
+      "date": "2007-10-01",
+      "month": "2007-10",
+      "recession": 0
+    },
+    {
+      "date": "2007-11-01",
+      "month": "2007-11",
+      "recession": 0
+    },
+    {
+      "date": "2007-12-01",
+      "month": "2007-12",
+      "recession": 0
+    },
+    {
+      "date": "2008-01-01",
+      "month": "2008-01",
+      "recession": 1
+    },
+    {
+      "date": "2008-02-01",
+      "month": "2008-02",
+      "recession": 1
+    },
+    {
+      "date": "2008-03-01",
+      "month": "2008-03",
+      "recession": 1
+    },
+    {
+      "date": "2008-04-01",
+      "month": "2008-04",
+      "recession": 1
+    },
+    {
+      "date": "2008-05-01",
+      "month": "2008-05",
+      "recession": 1
+    },
+    {
+      "date": "2008-06-01",
+      "month": "2008-06",
+      "recession": 1
+    },
+    {
+      "date": "2008-07-01",
+      "month": "2008-07",
+      "recession": 1
+    },
+    {
+      "date": "2008-08-01",
+      "month": "2008-08",
+      "recession": 1
+    },
+    {
+      "date": "2008-09-01",
+      "month": "2008-09",
+      "recession": 1
+    },
+    {
+      "date": "2008-10-01",
+      "month": "2008-10",
+      "recession": 1
+    },
+    {
+      "date": "2008-11-01",
+      "month": "2008-11",
+      "recession": 1
+    },
+    {
+      "date": "2008-12-01",
+      "month": "2008-12",
+      "recession": 1
+    },
+    {
+      "date": "2009-01-01",
+      "month": "2009-01",
+      "recession": 1
+    },
+    {
+      "date": "2009-02-01",
+      "month": "2009-02",
+      "recession": 1
+    },
+    {
+      "date": "2009-03-01",
+      "month": "2009-03",
+      "recession": 1
+    },
+    {
+      "date": "2009-04-01",
+      "month": "2009-04",
+      "recession": 1
+    },
+    {
+      "date": "2009-05-01",
+      "month": "2009-05",
+      "recession": 1
+    },
+    {
+      "date": "2009-06-01",
+      "month": "2009-06",
+      "recession": 1
+    },
+    {
+      "date": "2009-07-01",
+      "month": "2009-07",
+      "recession": 0
+    },
+    {
+      "date": "2009-08-01",
+      "month": "2009-08",
+      "recession": 0
+    },
+    {
+      "date": "2009-09-01",
+      "month": "2009-09",
+      "recession": 0
+    },
+    {
+      "date": "2009-10-01",
+      "month": "2009-10",
+      "recession": 0
+    },
+    {
+      "date": "2009-11-01",
+      "month": "2009-11",
+      "recession": 0
+    },
+    {
+      "date": "2009-12-01",
+      "month": "2009-12",
+      "recession": 0
+    },
+    {
+      "date": "2010-01-01",
+      "month": "2010-01",
+      "recession": 0
+    },
+    {
+      "date": "2010-02-01",
+      "month": "2010-02",
+      "recession": 0
+    },
+    {
+      "date": "2010-03-01",
+      "month": "2010-03",
+      "recession": 0
+    },
+    {
+      "date": "2010-04-01",
+      "month": "2010-04",
+      "recession": 0
+    },
+    {
+      "date": "2010-05-01",
+      "month": "2010-05",
+      "recession": 0
+    },
+    {
+      "date": "2010-06-01",
+      "month": "2010-06",
+      "recession": 0
+    },
+    {
+      "date": "2010-07-01",
+      "month": "2010-07",
+      "recession": 0
+    },
+    {
+      "date": "2010-08-01",
+      "month": "2010-08",
+      "recession": 0
+    },
+    {
+      "date": "2010-09-01",
+      "month": "2010-09",
+      "recession": 0
+    },
+    {
+      "date": "2010-10-01",
+      "month": "2010-10",
+      "recession": 0
+    },
+    {
+      "date": "2010-11-01",
+      "month": "2010-11",
+      "recession": 0
+    },
+    {
+      "date": "2010-12-01",
+      "month": "2010-12",
+      "recession": 0
+    },
+    {
+      "date": "2011-01-01",
+      "month": "2011-01",
+      "recession": 0
+    },
+    {
+      "date": "2011-02-01",
+      "month": "2011-02",
+      "recession": 0
+    },
+    {
+      "date": "2011-03-01",
+      "month": "2011-03",
+      "recession": 0
+    },
+    {
+      "date": "2011-04-01",
+      "month": "2011-04",
+      "recession": 0
+    },
+    {
+      "date": "2011-05-01",
+      "month": "2011-05",
+      "recession": 0
+    },
+    {
+      "date": "2011-06-01",
+      "month": "2011-06",
+      "recession": 0
+    },
+    {
+      "date": "2011-07-01",
+      "month": "2011-07",
+      "recession": 0
+    },
+    {
+      "date": "2011-08-01",
+      "month": "2011-08",
+      "recession": 0
+    },
+    {
+      "date": "2011-09-01",
+      "month": "2011-09",
+      "recession": 0
+    },
+    {
+      "date": "2011-10-01",
+      "month": "2011-10",
+      "recession": 0
+    },
+    {
+      "date": "2011-11-01",
+      "month": "2011-11",
+      "recession": 0
+    },
+    {
+      "date": "2011-12-01",
+      "month": "2011-12",
+      "recession": 0
+    },
+    {
+      "date": "2012-01-01",
+      "month": "2012-01",
+      "recession": 0
+    },
+    {
+      "date": "2012-02-01",
+      "month": "2012-02",
+      "recession": 0
+    },
+    {
+      "date": "2012-03-01",
+      "month": "2012-03",
+      "recession": 0
+    },
+    {
+      "date": "2012-04-01",
+      "month": "2012-04",
+      "recession": 0
+    },
+    {
+      "date": "2012-05-01",
+      "month": "2012-05",
+      "recession": 0
+    },
+    {
+      "date": "2012-06-01",
+      "month": "2012-06",
+      "recession": 0
+    },
+    {
+      "date": "2012-07-01",
+      "month": "2012-07",
+      "recession": 0
+    },
+    {
+      "date": "2012-08-01",
+      "month": "2012-08",
+      "recession": 0
+    },
+    {
+      "date": "2012-09-01",
+      "month": "2012-09",
+      "recession": 0
+    },
+    {
+      "date": "2012-10-01",
+      "month": "2012-10",
+      "recession": 0
+    },
+    {
+      "date": "2012-11-01",
+      "month": "2012-11",
+      "recession": 0
+    },
+    {
+      "date": "2012-12-01",
+      "month": "2012-12",
+      "recession": 0
+    },
+    {
+      "date": "2013-01-01",
+      "month": "2013-01",
+      "recession": 0
+    },
+    {
+      "date": "2013-02-01",
+      "month": "2013-02",
+      "recession": 0
+    },
+    {
+      "date": "2013-03-01",
+      "month": "2013-03",
+      "recession": 0
+    },
+    {
+      "date": "2013-04-01",
+      "month": "2013-04",
+      "recession": 0
+    },
+    {
+      "date": "2013-05-01",
+      "month": "2013-05",
+      "recession": 0
+    },
+    {
+      "date": "2013-06-01",
+      "month": "2013-06",
+      "recession": 0
+    },
+    {
+      "date": "2013-07-01",
+      "month": "2013-07",
+      "recession": 0
+    },
+    {
+      "date": "2013-08-01",
+      "month": "2013-08",
+      "recession": 0
+    },
+    {
+      "date": "2013-09-01",
+      "month": "2013-09",
+      "recession": 0
+    },
+    {
+      "date": "2013-10-01",
+      "month": "2013-10",
+      "recession": 0
+    },
+    {
+      "date": "2013-11-01",
+      "month": "2013-11",
+      "recession": 0
+    },
+    {
+      "date": "2013-12-01",
+      "month": "2013-12",
+      "recession": 0
+    },
+    {
+      "date": "2014-01-01",
+      "month": "2014-01",
+      "recession": 0
+    },
+    {
+      "date": "2014-02-01",
+      "month": "2014-02",
+      "recession": 0
+    },
+    {
+      "date": "2014-03-01",
+      "month": "2014-03",
+      "recession": 0
+    },
+    {
+      "date": "2014-04-01",
+      "month": "2014-04",
+      "recession": 0
+    },
+    {
+      "date": "2014-05-01",
+      "month": "2014-05",
+      "recession": 0
+    },
+    {
+      "date": "2014-06-01",
+      "month": "2014-06",
+      "recession": 0
+    },
+    {
+      "date": "2014-07-01",
+      "month": "2014-07",
+      "recession": 0
+    },
+    {
+      "date": "2014-08-01",
+      "month": "2014-08",
+      "recession": 0
+    },
+    {
+      "date": "2014-09-01",
+      "month": "2014-09",
+      "recession": 0
+    },
+    {
+      "date": "2014-10-01",
+      "month": "2014-10",
+      "recession": 0
+    },
+    {
+      "date": "2014-11-01",
+      "month": "2014-11",
+      "recession": 0
+    },
+    {
+      "date": "2014-12-01",
+      "month": "2014-12",
+      "recession": 0
+    },
+    {
+      "date": "2015-01-01",
+      "month": "2015-01",
+      "recession": 0
+    },
+    {
+      "date": "2015-02-01",
+      "month": "2015-02",
+      "recession": 0
+    },
+    {
+      "date": "2015-03-01",
+      "month": "2015-03",
+      "recession": 0
+    },
+    {
+      "date": "2015-04-01",
+      "month": "2015-04",
+      "recession": 0
+    },
+    {
+      "date": "2015-05-01",
+      "month": "2015-05",
+      "recession": 0
+    },
+    {
+      "date": "2015-06-01",
+      "month": "2015-06",
+      "recession": 0
+    },
+    {
+      "date": "2015-07-01",
+      "month": "2015-07",
+      "recession": 0
+    },
+    {
+      "date": "2015-08-01",
+      "month": "2015-08",
+      "recession": 0
+    },
+    {
+      "date": "2015-09-01",
+      "month": "2015-09",
+      "recession": 0
+    },
+    {
+      "date": "2015-10-01",
+      "month": "2015-10",
+      "recession": 0
+    },
+    {
+      "date": "2015-11-01",
+      "month": "2015-11",
+      "recession": 0
+    },
+    {
+      "date": "2015-12-01",
+      "month": "2015-12",
+      "recession": 0
+    },
+    {
+      "date": "2016-01-01",
+      "month": "2016-01",
+      "recession": 0
+    },
+    {
+      "date": "2016-02-01",
+      "month": "2016-02",
+      "recession": 0
+    },
+    {
+      "date": "2016-03-01",
+      "month": "2016-03",
+      "recession": 0
+    },
+    {
+      "date": "2016-04-01",
+      "month": "2016-04",
+      "recession": 0
+    },
+    {
+      "date": "2016-05-01",
+      "month": "2016-05",
+      "recession": 0
+    },
+    {
+      "date": "2016-06-01",
+      "month": "2016-06",
+      "recession": 0
+    },
+    {
+      "date": "2016-07-01",
+      "month": "2016-07",
+      "recession": 0
+    },
+    {
+      "date": "2016-08-01",
+      "month": "2016-08",
+      "recession": 0
+    },
+    {
+      "date": "2016-09-01",
+      "month": "2016-09",
+      "recession": 0
+    },
+    {
+      "date": "2016-10-01",
+      "month": "2016-10",
+      "recession": 0
+    },
+    {
+      "date": "2016-11-01",
+      "month": "2016-11",
+      "recession": 0
+    },
+    {
+      "date": "2016-12-01",
+      "month": "2016-12",
+      "recession": 0
+    },
+    {
+      "date": "2017-01-01",
+      "month": "2017-01",
+      "recession": 0
+    },
+    {
+      "date": "2017-02-01",
+      "month": "2017-02",
+      "recession": 0
+    },
+    {
+      "date": "2017-03-01",
+      "month": "2017-03",
+      "recession": 0
+    },
+    {
+      "date": "2017-04-01",
+      "month": "2017-04",
+      "recession": 0
+    },
+    {
+      "date": "2017-05-01",
+      "month": "2017-05",
+      "recession": 0
+    },
+    {
+      "date": "2017-06-01",
+      "month": "2017-06",
+      "recession": 0
+    },
+    {
+      "date": "2017-07-01",
+      "month": "2017-07",
+      "recession": 0
+    },
+    {
+      "date": "2017-08-01",
+      "month": "2017-08",
+      "recession": 0
+    },
+    {
+      "date": "2017-09-01",
+      "month": "2017-09",
+      "recession": 0
+    },
+    {
+      "date": "2017-10-01",
+      "month": "2017-10",
+      "recession": 0
+    },
+    {
+      "date": "2017-11-01",
+      "month": "2017-11",
+      "recession": 0
+    },
+    {
+      "date": "2017-12-01",
+      "month": "2017-12",
+      "recession": 0
+    },
+    {
+      "date": "2018-01-01",
+      "month": "2018-01",
+      "recession": 0
+    },
+    {
+      "date": "2018-02-01",
+      "month": "2018-02",
+      "recession": 0
+    },
+    {
+      "date": "2018-03-01",
+      "month": "2018-03",
+      "recession": 0
+    },
+    {
+      "date": "2018-04-01",
+      "month": "2018-04",
+      "recession": 0
+    },
+    {
+      "date": "2018-05-01",
+      "month": "2018-05",
+      "recession": 0
+    },
+    {
+      "date": "2018-06-01",
+      "month": "2018-06",
+      "recession": 0
+    },
+    {
+      "date": "2018-07-01",
+      "month": "2018-07",
+      "recession": 0
+    },
+    {
+      "date": "2018-08-01",
+      "month": "2018-08",
+      "recession": 0
+    },
+    {
+      "date": "2018-09-01",
+      "month": "2018-09",
+      "recession": 0
+    },
+    {
+      "date": "2018-10-01",
+      "month": "2018-10",
+      "recession": 0
+    },
+    {
+      "date": "2018-11-01",
+      "month": "2018-11",
+      "recession": 0
+    },
+    {
+      "date": "2018-12-01",
+      "month": "2018-12",
+      "recession": 0
+    },
+    {
+      "date": "2019-01-01",
+      "month": "2019-01",
+      "recession": 0
+    },
+    {
+      "date": "2019-02-01",
+      "month": "2019-02",
+      "recession": 0
+    },
+    {
+      "date": "2019-03-01",
+      "month": "2019-03",
+      "recession": 0
+    },
+    {
+      "date": "2019-04-01",
+      "month": "2019-04",
+      "recession": 0
+    },
+    {
+      "date": "2019-05-01",
+      "month": "2019-05",
+      "recession": 0
+    },
+    {
+      "date": "2019-06-01",
+      "month": "2019-06",
+      "recession": 0
+    },
+    {
+      "date": "2019-07-01",
+      "month": "2019-07",
+      "recession": 0
+    },
+    {
+      "date": "2019-08-01",
+      "month": "2019-08",
+      "recession": 0
+    },
+    {
+      "date": "2019-09-01",
+      "month": "2019-09",
+      "recession": 0
+    },
+    {
+      "date": "2019-10-01",
+      "month": "2019-10",
+      "recession": 0
+    },
+    {
+      "date": "2019-11-01",
+      "month": "2019-11",
+      "recession": 0
+    },
+    {
+      "date": "2019-12-01",
+      "month": "2019-12",
+      "recession": 0
+    },
+    {
+      "date": "2020-01-01",
+      "month": "2020-01",
+      "recession": 0
+    },
+    {
+      "date": "2020-02-01",
+      "month": "2020-02",
+      "recession": 0
+    },
+    {
+      "date": "2020-03-01",
+      "month": "2020-03",
+      "recession": 1
+    },
+    {
+      "date": "2020-04-01",
+      "month": "2020-04",
+      "recession": 1
+    },
+    {
+      "date": "2020-05-01",
+      "month": "2020-05",
+      "recession": 0
+    },
+    {
+      "date": "2020-06-01",
+      "month": "2020-06",
+      "recession": 0
+    },
+    {
+      "date": "2020-07-01",
+      "month": "2020-07",
+      "recession": 0
+    },
+    {
+      "date": "2020-08-01",
+      "month": "2020-08",
+      "recession": 0
+    },
+    {
+      "date": "2020-09-01",
+      "month": "2020-09",
+      "recession": 0
+    },
+    {
+      "date": "2020-10-01",
+      "month": "2020-10",
+      "recession": 0
+    },
+    {
+      "date": "2020-11-01",
+      "month": "2020-11",
+      "recession": 0
+    },
+    {
+      "date": "2020-12-01",
+      "month": "2020-12",
+      "recession": 0
+    },
+    {
+      "date": "2021-01-01",
+      "month": "2021-01",
+      "recession": 0
+    },
+    {
+      "date": "2021-02-01",
+      "month": "2021-02",
+      "recession": 0
+    },
+    {
+      "date": "2021-03-01",
+      "month": "2021-03",
+      "recession": 0
+    },
+    {
+      "date": "2021-04-01",
+      "month": "2021-04",
+      "recession": 0
+    },
+    {
+      "date": "2021-05-01",
+      "month": "2021-05",
+      "recession": 0
+    },
+    {
+      "date": "2021-06-01",
+      "month": "2021-06",
+      "recession": 0
+    },
+    {
+      "date": "2021-07-01",
+      "month": "2021-07",
+      "recession": 0
+    },
+    {
+      "date": "2021-08-01",
+      "month": "2021-08",
+      "recession": 0
+    },
+    {
+      "date": "2021-09-01",
+      "month": "2021-09",
+      "recession": 0
+    },
+    {
+      "date": "2021-10-01",
+      "month": "2021-10",
+      "recession": 0
+    },
+    {
+      "date": "2021-11-01",
+      "month": "2021-11",
+      "recession": 0
+    },
+    {
+      "date": "2021-12-01",
+      "month": "2021-12",
+      "recession": 0
+    },
+    {
+      "date": "2022-01-01",
+      "month": "2022-01",
+      "recession": 0
+    },
+    {
+      "date": "2022-02-01",
+      "month": "2022-02",
+      "recession": 0
+    },
+    {
+      "date": "2022-03-01",
+      "month": "2022-03",
+      "recession": 0
+    },
+    {
+      "date": "2022-04-01",
+      "month": "2022-04",
+      "recession": 0
+    },
+    {
+      "date": "2022-05-01",
+      "month": "2022-05",
+      "recession": 0
+    },
+    {
+      "date": "2022-06-01",
+      "month": "2022-06",
+      "recession": 0
+    },
+    {
+      "date": "2022-07-01",
+      "month": "2022-07",
+      "recession": 0
+    },
+    {
+      "date": "2022-08-01",
+      "month": "2022-08",
+      "recession": 0
+    },
+    {
+      "date": "2022-09-01",
+      "month": "2022-09",
+      "recession": 0
+    },
+    {
+      "date": "2022-10-01",
+      "month": "2022-10",
+      "recession": 0
+    },
+    {
+      "date": "2022-11-01",
+      "month": "2022-11",
+      "recession": 0
+    },
+    {
+      "date": "2022-12-01",
+      "month": "2022-12",
+      "recession": 0
+    },
+    {
+      "date": "2023-01-01",
+      "month": "2023-01",
+      "recession": 0
+    },
+    {
+      "date": "2023-02-01",
+      "month": "2023-02",
+      "recession": 0
+    },
+    {
+      "date": "2023-03-01",
+      "month": "2023-03",
+      "recession": 0
+    },
+    {
+      "date": "2023-04-01",
+      "month": "2023-04",
+      "recession": 0
+    },
+    {
+      "date": "2023-05-01",
+      "month": "2023-05",
+      "recession": 0
+    },
+    {
+      "date": "2023-06-01",
+      "month": "2023-06",
+      "recession": 0
+    },
+    {
+      "date": "2023-07-01",
+      "month": "2023-07",
+      "recession": 0
+    },
+    {
+      "date": "2023-08-01",
+      "month": "2023-08",
+      "recession": 0
+    },
+    {
+      "date": "2023-09-01",
+      "month": "2023-09",
+      "recession": 0
+    },
+    {
+      "date": "2023-10-01",
+      "month": "2023-10",
+      "recession": 0
+    },
+    {
+      "date": "2023-11-01",
+      "month": "2023-11",
+      "recession": 0
+    },
+    {
+      "date": "2023-12-01",
+      "month": "2023-12",
+      "recession": 0
+    },
+    {
+      "date": "2024-01-01",
+      "month": "2024-01",
+      "recession": 0
+    },
+    {
+      "date": "2024-02-01",
+      "month": "2024-02",
+      "recession": 0
+    },
+    {
+      "date": "2024-03-01",
+      "month": "2024-03",
+      "recession": 0
+    },
+    {
+      "date": "2024-04-01",
+      "month": "2024-04",
+      "recession": 0
+    },
+    {
+      "date": "2024-05-01",
+      "month": "2024-05",
+      "recession": 0
+    },
+    {
+      "date": "2024-06-01",
+      "month": "2024-06",
+      "recession": 0
+    },
+    {
+      "date": "2024-07-01",
+      "month": "2024-07",
+      "recession": 0
+    },
+    {
+      "date": "2024-08-01",
+      "month": "2024-08",
+      "recession": 0
+    },
+    {
+      "date": "2024-09-01",
+      "month": "2024-09",
+      "recession": 0
+    },
+    {
+      "date": "2024-10-01",
+      "month": "2024-10",
+      "recession": 0
+    },
+    {
+      "date": "2024-11-01",
+      "month": "2024-11",
+      "recession": 0
+    },
+    {
+      "date": "2024-12-01",
+      "month": "2024-12",
+      "recession": 0
+    },
+    {
+      "date": "2025-01-01",
+      "month": "2025-01",
+      "recession": 0
+    },
+    {
+      "date": "2025-02-01",
+      "month": "2025-02",
+      "recession": 0
+    },
+    {
+      "date": "2025-03-01",
+      "month": "2025-03",
+      "recession": 0
+    },
+    {
+      "date": "2025-04-01",
+      "month": "2025-04",
+      "recession": 0
+    },
+    {
+      "date": "2025-05-01",
+      "month": "2025-05",
+      "recession": 0
+    },
+    {
+      "date": "2025-06-01",
+      "month": "2025-06",
+      "recession": 0
+    },
+    {
+      "date": "2025-07-01",
+      "month": "2025-07",
+      "recession": 0
+    },
+    {
+      "date": "2025-08-01",
+      "month": "2025-08",
+      "recession": 0
+    },
+    {
+      "date": "2025-09-01",
+      "month": "2025-09",
+      "recession": 0
+    },
+    {
+      "date": "2025-10-01",
+      "month": "2025-10",
+      "recession": 0
+    },
+    {
+      "date": "2025-11-01",
+      "month": "2025-11",
+      "recession": 0
+    },
+    {
+      "date": "2025-12-01",
+      "month": "2025-12",
+      "recession": 0
+    }
+  ],
+  "monthly_rule": "peak exclusive, trough inclusive; all later months expansion until next dated peak",
+  "recession_month_count": 36,
+  "source": {
+    "bytes": 91028,
+    "relative_path": "2026-10-13T181701Z/nber/chronology.html",
+    "retrieved_at_utc": "2026-10-13T18:17:01.791586+00:00",
+    "role": "NBER official monthly turning points; ex-post only",
+    "sha256": "99401340ae9b97310803cdcd0db0731ba4b4739f5425a83c370d268e3fa5795d",
+    "source_url": "https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions",
+    "transport": "default verified TLS"
+  }
+}

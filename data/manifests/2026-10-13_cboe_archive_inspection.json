@@ -1,0 +1,36 @@
+{
+  "archive_rows_missing_open_high_low": 508,
+  "archive_sha256": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566",
+  "archive_source_url": "https://cdn.cboe.com/resources/us/indices/vixarchive.xls",
+  "correction_notice_sha256": "176f66347df23150f7460c42d5a7fbe87fc6c5bcf27f0a6bd9d1af63f2069744",
+  "correction_notice_source_url": "https://cdn.cboe.com/resources/release_notes/2019/Corrected-Closing-Settlement-Prices-for-Certain-SP-Indices-II.pdf",
+  "coverage_end": "2003-12-31",
+  "coverage_start": "1990-01-02",
+  "linked_csv_byte_identical_to_canonical": true,
+  "linked_csv_sha256": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7",
+  "missing_current_csv_dates": {
+    "1991-03-01": {
+      "archive_close_finite": false,
+      "present_in_archive": true
+    },
+    "1997-01-31": {
+      "archive_close_finite": null,
+      "present_in_archive": false
+    },
+    "1997-11-26": {
+      "archive_close_finite": null,
+      "present_in_archive": false
+    },
+    "1999-12-31": {
+      "archive_close_finite": true,
+      "present_in_archive": true
+    }
+  },
+  "overlap_close_discrepancy_count": 0,
+  "overlap_close_discrepancy_dates": [],
+  "overlap_count": 3528,
+  "parser": "xlrd==2.0.2; isolated outputs/archive_inspection; locked empirical environment unchanged",
+  "production_promotion": "NOT_APPROVED; original VIX rejection remains authoritative",
+  "purpose": "Official alternate Cboe archive inspection only; no stitching or data correction",
+  "rows": 3532
+}

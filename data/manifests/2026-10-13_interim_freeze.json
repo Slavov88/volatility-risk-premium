@@ -1,0 +1,464 @@
+{
+  "archival_insertions": [
+    {
+      "artifact_sha256": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566",
+      "authorization_status": "AUTHORIZED_AS_REPORTED_BY_ALEKSANDAR",
+      "close": 24.64,
+      "close_cell": "E2528",
+      "code_commit": "55ce4a23b44188ae21c8343005c6104b9a8a5d21",
+      "date": "1999-12-31",
+      "date_cell": "A2528",
+      "date_serial": 36525.0,
+      "excel_datemode": 0,
+      "independent_review": "PENDING",
+      "numeric_cell_verified": true,
+      "original_csv_absent": true,
+      "parser": "xlrd==2.0.2",
+      "reason": "official archival-source insertion; original CSV omission",
+      "row_one_based": 2528,
+      "sheet": "OHLC",
+      "source_url": "https://cdn.cboe.com/resources/us/indices/vixarchive.xls",
+      "transformation_version": "official-cboe-archival-insertion/1.0.0",
+      "unit": "annualized percentage points",
+      "verification": "TECHNICALLY_VERIFIED"
+    }
+  ],
+  "authorization": {
+    "allowed_insertions": [
+      {
+        "close": 24.64,
+        "date": "1999-12-31"
+      }
+    ],
+    "amendment": "2026-10-13-interim-vix-close/1.0.0",
+    "authors": [
+      "Aleksandar Slavov",
+      "Venelin Mirchev"
+    ],
+    "communicated_on": "2026-10-13",
+    "independent_freeze_acceptance": "PENDING",
+    "independently_verified_signatures": false,
+    "reported_by": "Aleksandar Slavov",
+    "status": "AUTHORIZED_AS_REPORTED_BY_ALEKSANDAR"
+  },
+  "authorization_sha256": "67442f5c0c6bab516dc8b44add57b32e586a6871f505e683dce081fc6eb445e0",
+  "calendar": {
+    "library_version": "4.13.2",
+    "name": "XNYS"
+  },
+  "confirmatory_execution_allowed": false,
+  "contract_version": "authorized-interim-vix-close/1.0.0",
+  "coverage": {
+    "full_sample": {
+      "available": 9064,
+      "expected": 9067,
+      "missing": [
+        "1991-03-01",
+        "1997-01-31",
+        "1997-11-26"
+      ],
+      "start_inclusive": "1990-01-02"
+    },
+    "oos_from_2007": {
+      "available": 4780,
+      "expected": 4780,
+      "missing": [],
+      "start_inclusive": "2007-01-01"
+    },
+    "post_2003": {
+      "available": 5535,
+      "expected": 5535,
+      "missing": [],
+      "start_inclusive": "2004-01-01"
+    },
+    "post_2014_10_06": {
+      "available": 2827,
+      "expected": 2827,
+      "missing": [],
+      "start_inclusive": "2014-10-06"
+    }
+  },
+  "data_amendment": "2026-10-13-interim-vix-close/1.0.0",
+  "dataset": "Authorized interim CLOSE predictor freeze",
+  "fred_corroboration": {
+    "date": "1999-12-31",
+    "role": "Cboe-sourced republication; not independent index calculation",
+    "same_value_verified": true,
+    "sha256": "cf5fd219cd8cd428b287c6f260baaefd746e11ca8ef1eb19ffc9741204d58bcb",
+    "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1999-12-30&coed=2000-01-03"
+  },
+  "implementation": {
+    "commit": "55ce4a23b44188ae21c8343005c6104b9a8a5d21",
+    "source_sha256_lf": {
+      "src/vrp/acquisition_audit.py": "1b0081bc769f92a413689eeb720ca2f5a3a124ed422962a5e870ab4904d4d4f1",
+      "src/vrp/archival_vix.py": "1ca0dd4f5238c08e4c2c6bda6f6d63e2ebe704f39314d5197e0443eca3130aff",
+      "src/vrp/calendar.py": "73dd7f7d3e82feae50518c42a3ced0a05635a4a4b2e06f32d08073490fe38f0d",
+      "src/vrp/config.py": "106a4f27f8fa5ac887f0245504e134fa7c24e778786566453342693860809e1a",
+      "src/vrp/data.py": "0b41e433de007deae96046ede7a986e632b4565b6afcccdacd433b6c45857a1a",
+      "src/vrp/dates.py": "3e8be392cacb902e05e6082002910f00503950dec5604d029fc9ed853ad3d78e",
+      "src/vrp/interim_panel.py": "1af9501616f6459354f6fa9e292bf6208ce73dd17c62e20df584a4c694e991c7",
+      "src/vrp/origin_panel.py": "503fafb06d9e0ce0983d2b39a6babe3eb28091e6c1e7041d868ba3232df59242",
+      "src/vrp/premium.py": "f59174f5b4828b69d10199135d582513cdbda7b08a59ac92133a2640cd4dfde8",
+      "src/vrp/processed_panel.py": "296db4ba3ccd94f3f9e78ebbddea48ea2869eb0faff1b22139e5a5670d00f886",
+      "src/vrp/spx_data.py": "74157a892251bcaca8f6552fafb8936bf89d17eee2ed7e5fba59f9e6e0d9371f",
+      "src/vrp/vix_close_candidate.py": "36777fcfdc6bf7de556dd99655a353cc17766311a29ba7aed2dfe32f534df5e2",
+      "src/vrp/vix_data.py": "897932578c8646795e0b0e07a56f2ed900637dded8b978b1db0f53965e6dcbde"
+    }
+  },
+  "original_close_validation": {
+    "approval_status": "CANDIDATE_UNAPPROVED",
+    "available_eligible_closes": 9063,
+    "contract_version": "vix-close-candidate/1.0.0",
+    "expected_eligible_origins": 9067,
+    "fill_or_stitch_count": 0,
+    "input_rows": 9091,
+    "missing_oos_origins": [],
+    "missing_origins_by_year": {
+      "1991": 1,
+      "1997": 2,
+      "1999": 1
+    },
+    "missing_predictor_origins": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "non_session_exclusions_by_year": {
+      "2004": 1,
+      "2022": 5,
+      "2023": 7,
+      "2024": 7,
+      "2025": 8
+    },
+    "outside_origin_window_dates": [],
+    "outside_window_exclusions_by_year": {},
+    "rejected_non_session_dates": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ],
+    "retained_close_invalid_count": 0,
+    "retained_close_range_violation_count": 0,
+    "retention_rule": "XNYS origins in frozen window with original finite positive CLOSE; missing origins excluded only",
+    "source_ohlc_diagnostics": {
+      "categories": {
+        "high_below_close": [],
+        "high_below_low": [],
+        "high_below_open": [
+          "1992-02-11",
+          "1992-02-19",
+          "1992-08-27",
+          "1992-11-09",
+          "1992-11-20",
+          "1992-12-21",
+          "1993-03-19",
+          "1993-04-28",
+          "1993-09-15",
+          "1993-10-15",
+          "1993-10-29",
+          "1993-11-23",
+          "1993-11-24",
+          "1994-01-05",
+          "1994-02-23",
+          "1996-01-08",
+          "1998-11-20",
+          "2002-09-11",
+          "2004-10-26",
+          "2006-02-08"
+        ],
+        "low_above_close": [],
+        "low_above_open": [
+          "1992-08-24",
+          "1992-09-16",
+          "1992-10-09",
+          "1992-12-09",
+          "1992-12-23",
+          "1993-04-19",
+          "1993-06-01",
+          "1993-07-13",
+          "1993-07-14",
+          "1993-10-27",
+          "1993-11-30",
+          "1994-01-31",
+          "1994-02-07",
+          "1994-03-08",
+          "1994-03-10",
+          "1994-03-14",
+          "1994-04-04",
+          "1994-09-20",
+          "1994-12-19",
+          "1995-02-21",
+          "1995-10-10",
+          "1996-02-13",
+          "1996-04-08",
+          "1998-01-12",
+          "1998-04-27",
+          "1999-04-01",
+          "2004-11-08"
+        ]
+      },
+      "dates": [
+        "1992-02-11",
+        "1992-02-19",
+        "1992-08-24",
+        "1992-08-27",
+        "1992-09-16",
+        "1992-10-09",
+        "1992-11-09",
+        "1992-11-20",
+        "1992-12-09",
+        "1992-12-21",
+        "1992-12-23",
+        "1993-03-19",
+        "1993-04-19",
+        "1993-04-28",
+        "1993-06-01",
+        "1993-07-13",
+        "1993-07-14",
+        "1993-09-15",
+        "1993-10-15",
+        "1993-10-27",
+        "1993-10-29",
+        "1993-11-23",
+        "1993-11-24",
+        "1993-11-30",
+        "1994-01-05",
+        "1994-01-31",
+        "1994-02-07",
+        "1994-02-23",
+        "1994-03-08",
+        "1994-03-10",
+        "1994-03-14",
+        "1994-04-04",
+        "1994-09-20",
+        "1994-12-19",
+        "1995-02-21",
+        "1995-10-10",
+        "1996-01-08",
+        "1996-02-13",
+        "1996-04-08",
+        "1998-01-12",
+        "1998-04-27",
+        "1998-11-20",
+        "1999-04-01",
+        "2002-09-11",
+        "2004-10-26",
+        "2004-11-08",
+        "2006-02-08"
+      ],
+      "row_count": 47
+    },
+    "unavailable_high_or_low_dates": []
+  },
+  "original_strict_quality": {
+    "accepted": false,
+    "expected_session_count": 9067,
+    "missing_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "missing_sessions": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "nonpositive_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "observed_session_count": 9091,
+    "ohlc_order_violations": 47,
+    "unexpected_sessions": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ]
+  },
+  "original_vix_acquisition_accepted": false,
+  "outputs": {
+    "canonical_spx_ohlc.csv": {
+      "bytes": 913760,
+      "relative_path": "interim/40113d6646b0e7b8/canonical_spx_ohlc.csv",
+      "rows": 9088,
+      "sha256": "ad8baf5121a081d633d6283c936f6956f82974446dfd871fc905ab31ff34a74e"
+    },
+    "interim_origin_panel.csv": {
+      "bytes": 889316,
+      "relative_path": "interim/40113d6646b0e7b8/interim_origin_panel.csv",
+      "rows": 9064,
+      "sha256": "5293bc8b5e3388090216fb27e50d5a989c67e817dde67cc40358c3522e3a32f5"
+    },
+    "interim_vix_close.csv": {
+      "bytes": 305993,
+      "relative_path": "interim/40113d6646b0e7b8/interim_vix_close.csv",
+      "rows": 9064,
+      "sha256": "457f46b6850ef6481fc272deb0e097b5da1134e1610c7d86c225448758eb6353"
+    }
+  },
+  "protocol_version": "1.1.0",
+  "provisional_target_execution_allowed": true,
+  "review_status": "PROVISIONAL / NOT INDEPENDENTLY ACCEPTED",
+  "row_losses": {
+    "common_origins": 9064,
+    "missing_vix_on_spx": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26"
+    ],
+    "spx_origin_candidates": 9067,
+    "vix_rows_in_sample": 9064,
+    "vix_without_spx": []
+  },
+  "schema_version": 1,
+  "source_artifacts": {
+    "archive": {
+      "relative_path": "2026-10-13T142430Z/cboe/vixarchive.xls",
+      "sha256": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566",
+      "source_url": "https://cdn.cboe.com/resources/us/indices/vixarchive.xls"
+    },
+    "fred_vix": {
+      "relative_path": "2026-10-13T150732Z/fred/vixcls_1999-12-31.csv",
+      "sha256": "cf5fd219cd8cd428b287c6f260baaefd746e11ca8ef1eb19ffc9741204d58bcb",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1999-12-30&coed=2000-01-03"
+    },
+    "spx": {
+      "artifact_type": "immutable normalized acquisition snapshot",
+      "bytes": 726983,
+      "coverage_end": "2026-02-02",
+      "coverage_start": "1990-01-02",
+      "missing_values": {
+        "Adj Close": 0,
+        "Close": 0,
+        "High": 0,
+        "Low": 0,
+        "Open": 0,
+        "Volume": 0
+      },
+      "persisted_columns": [
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Adj Close",
+        "Volume"
+      ],
+      "provider": "Yahoo Finance via yfinance",
+      "provider_response_persisted": false,
+      "relative_path": "2026-10-13T142430Z/yahoo/gspc_ohlc_unadjusted.csv",
+      "request_parameters": {
+        "actions": false,
+        "auto_adjust": false,
+        "end": "2026-02-03",
+        "group_by": "column",
+        "interval": "1d",
+        "keepna": true,
+        "multi_level_index": false,
+        "prepost": false,
+        "progress": false,
+        "repair": false,
+        "start": "1990-01-02",
+        "threads": false,
+        "tickers": "^GSPC"
+      },
+      "row_count": 9088,
+      "sha256": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+      "source_page": "https://finance.yahoo.com/quote/%5EGSPC/history/",
+      "symbol": "^GSPC",
+      "yfinance_version": "1.5.2"
+    },
+    "vix_normalized": {
+      "columns": [
+        "Date",
+        "OPEN",
+        "HIGH",
+        "LOW",
+        "CLOSE"
+      ],
+      "coverage_end": "2025-12-31",
+      "coverage_start": "1990-01-02",
+      "relative_path": "2026-10-13T142430Z/cboe/vix_frozen_normalized.csv",
+      "row_count": 9091,
+      "sha256": "10b2faa178208d7553f96597b40e63807668af77b3f8242f73afb8b8a40b0f94"
+    },
+    "vix_raw": {
+      "bytes": 473635,
+      "relative_path": "2026-10-13T142430Z/cboe/VIX_History.csv",
+      "sha256": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7"
+    }
+  },
+  "source_manifests": {
+    "spx": {
+      "relative_path": "2026-10-13T142430Z/gspc_manifest.json",
+      "sha256": "29bb559550a8470b1b8c034cf752b8bd3919b2585069ed27d252ddc2bb6873a5"
+    },
+    "vix": {
+      "relative_path": "2026-10-13T142430Z/vix_manifest.json",
+      "sha256": "68c11d8fe5a9f454761a898b1bd6bdee499c7a55b30ce370ec28549fc8805d92"
+    }
+  },
+  "spx_preservation": {
+    "canonical_source_replaced": false,
+    "original_rows": 9088,
+    "post_cutoff_support_rows": 21,
+    "removed_rows": 0,
+    "retained_rows": 9088
+  },
+  "technical_gate": "PASSED_SOURCE_AND_ELIGIBILITY_REPLAY"
+}

@@ -59,3 +59,15 @@ The final production snapshot must be reacquired under normal certificate verifi
 - Competing forecasts use an identical target/date/missingness mask.
 - Dimensional checks distinguish variance, volatility, percentage points, and decimals.
 - Raw acquisition hashes, software versions, coverage, missingness, validation statistics, and row-loss reports are generated rather than hand-written.
+
+## 2026-10-13 interim author-reported decisions
+
+M-020: Adopt amendment `2026-10-13-interim-vix-close/1.0.0`: separate CLOSE
+validation, 47 OPEN warnings, 28 non-session exclusions and one conditional
+Cboe XLS insertion (1999-12-31, 24.64). Three other dates remain excluded.
+M-021: Retain all canonical Yahoo SPX rows; register individual and joint
+alternate-close sensitivities for all seven documented discrepancies.
+M-022: Post-2003 sensitivity starts 2004-01-01, fixed before outcomes.
+Authorization: both authors agree **as reported by Aleksandar Slavov on
+2026-10-13**. No signatures/direct confirmation or independent freeze
+acceptance is implied. Inquiry: SENT — AWAITING CBOE RESPONSE, author-reported.

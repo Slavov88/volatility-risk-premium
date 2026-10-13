@@ -133,3 +133,36 @@ manifest under `data/processed/`.
 
 It rejects unverified acquisitions and **does not** compute realized variance,
 VRP, GARCH fits, forecasts, or inferential results.
+
+## Authorized interim data methodology — 2026-10-13
+
+Both authors agree to the interim method **as reported by Aleksandar Slavov
+on 2026-10-13**. See the dated amendment in `paper/protocol_deviations.md`.
+It authorizes separate CLOSE validation and exactly one verified official XLS
+insertion (1999-12-31, 24.64), preserving the strict rejected acquisition and
+historical unapproved candidate. The other three missing origins stay excluded.
+Yahoo remains canonical; seven alternate-close sensitivities are separately
+registered; post-2003 starts 2004-01-01. Independent freeze acceptance remains
+pending. Production targets/descriptions may proceed as **PROVISIONAL / NOT
+INDEPENDENTLY ACCEPTED**; H1/H2 inference awaits that review. Cboe inquiry:
+SENT — AWAITING CBOE RESPONSE, as reported by the author.
+
+The authorized interim panel and six forward targets have now actually been
+built and audited, with two identical executions. Coverage 9064/9067; all six
+target series complete at every eligible origin. See
+`docs/production_data_freeze_report.md` and RUN-007/008 for exact commands,
+source/derived hashes, provisional descriptions and independent-review needs.
+Provider prices remain local. The isolated XLS parser is reused from
+`outputs/archive_inspection` (xlrd==2.0.2); install this into an isolated
+inspection directory if reproducing on another machine. The locked empirical
+dependencies are unchanged.
+
+## Latest: full provisional H1-H5 execution
+
+Aleksandar explicitly authorized statistical execution before independent
+freeze review on 2026-10-13; the earlier operational wait is superseded for
+this separate provisional pathway. All five hypotheses and mandatory
+robustness analyses have executed. See docs/empirical_results_summary.md
+and docs/h1_results.md through h5_results.md. Original data/gates remain
+unchanged. Every result is PROVISIONAL - PENDING INDEPENDENT COAUTHOR REVIEW.
+No manuscript conclusions or independent acceptance inferred.
