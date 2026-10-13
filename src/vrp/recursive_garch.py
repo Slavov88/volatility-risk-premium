@@ -14,6 +14,7 @@ import warnings
 
 from arch import arch_model
 import numpy as np
+from scipy.signal import lfilter
 from statsmodels.stats.diagnostic import acorr_ljungbox, het_arch
 from statsmodels.stats.stattools import jarque_bera
 
@@ -71,8 +72,20 @@ def fit_origin(training, dist, steps, residual_diagnostics=False):
                 forecast=fit.forecast(horizon=steps,method="analytic",reindex=False).residual_variance.values[-1]
                 if not np.isfinite(forecast).all() or np.any(forecast<=0): raise ValueError("Invalid model forecast")
                 # Independent analytical recurrence, including shock at origin.
-                independent=[params["omega"]+params["alpha[1]"]*float(fit.resid[-1])**2+
-                    params["beta[1]"]*float(fit.conditional_volatility[-1])**2]
+                # ARCH forecast recomputes its backcast using final-parameter
+                # residuals; fit.conditional_volatility retains the estimation
+                # backcast. Recompute this state independently, not from that
+                # slightly different fitted-volatility array.
+                residual=np.asarray(fit.resid); tau=min(75,len(residual))
+                weights=.94**np.arange(tau);weights/=weights.sum()
+                backcast=float(weights@(residual[:tau]**2))
+                forcing=params["omega"]+params["alpha[1]"]*np.r_[backcast,residual[:-1]**2]
+                sigma,_=lfilter([1.],[1.,-params["beta[1]"]],forcing,zi=[params["beta[1]"]*backcast])
+                bounds=model.volatility.variance_bounds(residual)
+                if np.any(sigma<bounds[:,0]) or np.any(sigma>bounds[:,1]):
+                    raise ValueError("Oracle requires explicit ARCH numerical-bound reconciliation")
+                independent=[params["omega"]+params["alpha[1]"]*float(residual[-1])**2+
+                    params["beta[1]"]*float(sigma[-1])]
                 for _ in range(1,steps): independent.append(params["omega"]+record["persistence"]*independent[-1])
                 if not np.allclose(independent,forecast,rtol=1e-9,atol=1e-10): raise ValueError("GARCH recurrence oracle mismatch")
                 record.update({"status":"CONVERGED","daily_decimal_variances":[from_garch_variance(v) for v in forecast],
