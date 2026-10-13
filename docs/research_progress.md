@@ -181,3 +181,20 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
 - EMP-004 remains blocked for an approved production panel; EMP-006–009
   remain behind their scientific gates. EMP-010 completed only for inspection;
   EMP-012 pending. Next action is explicit both-author methodological review.
+
+### 2026-10-13 — CLOSE proposal publication and passing CI
+
+- Evidence/proposal commit: `58f726d`. PR #2 updated in place with the
+  candidate contract, scientific limits, counts and validation; remains draft
+  against `agent/autonomous-research`. Nothing merged or force-pushed.
+- GitHub Actions succeeded at `58f726d` using the Python 3.11 dependency lock:
+  https://github.com/Slavov88/volatility-risk-premium/actions/runs/38420832539.
+  Local full suite: **1,674 passed**; compileall src/tests/scripts passed.
+- Final review rechecked original source hashes, all candidate hashes,
+  sanitized manifest equality, both approval/rejection boundaries and absence
+  of an approved verified panel. Candidate and blocker diagnostics replayed
+  identically. Original strict implementations, protocol and lock have no diff.
+- Both-author methodology authorization remains pending; this concludes
+  implementation/inspection, not an accepted empirical freeze. After approval,
+  record the authorized amendment, build the approved freeze twice, then
+  construct locked targets; H1/H2 still require independent freeze acceptance.

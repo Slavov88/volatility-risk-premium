@@ -232,3 +232,8 @@ command and RUN-004's candidate command against existing immutable artifacts.
 Both succeeded and reproduced the identical manifests/output hashes above.
 Confirmatory eligibility remains rejected; repeated success is inspection
 repeatability, not methodological approval.
+
+Implementation `2c820db` and evidence/proposal `58f726d` were published on
+draft PR #2. [GitHub Actions passed at the evidence head](https://github.com/Slavov88/volatility-risk-premium/actions/runs/38420832539)
+on locked Python 3.11. This external engineering check does not supply either
+author's methodological sign-off or independent data-freeze acceptance.
