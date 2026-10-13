@@ -1,0 +1,108 @@
+{
+  "archive_storage_sha256": "36fc939a6be5e49e53f92331775d5ffb07902b833ec8c7e936650b2eef771518",
+  "base_task2": "956a9d8aa9ebc05c55e71241aeffbc11d80e2a7e",
+  "branch": "codex/cash-yield-robustness",
+  "conclusion": "Cash income materially changes levels and some Sharpe ranks conditional on pass-through/reference; CAGR ordering and negative combined H8 practical gate unchanged. No alpha claim.",
+  "created_utc": "2026-10-13T23:06:42.307281+00:00",
+  "environment": {
+    "packages": {
+      "arch": "8.0.0",
+      "beautifulsoup4": "4.15.0",
+      "exchange-calendars": "4.13.2",
+      "matplotlib": "3.11.2",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "pytest": "8.4.2",
+      "requests": "2.34.2",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.17.1",
+      "statsmodels": "0.15.0",
+      "threadpoolctl": "3.6.0"
+    },
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.5 | packaged by Anaconda, Inc. | (main, Sep 11 2023, 13:26:23) [MSC v.1916 64 bit (AMD64)]"
+  },
+  "files_sha256": {
+    "data/manifests/h8_cash_cache_storage_v1.json": "36fc939a6be5e49e53f92331775d5ffb07902b833ec8c7e936650b2eef771518",
+    "data/manifests/h8_cash_deterministic_replay_v2p3.json": "63f50f8dc4ebd86d08e528b444f289c42deaa6c046d1bdc60bb6d13f5c81eb52",
+    "data/manifests/h8_cash_income_uncertainty_v2.json": "2f7bc7a0d4e1808d3878e1d79c852641dcc3dac57c1275b3797b09f7b4cc5698",
+    "data/manifests/h8_cash_independent_audit_v1.json": "c455cba96a95bb80d9883fbbb67c6f0751b67ff1cb36a95466b6027f9f70a5fb",
+    "data/manifests/h8_cash_independent_audit_v2.json": "1f986961f5a42a310e582bd18b941f395ae9fffbc8455503bb37216874009fa1",
+    "data/manifests/h8_cash_publication_v2.json": "f5f8fda96c0b25d3ff1ec215e05cff9151cf7cad0ef473709cba96308b4fa887",
+    "data/manifests/h8_cash_publication_v2p3.json": "c73160b707ef447eb3782cf61588395ad12bfcd8a6738f0e183a5a2a7485619f",
+    "data/manifests/h8_cash_rate_source_v1.json": "61ff6f555ea3d6c1106b4717ee83f215b17e379ad8cea78852637b7d216f91d7",
+    "data/manifests/h8_cash_results_v1.json": "94caf1e9d4756bec6e273ab0ec0249d7afe44ec29f2d76d0b11a4bbc7fbaec33",
+    "data/manifests/h8_cash_results_v2.json": "849296a15472fb8f4902d275807c66f8b58af49de4cf5d182baec8da4ab884fd",
+    "docs/figures/h8_cash_yield/annual_cash_income.pdf": "f6f3b46b5cb31f3a872477729123304a069b8a1e7459cf26dfba4e34a1f97108",
+    "docs/figures/h8_cash_yield/annual_cash_income.png": "173d23a4ce09265d87a053be8428c9094eda73c8411eb027b549c2b0d1a22191",
+    "docs/figures/h8_cash_yield/cash_cagr_increment.pdf": "1c8e322bce8d79c1616afb52c39d17bf7722520f74b2e5638812e715a870cf42",
+    "docs/figures/h8_cash_yield/cash_cagr_increment.png": "102ab01ecc7fb2d6649a47669c94ddd16cf1dd96f09958b411af97400a9970e7",
+    "docs/figures/h8_cash_yield/cash_sharpe_references.pdf": "bd7671b1598cd50097b816f879fa252dca0426d33caf0646068a9e75715e53ff",
+    "docs/figures/h8_cash_yield/cash_sharpe_references.png": "66c2fbb8cbc978e339cfe7affbdbcc2ad62019fe61aad8e5b983bd2a63d64561",
+    "docs/h8_cash_execution.md": "73f787075e495b44b8b7d479900084ae38425932d891885169162498961a7c78",
+    "docs/h8_cash_yield_sensitivity.md": "249965699f591730fe1774415f123707f966c2d70521d1069ba79414db181357",
+    "docs/h8_economic_attribution.md": "b5e4bd5938b4353073be524d685aa4ee07e90cdb9443acbe112729a4f73ac305",
+    "docs/tables/h8_cash_yield/DGS1MO_schedule.csv": "439e1aa9da54201b9b095d3a51e9ce3e0cc19ae3acc571eac7d76d9af6b20bd6",
+    "docs/tables/h8_cash_yield/DTB4WK_schedule.csv": "8d9ce831f5492ad5bc4ef931073da26edb8986369127e7f5ce2fde96a4fb91f7",
+    "docs/tables/h8_cash_yield/annual_cash_credit.csv": "e8b22176b72aaaf28cd94e3ff58cc641baa89296da7928e13b409ba5a6e257c2",
+    "docs/tables/h8_cash_yield/attribution.csv": "62e277261879294b6c75c1e498be26e589a7629b905b5d7e93ab26213a711db3",
+    "docs/tables/h8_cash_yield/cash_income_uncertainty.csv": "b50a0863397149cc2062c8fabd3de925c92ab3c0d8a02ff671ecdc4ce0ac98e6",
+    "docs/tables/h8_cash_yield/nominal_attribution.csv": "e529a4f11943400ae441d7584a5812e16033deb0b26640e09f6c8be0773875b6",
+    "docs/tables/h8_cash_yield/periods.csv": "44065ceb09f549c792fabb75f84399f781fba4ff7ac1d2f92da1ca6b32301b44",
+    "docs/tables/h8_cash_yield/ranking_uncertainty.csv": "907de93010db0401c0dbc1c3c5c1fc1491fd71a4754c555f0d56f7a5359a299d",
+    "docs/tables/h8_cash_yield/rankings.csv": "89d1acf0c8ea096f6882f5a46a80e36dcd8dd6d47b225620657869444a5d6a3c",
+    "docs/tables/h8_cash_yield/source_missing.csv": "782d9a17c62d9067b08c515536e533e064da720b32234a270f427f828fbeb069",
+    "docs/tables/h8_cash_yield/summary.csv": "e381569eccf788ad3781aea5b449e8bea55b2a5c3ad6a696a06615b4b107b7a0",
+    "docs/tables/h8_cash_yield/uncertainty.csv": "71df4da4db8d22732c76c9db16696847349fd238c6426fbe154a23e73a06281b",
+    "docs/tables/h8_cash_yield/vintage_checks.csv": "b78cf106d528ed084563c5523a2d68bf63d20b4fe45cc38ed31368f7ea3167ee",
+    "paper/h8_cash_yield_plan.md": "ddc58a71573ada08ebbd44a80c01d41058ec7aaf3ec5a07c6647d7c9c906748f"
+  },
+  "n_ledgers": 100,
+  "n_scenarios": 4,
+  "new_forecast_model_fits": 0,
+  "preserved_previous_versions": [
+    "sensitivity_v1",
+    "publication_v2"
+  ],
+  "publication_current": "v2p3",
+  "publication_implementation": {
+    "commit": "fe604f260574a31ea3e98917286dfba70b6cdc84",
+    "sources_sha256_lf": {
+      "scripts/publish_h8_cash_yield.py": "33ef73ec59682905f83c400bb3aa12507c743e5455cfec63d0083dcebfbec09d"
+    }
+  },
+  "readme_sha256_lf": "8e718852e200474a0efe3b69ab334701e74ddffcd445f8f267406356ca57d696",
+  "results_sha256": "849296a15472fb8f4902d275807c66f8b58af49de4cf5d182baec8da4ab884fd",
+  "scientific_version_current": 2,
+  "source_implementation": {
+    "commit": "1a905b8301edccb8a4b3da0a64aad755c147b8a0",
+    "sources_sha256_lf": {
+      "paper/h8_cash_yield_plan.md": "ddc58a71573ada08ebbd44a80c01d41058ec7aaf3ec5a07c6647d7c9c906748f",
+      "scripts/run_h8_cash_yield.py": "8ddec699fea8364f8ef5a984a006b4665d5fda11eacba6809360a03d3dcd5c5b",
+      "src/vrp/cash_yield.py": "2a6e11d12e97f1d72675313027fec109fce8b9e63e647091bab91d4d97904855"
+    }
+  },
+  "source_manifest_sha256": "61ff6f555ea3d6c1106b4717ee83f215b17e379ad8cea78852637b7d216f91d7",
+  "status": "EXPLORATORY - PENDING INDEPENDENT COAUTHOR REVIEW",
+  "validation": {
+    "all_original_h1_h5_files_preserved": 56,
+    "all_protected_task1_task2_inputs_preserved": 215,
+    "buyhold_unchanged_controls": 20,
+    "compileall": "PASSED src tests scripts",
+    "deterministic_replay": "PASSED_FULL_NUMERIC_TABLE_AND_PUBLICATION_REPLAY",
+    "earlier_without_cache_tests": {
+      "passed": 1830,
+      "seconds": 40.96
+    },
+    "git_diff_check": "PASSED",
+    "original_scientific_source_unchanged": true,
+    "original_zero_ledgers_exact": 25,
+    "original_zero_period_summaries_exact": 25,
+    "png_and_rendered_pdf_figures_visually_verified": 3,
+    "pytest": {
+      "passed": 1832,
+      "seconds": 38.35
+    },
+    "task1_extension_files_preserved": 117
+  }
+}

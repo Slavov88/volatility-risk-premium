@@ -1,0 +1,33 @@
+{
+  "audit_sha256": "1f986961f5a42a310e582bd18b941f395ae9fffbc8455503bb37216874009fa1",
+  "files_sha256": {
+    "docs/figures/h8_cash_yield/annual_cash_income.pdf": "f6f3b46b5cb31f3a872477729123304a069b8a1e7459cf26dfba4e34a1f97108",
+    "docs/figures/h8_cash_yield/annual_cash_income.png": "173d23a4ce09265d87a053be8428c9094eda73c8411eb027b549c2b0d1a22191",
+    "docs/figures/h8_cash_yield/cash_cagr_increment.pdf": "1c8e322bce8d79c1616afb52c39d17bf7722520f74b2e5638812e715a870cf42",
+    "docs/figures/h8_cash_yield/cash_cagr_increment.png": "102ab01ecc7fb2d6649a47669c94ddd16cf1dd96f09958b411af97400a9970e7",
+    "docs/figures/h8_cash_yield/cash_sharpe_references.pdf": "bd7671b1598cd50097b816f879fa252dca0426d33caf0646068a9e75715e53ff",
+    "docs/figures/h8_cash_yield/cash_sharpe_references.png": "66c2fbb8cbc978e339cfe7affbdbcc2ad62019fe61aad8e5b983bd2a63d64561",
+    "docs/h8_cash_yield_sensitivity.md": "249965699f591730fe1774415f123707f966c2d70521d1069ba79414db181357",
+    "docs/h8_economic_attribution.md": "b5e4bd5938b4353073be524d685aa4ee07e90cdb9443acbe112729a4f73ac305",
+    "docs/tables/h8_cash_yield/DGS1MO_schedule.csv": "439e1aa9da54201b9b095d3a51e9ce3e0cc19ae3acc571eac7d76d9af6b20bd6",
+    "docs/tables/h8_cash_yield/DTB4WK_schedule.csv": "8d9ce831f5492ad5bc4ef931073da26edb8986369127e7f5ce2fde96a4fb91f7",
+    "docs/tables/h8_cash_yield/annual_cash_credit.csv": "e8b22176b72aaaf28cd94e3ff58cc641baa89296da7928e13b409ba5a6e257c2",
+    "docs/tables/h8_cash_yield/attribution.csv": "62e277261879294b6c75c1e498be26e589a7629b905b5d7e93ab26213a711db3",
+    "docs/tables/h8_cash_yield/cash_income_uncertainty.csv": "b50a0863397149cc2062c8fabd3de925c92ab3c0d8a02ff671ecdc4ce0ac98e6",
+    "docs/tables/h8_cash_yield/nominal_attribution.csv": "e529a4f11943400ae441d7584a5812e16033deb0b26640e09f6c8be0773875b6",
+    "docs/tables/h8_cash_yield/periods.csv": "44065ceb09f549c792fabb75f84399f781fba4ff7ac1d2f92da1ca6b32301b44",
+    "docs/tables/h8_cash_yield/ranking_uncertainty.csv": "907de93010db0401c0dbc1c3c5c1fc1491fd71a4754c555f0d56f7a5359a299d",
+    "docs/tables/h8_cash_yield/rankings.csv": "89d1acf0c8ea096f6882f5a46a80e36dcd8dd6d47b225620657869444a5d6a3c",
+    "docs/tables/h8_cash_yield/source_missing.csv": "782d9a17c62d9067b08c515536e533e064da720b32234a270f427f828fbeb069",
+    "docs/tables/h8_cash_yield/summary.csv": "e381569eccf788ad3781aea5b449e8bea55b2a5c3ad6a696a06615b4b107b7a0",
+    "docs/tables/h8_cash_yield/uncertainty.csv": "71df4da4db8d22732c76c9db16696847349fd238c6426fbe154a23e73a06281b",
+    "docs/tables/h8_cash_yield/vintage_checks.csv": "b78cf106d528ed084563c5523a2d68bf63d20b4fe45cc38ed31368f7ea3167ee"
+  },
+  "implementation": {
+    "commit": "fe604f260574a31ea3e98917286dfba70b6cdc84",
+    "sources_sha256_lf": {
+      "scripts/publish_h8_cash_yield.py": "33ef73ec59682905f83c400bb3aa12507c743e5455cfec63d0083dcebfbec09d"
+    }
+  },
+  "results_sha256": "849296a15472fb8f4902d275807c66f8b58af49de4cf5d182baec8da4ab884fd"
+}

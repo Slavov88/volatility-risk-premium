@@ -1,0 +1,141 @@
+scenario,cost_bps,metric,ranking_best_to_worst,criterion
+zero,0,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,0,sharpe_zero_reference,"[""garch"", ""vix"", ""trailing"", ""combined"", ""buyhold""]",higher
+zero,0,sharpe_excess_common_dgs1mo,"[""trailing"", ""garch"", ""buyhold"", ""combined"", ""vix""]",higher
+zero,0,sharpe_excess_scenario_cash,"[""garch"", ""vix"", ""trailing"", ""combined"", ""buyhold""]",higher
+zero,0,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+zero,0,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+zero,0,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+zero,1,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,1,sharpe_zero_reference,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+zero,1,sharpe_excess_common_dgs1mo,"[""trailing"", ""garch"", ""buyhold"", ""combined"", ""vix""]",higher
+zero,1,sharpe_excess_scenario_cash,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+zero,1,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+zero,1,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+zero,1,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+zero,5,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,5,sharpe_zero_reference,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+zero,5,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,5,sharpe_excess_scenario_cash,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+zero,5,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+zero,5,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+zero,5,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+zero,10,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,10,sharpe_zero_reference,"[""trailing"", ""garch"", ""combined"", ""buyhold"", ""vix""]",higher
+zero,10,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,10,sharpe_excess_scenario_cash,"[""trailing"", ""garch"", ""combined"", ""buyhold"", ""vix""]",higher
+zero,10,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+zero,10,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+zero,10,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+zero,25,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,25,sharpe_zero_reference,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+zero,25,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+zero,25,sharpe_excess_scenario_cash,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+zero,25,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+zero,25,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+zero,25,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_full,0,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,0,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dgs1mo_full,0,sharpe_excess_common_dgs1mo,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_full,0,sharpe_excess_scenario_cash,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_full,0,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_full,0,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_full,0,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_full,1,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,1,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dgs1mo_full,1,sharpe_excess_common_dgs1mo,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_full,1,sharpe_excess_scenario_cash,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_full,1,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_full,1,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_full,1,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_full,5,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,5,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dgs1mo_full,5,sharpe_excess_common_dgs1mo,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+dgs1mo_full,5,sharpe_excess_scenario_cash,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+dgs1mo_full,5,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_full,5,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_full,5,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_full,10,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,10,sharpe_zero_reference,"[""trailing"", ""combined"", ""vix"", ""garch"", ""buyhold""]",higher
+dgs1mo_full,10,sharpe_excess_common_dgs1mo,"[""trailing"", ""buyhold"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,10,sharpe_excess_scenario_cash,"[""trailing"", ""buyhold"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,10,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_full,10,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_full,10,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_full,25,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_full,25,sharpe_zero_reference,"[""trailing"", ""buyhold"", ""combined"", ""garch"", ""vix""]",higher
+dgs1mo_full,25,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+dgs1mo_full,25,sharpe_excess_scenario_cash,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+dgs1mo_full,25,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_full,25,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_full,25,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_half,0,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,0,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dgs1mo_half,0,sharpe_excess_common_dgs1mo,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_half,0,sharpe_excess_scenario_cash,"[""garch"", ""vix"", ""trailing"", ""combined"", ""buyhold""]",higher
+dgs1mo_half,0,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_half,0,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_half,0,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_half,1,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,1,sharpe_zero_reference,"[""vix"", ""garch"", ""trailing"", ""combined"", ""buyhold""]",higher
+dgs1mo_half,1,sharpe_excess_common_dgs1mo,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_half,1,sharpe_excess_scenario_cash,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_half,1,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_half,1,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_half,1,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_half,5,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,5,sharpe_zero_reference,"[""trailing"", ""garch"", ""vix"", ""combined"", ""buyhold""]",higher
+dgs1mo_half,5,sharpe_excess_common_dgs1mo,"[""trailing"", ""garch"", ""buyhold"", ""combined"", ""vix""]",higher
+dgs1mo_half,5,sharpe_excess_scenario_cash,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+dgs1mo_half,5,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_half,5,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_half,5,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_half,10,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,10,sharpe_zero_reference,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+dgs1mo_half,10,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,10,sharpe_excess_scenario_cash,"[""trailing"", ""garch"", ""buyhold"", ""combined"", ""vix""]",higher
+dgs1mo_half,10,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_half,10,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_half,10,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dgs1mo_half,25,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,25,sharpe_zero_reference,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+dgs1mo_half,25,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dgs1mo_half,25,sharpe_excess_scenario_cash,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+dgs1mo_half,25,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dgs1mo_half,25,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dgs1mo_half,25,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dtb4wk_full,0,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,0,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dtb4wk_full,0,sharpe_excess_common_dgs1mo,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dtb4wk_full,0,sharpe_excess_scenario_cash,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dtb4wk_full,0,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dtb4wk_full,0,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dtb4wk_full,0,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dtb4wk_full,1,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,1,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dtb4wk_full,1,sharpe_excess_common_dgs1mo,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dtb4wk_full,1,sharpe_excess_scenario_cash,"[""garch"", ""trailing"", ""vix"", ""combined"", ""buyhold""]",higher
+dtb4wk_full,1,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dtb4wk_full,1,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dtb4wk_full,1,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dtb4wk_full,5,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,5,sharpe_zero_reference,"[""vix"", ""garch"", ""combined"", ""trailing"", ""buyhold""]",higher
+dtb4wk_full,5,sharpe_excess_common_dgs1mo,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+dtb4wk_full,5,sharpe_excess_scenario_cash,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",higher
+dtb4wk_full,5,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dtb4wk_full,5,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dtb4wk_full,5,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dtb4wk_full,10,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,10,sharpe_zero_reference,"[""trailing"", ""combined"", ""vix"", ""garch"", ""buyhold""]",higher
+dtb4wk_full,10,sharpe_excess_common_dgs1mo,"[""trailing"", ""buyhold"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,10,sharpe_excess_scenario_cash,"[""trailing"", ""buyhold"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,10,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dtb4wk_full,10,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dtb4wk_full,10,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher
+dtb4wk_full,25,cagr,"[""buyhold"", ""trailing"", ""garch"", ""combined"", ""vix""]",higher
+dtb4wk_full,25,sharpe_zero_reference,"[""trailing"", ""buyhold"", ""combined"", ""garch"", ""vix""]",higher
+dtb4wk_full,25,sharpe_excess_common_dgs1mo,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+dtb4wk_full,25,sharpe_excess_scenario_cash,"[""buyhold"", ""trailing"", ""combined"", ""garch"", ""vix""]",higher
+dtb4wk_full,25,rolling21_target_rmse,"[""garch"", ""trailing"", ""combined"", ""vix"", ""buyhold""]",lower
+dtb4wk_full,25,annual_vol,"[""trailing"", ""garch"", ""combined"", ""vix"", ""buyhold""]",closest10% target
+dtb4wk_full,25,max_drawdown,"[""vix"", ""trailing"", ""combined"", ""garch"", ""buyhold""]",higher

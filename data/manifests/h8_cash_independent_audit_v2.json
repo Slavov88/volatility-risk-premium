@@ -1,0 +1,3081 @@
+{
+  "all_original_inputs_preserved": 215,
+  "buyhold_unchanged_controls": 20,
+  "current_finite_but_initially_missing": [
+    {
+      "current_percent": 0.07,
+      "initial_realtime_start_date": "2020-08-21",
+      "initial_release_value": null,
+      "observation_date": "2020-08-19",
+      "series": "DGS1MO",
+      "treatment": "Not backfilled; last eligible initial-release quote remains locked."
+    },
+    {
+      "current_percent": 0.72,
+      "initial_realtime_start_date": null,
+      "initial_release_value": null,
+      "observation_date": "2017-04-20",
+      "series": "DTB4WK",
+      "treatment": "Not backfilled; last eligible initial-release quote remains locked."
+    },
+    {
+      "current_percent": 0.71,
+      "initial_realtime_start_date": null,
+      "initial_release_value": null,
+      "observation_date": "2017-04-21",
+      "series": "DTB4WK",
+      "treatment": "Not backfilled; last eligible initial-release quote remains locked."
+    },
+    {
+      "current_percent": 0.07,
+      "initial_realtime_start_date": "2020-08-21",
+      "initial_release_value": null,
+      "observation_date": "2020-08-19",
+      "series": "DTB4WK",
+      "treatment": "Not backfilled; last eligible initial-release quote remains locked."
+    }
+  ],
+  "implementation": {
+    "commit": "6b966ebfb153d0a995a19ff7c4349db7cb0ba5a8",
+    "sources_sha256_lf": {
+      "scripts/audit_h8_cash_yield.py": "69579a3b20b53ceb508c54b9f0fa60873bf5c01d41b6bf31fed50c9da56840fd"
+    }
+  },
+  "max_independent_summary_error": 3.1905034170165436e-14,
+  "nominal_terminal_attribution": [
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "vix",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "vix",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "vix",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "vix",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "vix",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "garch",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "garch",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "garch",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "garch",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "garch",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "combined",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "combined",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "combined",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "combined",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "zero",
+      "strategy": "combined",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "dgs1mo_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "dgs1mo_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "dgs1mo_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "dgs1mo_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "dgs1mo_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.1449096276833747,
+      "changed_dividends_initial_nav": 0.005082271642839253,
+      "changed_equity_pnl_initial_nav": 0.05032566640006397,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": -1.6459056340067946e-14,
+      "scenario": "dgs1mo_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.20031756572626147
+    },
+    {
+      "cash_interest_initial_nav": 0.1442118415086278,
+      "changed_dividends_initial_nav": 0.0050567447614893735,
+      "changed_equity_pnl_initial_nav": 0.05006544906104615,
+      "changed_negative_fees_initial_nav": -0.00022920620866304087,
+      "cost_bps": 1,
+      "residual": -7.244205235679146e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.19910482912249305
+    },
+    {
+      "cash_interest_initial_nav": 0.14145555891186193,
+      "changed_dividends_initial_nav": 0.004955959539800436,
+      "changed_equity_pnl_initial_nav": 0.04903832041840195,
+      "changed_negative_fees_initial_nav": -0.0011229476949363992,
+      "cost_bps": 5,
+      "residual": 2.55351295663786e-14,
+      "scenario": "dgs1mo_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.19432689117515345
+    },
+    {
+      "cash_interest_initial_nav": 0.1380873041329862,
+      "changed_dividends_initial_nav": 0.004832900619143099,
+      "changed_equity_pnl_initial_nav": 0.047784772570156786,
+      "changed_negative_fees_initial_nav": -0.00218953039612807,
+      "cost_bps": 10,
+      "residual": 9.825473767932635e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.18851544692616784
+    },
+    {
+      "cash_interest_initial_nav": 0.12847576436819397,
+      "changed_dividends_initial_nav": 0.004482394763569819,
+      "changed_equity_pnl_initial_nav": 0.044217988966974264,
+      "changed_negative_fees_initial_nav": -0.005072543819157782,
+      "cost_bps": 25,
+      "residual": -1.0436096431476471e-14,
+      "scenario": "dgs1mo_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.17210360427956983
+    },
+    {
+      "cash_interest_initial_nav": 0.19662241950906673,
+      "changed_dividends_initial_nav": 0.004749598581825165,
+      "changed_equity_pnl_initial_nav": 0.045477627624755046,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 2.9976021664879227e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.24684964571564993
+    },
+    {
+      "cash_interest_initial_nav": 0.19486017752015336,
+      "changed_dividends_initial_nav": 0.004706663564882807,
+      "changed_equity_pnl_initial_nav": 0.045054425071820337,
+      "changed_negative_fees_initial_nav": -0.0004160204404768837,
+      "cost_bps": 1,
+      "residual": 3.635980405647388e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.24420524571638325
+    },
+    {
+      "cash_interest_initial_nav": 0.18797218391755693,
+      "changed_dividends_initial_nav": 0.004538874444614233,
+      "changed_equity_pnl_initial_nav": 0.043401355529837815,
+      "changed_negative_fees_initial_nav": -0.002004481536220612,
+      "cost_bps": 5,
+      "residual": 1.9595436384634013e-14,
+      "scenario": "dgs1mo_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.23390793235580798
+    },
+    {
+      "cash_interest_initial_nav": 0.17971319975495356,
+      "changed_dividends_initial_nav": 0.00433775115618068,
+      "changed_equity_pnl_initial_nav": 0.04142161192555904,
+      "changed_negative_fees_initial_nav": -0.0038277959730810274,
+      "cost_bps": 10,
+      "residual": 8.743006318923108e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.221644766863621
+    },
+    {
+      "cash_interest_initial_nav": 0.15710763819658913,
+      "changed_dividends_initial_nav": 0.003787634057415501,
+      "changed_equity_pnl_initial_nav": 0.036017145351733504,
+      "changed_negative_fees_initial_nav": -0.008332486077044232,
+      "cost_bps": 25,
+      "residual": 1.3433698597964394e-14,
+      "scenario": "dgs1mo_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.18857993152870733
+    },
+    {
+      "cash_interest_initial_nav": 0.17025397926867272,
+      "changed_dividends_initial_nav": 0.005186043222981163,
+      "changed_equity_pnl_initial_nav": 0.05205739322378644,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": -1.7486012637846216e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.22749741571543858
+    },
+    {
+      "cash_interest_initial_nav": 0.16887492791711284,
+      "changed_dividends_initial_nav": 0.005142795639613784,
+      "changed_equity_pnl_initial_nav": 0.051614498010248866,
+      "changed_negative_fees_initial_nav": -0.0004194941990134579,
+      "cost_bps": 1,
+      "residual": -3.747002708109903e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.22521272736795828
+    },
+    {
+      "cash_interest_initial_nav": 0.16347352725228617,
+      "changed_dividends_initial_nav": 0.0049735028282245075,
+      "changed_equity_pnl_initial_nav": 0.049881197215934314,
+      "changed_negative_fees_initial_nav": -0.002027074323088296,
+      "cost_bps": 5,
+      "residual": -8.409939411535561e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.2163011529733483
+    },
+    {
+      "cash_interest_initial_nav": 0.1569727786665387,
+      "changed_dividends_initial_nav": 0.004769964590444209,
+      "changed_equity_pnl_initial_nav": 0.047798185828128226,
+      "changed_negative_fees_initial_nav": -0.0038849562696401385,
+      "cost_bps": 10,
+      "residual": -2.220446049250313e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.20565597281546877
+    },
+    {
+      "cash_interest_initial_nav": 0.13903313698070513,
+      "changed_dividends_initial_nav": 0.004209545457824371,
+      "changed_equity_pnl_initial_nav": 0.042068525689437974,
+      "changed_negative_fees_initial_nav": -0.008549016989123581,
+      "cost_bps": 25,
+      "residual": 6.2727600891321345e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.17676219113885017
+    },
+    {
+      "cash_interest_initial_nav": 0.1748770815776966,
+      "changed_dividends_initial_nav": 0.004662728101493374,
+      "changed_equity_pnl_initial_nav": 0.044742293906186115,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 1.715294573045867e-14,
+      "scenario": "dgs1mo_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.22428210358539324
+    },
+    {
+      "cash_interest_initial_nav": 0.17384640715072,
+      "changed_dividends_initial_nav": 0.004634832847358716,
+      "changed_equity_pnl_initial_nav": 0.04446485853702442,
+      "changed_negative_fees_initial_nav": -0.00035107200488572465,
+      "cost_bps": 1,
+      "residual": 3.3861802251067274e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.22259502653022079
+    },
+    {
+      "cash_interest_initial_nav": 0.16978708733078066,
+      "changed_dividends_initial_nav": 0.004524991567265713,
+      "changed_equity_pnl_initial_nav": 0.04337278686187851,
+      "changed_negative_fees_initial_nav": -0.0017121705355063604,
+      "cost_bps": 5,
+      "residual": -6.8833827526759706e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.21597269522441165
+    },
+    {
+      "cash_interest_initial_nav": 0.16485253571734573,
+      "changed_dividends_initial_nav": 0.004391520701896079,
+      "changed_equity_pnl_initial_nav": 0.0420465936479153,
+      "changed_negative_fees_initial_nav": -0.0033194541812183453,
+      "cost_bps": 10,
+      "residual": -6.2727600891321345e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.2079711958859325
+    },
+    {
+      "cash_interest_initial_nav": 0.1509334104824177,
+      "changed_dividends_initial_nav": 0.00401536165873162,
+      "changed_equity_pnl_initial_nav": 0.03831411288626252,
+      "changed_negative_fees_initial_nav": -0.007560798202302099,
+      "cost_bps": 25,
+      "residual": -1.7208456881689926e-15,
+      "scenario": "dgs1mo_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.18570208682510803
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "dgs1mo_half",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "dgs1mo_half",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "dgs1mo_half",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "dgs1mo_half",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "dgs1mo_half",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.07141876098517301,
+      "changed_dividends_initial_nav": 0.0025203103176235087,
+      "changed_equity_pnl_initial_nav": 0.024934087807452432,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": -1.264266469291897e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.09887315911023631
+    },
+    {
+      "cash_interest_initial_nav": 0.07107533814746915,
+      "changed_dividends_initial_nav": 0.002507660020975855,
+      "changed_equity_pnl_initial_nav": 0.0248052305921429,
+      "changed_negative_fees_initial_nav": -0.0001136586048324003,
+      "cost_bps": 1,
+      "residual": 5.287437154777308e-15,
+      "scenario": "dgs1mo_half",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0982745701557608
+    },
+    {
+      "cash_interest_initial_nav": 0.06971878632478974,
+      "changed_dividends_initial_nav": 0.0024577137887834,
+      "changed_equity_pnl_initial_nav": 0.024296603201577227,
+      "changed_negative_fees_initial_nav": -0.0005568529249683069,
+      "cost_bps": 5,
+      "residual": 2.195466031196247e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.09591625039020402
+    },
+    {
+      "cash_interest_initial_nav": 0.0680610016195714,
+      "changed_dividends_initial_nav": 0.0023967286143810607,
+      "changed_equity_pnl_initial_nav": 0.023675848313064574,
+      "changed_negative_fees_initial_nav": -0.0010857710785767416,
+      "cost_bps": 10,
+      "residual": 1.9234613901630837e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.09304780746845953
+    },
+    {
+      "cash_interest_initial_nav": 0.06333014732010978,
+      "changed_dividends_initial_nav": 0.0022230212632463053,
+      "changed_equity_pnl_initial_nav": 0.021909543696162714,
+      "changed_negative_fees_initial_nav": -0.002515545507749517,
+      "cost_bps": 25,
+      "residual": -1.8984813721090177e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.0849471667717503
+    },
+    {
+      "cash_interest_initial_nav": 0.09606858589620788,
+      "changed_dividends_initial_nav": 0.0023463113603595653,
+      "changed_equity_pnl_initial_nav": 0.0224326047339638,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": -8.465450562766819e-16,
+      "scenario": "dgs1mo_half",
+      "strategy": "vix",
+      "terminal_nav_change": 0.1208475019905304
+    },
+    {
+      "cash_interest_initial_nav": 0.09520915533797186,
+      "changed_dividends_initial_nav": 0.002325121564193733,
+      "changed_equity_pnl_initial_nav": 0.022224002607833304,
+      "changed_negative_fees_initial_nav": -0.00020534094886930435,
+      "cost_bps": 1,
+      "residual": 1.8415824420969784e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "vix",
+      "terminal_nav_change": 0.11955293856114801
+    },
+    {
+      "cash_interest_initial_nav": 0.09184982567330091,
+      "changed_dividends_initial_nav": 0.002242310804298181,
+      "changed_equity_pnl_initial_nav": 0.02140917144208232,
+      "changed_negative_fees_initial_nav": -0.0009894119987180344,
+      "cost_bps": 5,
+      "residual": 3.622102617839573e-15,
+      "scenario": "dgs1mo_half",
+      "strategy": "vix",
+      "terminal_nav_change": 0.114511895920967
+    },
+    {
+      "cash_interest_initial_nav": 0.08782160664590456,
+      "changed_dividends_initial_nav": 0.0021430450313132676,
+      "changed_equity_pnl_initial_nav": 0.020433291404660325,
+      "changed_negative_fees_initial_nav": -0.001889477732367112,
+      "cost_bps": 10,
+      "residual": 3.1905034170165436e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "vix",
+      "terminal_nav_change": 0.10850846534954295
+    },
+    {
+      "cash_interest_initial_nav": 0.0767945264664341,
+      "changed_dividends_initial_nav": 0.0018715113609842626,
+      "changed_equity_pnl_initial_nav": 0.01776910508702989,
+      "changed_negative_fees_initial_nav": -0.004113599475572716,
+      "cost_bps": 25,
+      "residual": 2.456368441983159e-15,
+      "scenario": "dgs1mo_half",
+      "strategy": "vix",
+      "terminal_nav_change": 0.092321543438878
+    },
+    {
+      "cash_interest_initial_nav": 0.08364954010124437,
+      "changed_dividends_initial_nav": 0.0025679622357711596,
+      "changed_equity_pnl_initial_nav": 0.025755703470796476,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 8.881784197001252e-16,
+      "scenario": "dgs1mo_half",
+      "strategy": "garch",
+      "terminal_nav_change": 0.11197320580781289
+    },
+    {
+      "cash_interest_initial_nav": 0.08297306049065972,
+      "changed_dividends_initial_nav": 0.002546565451453764,
+      "changed_equity_pnl_initial_nav": 0.025536724296723268,
+      "changed_negative_fees_initial_nav": -0.0002076182750228965,
+      "cost_bps": 1,
+      "residual": 1.3308798507694064e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "garch",
+      "terminal_nav_change": 0.11084873196382716
+    },
+    {
+      "cash_interest_initial_nav": 0.08032338958344959,
+      "changed_dividends_initial_nav": 0.002462806456622668,
+      "changed_equity_pnl_initial_nav": 0.024679724165343142,
+      "changed_negative_fees_initial_nav": -0.0010032750833153942,
+      "cost_bps": 5,
+      "residual": 1.4890866317784912e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "garch",
+      "terminal_nav_change": 0.1064626451221149
+    },
+    {
+      "cash_interest_initial_nav": 0.07713428073108523,
+      "changed_dividends_initial_nav": 0.0023621016210919055,
+      "changed_equity_pnl_initial_nav": 0.023649793742542613,
+      "changed_negative_fees_initial_nav": -0.0019228702562656685,
+      "cost_bps": 10,
+      "residual": -1.4113710200547303e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "garch",
+      "terminal_nav_change": 0.10122330583843997
+    },
+    {
+      "cash_interest_initial_nav": 0.06833261217297822,
+      "changed_dividends_initial_nav": 0.002084806349491042,
+      "changed_equity_pnl_initial_nav": 0.020816669163908674,
+      "changed_negative_fees_initial_nav": -0.004231759735282836,
+      "cost_bps": 25,
+      "residual": 6.7584826624056404e-15,
+      "scenario": "dgs1mo_half",
+      "strategy": "garch",
+      "terminal_nav_change": 0.08700232795110185
+    },
+    {
+      "cash_interest_initial_nav": 0.08572110008639205,
+      "changed_dividends_initial_nav": 0.0023070730546211338,
+      "changed_equity_pnl_initial_nav": 0.022110177933372555,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": -5.551115123125783e-16,
+      "scenario": "dgs1mo_half",
+      "strategy": "combined",
+      "terminal_nav_change": 0.11013835107438519
+    },
+    {
+      "cash_interest_initial_nav": 0.08521697914794228,
+      "changed_dividends_initial_nav": 0.002293286410936346,
+      "changed_equity_pnl_initial_nav": 0.021973195717242433,
+      "changed_negative_fees_initial_nav": -0.0001735474629462868,
+      "cost_bps": 1,
+      "residual": -7.313594174718219e-15,
+      "scenario": "dgs1mo_half",
+      "strategy": "combined",
+      "terminal_nav_change": 0.10930991381316746
+    },
+    {
+      "cash_interest_initial_nav": 0.08323144539810479,
+      "changed_dividends_initial_nav": 0.00223899892790963,
+      "changed_equity_pnl_initial_nav": 0.021433985517629983,
+      "changed_negative_fees_initial_nav": -0.0008464071203118373,
+      "cost_bps": 5,
+      "residual": 8.604228440844963e-16,
+      "scenario": "dgs1mo_half",
+      "strategy": "combined",
+      "terminal_nav_change": 0.10605802272333342
+    },
+    {
+      "cash_interest_initial_nav": 0.08081770151415199,
+      "changed_dividends_initial_nav": 0.0021730312408012598,
+      "changed_equity_pnl_initial_nav": 0.020779165314550152,
+      "changed_negative_fees_initial_nav": -0.0016410121591507731,
+      "cost_bps": 10,
+      "residual": -3.552713678800501e-15,
+      "scenario": "dgs1mo_half",
+      "strategy": "combined",
+      "terminal_nav_change": 0.10212888591034908
+    },
+    {
+      "cash_interest_initial_nav": 0.07400846117284965,
+      "changed_dividends_initial_nav": 0.0019871053265683725,
+      "changed_equity_pnl_initial_nav": 0.018936140092726816,
+      "changed_negative_fees_initial_nav": -0.003738106284214837,
+      "cost_bps": 25,
+      "residual": 1.5654144647214707e-14,
+      "scenario": "dgs1mo_half",
+      "strategy": "combined",
+      "terminal_nav_change": 0.09119360030794565
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 0.0,
+      "scenario": "dtb4wk_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 1,
+      "residual": 0.0,
+      "scenario": "dtb4wk_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 5,
+      "residual": 0.0,
+      "scenario": "dtb4wk_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 10,
+      "residual": 0.0,
+      "scenario": "dtb4wk_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.0,
+      "changed_dividends_initial_nav": 0.0,
+      "changed_equity_pnl_initial_nav": 0.0,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 25,
+      "residual": 0.0,
+      "scenario": "dtb4wk_full",
+      "strategy": "buyhold",
+      "terminal_nav_change": 0.0
+    },
+    {
+      "cash_interest_initial_nav": 0.14212571497010268,
+      "changed_dividends_initial_nav": 0.005009939990481327,
+      "changed_equity_pnl_initial_nav": 0.04954910436377791,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": -2.353672812205332e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.19668475932433838
+    },
+    {
+      "cash_interest_initial_nav": 0.14144200270314397,
+      "changed_dividends_initial_nav": 0.004984803816828254,
+      "changed_equity_pnl_initial_nav": 0.04929309183353059,
+      "changed_negative_fees_initial_nav": -0.0002258831246276967,
+      "cost_bps": 1,
+      "residual": -6.661338147750939e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.19549401522886845
+    },
+    {
+      "cash_interest_initial_nav": 0.13874129753990802,
+      "changed_dividends_initial_nav": 0.004885560204824335,
+      "changed_equity_pnl_initial_nav": 0.04828255378201751,
+      "changed_negative_fees_initial_nav": -0.001106688162339553,
+      "cost_bps": 5,
+      "residual": 7.077671781985373e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.1908027233644174
+    },
+    {
+      "cash_interest_initial_nav": 0.1354409264079719,
+      "changed_dividends_initial_nav": 0.004764381419972319,
+      "changed_equity_pnl_initial_nav": 0.0470492391125128,
+      "changed_negative_fees_initial_nav": -0.002157879432727161,
+      "cost_bps": 10,
+      "residual": -1.1268763699945339e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.18509666750771858
+    },
+    {
+      "cash_interest_initial_nav": 0.12602288037064785,
+      "changed_dividends_initial_nav": 0.004419216925975522,
+      "changed_equity_pnl_initial_nav": 0.043539933068503345,
+      "changed_negative_fees_initial_nav": -0.004999582382236134,
+      "cost_bps": 25,
+      "residual": -1.0269562977782698e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "trailing",
+      "terminal_nav_change": 0.1689824479828803
+    },
+    {
+      "cash_interest_initial_nav": 0.19280427354691912,
+      "changed_dividends_initial_nav": 0.0046869804796343395,
+      "changed_equity_pnl_initial_nav": 0.04479308534657611,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 8.631984016460592e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.2422843393731382
+    },
+    {
+      "cash_interest_initial_nav": 0.19107792823936057,
+      "changed_dividends_initial_nav": 0.004644654005881099,
+      "changed_equity_pnl_initial_nav": 0.04437653044280521,
+      "changed_negative_fees_initial_nav": -0.00041025975484501945,
+      "cost_bps": 1,
+      "residual": 1.0325074129013956e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.23968885293321218
+    },
+    {
+      "cash_interest_initial_nav": 0.18433015280525464,
+      "changed_dividends_initial_nav": 0.0044792401625168565,
+      "changed_equity_pnl_initial_nav": 0.04274940870514454,
+      "changed_negative_fees_initial_nav": -0.0019767931047684068,
+      "cost_bps": 5,
+      "residual": -2.609024107869118e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.22958200856814504
+    },
+    {
+      "cash_interest_initial_nav": 0.17623909976615118,
+      "changed_dividends_initial_nav": 0.004280957736078783,
+      "changed_equity_pnl_initial_nav": 0.04080070022662774,
+      "changed_negative_fees_initial_nav": -0.0037750850246813794,
+      "cost_bps": 10,
+      "residual": 2.0344836926255994e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.21754567270419667
+    },
+    {
+      "cash_interest_initial_nav": 0.15409196992305624,
+      "changed_dividends_initial_nav": 0.0037385727469600727,
+      "changed_equity_pnl_initial_nav": 0.035480710183659836,
+      "changed_negative_fees_initial_nav": -0.008218830761451745,
+      "cost_bps": 25,
+      "residual": 8.354428260304303e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "vix",
+      "terminal_nav_change": 0.18509242209223276
+    },
+    {
+      "cash_interest_initial_nav": 0.16691341153607933,
+      "changed_dividends_initial_nav": 0.005113107951650875,
+      "changed_equity_pnl_initial_nav": 0.05126076735131457,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 4.6351811278100286e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.22328728683904941
+    },
+    {
+      "cash_interest_initial_nav": 0.16556273682997832,
+      "changed_dividends_initial_nav": 0.005070515436355949,
+      "changed_equity_pnl_initial_nav": 0.050824986834060226,
+      "changed_negative_fees_initial_nav": -0.00041335561995299586,
+      "cost_bps": 1,
+      "residual": 1.2212453270876722e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.2210448834804537
+    },
+    {
+      "cash_interest_initial_nav": 0.1602724257982341,
+      "changed_dividends_initial_nav": 0.004903784039799852,
+      "changed_equity_pnl_initial_nav": 0.04911950972595669,
+      "changed_negative_fees_initial_nav": -0.0019974755524456572,
+      "cost_bps": 5,
+      "residual": -1.3489209749195652e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.21229824401153152
+    },
+    {
+      "cash_interest_initial_nav": 0.15390525643776645,
+      "changed_dividends_initial_nav": 0.004703319124231942,
+      "changed_equity_pnl_initial_nav": 0.047069891639550665,
+      "changed_negative_fees_initial_nav": -0.0038283838113000734,
+      "cost_bps": 10,
+      "residual": -1.6181500583911657e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.2018500833902328
+    },
+    {
+      "cash_interest_initial_nav": 0.13633348694772077,
+      "changed_dividends_initial_nav": 0.004151323826362074,
+      "changed_equity_pnl_initial_nav": 0.04143181427827414,
+      "changed_negative_fees_initial_nav": -0.008425566326843104,
+      "cost_bps": 25,
+      "residual": 3.747002708109903e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "garch",
+      "terminal_nav_change": 0.17349105872551762
+    },
+    {
+      "cash_interest_initial_nav": 0.17148092656849473,
+      "changed_dividends_initial_nav": 0.004599926191992121,
+      "changed_equity_pnl_initial_nav": 0.044059609648609444,
+      "changed_negative_fees_initial_nav": 0.0,
+      "cost_bps": 0,
+      "residual": 1.715294573045867e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.22014046240911345
+    },
+    {
+      "cash_interest_initial_nav": 0.1704714697426104,
+      "changed_dividends_initial_nav": 0.004572444058109526,
+      "changed_equity_pnl_initial_nav": 0.04378664848655056,
+      "changed_negative_fees_initial_nav": -0.00034601966390253834,
+      "cost_bps": 1,
+      "residual": 1.9734214262712158e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.21848454262338768
+    },
+    {
+      "cash_interest_initial_nav": 0.16649568297104464,
+      "changed_dividends_initial_nav": 0.004464227940310483,
+      "changed_equity_pnl_initial_nav": 0.042712179133477246,
+      "changed_negative_fees_initial_nav": -0.0016875764741516447,
+      "cost_bps": 5,
+      "residual": -4.773959005888173e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.21198451357067594
+    },
+    {
+      "cash_interest_initial_nav": 0.16166260251069953,
+      "changed_dividends_initial_nav": 0.0043327284270480715,
+      "changed_equity_pnl_initial_nav": 0.041407340829092476,
+      "changed_negative_fees_initial_nav": -0.0032718851523925174,
+      "cost_bps": 10,
+      "residual": -8.93729534823251e-15,
+      "scenario": "dtb4wk_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.20413078661443862
+    },
+    {
+      "cash_interest_initial_nav": 0.14802923801433313,
+      "changed_dividends_initial_nav": 0.003962103722441823,
+      "changed_equity_pnl_initial_nav": 0.03773482951439466,
+      "changed_negative_fees_initial_nav": -0.007453229294626773,
+      "cost_bps": 25,
+      "residual": 1.5015766408055242e-14,
+      "scenario": "dtb4wk_full",
+      "strategy": "combined",
+      "terminal_nav_change": 0.18227294195655785
+    }
+  ],
+  "rankings": [
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "garch",
+        "vix",
+        "trailing",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "buyhold",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "vix",
+        "trailing",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "buyhold",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "buyhold",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "buyhold",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "zero"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "combined",
+        "vix",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "buyhold",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "buyhold",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "buyhold",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "vix",
+        "trailing",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "trailing",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "buyhold",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "buyhold",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dgs1mo_half"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 0,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "vix",
+        "combined",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 1,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "vix",
+        "garch",
+        "combined",
+        "trailing",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 5,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "combined",
+        "vix",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "trailing",
+        "buyhold",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "trailing",
+        "buyhold",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 10,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "cagr",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "garch",
+        "combined",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_zero_reference",
+      "ranking_best_to_worst": [
+        "trailing",
+        "buyhold",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_common_dgs1mo",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "sharpe_excess_scenario_cash",
+      "ranking_best_to_worst": [
+        "buyhold",
+        "trailing",
+        "combined",
+        "garch",
+        "vix"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "lower",
+      "metric": "rolling21_target_rmse",
+      "ranking_best_to_worst": [
+        "garch",
+        "trailing",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "closest10% target",
+      "metric": "annual_vol",
+      "ranking_best_to_worst": [
+        "trailing",
+        "garch",
+        "combined",
+        "vix",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    },
+    {
+      "cost_bps": 25,
+      "criterion": "higher",
+      "metric": "max_drawdown",
+      "ranking_best_to_worst": [
+        "vix",
+        "trailing",
+        "combined",
+        "garch",
+        "buyhold"
+      ],
+      "scenario": "dtb4wk_full"
+    }
+  ],
+  "rate_checks": {
+    "DGS1MO": {
+      "elapsed_days_total": 5112,
+      "intervals": 3519,
+      "max_elapsed_days": 5,
+      "max_factor_error": 1.0842021724855044e-19,
+      "max_quote_age_days": 7,
+      "multi_day_intervals": 769
+    },
+    "DTB4WK": {
+      "elapsed_days_total": 5112,
+      "intervals": 3519,
+      "max_elapsed_days": 5,
+      "max_factor_error": 1.6263032587282567e-19,
+      "max_quote_age_days": 7,
+      "multi_day_intervals": 769
+    }
+  },
+  "results_sha256": "849296a15472fb8f4902d275807c66f8b58af49de4cf5d182baec8da4ab884fd",
+  "snapshot_checks": [
+    {
+      "chosen_observation": "2011-12-29",
+      "difference": 0.0,
+      "initial_percent": 0.0,
+      "series": "DGS1MO",
+      "snapshot_percent": 0.0,
+      "snapshot_sha256": "f34c3e2c240a60bce74d0ef2b2eb82ce21158f721de485a03673fb78e202eb93",
+      "vintage_date": "2012-01-03"
+    },
+    {
+      "chosen_observation": "2018-04-04",
+      "difference": 0.0,
+      "initial_percent": 1.67,
+      "series": "DGS1MO",
+      "snapshot_percent": 1.67,
+      "snapshot_sha256": "fef2be84f61409623d2e714a5950a333cb69938e6787cb49fd1910ce70a672a8",
+      "vintage_date": "2018-04-05"
+    },
+    {
+      "chosen_observation": "2020-03-20",
+      "difference": 0.0,
+      "initial_percent": 0.04,
+      "series": "DGS1MO",
+      "snapshot_percent": 0.04,
+      "snapshot_sha256": "4f0de57af5f725241bc24759516cad1875d8c1a438477112d93558946899c101",
+      "vintage_date": "2020-03-23"
+    },
+    {
+      "chosen_observation": "2022-11-03",
+      "difference": 0.0,
+      "initial_percent": 3.75,
+      "series": "DGS1MO",
+      "snapshot_percent": 3.75,
+      "snapshot_sha256": "6c380b86fb3c02f701d1bd29f564cc5887119dad62b87d7a02d7fbdd0b5a0b16",
+      "vintage_date": "2022-11-04"
+    },
+    {
+      "chosen_observation": "2025-12-30",
+      "difference": 0.0,
+      "initial_percent": 3.65,
+      "series": "DGS1MO",
+      "snapshot_percent": 3.65,
+      "snapshot_sha256": "42d4c33adce12a7ceee372a91c0f8954f5095e383d0b6b5ccf82bfd7445226ec",
+      "vintage_date": "2025-12-31"
+    },
+    {
+      "chosen_observation": "2011-12-29",
+      "difference": 0.0,
+      "initial_percent": -0.01,
+      "series": "DTB4WK",
+      "snapshot_percent": -0.01,
+      "snapshot_sha256": "d4f99a896e792c4cdd275098112ad5629371869569fd5bffcbb2e57f190b8c6c",
+      "vintage_date": "2012-01-03"
+    },
+    {
+      "chosen_observation": "2018-04-04",
+      "difference": 0.0,
+      "initial_percent": 1.65,
+      "series": "DTB4WK",
+      "snapshot_percent": 1.65,
+      "snapshot_sha256": "8dfb20b70eb548276a2c42a9940586f2a0a32ebc0b12910a0f6ff083bd5a2fca",
+      "vintage_date": "2018-04-05"
+    },
+    {
+      "chosen_observation": "2020-03-20",
+      "difference": 0.0,
+      "initial_percent": 0.04,
+      "series": "DTB4WK",
+      "snapshot_percent": 0.04,
+      "snapshot_sha256": "e565127109b0f88a703406f3e43a8de82a76fb589c9e1bd874e1a33ba15edec3",
+      "vintage_date": "2020-03-23"
+    },
+    {
+      "chosen_observation": "2022-11-03",
+      "difference": 0.0,
+      "initial_percent": 3.63,
+      "series": "DTB4WK",
+      "snapshot_percent": 3.63,
+      "snapshot_sha256": "02defdfbe81270ef36aded2ff88d6d695b7366a91a986cd5d38fb615e3919acf",
+      "vintage_date": "2022-11-04"
+    },
+    {
+      "chosen_observation": "2025-12-30",
+      "difference": 0.0,
+      "initial_percent": 3.5,
+      "series": "DTB4WK",
+      "snapshot_percent": 3.5,
+      "snapshot_sha256": "bfcdbedb1b87da9112e258107b8fe8a7d2eeca8ac23a4cbbbee41cb9402e8d4c",
+      "vintage_date": "2025-12-31"
+    }
+  ],
+  "status": "PASSED_INDEPENDENT_VINTAGE_AND_ECONOMIC_AUDIT"
+}

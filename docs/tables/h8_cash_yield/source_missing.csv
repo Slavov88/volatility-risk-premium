@@ -1,0 +1,5 @@
+series,observation_date,current_percent,initial_release_value,initial_realtime_start_date,treatment
+DGS1MO,2020-08-19,0.070000000000000007,,2020-08-21,Not backfilled; last eligible initial-release quote remains locked.
+DTB4WK,2017-04-20,0.71999999999999997,,,Not backfilled; last eligible initial-release quote remains locked.
+DTB4WK,2017-04-21,0.70999999999999996,,,Not backfilled; last eligible initial-release quote remains locked.
+DTB4WK,2020-08-19,0.070000000000000007,,2020-08-21,Not backfilled; last eligible initial-release quote remains locked.

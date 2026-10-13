@@ -1,0 +1,24 @@
+{
+  "cache_io_implementation": {
+    "commit": "1213303d0e05db7052ab979bf421803a485d6f80",
+    "sources_sha256_lf": {
+      "scripts/h8_cash_cache_io.py": "66c71cbdce9e446256d6c1da6dcf5dd9c4fbf1df8f8a18f1f9a4eaf78a1f6661"
+    }
+  },
+  "implementation": {
+    "commit": "1213303d0e05db7052ab979bf421803a485d6f80",
+    "sources_sha256_lf": {
+      "scripts/replay_h8_cash_yield.py": "c81bb060f2e6093fa7e316e8ad2edb72e31b55449de4b0a999973f5c6552c13c"
+    }
+  },
+  "local_report_links_checked": 26,
+  "original_input_files_preserved": 215,
+  "original_zero_ledgers_exact": 25,
+  "original_zero_period_summaries_exact": 25,
+  "publication_sha256": "c73160b707ef447eb3782cf61588395ad12bfcd8a6738f0e183a5a2a7485619f",
+  "results_sha256": "849296a15472fb8f4902d275807c66f8b58af49de4cf5d182baec8da4ab884fd",
+  "status": "PASSED_FULL_NUMERIC_TABLE_AND_PUBLICATION_REPLAY",
+  "v1_signal_date_period_summaries_superseded": 100,
+  "v1_v2_all100_ledger_hashes_identical": true,
+  "v1_v2_all_full_sample_numeric_fields_identical": true
+}
