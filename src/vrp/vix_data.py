@@ -184,8 +184,11 @@ def acquire_vix_history(
     retrieved = retrieved_at or datetime.now(timezone.utc)
     if retrieved.tzinfo is None:
         raise ValueError("retrieved_at must be timezone-aware")
-    if end_exclusive > retrieved.date() + timedelta(days=1):
-        raise ValueError("end_exclusive cannot lie beyond the retrieval date")
+    if end_exclusive > retrieved.date():
+        raise ValueError(
+            "end_exclusive cannot exceed the retrieval date; current-day VIX "
+            "must never enter a frozen daily predictor snapshot"
+        )
 
     raw = fetch_bytes(CBOE_VIX_URL)
     normalized = parse_cboe_vix(

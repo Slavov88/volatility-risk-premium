@@ -64,3 +64,18 @@ def test_vix_parser_rejects_duplicate_dates() -> None:
             start_date=date(2024, 1, 2),
             end_exclusive=date(2024, 1, 3),
         )
+
+
+def test_vix_acquisition_rejects_current_day_window(tmp_path) -> None:
+    from datetime import datetime, timezone
+
+    from vrp.vix_data import acquire_vix_history
+
+    retrieved = datetime(2024, 1, 5, 12, tzinfo=timezone.utc)
+    with pytest.raises(ValueError, match="current-day VIX"):
+        acquire_vix_history(
+            tmp_path,
+            start_date=date(2024, 1, 2),
+            end_exclusive=date(2024, 1, 6),
+            retrieved_at=retrieved,
+        )
