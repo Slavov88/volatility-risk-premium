@@ -16,7 +16,7 @@ def without_identity(value):
 def main():
     root=primary.ROOT; out=primary.OUT
     saved=json.loads((out/'results.json').read_bytes()); audit=json.loads((out/'independent_audit.json').read_bytes())
-    publication=json.loads((out/'publication_v2.json').read_bytes())
+    publication=json.loads((out/'publication_v3.json').read_bytes())
     for record in [saved,audit,publication]:
         for name,digest in record['implementation']['sources_sha256_lf'].items():
             raw=(root/name).read_bytes().replace(b'\r\n',b'\n')
@@ -63,12 +63,12 @@ def main():
     for name,digest in publication['files_sha256'].items(): checked_hash(root/name,digest)
     manifest={'status':'PASSED_DETERMINISTIC_NUMERIC_AND_PUBLICATION_REPLAY',
               'results_sha256':sha(out/'results.json'),'audit_sha256':sha(out/'independent_audit.json'),
-              'publication_sha256':sha(out/'publication_v2.json'), 'original_input_files_preserved':len(saved['input_sha256']),
+              'publication_sha256':sha(out/'publication_v3.json'), 'original_input_files_preserved':len(saved['input_sha256']),
               'independent_original_portfolio_metric_errors':independent_errors,
               'regime_variance_contribution_errors':group_errors,
               'implementation':implementation(['scripts/replay_quant_failure.py'])}
-    persist(out/'deterministic_replay_v2.json',manifest)
-    persist(root/'data/manifests/quant_failure_deterministic_replay_v2.json',manifest)
+    persist(out/'deterministic_replay_v3.json',manifest)
+    persist(root/'data/manifests/quant_failure_deterministic_replay_v3.json',manifest)
     print(manifest['status'],flush=True)
 
 

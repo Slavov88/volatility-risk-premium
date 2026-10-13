@@ -58,7 +58,7 @@ def publish():
     for m in 'ACD':
         p=[one(x['h6']['scores'],group=f'year_{y}',model=m)['mean_probability']*100 for y in years]
         ax.plot(years,p,color=colors[m],label=f'{m} mean probability')
-    ax.set(xlabel='Forecast-origin year',ylabel='Probability / prevalence (%)',xticks=years[::2]); ax.legend(ncol=2,fontsize=9)
+    ax.set(xlabel='Forecast-origin year',ylabel='Probability / prevalence (%)',xticks=years[::2]); ax.legend(ncol=2,fontsize=9,loc='lower center',bbox_to_anchor=(.5,1.02))
     savefig(fig,'h6_probability_drift')
     sel=panel.origin.between('2020-01-01','2020-06-30'); dates=pd.to_datetime(panel.origin[sel])
     fig,ax=plt.subplots(figsize=(8,3.6))
@@ -182,7 +182,7 @@ def publish():
                   for name in sorted(set(x['table_sha256']) | set(audit['table_sha256']))})
     for name in ['h6_failure_analysis.md','h7_failure_analysis.md','h8_failure_analysis.md','quant_failure_mechanisms.md']: files['docs/'+name]=sha(DOC/name)
     publication={'implementation':code,'results_sha256':sha(OUT/'results.json'),'audit_sha256':sha(OUT/'independent_audit.json'),'files_sha256':files}
-    persist(OUT/'publication_v2.json',publication);persist(ROOT/'data/manifests/quant_failure_publication_v2.json',publication)
+    persist(OUT/'publication_v3.json',publication);persist(ROOT/'data/manifests/quant_failure_publication_v3.json',publication)
     print('Published reports, tables and five PNG/PDF figures',flush=True)
     return publication
 
