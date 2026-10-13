@@ -1,4 +1,5 @@
 import hashlib
+from types import SimpleNamespace
 import json
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -157,7 +158,7 @@ def test_fred_transport_failure_does_not_block_yahoo_acquisition(tmp_path: Path)
         yfinance_version="test",
         fred_fetch=fail,
     )
-    assert result.fred_validation_status == "unavailable"
+    assert result.fred_validation_status == "unavailable_transport"
     assert (tmp_path / result.yahoo_relative_path).exists()
 
 
@@ -171,3 +172,61 @@ def test_current_new_york_date_bar_is_rejected() -> None:
             date(2024, 1, 6),
             datetime(2024, 1, 5, 18, tzinfo=timezone.utc),
         )
+
+
+def test_invalid_fred_response_is_classified_separately(tmp_path: Path) -> None:
+    result = acquire_spx_index(
+        raw_root=tmp_path,
+        start_date=date(2024, 1, 1),
+        end_exclusive=date(2024, 1, 4),
+        retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+        yahoo_download=lambda **_: sample_yahoo_frame(),
+        yfinance_version="test",
+        fred_fetch=lambda _: b"not,a,valid,fred,schema\n",
+    )
+    assert result.fred_validation_status == "invalid_validation_response"
+    assert (tmp_path / result.yahoo_relative_path).exists()
+
+
+def test_unexpected_fred_programming_error_is_not_swallowed(tmp_path: Path) -> None:
+    def explode(_: str) -> bytes:
+        raise AssertionError("programming error")
+
+    with pytest.raises(AssertionError, match="programming error"):
+        acquire_spx_index(
+            raw_root=tmp_path,
+            start_date=date(2024, 1, 1),
+            end_exclusive=date(2024, 1, 4),
+            retrieved_at=datetime(2024, 1, 5, 12, tzinfo=timezone.utc),
+            yahoo_download=lambda **_: sample_yahoo_frame(),
+            yfinance_version="test",
+            fred_fetch=explode,
+        )
+
+
+def test_cli_returns_nonzero_when_snapshot_fails_promotion_gate(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    import vrp.spx_data as module
+
+    fake = SimpleNamespace(
+        row_count=2,
+        coverage_start="2024-01-02",
+        coverage_end="2024-01-03",
+        yahoo_sha256="abc",
+        production_quality=SimpleNamespace(accepted=False),
+        fred_validation_status="not_requested",
+        manifest_relative_path="stamp/gspc_manifest.json",
+    )
+    monkeypatch.setattr(module, "acquire_spx_index", lambda **_: fake)
+    exit_code = module.main(
+        [
+            "--start-date",
+            "2024-01-01",
+            "--end-exclusive",
+            "2024-01-04",
+        ]
+    )
+    assert exit_code == 2
+    assert "failed the production-quality promotion gate" in capsys.readouterr().out

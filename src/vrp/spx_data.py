@@ -14,6 +14,7 @@ import csv
 import io
 import json
 import math
+import urllib.error
 import urllib.parse
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta, timezone
@@ -318,35 +319,44 @@ def require_production_quality(
 
 
 def parse_fred_sp500(raw: bytes) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Parse FRED SP500 CSV while retaining missing-close metadata."""
+    """Parse FRED SP500 CSV and classify malformed provider responses."""
 
-    reader = csv.DictReader(io.StringIO(raw.decode("utf-8-sig")))
-    if reader.fieldnames is None:
-        raise DataValidationError("FRED returned a CSV without a header")
-    date_column = next(
-        (
-            column
-            for column in ("observation_date", "DATE", "date")
-            if column in reader.fieldnames
-        ),
-        None,
-    )
-    if date_column is None or "SP500" not in reader.fieldnames:
+    try:
+        text = raw.decode("utf-8-sig")
+        reader = csv.DictReader(io.StringIO(text))
+        if reader.fieldnames is None:
+            raise DataValidationError("FRED returned a CSV without a header")
+        date_column = next(
+            (
+                column
+                for column in ("observation_date", "DATE", "date")
+                if column in reader.fieldnames
+            ),
+            None,
+        )
+        if date_column is None or "SP500" not in reader.fieldnames:
+            raise DataValidationError(
+                f"FRED schema must contain a date and SP500: {reader.fieldnames}"
+            )
+        rows = list(reader)
+        if not rows:
+            raise DataValidationError("FRED returned no SP500 rows")
+        dates = [date.fromisoformat(row[date_column].strip()) for row in rows]
+        values: list[float | None] = []
+        for row in rows:
+            raw_value = row["SP500"].strip()
+            values.append(
+                None
+                if raw_value in {"", ".", "NA", "null"}
+                else float(raw_value)
+            )
+    except DataValidationError:
+        raise
+    except (UnicodeError, ValueError, KeyError, TypeError) as error:
         raise DataValidationError(
-            f"FRED schema must contain a date and SP500: {reader.fieldnames}"
-        )
-    rows = list(reader)
-    if not rows:
-        raise DataValidationError("FRED returned no SP500 rows")
-    dates = [date.fromisoformat(row[date_column].strip()) for row in rows]
-    values: list[float | None] = []
-    for row in rows:
-        raw_value = row["SP500"].strip()
-        values.append(
-            None
-            if raw_value in {"", ".", "NA", "null"}
-            else float(raw_value)
-        )
+            f"FRED SP500 response could not be parsed: {error}"
+        ) from error
+
     frame = pd.DataFrame(
         {
             "Date": [day.isoformat() for day in dates],
@@ -361,7 +371,6 @@ def parse_fred_sp500(raw: bytes) -> tuple[pd.DataFrame, dict[str, Any]]:
         "raw_columns": list(reader.fieldnames),
     }
     return frame, metadata
-
 
 def validate_fred_closes(
     yahoo: pd.DataFrame,
@@ -443,7 +452,7 @@ def acquire_spx_index(
     fred_fetch: ByteFetcher | None = None,
     transport_note: str = "default verified TLS transports",
 ) -> SpxAcquisitionResult:
-    """Acquire Yahoo ^GSPC; optionally attempt a non-blocking FRED cross-check."""
+    """Acquire Yahoo ^GSPC and optionally run a classified FRED cross-check.\n\n    The immutable Yahoo artifact is preserved even if the production-quality\n    gate rejects promotion into the analysis layer.\n    """
 
     retrieved = retrieved_at or datetime.now(timezone.utc)
     if retrieved.tzinfo is None:
@@ -529,8 +538,16 @@ def acquire_spx_index(
                 "bytes": len(fred_raw),
                 "correction_policy": "report only; never overwrite Yahoo",
             }
-        except Exception as error:
-            fred_status = "unavailable"
+        except (TimeoutError, urllib.error.URLError, ConnectionError, OSError) as error:
+            fred_status = "unavailable_transport"
+            fred_manifest = {
+                "status": fred_status,
+                "error_type": type(error).__name__,
+                "error": str(error)[:500],
+                "correction_policy": "Yahoo acquisition remains canonical",
+            }
+        except DataValidationError as error:
+            fred_status = "invalid_validation_response"
             fred_manifest = {
                 "status": fred_status,
                 "error_type": type(error).__name__,
@@ -590,6 +607,12 @@ def acquire_spx_index(
             "missing_values": result.missing_values,
         },
         "production_quality": asdict(quality),
+        "exchange_calendar": {
+            "name": "XNYS",
+            "library": "exchange-calendars",
+            "library_version": version("exchange-calendars"),
+            "expected_session_count": quality.expected_session_count,
+        },
         "fred_close_validation": fred_manifest,
         "index_source": {
             "canonical_provider": "Yahoo Finance",
@@ -655,6 +678,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     print(f"fred_validation={result.fred_validation_status}")
     print(f"manifest={result.manifest_relative_path}")
+    if not result.production_quality.accepted:
+        print(
+            "ERROR: acquisition artifact was preserved, but the snapshot failed "
+            "the production-quality promotion gate."
+        )
+        return 2
     return 0
 
 
