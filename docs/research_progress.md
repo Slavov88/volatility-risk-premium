@@ -229,3 +229,18 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   The strict source gate and historical candidate remain unchanged.
 - Production double-build follows the committed implementation; no panel
   count or target result claimed yet.
+
+### 2026-10-13 interim freeze replay and target implementation
+
+- Interim builder commit 55ce4a2: two actual builds independently replayed
+  sources and produced the same immutable manifest/panel at
+  data/processed/interim/40113d6646b0e7b8/. EMP-004 technically complete via
+  the authorized interim path; old strict gate still rejects.
+- Coverage computed from locked calendar: full 9064/9067, OOS 4780/4780,
+  post-2003 (2004-01-01) 5535/5535, post-2014 2827/2827. Missing exactly
+  1991-03-01, 1997-01-31, 1997-11-26. All 9088 SPX rows retained.
+- Added six-target execution, all-origin independent numpy audit and isolated
+  individual/joint alternate-close sensitivity. Unit regressions passed;
+  production execution follows the target implementation commit.
+- EMP-005 remains PENDING independent acceptance; EMP-006 implementation
+  ready, actual execution not claimed yet; H1/H2 inference not executed.
