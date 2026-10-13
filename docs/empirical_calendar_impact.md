@@ -4,7 +4,7 @@
 
 **Current H3/H4 evidence:** [corrected results](h3_h4_corrected_results.md). Original30c GARCH-based H3/H4 comparisons are **SUPERSEDED / INVALID_FOR_STRICT_EX_ANTE_FORECASTING**; their result JSON/manifests, original reports and hashes remain immutable. Original21t numerical evidence is verified unaffected, but date metadata is superseded. This repair changes the forecasting information set, not any fit, target, criterion or selected model.
 
-| variant | changed30c origins | extended vectors | changed21t values | max |forecast change| | max-change origin | first-step reconstruction error |
+| variant | changed30c origins | extended vectors | changed21t values | max absolute forecast change | max-change origin | first-step reconstruction error |
 |---|---|---|---|---|---|---|
 | normal_expanding | 61 | 10 | 0 | 0.0024819540117229 | 2018-12-04 | 0 |
 | normal_rolling5y | 61 | 10 | 0 | 0.0029875576003412 | 2012-10-23 | 0 |

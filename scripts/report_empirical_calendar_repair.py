@@ -74,7 +74,7 @@ def run():
     rows=[]
     for variant,x in result["cache_audit"].items():
         biggest=max(x["changes"],key=lambda y:abs(y["signed_change"]))
-        rows.append({"variant":variant,"changed30c origins":x["changed30c_calendar_count_origins"],"extended vectors":x["extended_cached_vectors"],"changed21t values":x["fixed21_numeric_changed"],"max |forecast change|":abs(biggest["signed_change"]),"max-change origin":biggest["origin"],"first-step reconstruction error":x["first_step_max_error_decimal_variance"]})
+        rows.append({"variant":variant,"changed30c origins":x["changed30c_calendar_count_origins"],"extended vectors":x["extended_cached_vectors"],"changed21t values":x["fixed21_numeric_changed"],"max absolute forecast change":abs(biggest["signed_change"]),"max-change origin":biggest["origin"],"first-step reconstruction error":x["first_step_max_error_decimal_variance"]})
     impact="# Empirical calendar impact and version status\n\n"+header
     impact+="**Current H3/H4 evidence:** [corrected results](h3_h4_corrected_results.md). Original30c GARCH-based H3/H4 comparisons are **SUPERSEDED / INVALID_FOR_STRICT_EX_ANTE_FORECASTING**; their result JSON/manifests, original reports and hashes remain immutable. Original21t numerical evidence is verified unaffected, but date metadata is superseded. This repair changes the forecasting information set, not any fit, target, criterion or selected model.\n\n"
     impact+=table(rows,list(rows[0]))
@@ -112,9 +112,10 @@ def run():
     manifest={"status":STATUS,"results_sha256":sha(OUT/"corrected_results.json"),"report_sha256":{f:sha(ROOT/"docs"/f) for f in files},
               "local_output_sha256":{p.relative_to(OUT).as_posix():sha(p) for p in sorted(stable_paths)},
               "generator_sha256_lf":__import__('hashlib').sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest(),"independent_review":"PENDING"}
-    manifest["supersedes_preliminary_inventory"]="empirical_calendar_repair_execution_v1.json; numerical results unchanged"
-    persist(ROOT/"data/manifests/empirical_calendar_repair_execution_v2.json",manifest)
-    preserve();print({"reports":files,"manifest_sha256":sha(ROOT/"data/manifests/empirical_calendar_repair_execution_v2.json"),"decision_changes":decisions,"decisions_checked":decision_count})
+    manifest["supersedes_preliminary_inventory"]="empirical_calendar_repair_execution_v1/v2.json; final table-header formatting, numerical results unchanged"
+    manifest["archived_prior_impact_report_sha256"]=sha(OUT/"publication_drafts/inventory_v2/empirical_calendar_impact.md")
+    persist(ROOT/"data/manifests/empirical_calendar_repair_execution_v3.json",manifest)
+    preserve();print({"reports":files,"manifest_sha256":sha(ROOT/"data/manifests/empirical_calendar_repair_execution_v3.json"),"decision_changes":decisions,"decisions_checked":decision_count})
 
 
 if __name__=="__main__":run()
