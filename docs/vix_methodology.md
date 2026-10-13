@@ -75,11 +75,17 @@ Cboe introduced the original VIX in 1993 using S&P 100 option prices and changed
 
 The core study therefore uses the official VIX historical series while reporting a **post-2003 sensitivity analysis** so conclusions do not depend entirely on the pre-2003/back-history portion of the series.
 
+A second documented transition begins **2014-10-06**. Cboe then began including eligible SPX weekly options in the indicative spot VIX calculation, while the legacy month-only construction continued as VIXMO. Because the weekly-option information set is not available far enough back to reconstruct the same procedure throughout history, this transition was not backfilled. The full sample remains primary, but a **post-2014-10-06** sensitivity sample is mandatory.
+
+Primary documentation:
+- Cboe Information Circular IC14-075, *Indicative (Spot) VIX Index Value to Include SPX Weeklys Beginning October 6, 2014*.
+- Cboe, *VIX Maturity Interpolation*.
+
 ## Historical `CLOSE` timestamp audit
 
 Cboe's historical-data page describes the downloadable series as daily closing values. Current VIX documentation describes repeated intraday calculation and an end-of-day/last-published value. However, the free historical CSV does not explicitly bind every `CLOSE` observation across the full history to one perfectly unchanged timestamp convention.
 
-The S&P 500 cash close is normally around 4:00 p.m. ET, while current VIX dissemination extends beyond that point. Exact historical synchronization is therefore not assumed.
+The S&P 500 cash close is normally around 4:00 p.m. ET, while current Cboe spot-VIX RTH dissemination extends through 4:15 p.m. ET. Exact historical synchronization is therefore not assumed. This may give the daily VIX close a small timing advantage relative to a predictor fixed strictly at the cash close; the project discloses that information-set asymmetry rather than inventing an unsupported historical 4:00 p.m. VIX series.
 
 Operationally:
 

@@ -8,7 +8,8 @@
 
 **Authoritative protocol:** `paper/method_protocol.md`
 
-**Protocol version:** 1.0.1
+**Protocol version at freeze:** 1.0.1  
+**Current execution protocol:** 1.1.0; the 2026-10-13 refinement makes H5's regression/null explicit without changing these frozen regime dates.
 
 At this freeze, no regime-specific premium, forecast-loss, or forecast-ranking
 output had been inspected. These definitions use only calendar dates and
@@ -18,6 +19,8 @@ series was used to choose a boundary.
 ## Formal regime chronology
 
 The formal recession/non-recession classification is the **NBER U.S. Business Cycle Dating Committee monthly chronology**.
+
+Under protocol 1.1.0, the confirmatory test is `VRP_X = alpha + delta * recession + u` with a two-sided test of `delta=0` and the primary overlap-derived HAC rule. The calendar-year crisis windows below remain descriptive case studies and do not replace that test.
 
 Daily mapping rule:
 

@@ -67,9 +67,9 @@ Both designs are forward-looking: no return ending on or before the forecast ori
 
 - **H1:** mean primary `VRP_X` equals zero versus a two-sided alternative; literature-motivated expected sign is positive.
 - **H2:** variance-space Mincer–Zarnowitz calibration, jointly testing `alpha=0, beta=1` in `RVAR = alpha + beta*IVAR + u`.
-- **H3:** genuinely OOS forecast comparison of VIX, GARCH(1,1), and a naive historical-variance benchmark on a common mask.
+- **H3:** genuinely OOS forecast comparison on a common mask. VIX versus GARCH is the primary squared-error inferential contrast; VIX-versus-naive and GARCH-versus-naive are secondary and use Holm adjustment across those two tests.
 - **H4:** encompassing regression testing incremental predictive content of VIX and GARCH conditional on one another.
-- **H5:** formal NBER recession/non-recession comparison plus separate pre-defined 2008, 2020, and 2022 case studies.
+- **H5:** `VRP_X = alpha + delta * recession + u` with a two-sided test of `delta=0`, using the NBER monthly recession indicator and the primary overlap-aware HAC rule; 2008, 2020, and 2022 remain separate descriptive case studies.
 
 ## Inference and robustness
 
@@ -78,7 +78,7 @@ Both designs are forward-looking: no return ending on or before the forecast ori
 - Fixed 21-trading-day robustness uses HAC `maxlags=20`, with 10/21/42 sensitivity.
 - Close-to-close realized variance is primary; Parkinson and Garman–Klass are robustness estimators.
 - Variance-space results are primary; volatility-space gaps are secondary communication aids.
-- Post-2003, Student-t GARCH, and five-year rolling GARCH analyses are mandatory robustness checks.
+- Post-2003 and post-2014-10-06 VIX subsamples, Student-t GARCH, and five-year rolling GARCH analyses are mandatory robustness checks.
 
 ## Out-of-sample forecast design
 

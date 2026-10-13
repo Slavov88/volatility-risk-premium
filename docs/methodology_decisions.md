@@ -4,6 +4,7 @@
 **Expanded draft:** 2026-08-23  
 **Final pre-analysis methodological review:** 2026-08-26  
 **Technical sample-tail amendment:** 2026-08-27  
+**Pre-result confirmatory refinement:** 2026-10-13  
 **Authoritative protocol:** `paper/method_protocol.md`  
 **Result state at final review:** no empirical VRP, forecast-ranking, or regime result had been generated or inspected.
 
@@ -29,6 +30,9 @@ This file preserves the evolution of the design rather than pretending that earl
 | M-014 | Final core data must be reacquired with verified TLS; the prior `verify=False` Yahoo feasibility run cannot be the production freeze. | **Locked 2026-08-26.** | Separates feasibility evidence from final provenance. |
 | M-015 | Sanitized acquisition manifests are committed under `data/manifests/`; provider/raw market data remain ignored. | **Locked 2026-08-26.** | Makes hashes, source parameters, and validation state auditable from Git without redistributing market data. |
 | M-016 | Exchange-session construction uses XNYS from exactly pinned `exchange-calendars==4.13.2`; production manifests record the calendar-library version. | **Technical reproducibility lock 2026-10-13.** | The exchange calendar is part of the target definition, so historical-session drift across library versions must not silently change RVAR. |
+| M-017 | H3 primary inferential contrast is VIX vs GARCH under squared-error loss; VIX-vs-naive and GARCH-vs-naive are secondary with Holm adjustment across those two tests. | **Pre-result refinement 2026-10-13.** | Removes pairwise-selection discretion before forecast losses exist. |
+| M-018 | H5 confirmatory regression is `VRP_X = alpha + delta * recession + u`; test two-sided `delta=0` with the primary overlap-derived HAC rule. | **Pre-result refinement 2026-10-13.** | Makes the regime hypothesis uniquely testable. |
+| M-019 | Full VIX sample remains primary; post-2003 and post-2014-10-06 samples are mandatory methodology sensitivities. | **Pre-result refinement 2026-10-13.** | The 2014 inclusion of SPX Weeklys in spot VIX was not backfilled and can create interpolation-regime heterogeneity. |
 
 ## Open issues before empirical analysis
 
