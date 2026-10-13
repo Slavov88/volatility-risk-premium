@@ -19,6 +19,9 @@ in the fetched checkout.
 | EMP-007 | D: H1/H2 and diagnostic robustness | PENDING REVIEW GATE | EMP-005 accepted; protocol-defined HAC, calibration and mandatory sensitivities; complete experiment log. | Wait for independent freeze approval. |
 | EMP-008 | E: recursive OOS and H3/H4 | PENDING REVIEW GATE | Prior milestones independently validated; locked units, windows and common masks. | Implement only after earlier scientific gates. |
 | EMP-009 | H5 and paper reporting | PENDING | Prior validation gates, frozen NBER provenance/crisis dates; independent output audit. | Retain theory/Track A without modification. |
+| EMP-010 | Separate CLOSE candidate validation | CANDIDATE GENERATED / TESTING | Version `vix-close-candidate/1.0.0`; original immutable inputs replayed; 9,063 inspection origins, no production targets. Strict production path unchanged. | Complete source footprint diagnostics and full tests; deliver sign-off proposal. |
+| EMP-011 | Source publication and close-correction investigation | IN PROGRESS | Official holiday notices found; original XLS evidence retained; 2019 correction independently explained, other six discrepancies unresolved. | Record hashed notices and diagnostic footprints without changing prices. |
+| EMP-012 | Both-author CLOSE methodology sign-off | PENDING EXTERNAL APPROVAL | Candidate manifest cannot authorize itself; confirmatory loader explicitly rejects this contract under protocol 1.1.0. | Review `docs/vix_close_acceptance_proposal.md` once completed; both authors must sign. |
 
 ## Initial implementation inventory
 
@@ -117,3 +120,31 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
 - PR #1 verified still open/draft on `agent/autonomous-research`. Nothing
   merged into main; no theory/protocol/lock edits. Operational statuses remain
   as above. Next required step is coauthor/source resolution, not inference.
+
+### 2026-10-13 — VIX CLOSE candidate implementation
+
+- Continued clean `agent/empirical-production` at `a124b9a`; fetched remote
+  branches and attached existing draft PR #2. No new acquisition of the full
+  Yahoo or VIX history. Original acquisition hash/rejection audit reproduced;
+  baseline **1,634 passed in 14.28 s**.
+- Added distinct proposed CLOSE validation and immutable candidate panel
+  construction. It rejects invalid CLOSE/range consistency, duplicates,
+  ambiguous dates and provenance errors. Missing predictors and non-XNYS
+  provider dates are explicitly excluded, never filled. OPEN failures remain
+  visible diagnostics. Original SPX observations remain intact.
+- Initial inspection run produced 9,063 candidate origins at
+  `data/processed/candidates/a6d85fa6da2bc8c7/`. A date-set construction was
+  then optimized without changing retention decisions; replay under the
+  final implementation produced the same count at
+  `data/processed/candidates/ad54efed0d346f17/`. Both are explicitly unapproved;
+  only the final implementation's provenance will be used in the proposal.
+- Candidate verification checks original and derived hashes and replays the
+  complete manifest/content. Confirmatory loading raises an approval error;
+  the existing strict builder rejects both the original failed source and
+  a candidate manifest passed as an acquisition.
+- Focused candidate/footprint checks: **38 passed in 7.70 s** before two
+  additional integration regressions. Full suite **1,674 passed in 17.56 s**;
+  compilation and whitespace checks passed before the implementation milestone
+  commit. No RVAR/VRP or H1–H5 run.
+- Added EMP-010–012 without changing existing task IDs. Next action is
+  source-diagnostic evidence and a concrete both-author review proposal.
