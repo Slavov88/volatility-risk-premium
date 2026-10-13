@@ -164,6 +164,12 @@ def attribution(cashlog,zerolog,cashparts,zeroparts):
             'changed_fee_log_contribution':float(logparts[:,2].sum()),'log_attribution_residual':residual},logparts
 
 
+def exact_reference_values(log,reference):
+    # CSV readers infer all-zero/all-one numeric columns as int. Values must be exact.
+    if len(log)!=len(reference) or any(c not in log for c in reference):return False
+    return all(np.array_equal(log[c].to_numpy(),reference[c].to_numpy()) for c in reference)
+
+
 def fast_rolling(r):
     r=np.asarray(r,float); sums=np.r_[0,np.cumsum(r)]; squares=np.r_[0,np.cumsum(r*r)]
     variance=((squares[21:]-squares[:-21])-(sums[21:]-sums[:-21])**2/21)/20
@@ -265,7 +271,7 @@ def execute():
                 zero=originals[model,cost]
                 log=cash_replay(spy,zero,schedule,multiplier,cost)
                 if scenario=='zero':
-                    if not log[zero.columns].equals(zero):raise ValueError('Zero-interest original ledger differs')
+                    if not exact_reference_values(log,zero):raise ValueError('Zero-interest original ledger differs')
                     raw=log[zero.columns].to_csv(index=False,float_format='%.17g',lineterminator='\n').encode()
                     import hashlib
                     if hashlib.sha256(raw).hexdigest()!=meta['h8']['log_sha256'][f'h8_{model}_{cost}bps.csv']:raise ValueError('Zero-interest CSV bytes differ')
@@ -275,6 +281,14 @@ def execute():
                 attribution_row,lp=attribution(log,zero,component,parts['zero',model,cost])
                 attribution_row.update({'scenario':scenario,'strategy':model,'cost_bps':cost});attributions.append(attribution_row)
                 summary=summarize(log,zero,common_rf,schedule.cash_factor.to_numpy()*multiplier,lp)
+                growth=attribution_row['incremental_log_growth'];cagr_delta=summary['cash_income_cagr_increment']
+                # One common log-growth multiplier, explicitly an accounting allocation.
+                for label,component in [('direct_interest','direct_interest_log_contribution'),
+                                         ('changed_equity_dividend','changed_equity_dividend_log_contribution'),
+                                         ('changed_fee','changed_fee_log_contribution')]:
+                    attribution_row[label+'_cagr_allocation']=cagr_delta*attribution_row[component]/growth if growth else 0.
+                if abs(cagr_delta-sum(attribution_row[k+'_cagr_allocation'] for k in ['direct_interest','changed_equity_dividend','changed_fee']))>1e-12:
+                    raise ValueError('CAGR accounting allocation failed')
                 original_metrics=meta['h8']['models'][str(cost)][model]
                 if scenario=='zero' and any(summary[k]!=v for k,v in original_metrics.items()):raise ValueError('Zero-interest metrics differ')
                 summary.update({'scenario':scenario,'strategy':model,'cost_bps':cost});rows.append(summary)

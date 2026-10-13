@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import pytest
 from vrp.cash_yield import (investment_rate,rate_schedule,cash_replay,independently_audit,
-                           attribution,fast_rolling,NY)
+                           attribution,fast_rolling,exact_reference_values)
 from vrp.quant_portfolio import simulate_spy,rolling_volatility
 
 
@@ -80,3 +80,10 @@ def test_rolling_risk_independent_formula_and_deterministic_replay():
     assert np.allclose(fast_rolling(r),rolling_volatility(r)[20:],atol=1e-12,rtol=1e-10)
     spy,original,schedule=example()
     assert cash_replay(spy,original,schedule,.5,10).equals(cash_replay(spy,original,schedule,.5,10))
+
+
+def test_csv_integer_inference_does_not_mask_numerical_reference_changes():
+    a=pd.DataFrame({'cash':[0,0],'weight':[1,1]});b=a.astype(float)
+    assert exact_reference_values(b,a)
+    b.loc[1,'cash']=1e-17
+    assert not exact_reference_values(b,a)
