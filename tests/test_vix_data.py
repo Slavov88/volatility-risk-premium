@@ -79,3 +79,19 @@ def test_vix_acquisition_rejects_current_day_window(tmp_path) -> None:
             end_exclusive=date(2024, 1, 6),
             retrieved_at=retrieved,
         )
+
+
+def test_vix_current_day_guard_uses_new_york_date(tmp_path) -> None:
+    from datetime import datetime, timezone
+
+    from vrp.vix_data import acquire_vix_history
+
+    # 02:00 UTC on Jan 6 is still Jan 5 in New York.
+    retrieved = datetime(2024, 1, 6, 2, 0, tzinfo=timezone.utc)
+    with pytest.raises(ValueError, match="current-day VIX"):
+        acquire_vix_history(
+            tmp_path,
+            start_date=date(2024, 1, 2),
+            end_exclusive=date(2024, 1, 6),
+            retrieved_at=retrieved,
+        )

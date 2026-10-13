@@ -17,6 +17,7 @@ from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Sequence
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
@@ -26,6 +27,7 @@ from vrp.data import CBOE_VIX_URL, fetch_bytes, write_immutable
 
 
 VIX_COLUMNS = ("OPEN", "HIGH", "LOW", "CLOSE")
+NEW_YORK = ZoneInfo("America/New_York")
 VIX_METHODOLOGY_BREAK = date.fromisoformat(CONVENTIONS.vix_weekly_methodology_start)
 
 
@@ -184,7 +186,8 @@ def acquire_vix_history(
     retrieved = retrieved_at or datetime.now(timezone.utc)
     if retrieved.tzinfo is None:
         raise ValueError("retrieved_at must be timezone-aware")
-    if end_exclusive > retrieved.date():
+    current_new_york_date = retrieved.astimezone(NEW_YORK).date()
+    if end_exclusive > current_new_york_date:
         raise ValueError(
             "end_exclusive cannot exceed the retrieval date; current-day VIX "
             "must never enter a frozen daily predictor snapshot"
