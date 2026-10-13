@@ -205,3 +205,16 @@ amendment and transformation version, freeze accepted derived inputs, build
 the approved panel twice and verify hashes/row losses, construct locked
 targets, then seek independent freeze acceptance before H1/H2. No PR is merged
 and no approval is inferred from green tests or candidate generation.
+
+## Subsequent authorization â€” 2026-10-13
+
+The preceding proposal/sign-off table records the historical unapproved state.
+It is superseded for implementation by the dated amendment in
+`paper/protocol_deviations.md`: both authors' agreement **as reported by
+Aleksandar Slavov on 2026-10-13**, without independently verified signatures
+or direct confirmation from Venelin. CLOSE eligibility, 28 exclusions, 47
+warnings, unchanged Yahoo baseline, all-seven discrepancy sensitivity and
+2004-01-01 boundary are authorized. Exactly one verified official XLS CLOSE,
+24.64 on 1999-12-31, is now authorized; the other three remain excluded.
+Technical replay and independent freeze acceptance are separate gates; the
+latter is pending. Previous candidate artifacts stay CANDIDATE_UNAPPROVED.

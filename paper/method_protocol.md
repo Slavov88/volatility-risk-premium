@@ -793,3 +793,12 @@ By adopting this protocol, the authors commit to five non-negotiable principles:
 5. **Conceptual and reproducibility discipline:** VIX, Black–Scholes IV, volatility gaps, variance-risk-premium proxies, and forecast targets remain distinct; inconvenient results are retained.
 
 If later code, notebooks, tables, figures, or prose conflict with this protocol, the protocol controls unless the conflict is transparently documented as an approved deviation.
+
+## Dated interim data-methodology supplement
+
+The base protocol remains 1.1.0. Amendment `2026-10-13-interim-vix-close/1.0.0`
+in `paper/protocol_deviations.md` authorizes CLOSE-specific eligibility and
+one verified official archival insertion, as reported by Aleksandar on
+2026-10-13 for both authors. Post-2003 begins 2004-01-01. Independent freeze
+acceptance is pending; target calculations/descriptions are provisional and
+H1/H2 inference awaits that acceptance. Earlier pending-review entries remain historical.

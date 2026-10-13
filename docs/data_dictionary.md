@@ -90,3 +90,13 @@ Formal forecast comparisons use a single common mask across VIX, GARCH, naive fo
 - Variance is stored as annualized decimal variance.
 - Positive premium always means **implied minus realized**.
 - `VRP_X` refers to variance space; `VOLGAP` refers to volatility space.
+
+## Authorized interim schema supplement (2026-10-13)
+
+Base schema 1.1.0 gains data amendment `2026-10-13-interim-vix-close/1.0.0`.
+`vix_source` distinguishes `cboe_csv` from `cboe_xls_archival_insertion`;
+only 1999-12-31 may have the latter. Manifest carries source cell, units,
+SHA-256, transformation/code version, author-reported authorization and
+independent review PENDING. All targets and summaries initially carry
+PROVISIONAL / NOT INDEPENDENTLY ACCEPTED. SPX return rows are constructed
+before VIX eligibility masking. Post-2003 subset starts 2004-01-01.

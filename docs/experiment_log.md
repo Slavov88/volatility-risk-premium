@@ -237,3 +237,14 @@ Implementation `2c820db` and evidence/proposal `58f726d` were published on
 draft PR #2. [GitHub Actions passed at the evidence head](https://github.com/Slavov88/volatility-risk-premium/actions/runs/38420832539)
 on locked Python 3.11. This external engineering check does not supply either
 author's methodological sign-off or independent data-freeze acceptance.
+
+## RUN-006 â€” 2026-10-13: pre-computation methodology authorization
+
+Before any actual production return/target/VRP computation, record amendment
+`2026-10-13-interim-vix-close/1.0.0` to protocol 1.1.0. Both authors' agreement
+is reported by Aleksandar on 2026-10-13; no direct Venelin confirmation or
+independent freeze acceptance. RUN-001â€“005 contain source/eligibility
+computations only, not H1â€“H5 results. The fixed post-2003 boundary and seven
+individual/joint alternate-close sensitivity cases precede outcomes.
+Cboe inquiry is SENT â€” AWAITING CBOE RESPONSE as reported; no email metadata
+invented. Technical source verification follows this first committed milestone.

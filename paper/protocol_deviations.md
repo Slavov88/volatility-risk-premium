@@ -2,6 +2,63 @@
 
 **Authoritative protocol:** `paper/method_protocol.md`, version 1.1.0; substantive lock 2026-08-26; amendments 2026-08-27 and 2026-10-13
 
+## 2026-10-13 — Author-reported interim VIX CLOSE amendment
+
+**Amendment ID:** `2026-10-13-interim-vix-close/1.0.0`, supplementing base
+protocol 1.1.0 without changing its horizons, units, hypotheses or sample limits.
+Aleksandar Slavov communicated on 2026-10-13 that both authors, Aleksandar
+Slavov and Venelin Mirchev, agree to implement this interim methodology.
+This is author-reported agreement, not independently verified signatures or
+direct confirmation from Venelin. Independent acceptance of the resulting
+freeze remains **PENDING**; outputs are **PROVISIONAL / NOT INDEPENDENTLY ACCEPTED**.
+
+1. Original acquisition required complete unique XNYS coverage, finite positive
+   OHLC and valid OHLC ordering. The immutable Cboe CSV failed: four missing
+   sessions, 28 non-XNYS dates, and 47 OPEN-only inconsistencies. The strict
+   acquisition gate and provider archives remain unchanged and rejected.
+2. The separate authorized pathway validates finite positive CLOSE, unique
+   canonical dates and consistency with available HIGH/LOW bounds. OPEN-only
+   defects remain 47 explicit warnings. Exclude all 28 non-XNYS observations;
+   never shift dates, repair OPEN, interpolate or forward-fill.
+3. Authorize exactly one official archival-source insertion: **1999-12-31,
+   VIX CLOSE 24.64 percentage points**, conditional on verifying the original
+   numeric cell/date/schema and SHA-256 of the official Cboe XLS at
+   https://cdn.cboe.com/resources/us/indices/vixarchive.xls. Expected hash:
+   `9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566`.
+   Record cell reference, parser, source absence, transformation/code identity
+   and review state. FRED VIXCLS may corroborate the same value but republishes
+   Cboe; it is not an independent index calculation.
+4. Exclude 1991-03-01, 1997-01-31 and 1997-11-26 as unavailable predictors.
+   Repeated previous Yahoo closes are not verified observations. Any optional
+   carry-forward experiment must remain separate and exploratory.
+5. Yahoo ^GSPC stays canonical: preserve all 9,088 rows and 21 post-2025
+   outcome-support rows. Missing VIX origins must never remove SPX returns.
+   Register the alternate-FRED-close sensitivity for **all seven** discrepancy
+   dates (2018-11-29, 2019-08-12, 2020-05-11, 2020-10-02, 2020-10-05,
+   2020-10-06, 2021-08-11), individually and jointly. Compare affected CC
+   targets and descriptive results; keep Yahoo baseline unchanged. Alternate
+   GK estimates are admissible only if alternate CLOSE satisfies original
+   OHLC bounds, otherwise report estimator unavailability. No source choice
+   or subset selection may depend on significance.
+6. Fix the post-2003 sensitivity start at **2004-01-01**, before empirical
+   outcomes. Full sample and post-2014-10-06 remain as previously specified.
+7. RUN-001–005 document only acquisition, eligibility and hypothetical
+   return-change footprints. No empirical H1–H5, VRP or forecasting result
+   was examined before these decisions. Bias direction is unknown; exclusions
+   and mixed official publications remain measurement limitations.
+8. Cboe inquiry: **SENT — AWAITING CBOE RESPONSE**, as reported by Aleksandar.
+   No send date, acknowledgement, recipient or case number is established here.
+   Authentic subsequent values or contradictions require a new versioned
+   amendment, preserved interim baseline, source verification, independent
+   rebuild/review and comparison; never overwrite earlier artifacts/results.
+9. Implement a distinct immutable, hash-verified promotion pathway; preserve
+   the previous unapproved candidate. Build twice, audit six complete targets
+   and permit provisional descriptions. H1/H2 inferential execution awaits
+   independent freeze acceptance. Green tests do not establish that acceptance.
+10. Implementation commits, exact raw/derived hashes and replay evidence will
+    be recorded in the execution log and freeze report as work is completed.
+    This authorization does not retroactively approve earlier pending reviews.
+
 ## 2026-08-27 — Technical sample-tail support amendment
 
 1. **Original rule:** The forecast-origin sample was locked through 2025-12-31, but the accompanying acquisition examples stopped S&P 500 data at an exclusive 2026-01-01 end.

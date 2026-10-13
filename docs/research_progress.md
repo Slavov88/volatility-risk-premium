@@ -198,3 +198,15 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   implementation/inspection, not an accepted empirical freeze. After approval,
   record the authorized amendment, build the approved freeze twice, then
   construct locked targets; H1/H2 still require independent freeze acceptance.
+
+### 2026-10-13 â€” communicated methodology authorization
+
+- EMP-012: AUTHORIZED FOR IMPLEMENTATION, both-author agreement as reported
+  by Aleksandar on 2026-10-13; no independent signatures or freeze acceptance.
+- Permanent amendment `2026-10-13-interim-vix-close/1.0.0` recorded before
+  empirical computations. Authorizes one archive-verified CLOSE insertion,
+  three exclusions, existing CLOSE eligibility, canonical Yahoo and all-seven
+  discrepancy sensitivity; post-2003 starts 2004-01-01.
+- EMP-004/006 may proceed through the separate interim path. EMP-005 remains
+  pending external independent review; EMP-007 inference remains gated.
+- Cboe inquiry SENT â€” AWAITING CBOE RESPONSE (author report only).
