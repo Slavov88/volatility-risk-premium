@@ -122,3 +122,15 @@ predictor window. The manifest records the 2014-10-06 weekly-option inclusion
 transition and the historical close-timing limitation. Predictor alignment is
 performed by `vrp.origin_panel.align_origin_panel`; post-2025 S&P rows remain
 outcome support only and cannot enter the origin panel.
+
+## 2026-10-13 implemented interim source supplement
+
+The strict acquisition requirements above remain unchanged. The separately
+authorized interim transformation checks all original artifacts, excludes 28
+non-XNYS rows and preserves 47 OPEN warnings, then inserts only the numeric
+Cboe XLS OHLC!E2528 CLOSE 24.64 for 1999-12-31. Three other unavailable
+predictors remain excluded. FRED VIXCLS is Cboe-sourced corroboration. Yahoo
+remains canonical; all seven FRED SP500 alternate closes are separately
+evaluated for CC target sensitivity. Freeze and targets are technically
+reproducible but PROVISIONAL / NOT INDEPENDENTLY ACCEPTED. Full provenance
+and independent-review instructions are in the production freeze report.

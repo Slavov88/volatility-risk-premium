@@ -100,3 +100,11 @@ SHA-256, transformation/code version, author-reported authorization and
 independent review PENDING. All targets and summaries initially carry
 PROVISIONAL / NOT INDEPENDENTLY ACCEPTED. SPX return rows are constructed
 before VIX eligibility masking. Post-2003 subset starts 2004-01-01.
+
+Implemented output `six_forward_targets.csv` includes all six `rvar_*`
+families, their `rvol_*`, `vrp_x_*`, `volgap_*`, CC holding variances, exact
+first/last session dates, horizon end dates, counts and per-family status.
+`canonical_daily.csv` preserves all SPX columns, first log-return unavailable,
+and adds daily log return, Parkinson and GK contributions. A missing target
+uses an empty numeric field and MISSING_REQUIRED_SESSION; no target is
+shortened. Metadata and aggregate outputs carry provisional review status.

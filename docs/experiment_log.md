@@ -2,7 +2,7 @@
 
 Protocol version **1.1.0** throughout. Acquisition quality diagnostics are
 scientific data-validation computations, not empirical hypothesis results.
-No H1–H5 test or premium/forecast target was executed. Entries below record the
+No H1–H5 test or premium/forecast target was executed in RUN-001–005. RUN-008 later records authorized provisional targets. Initial entries below record the
 first session's commands retrospectively from actual logs/artifacts; no
 specification was selected from a favorable result.
 
@@ -248,3 +248,70 @@ computations only, not H1–H5 results. The fixed post-2003 boundary and seven
 individual/joint alternate-close sensitivity cases precede outcomes.
 Cboe inquiry is SENT — AWAITING CBOE RESPONSE as reported; no email metadata
 invented. Technical source verification follows this first committed milestone.
+
+## RUN-007 — 2026-10-13: archive-verified interim panel and repeated freeze
+
+Authorization milestone `f940a1d`; archive-verifier milestone `80b78df`;
+freeze implementation `55ce4a23b44188ae21c8343005c6104b9a8a5d21`. Original inputs
+are RUN-001's unchanged SPX/VIX bytes/manifests and RUN-003's original XLS
+(hash `9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566`); FRED VIXCLS
+corroboration from RUN-005. Numeric OHLC!E2528 = 24.64, A2528 = 36525 under
+Excel datemode 0, date 1999-12-31. Isolated parser xlrd==2.0.2 reused.
+
+```powershell
+.venv/Scripts/python.exe -m vrp.interim_panel --raw-root data/raw --spx-manifest 2026-10-13T142430Z/gspc_manifest.json --vix-manifest 2026-10-13T142430Z/vix_manifest.json --processed-root data/processed --authorization data/manifests/2026-10-13_interim_authorization.json --parser-path outputs/archive_inspection --code-commit 55ce4a23b44188ae21c8343005c6104b9a8a5d21
+```
+
+Executed twice, replaying all sources and provenance independently each time.
+Same directory `data/processed/interim/40113d6646b0e7b8` and identical output bytes.
+One mistyped commit argument failed the committed-code gate and wrote no
+artifact; the exact commit above succeeded. Full coverage 9064/9067; OOS
+4780/4780; from 2004-01-01 5535/5535; from 2014-10-06 2827/2827. Missing
+only 1991-03-01, 1997-01-31, 1997-11-26. All 9088 SPX rows preserved.
+Exact inputs/outputs, hashes, cells, warnings and review states in
+`data/manifests/2026-10-13_interim_freeze.json` and freeze report.
+Independent acceptance PENDING; technical replay passed. Original strict
+builder still actually rejects with VIX acquisition not accepted. Historical
+9063-row unapproved candidate independently reverified after this build.
+
+## RUN-008 — 2026-10-13: actual six-target execution and predefined sensitivity
+
+Target implementation `c53bb9c65dd5b7521ebe80070103a525d98b373c`;
+freeze manifest SHA-256 `1fc80bde23388d5619ea876ed31142b398dc28b254abf3ea74fd7a03dc815ac4`. Python 3.11.5; unchanged
+requirements-dev.lock; pinned software versions and lock/code hashes in
+`data/manifests/2026-10-13_provisional_targets.json`.
+
+```powershell
+.venv/Scripts/python.exe scripts/run_interim_targets.py --freeze-manifest data/processed/interim/40113d6646b0e7b8/interim_manifest.json --authorization data/manifests/2026-10-13_interim_authorization.json --parser-path outputs/archive_inspection --code-commit c53bb9c65dd5b7521ebe80070103a525d98b373c
+```
+
+Initial target CLI at c21c524 rejected a workspace-relative freeze path due
+to duplicate root joining, before returns or targets. c53bb9c resolves paths
+at the CLI boundary; a regression now checks this behavior. Actual execution
+above ran twice with identical bytes/hashes for daily, six-target, audit,
+descriptive and sensitivity outputs under `data/processed/interim/40113d6646b0e7b8/targets/bd7a172882ded86f`.
+Parameters: all canonical SPX observations, exact forward XNYS sessions,
+365/30 and 252/21, implied-minus-realized, decimal units, no imputation,
+fixed 2004-01-01 and 2014-10-06 subsets; no model estimation/seed dependence.
+
+9087 actual dated log returns; 9064 complete origins in all six target series
+(54384 audited target values), no shortened or missing targets. Independent
+numpy oracle max absolute variance error 2.220446049250313e-16. Descriptive
+statistics use locked sample SD, bias-corrected Fisher skew/excess kurtosis
+and linear quantiles; full statistics preserved. FRED SP500 SHA-256
+4590145f9ed88e20b41bc1325fa7c538e7532e8b1289dac4b801b216c9bd77e6
+supplies all seven individual/joint alternate-close CC scenarios, isolated
+from canonical Yahoo. Source prices are not committed. Joint corrections
+combine returns before squaring; no significance-driven source selection.
+
+All analytical results are PROVISIONAL / NOT INDEPENDENTLY ACCEPTED.
+No H1-H5 inference/GARCH/forecast ranking run or manuscript claim. Technical
+checks are not independent scientific acceptance. Reviewable results and
+limitations are summarized in the updated production data-freeze report.
+
+Validation after all target/sensitivity and CLI/cell regressions: **1717 tests
+passed in 16.46 s**. `python -m compileall src tests scripts` and
+`git diff --check` passed. Actual post-run checks independently reverified
+all original/derived hashes, single insertion, source row preservation,
+old 9063-row candidate, original strict rejection and independent-review
+rejection. Remote CI status will be recorded after publication.

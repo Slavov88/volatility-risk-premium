@@ -13,15 +13,15 @@ in the fetched checkout.
 | EMP-001 | Inspect scientific branch and locked environment | COMPLETE | Start `456a77c`; clean execution branch; Python 3.11.5; all 51 lock entries match installed versions; baseline 1,620 tests passed; compileall passed. | Keep lock/protocol unchanged. |
 | EMP-002 | A: immutable production acquisition | ACQUIRED / VIX QUALITY BLOCKED | Yahoo 9,088 rows accepted; Cboe 9,091 rows rejected; FRED 2,338 usable overlap. Verified default TLS, immutable artifacts/hashes under `data/raw/2026-10-13T142430Z/`. | Obtain reviewed resolution for VIX defects; do not promote rejected data. |
 | EMP-003 | A: source discrepancy audit | PARTIAL / REVIEW REQUIRED | Reproducible date-only audit; four missing VIX sessions, 28 non-sessions, 47 OPEN-only defects; seven Yahoo/FRED discrepancies. Official Cboe 2019 correction supports one discrepancy; other six unresolved. | Review findings in `docs/production_data_freeze_report.md`; seek authoritative source clarification. |
-| EMP-004 | B: reproducible verified origin panel | BLOCKED | Actual builder rejected with `PanelProvenanceError: VIX: acquisition not accepted`. No output panel. | Require both existing source gates to pass before construction/repeatability claim. |
+| EMP-004 | Reproducible interim origin panel | TECHNICALLY COMPLETE / PROVISIONAL | Authorized path 55ce4a2, 9064/9067, two identical builds. Old strict gate still rejects. | Independent acceptance EMP-005. |
 | EMP-005 | B: independent freeze review | PENDING EXTERNAL REVIEW | Coauthor reviews exact hashes, quality findings and freeze report. Code/tests cannot provide this approval. | Deliver reviewable freeze report after EMP-004. |
-| EMP-006 | C: returns and all six forward targets | BLOCKED BY EMP-004 | Existing functions tested; production target execution not run. No return/VRP/target artifact claimed. | Reuse existing scientific functions after quality gates pass. |
+| EMP-006 | Returns and all six forward targets | COMPLETE / PROVISIONAL | RUN-008, 9087 returns; 9064 complete values per six series; full numpy audit; two identical executions. | Coauthor audit before inferential reporting. |
 | EMP-007 | D: H1/H2 and diagnostic robustness | PENDING REVIEW GATE | EMP-005 accepted; protocol-defined HAC, calibration and mandatory sensitivities; complete experiment log. | Wait for independent freeze approval. |
 | EMP-008 | E: recursive OOS and H3/H4 | PENDING REVIEW GATE | Prior milestones independently validated; locked units, windows and common masks. | Implement only after earlier scientific gates. |
 | EMP-009 | H5 and paper reporting | PENDING | Prior validation gates, frozen NBER provenance/crisis dates; independent output audit. | Retain theory/Track A without modification. |
 | EMP-010 | Separate CLOSE candidate validation | COMPLETE FOR INSPECTION / UNAPPROVED | Commit `2c820db`; contract `vix-close-candidate/1.0.0`; 9,063 origins; identical replay; 1,674 tests pass. No production targets. Strict path unchanged. | Obtain EMP-012 authorization before any approved promotion path. |
 | EMP-011 | Source publication and close-correction investigation | DIAGNOSTICS COMPLETE / SIX DISCREPANCIES UNRESOLVED | Hashed Cboe notices, small FRED VIX publication checks and hypothetical correction footprints; 2019 correction explained. | Coauthors review source assumptions and unresolved-price sensitivity proposal; no replacements. |
-| EMP-012 | Both-author CLOSE methodology sign-off | PENDING EXTERNAL APPROVAL | Candidate manifest cannot authorize itself; confirmatory loader explicitly rejects this contract under protocol 1.1.0. | Review `docs/vix_close_acceptance_proposal.md` once completed; both authors must sign. |
+| EMP-012 | Both-author CLOSE methodology agreement | AUTHORIZED AS REPORTED | Aleksandar communication 2026-10-13 reports both authors agree; f940a1d dated amendment. No signatures/direct Venelin confirmation. | Freeze acceptance remains separate. |
 
 ## Initial implementation inventory
 
@@ -244,3 +244,23 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   production execution follows the target implementation commit.
 - EMP-005 remains PENDING independent acceptance; EMP-006 implementation
   ready, actual execution not claimed yet; H1/H2 inference not executed.
+
+### 2026-10-13 actual provisional targets and reproducibility
+
+- Target commit c53bb9c: full source replay, 9087 SPX returns and 9064 complete
+  values in each of six target series. Independent all-origin numpy audit
+  passed; largest variance error 2.220446049250313e-16. Two full executions
+  produced identical bytes/hashes, including all-seven CC sensitivities.
+- EMP-004 and EMP-006 technically complete / PROVISIONAL. EMP-005 independent
+  acceptance is pending. H1/H2, GARCH/OOS and H5 results not executed.
+- Reviewer-ready freeze report and sanitized hashed manifests updated. Raw
+  archives, strict gate and prior candidate preserved and actually rechecked.
+- Provisional descriptions: primary mean VRP_X 0.011348914 annualized decimal
+  variance; positive fraction 0.859995587. No significance/mechanism claim.
+- Next: independent freeze review, then protocol H1/H2; recursive GARCH/OOS
+  H3/H4 and frozen-regime H5 follow. Cboe response/source limitations remain
+  explicitly pending and do not block authorized target processing.
+
+- Final local suite: 1717 passed in 16.46 s; compileall src/tests/scripts and
+  diff check passed. No restricted price CSV staged; only source, tests,
+  sanitized provenance/aggregate JSON and research documentation.

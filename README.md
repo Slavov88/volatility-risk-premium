@@ -146,3 +146,13 @@ registered; post-2003 starts 2004-01-01. Independent freeze acceptance remains
 pending. Production targets/descriptions may proceed as **PROVISIONAL / NOT
 INDEPENDENTLY ACCEPTED**; H1/H2 inference awaits that review. Cboe inquiry:
 SENT — AWAITING CBOE RESPONSE, as reported by the author.
+
+The authorized interim panel and six forward targets have now actually been
+built and audited, with two identical executions. Coverage 9064/9067; all six
+target series complete at every eligible origin. See
+`docs/production_data_freeze_report.md` and RUN-007/008 for exact commands,
+source/derived hashes, provisional descriptions and independent-review needs.
+Provider prices remain local. The isolated XLS parser is reused from
+`outputs/archive_inspection` (xlrd==2.0.2); install this into an isolated
+inspection directory if reproducing on another machine. The locked empirical
+dependencies are unchanged.

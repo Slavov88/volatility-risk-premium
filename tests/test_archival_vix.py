@@ -65,3 +65,31 @@ def test_missing_tampered_archive_and_wrong_hash(tmp_path):
     descriptor["sha256"] = "0"*64
     with pytest.raises(PanelProvenanceError, match="contract mismatch"):
         verify_archive(tmp_path, descriptor)
+
+
+@pytest.mark.parametrize("mutation", ["value", "date", "text_cell", "schema", "datemode", "duplicate"])
+def test_archive_cell_parsing_contract(monkeypatch, tmp_path, mutation):
+    from datetime import datetime, timedelta
+    from types import SimpleNamespace
+    import sys
+    import vrp.archival_vix as archive
+    monkeypatch.setattr(archive, "_verified_artifact", lambda *args: b"synthetic XLS bytes")
+    days = [datetime(1990,1,1)+timedelta(days=i) for i in range(2526)]
+    days[-1] = datetime(1999,12,31)
+    if mutation == "date": days[-1] = datetime(2000,1,3)
+    if mutation == "duplicate": days[1] = days[0]
+    class Sheet:
+        nrows = 2528
+        def row_values(self, row):
+            return ["BAD"] if mutation == "schema" else ["Date", "VIX Open", "VIX High", "VIX Low", "VIX Close"]
+        def cell_value(self, row, col):
+            if col == 0: return 36525. if row == 2527 else float(row)
+            return {2:25.2,3:24.45,4:24.65 if mutation == "value" else 24.64}[col]
+        def cell_type(self, row, col): return 1 if mutation == "text_cell" else 2
+    book = SimpleNamespace(datemode=1 if mutation == "datemode" else 0, sheet_by_name=lambda name: Sheet())
+    # Date decoding is stubbed only in this synthetic schema/cell regression.
+    fake = SimpleNamespace(__version__="2.0.2", XL_CELL_NUMBER=2,
+        open_workbook=lambda **kw:book, xldate_as_datetime=lambda serial, mode: days[-1] if serial == 36525. else days[int(serial)-2])
+    monkeypatch.setitem(sys.modules,"xlrd",fake)
+    with pytest.raises(PanelProvenanceError):
+        verify_archive(tmp_path,{"source_url":ARCHIVE_URL,"sha256":ARCHIVE_SHA,"relative_path":"archive.xls"})

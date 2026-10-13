@@ -1,0 +1,125 @@
+{
+  "audit": {
+    "checks": [
+      "source preservation",
+      "all SPX returns before VIX masking",
+      "all expected XNYS sessions",
+      "no same-origin return",
+      "no 2026 origins",
+      "six independent numpy formulas",
+      "annualization and variance units",
+      "premium sign and volatility square root",
+      "exact endpoints",
+      "explicit incomplete-target missingness",
+      "unchanged predictors"
+    ],
+    "counts": {
+      "cc_21t": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "cc_30c": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "gk_21t": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "gk_30c": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "parkinson_21t": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "parkinson_30c": {
+        "complete": 9064,
+        "missing": 0
+      }
+    },
+    "first_price_return": "UNAVAILABLE_NO_PREVIOUS_PRICE",
+    "forecast_ranking_executed": false,
+    "inference_executed": false,
+    "max_independent_rvar_absolute_error": 2.220446049250313e-16,
+    "origin_count": 9064,
+    "post_2025_support_rows": 21,
+    "return_count": 9087,
+    "review_status": "PROVISIONAL / NOT INDEPENDENTLY ACCEPTED",
+    "spx_rows_preserved": 9088,
+    "status": "PASSED_ALL_ORIGINS_ALL_SIX_TARGETS",
+    "target_session_count_30c_range": [
+      15,
+      22
+    ],
+    "target_version": "complete-forward-targets/1.0.0"
+  },
+  "confirmatory_execution_allowed": false,
+  "data_amendment": "2026-10-13-interim-vix-close/1.0.0",
+  "dataset": "Provisional six-target empirical execution",
+  "environment_lock_sha256": "52ebfe3b7cfed527551d7bc982b3989bd1fa530c9a60b1b9d9dbbf59559031c9",
+  "freeze_implementation_commit": "55ce4a23b44188ae21c8343005c6104b9a8a5d21",
+  "freeze_manifest_relative_path": "interim/40113d6646b0e7b8/interim_manifest.json",
+  "freeze_manifest_sha256": "1fc80bde23388d5619ea876ed31142b398dc28b254abf3ea74fd7a03dc815ac4",
+  "outputs": {
+    "alternate_close_sensitivity.json": {
+      "bytes": 21480,
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/alternate_close_sensitivity.json",
+      "sha256": "2542a1503a7d2e543878ce6f23bfda8432348ae195eae23798dd113ac2f16e75"
+    },
+    "canonical_daily.csv": {
+      "bytes": 1531445,
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/canonical_daily.csv",
+      "sha256": "774147ffba6e298a49ef2ba1059503515e2dec1317500d4f37acf980cd7a51e2"
+    },
+    "descriptive_statistics.json": {
+      "bytes": 61415,
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/descriptive_statistics.json",
+      "sha256": "bc93ca5c9d69a17d2dbb927fb1509bc578b343156ee1b9437898b8248aa0787c"
+    },
+    "six_forward_targets.csv": {
+      "bytes": 6979945,
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/six_forward_targets.csv",
+      "sha256": "cdd63f219d61584c8f3fa15e8f80c23ef351a6e902cb93027eed9b5e79dba3a5"
+    },
+    "target_audit.json": {
+      "bytes": 1351,
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/target_audit.json",
+      "sha256": "7b8d05616a1477e40c1eb86b65fe21a26e87e4b24429ef5ce056911eaed88bb5"
+    }
+  },
+  "parameters": {
+    "21t_annualization": "252/21",
+    "30c_annualization": "365/30",
+    "imputation": false,
+    "post_2003_start": "2004-01-01",
+    "seed": 42,
+    "sign": "implied_minus_realized",
+    "vix_scale": "CLOSE/100"
+  },
+  "protocol_version": "1.1.0",
+  "review_status": "PROVISIONAL / NOT INDEPENDENTLY ACCEPTED",
+  "schema_version": 1,
+  "software": {
+    "archive_parser": "xlrd==2.0.2 isolated",
+    "exchange-calendars": "4.13.2",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5"
+  },
+  "target_implementation": {
+    "commit": "c53bb9c65dd5b7521ebe80070103a525d98b373c",
+    "source_sha256_lf": {
+      "scripts/run_interim_targets.py": "fe81f12cb8a0cc2a01748f99ea4c057a5ac061f34b914bce516b379a2cb0e4c9",
+      "src/vrp/close_sensitivity.py": "d988a90709107bd93b93b2f48d94fdcd3cd91a0bd83c4927a7becf628a29e768",
+      "src/vrp/empirical_targets.py": "e8ccecaf287d4ee85b8c56e4bd6c01197975d503e877b0570a64ba04f5abd3ad",
+      "src/vrp/range_estimators.py": "3c96609a82ca8281d6be131a7369333400e6051540bdddf053b9042a7a1c35f0",
+      "src/vrp/returns.py": "5e077c175045781eb4fd4e57323197126104b7deadf67c572823d9b4510d1739",
+      "src/vrp/spx_discrepancy_impact.py": "31868f039054e4126721935709ed21c271778e8f18de4f6c8042e68a3bfe566c",
+      "src/vrp/summary.py": "b260587bce74f0612935a9f296c0e76a9cd3468ff5944e1bfe9a16660f4acc75",
+      "src/vrp/targets.py": "3539eb9719f847342a28d93271c83f181617ed56a1000bd54f4f8a3da2220d03"
+    }
+  },
+  "target_version": "complete-forward-targets/1.0.0"
+}
