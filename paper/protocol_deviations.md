@@ -1,6 +1,6 @@
 # Protocol Deviations Log
 
-**Authoritative protocol:** `paper/method_protocol.md`, version 1.0.1; substantive lock 2026-08-26, technical amendment 2026-08-27
+**Authoritative protocol:** `paper/method_protocol.md`, version 1.0.2; substantive lock 2026-08-26; technical amendments 2026-08-27 and 2026-10-13
 
 ## 2026-08-27 — Technical sample-tail support amendment
 

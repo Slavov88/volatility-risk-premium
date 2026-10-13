@@ -1,7 +1,7 @@
 """Central scientific conventions locked before empirical analysis.
 
 The authoritative substantive specification is ``paper/method_protocol.md``
-locked on 2026-08-26, with a technical sample-tail amendment dated 2026-08-27.
+locked on 2026-08-26, with technical amendments dated 2026-08-27 and 2026-10-13.
 Internal volatility values are annualized decimals and internal variance values
 are the square of decimal volatility. The empirical sign is always implied
 minus realized.
@@ -15,9 +15,10 @@ from datetime import date
 class ScientificConventions:
     """Units, horizons, inference, sample boundaries, and forecast constants."""
 
-    protocol_version: str = "1.0.1"
+    protocol_version: str = "1.0.2"
     protocol_decision_date: str = "2026-08-26"
-    protocol_amendment_date: str = "2026-08-27"
+    protocol_sample_tail_amendment_date: str = "2026-08-27"
+    protocol_provenance_amendment_date: str = "2026-10-13"
 
     # These dates govern forecast-origin eligibility, not availability of
     # post-origin outcome data needed to realize the final targets.
@@ -64,12 +65,18 @@ class ScientificConventions:
     def validate(self) -> None:
         """Raise if any locked convention drifts from the protocol."""
 
-        if self.protocol_version != "1.0.1":
-            raise ValueError("protocol_version must remain 1.0.1")
+        if self.protocol_version != "1.0.2":
+            raise ValueError("protocol_version must remain 1.0.2")
         if self.protocol_decision_date != "2026-08-26":
             raise ValueError("protocol_decision_date must remain 2026-08-26")
-        if self.protocol_amendment_date != "2026-08-27":
-            raise ValueError("protocol_amendment_date must remain 2026-08-27")
+        if self.protocol_sample_tail_amendment_date != "2026-08-27":
+            raise ValueError(
+                "protocol_sample_tail_amendment_date must remain 2026-08-27"
+            )
+        if self.protocol_provenance_amendment_date != "2026-10-13":
+            raise ValueError(
+                "protocol_provenance_amendment_date must remain 2026-10-13"
+            )
 
         if self.sample_start != "1990-01-02":
             raise ValueError("sample_start must remain 1990-01-02")

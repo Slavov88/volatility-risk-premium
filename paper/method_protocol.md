@@ -3,9 +3,9 @@
 ## The Volatility Risk Premium: An Empirical and Theoretical Investigation of the Gap Between Implied and Realized Volatility in Equity Index Markets
 
 **File:** `paper/method_protocol.md`  
-**Protocol version:** 1.0.1  
+**Protocol version:** 1.0.2  
 **Original decision date:** 2026-08-26  
-**Technical amendment:** 2026-08-27 — end-of-sample target-support clarification; no substantive hypothesis/horizon change  
+**Technical amendments:** 2026-08-27 — end-of-sample target-support clarification; 2026-10-13 — provenance/validation handling and deterministic calendar-version pin; neither changes the hypotheses or economic horizon  
 **Tracker task:** W1-03  
 **Status:** Locked core-analysis protocol pending co-author review  
 **Primary market:** S&P 500 / Cboe VIX  
@@ -693,16 +693,17 @@ A genuine data or implementation constraint may require an amendment. Record eve
 
 If a specification changes after relevant results have been viewed, the modified analysis is exploratory unless the original pre-specified result is also retained.
 
-Earlier August 10 and August 23 protocol drafts remain part of Git history. `docs/methodology_decisions.md` records how the design evolved before empirical VRP or forecast-ranking results were generated. The August 26 protocol remains the substantive methodological lock; the 2026-08-27 version 1.0.1 amendment only clarifies the distinction between the frozen forecast-origin sample and later S&P 500 observations required to realize already-valid forward targets. The amendment is recorded in `paper/protocol_deviations.md`.
+Earlier August 10 and August 23 protocol drafts remain part of Git history. `docs/methodology_decisions.md` records how the design evolved before empirical VRP or forecast-ranking results were generated. The August 26 protocol remains the substantive methodological lock. Version 1.0.1 (2026-08-27) clarified the distinction between the frozen forecast-origin sample and later S&P 500 observations required to realize already-valid forward targets. Version 1.0.2 (2026-10-13) changes only provenance/validation handling and deterministic calendar-versioning; it does not change hypotheses, horizons, losses, or the sign convention. Both amendments are recorded in `paper/protocol_deviations.md`.
 
 ---
 
 ## 21. Locked implementation defaults
 
 ```yaml
-protocol_version: "1.0.1"
+protocol_version: "1.0.2"
 protocol_decision_date: "2026-08-26"
-protocol_amendment_date: "2026-08-27"
+protocol_sample_tail_amendment_date: "2026-08-27"
+protocol_provenance_amendment_date: "2026-10-13"
 
 sample_start: "1990-01-02"
 sample_end: "2025-12-31"  # forecast-origin cutoff

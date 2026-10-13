@@ -6,9 +6,10 @@ from vrp.config import CONVENTIONS, ScientificConventions
 
 
 def test_default_conventions_match_locked_protocol() -> None:
-    assert CONVENTIONS.protocol_version == "1.0.1"
+    assert CONVENTIONS.protocol_version == "1.0.2"
     assert CONVENTIONS.protocol_decision_date == "2026-08-26"
-    assert CONVENTIONS.protocol_amendment_date == "2026-08-27"
+    assert CONVENTIONS.protocol_sample_tail_amendment_date == "2026-08-27"
+    assert CONVENTIONS.protocol_provenance_amendment_date == "2026-10-13"
     assert CONVENTIONS.sample_start == "1990-01-02"
     assert CONVENTIONS.sample_end == "2025-12-31"
     assert CONVENTIONS.spx_target_support_end_exclusive == "2026-02-03"
@@ -77,7 +78,9 @@ def test_invalid_oos_design_is_rejected() -> None:
 @pytest.mark.parametrize(
     ("kwargs", "message"),
     [
-        ({"protocol_version": "1.0"}, "protocol_version"),
+        ({"protocol_version": "1.0.1"}, "protocol_version"),
+        ({"protocol_sample_tail_amendment_date": "2026-08-28"}, "sample_tail"),
+        ({"protocol_provenance_amendment_date": "2026-10-12"}, "provenance"),
         ({"sample_start": "1990-01-03"}, "sample_start"),
         ({"sample_end": "2025-12-30"}, "sample_end"),
         ({"spx_target_support_end_exclusive": "2026-01-01"}, "target-support"),
