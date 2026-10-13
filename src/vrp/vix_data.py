@@ -23,6 +23,7 @@ import pandas as pd
 
 from vrp.calendar import exchange_sessions
 from vrp.config import CONVENTIONS
+from vrp.dates import as_date
 from vrp.data import CBOE_VIX_URL, fetch_bytes, write_immutable
 
 
@@ -278,8 +279,8 @@ def acquire_vix_history(
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--start-date", type=date.fromisoformat, required=True)
-    parser.add_argument("--end-exclusive", type=date.fromisoformat, required=True)
+    parser.add_argument("--start-date", type=as_date, required=True)
+    parser.add_argument("--end-exclusive", type=as_date, required=True)
     parser.add_argument("--raw-root", type=Path, default=Path("data/raw"))
     return parser
 

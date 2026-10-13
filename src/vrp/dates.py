@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import date, datetime
+import re
 
 
 def as_date(value: date | str) -> date:
@@ -16,6 +17,6 @@ def as_date(value: date | str) -> date:
         raise TypeError(
             "date value must be datetime.date, datetime, or ISO date string"
         )
-    if len(value) != 10:
+    if re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", value) is None:
         raise ValueError("date strings must use exact YYYY-MM-DD format")
     return date.fromisoformat(value)

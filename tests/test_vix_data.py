@@ -95,3 +95,15 @@ def test_vix_current_day_guard_uses_new_york_date(tmp_path) -> None:
             end_exclusive=date(2024, 1, 6),
             retrieved_at=retrieved,
         )
+
+
+def test_vix_cli_rejects_iso_week_date_and_trailing_text() -> None:
+    from vrp.vix_data import build_parser
+
+    parser = build_parser()
+    for invalid in ("2024-W01-1", "2024-01-02junk", "2024-1-2"):
+        with pytest.raises(SystemExit):
+            parser.parse_args([
+                "--start-date", invalid,
+                "--end-exclusive", "2024-01-04",
+            ])

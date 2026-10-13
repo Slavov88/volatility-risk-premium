@@ -18,6 +18,9 @@ def test_as_date_accepts_date_datetime_and_exact_iso_string() -> None:
         "2024-01-02T12:00:00",
         "2024/01/02",
         "2024-1-2",
+        "2024-W01-1",
+        "20240102XX",
+        "２０２４-０１-０２",
     ],
 )
 def test_as_date_rejects_non_exact_date_strings(bad: str) -> None:
