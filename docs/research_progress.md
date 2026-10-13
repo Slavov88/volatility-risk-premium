@@ -281,3 +281,18 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
 - Final Git tree clean before this journal entry; source/target files remain
   ignored. Independent scientific freeze acceptance and Cboe response are
   pending. Implementation CI success does not supply coauthor approval.
+
+### 2026-10-13 provisional H1-H5 execution authorization
+
+Aleksandar Slavov explicitly authorized H1-H5 statistical execution before
+Venelin Mirchev's independent freeze review. That review remains PENDING;
+results become visible before review and must be labelled PROVISIONAL -
+PENDING INDEPENDENT COAUTHOR REVIEW. This removes the prior operational
+inference restriction, not the strict acquisition gate or scientific review.
+Specifications stay protocol 1.1.0 plus the authorized interim amendment.
+No statistical method may change to improve observed results. A reviewer
+rejection requires documented revision, new frozen dataset/version and full
+re-execution, preserving original outputs. Use only the existing 9064-origin
+freeze and canonical SPX, with its three missing VIX origins unchanged.
+
+H1/H2: IMPLEMENTING. H3/H4: NOT STARTED. H5: NOT STARTED.

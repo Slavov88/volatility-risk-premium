@@ -321,3 +321,18 @@ agent/autonomous-research. GitHub Actions at 7842af4 passed tests/compilation:
 https://github.com/Slavov88/volatility-risk-premium/actions/runs/38439995535.
 Market-data-dependent source/target replay was executed locally and is not
 claimed as a GitHub test using redistributable production inputs.
+
+### 2026-10-13 provisional H1-H5 execution authorization
+
+Aleksandar Slavov explicitly authorized H1-H5 statistical execution before
+Venelin Mirchev's independent freeze review. That review remains PENDING;
+results become visible before review and must be labelled PROVISIONAL -
+PENDING INDEPENDENT COAUTHOR REVIEW. This removes the prior operational
+inference restriction, not the strict acquisition gate or scientific review.
+Specifications stay protocol 1.1.0 plus the authorized interim amendment.
+No statistical method may change to improve observed results. A reviewer
+rejection requires documented revision, new frozen dataset/version and full
+re-execution, preserving original outputs. Use only the existing 9064-origin
+freeze and canonical SPX, with its three missing VIX origins unchanged.
+
+H1/H2: IMPLEMENTING. H3/H4: NOT STARTED. H5: NOT STARTED.
