@@ -18,13 +18,12 @@ from vrp.dates import as_date
 def log_returns(
     dates: Sequence[date],
     closes: Sequence[float],
-    *,
-    validate_exchange_calendar: bool = True,
 ) -> list[tuple[date, float]]:
     """Return (ending_date, r_t) pairs for finite, strictly positive closes.
 
-    When validate_exchange_calendar is true, every supplied date must be an
-    XNYS session and each adjacent pair must be consecutive exchange sessions.
+    Every supplied date must be an XNYS session and each adjacent pair must be
+    consecutive exchange sessions. Production return construction has no
+    partial-calendar bypass.
     """
 
     if len(dates) != len(closes):
@@ -46,23 +45,22 @@ def log_returns(
             raise ValueError("log returns require finite, strictly positive closes")
         numeric_closes.append(value)
 
-    if validate_exchange_calendar:
-        for day in normalized_dates:
-            if not is_exchange_session(day):
-                raise ValueError(f"price date {day.isoformat()} is not an XNYS session")
-        for previous, current in zip(normalized_dates, normalized_dates[1:]):
-            expected = exchange_sessions(previous, current)
-            if expected != (previous, current):
-                missing = [
-                    day.isoformat()
-                    for day in expected
-                    if day not in {previous, current}
-                ]
-                detail = ", ".join(missing) if missing else "calendar mismatch"
-                raise ValueError(
-                    "price dates are not consecutive exchange sessions; "
-                    f"between {previous.isoformat()} and {current.isoformat()}: {detail}"
-                )
+    for day in normalized_dates:
+        if not is_exchange_session(day):
+            raise ValueError(f"price date {day.isoformat()} is not an XNYS session")
+    for previous, current in zip(normalized_dates, normalized_dates[1:]):
+        expected = exchange_sessions(previous, current)
+        if expected != (previous, current):
+            missing = [
+                day.isoformat()
+                for day in expected
+                if day not in {previous, current}
+            ]
+            detail = ", ".join(missing) if missing else "calendar mismatch"
+            raise ValueError(
+                "price dates are not consecutive exchange sessions; "
+                f"between {previous.isoformat()} and {current.isoformat()}: {detail}"
+            )
 
     out: list[tuple[date, float]] = []
     for index in range(1, len(numeric_closes)):

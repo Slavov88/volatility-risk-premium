@@ -14,6 +14,7 @@ from typing import Literal, Mapping, Sequence
 
 from vrp.calendar import (
     forward_30c_sessions,
+    is_exchange_session,
     trailing_30c_sessions,
     trailing_exchange_sessions,
 )
@@ -51,6 +52,8 @@ def _ordered_unique_dates(values: Sequence[date | str]) -> list[date]:
     days = [as_date(value) for value in values]
     if len(days) != len(set(days)):
         raise ValueError("dates must be unique")
+    if any(not is_exchange_session(day) for day in days):
+        raise ValueError("dates must contain only XNYS exchange sessions")
     return sorted(days)
 
 
@@ -61,6 +64,8 @@ def _ordered_dated_values(values: Sequence[DatedValue]) -> list[tuple[date, floa
         raise ValueError("dated values must have unique dates")
     if any(not math.isfinite(value) for _, value in converted):
         raise ValueError("dated values must be finite")
+    if any(not is_exchange_session(day) for day, _ in converted):
+        raise ValueError("dated values must use XNYS exchange-session dates")
     return sorted(converted, key=lambda item: item[0])
 
 

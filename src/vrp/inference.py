@@ -18,6 +18,7 @@ import statsmodels.api as sm
 from vrp.calendar import forward_30c_sessions
 from vrp.config import CONVENTIONS
 from vrp.dates import as_date
+from vrp.targets import assert_forecast_origin_allowed, primary_horizon_end
 
 
 def _finite_vector(values: Sequence[float], *, name: str) -> np.ndarray:
@@ -140,6 +141,8 @@ def overlap_l0(
     if len(origin_days) != len(set(origin_days)):
         raise ValueError("origins must be unique")
     origin_days = sorted(origin_days)
+    for origin in origin_days:
+        assert_forecast_origin_allowed(origin)
 
     if trading_dates is not None:
         supplied = [as_date(item) for item in trading_dates]
@@ -158,3 +161,47 @@ def overlap_l0(
         ):
             l0 = lag
     return l0
+
+
+
+def nonoverlapping_origins_30c(
+    origins: Sequence[date | str],
+) -> tuple[date, ...]:
+    """Select the deterministic earliest-phase non-overlapping 30c origins.
+
+    Starting with the earliest eligible origin, retain the earliest later
+    origin strictly after the previous selected origin's calendar endpoint.
+    Selection depends only on origin dates and the locked horizon, never on
+    outcomes.
+    """
+
+    days = [as_date(item) for item in origins]
+    if len(days) != len(set(days)):
+        raise ValueError("origins must be unique")
+    ordered = sorted(days)
+    for origin in ordered:
+        assert_forecast_origin_allowed(origin)
+
+    selected: list[date] = []
+    previous_end: date | None = None
+    for origin in ordered:
+        if previous_end is None or origin > previous_end:
+            selected.append(origin)
+            previous_end = primary_horizon_end(origin)
+    return tuple(selected)
+
+
+def holm_adjust_two(pvalues: Sequence[float]) -> tuple[float, float]:
+    """Holm-adjust exactly the two pre-specified secondary H3 p-values."""
+
+    if len(pvalues) != 2:
+        raise ValueError("H3 secondary Holm family must contain exactly two p-values")
+    values = [float(value) for value in pvalues]
+    if any(not math.isfinite(value) or value < 0.0 or value > 1.0 for value in values):
+        raise ValueError("p-values must be finite and lie in [0, 1]")
+    order = sorted(range(2), key=values.__getitem__)
+    adjusted = [0.0, 0.0]
+    first, second = order
+    adjusted[first] = min(1.0, 2.0 * values[first])
+    adjusted[second] = min(1.0, max(adjusted[first], values[second]))
+    return adjusted[0], adjusted[1]
