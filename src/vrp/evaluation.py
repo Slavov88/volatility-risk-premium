@@ -1,25 +1,28 @@
 """Pre-specified out-of-sample forecast-evaluation design.
 
-Protocol 1.0.1 fixes an initial estimation sample through 2006, evaluation
-origins from 2007 through 2025, an expanding primary estimation window, and a
-five-calendar-year rolling robustness window. Predictors may use information
-dated at the end-of-day origin ``t`` but never information dated after ``t``.
+Calendar completeness is checked against expected XNYS exchange sessions.
+Predictors may use information dated at end-of-day origin t but never
+information dated after t.
 """
 
 from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from datetime import date, timedelta
+from datetime import date
 from typing import Literal, Mapping, Sequence
 
+from vrp.calendar import (
+    forward_30c_sessions,
+    trailing_30c_sessions,
+    trailing_exchange_sessions,
+)
 from vrp.config import CONVENTIONS
 from vrp.dates import as_date
 from vrp.targets import (
     annualize_hvar_21t,
     annualize_hvar_30c,
     assert_forecast_origin_allowed,
-    primary_horizon_end,
 )
 
 EstimationWindow = Literal["expanding", "rolling_5y"]
@@ -62,20 +65,18 @@ def _ordered_dated_values(values: Sequence[DatedValue]) -> list[tuple[date, floa
 
 
 def out_of_sample_split(trading_dates: Sequence[date | str]) -> OutOfSampleSplit:
-    """Construct the locked train-through-2006/primary-evaluation split.
+    """Construct the locked train-through-2006/evaluate-from-2007 split.
 
-    ``trading_dates`` must include post-2025 target-support sessions when late
-    2025 origins are to remain eligible. An evaluation origin is retained only
-    when its full 30-calendar-day interval is observed and contains at least
-    one subsequent exchange session.
+    An evaluation origin is retained only if every expected XNYS session in
+    its forward 30-calendar-day target is present in trading_dates.
     """
 
     sessions = _ordered_unique_dates(trading_dates)
+    available = set(sessions)
     sample_start = date.fromisoformat(CONVENTIONS.sample_start)
     estimation_end = date(CONVENTIONS.oos_initial_estimation_end_year, 12, 31)
     evaluation_start = date(CONVENTIONS.oos_start_year, 1, 1)
     origin_end = date.fromisoformat(CONVENTIONS.sample_end)
-    observed_end = sessions[-1] if sessions else None
 
     initial = tuple(
         day for day in sessions if sample_start <= day <= estimation_end
@@ -84,12 +85,11 @@ def out_of_sample_split(trading_dates: Sequence[date | str]) -> OutOfSampleSplit
     for origin in sessions:
         if not evaluation_start <= origin <= origin_end:
             continue
-        horizon_end = primary_horizon_end(origin)
-        if observed_end is None or observed_end < horizon_end:
-            continue
-        if not any(origin < day <= horizon_end for day in sessions):
-            continue
-        origins.append(origin)
+        expected = forward_30c_sessions(
+            origin, CONVENTIONS.primary_calendar_days
+        )
+        if expected and all(day in available for day in expected):
+            origins.append(origin)
     return OutOfSampleSplit(initial, tuple(origins))
 
 
@@ -97,7 +97,6 @@ def _subtract_years(day: date, years: int) -> date:
     try:
         return day.replace(year=day.year - years)
     except ValueError:
-        # February 29 maps to February 28 in a non-leap cutoff year.
         return day.replace(year=day.year - years, day=28)
 
 
@@ -107,13 +106,7 @@ def estimation_window(
     *,
     window: EstimationWindow = "expanding",
 ) -> list[tuple[date, float]]:
-    """Return the GARCH estimation observations available at origin ``t``.
-
-    The expanding window starts at the locked sample start. The robustness
-    window is left-open and right-closed, ``(t - 5 calendar years, t]``.
-    Including ``r_t`` is valid for an end-of-day origin; every future return is
-    excluded.
-    """
+    """Return GARCH estimation observations available at origin t."""
 
     origin_day = as_date(origin)
     assert_forecast_origin_allowed(origin_day)
@@ -122,7 +115,9 @@ def estimation_window(
         lower = date.fromisoformat(CONVENTIONS.sample_start)
         return [(day, value) for day, value in values if lower <= day <= origin_day]
     if window == "rolling_5y":
-        lower = _subtract_years(origin_day, CONVENTIONS.garch_robustness_window_years)
+        lower = _subtract_years(
+            origin_day, CONVENTIONS.garch_robustness_window_years
+        )
         return [(day, value) for day, value in values if lower < day <= origin_day]
     raise ValueError("window must be 'expanding' or 'rolling_5y'")
 
@@ -131,45 +126,38 @@ def naive_variance_30c(
     origin: date | str,
     dated_returns: Sequence[DatedValue],
 ) -> float | None:
-    """Backward-looking 30-calendar-day variance benchmark.
-
-    This implements ``(365/30) * sum(r_d**2 for t-30c < d <= t)``. ``None`` is
-    returned when the input history does not cover the complete trailing
-    calendar interval.
-    """
+    """Trailing exact-calendar naive variance using every expected session."""
 
     origin_day = as_date(origin)
     assert_forecast_origin_allowed(origin_day)
-    values = _ordered_dated_values(dated_returns)
-    window_start = origin_day - timedelta(days=CONVENTIONS.primary_calendar_days)
-    if not values or values[0][0] > window_start:
+    values = dict(_ordered_dated_values(dated_returns))
+    expected = trailing_30c_sessions(
+        origin_day, CONVENTIONS.primary_calendar_days
+    )
+    if any(day not in values for day in expected):
         return None
-    selected = [
-        value for day, value in values if window_start < day <= origin_day
-    ]
-    if not selected:
-        return None
-    return annualize_hvar_30c(sum(value * value for value in selected))
+    return annualize_hvar_30c(
+        sum(values[day] * values[day] for day in expected)
+    )
 
 
 def naive_variance_21t(
     origin: date | str,
     dated_returns: Sequence[DatedValue],
 ) -> float | None:
-    """Trailing 21-session benchmark for the fixed-21 robustness analysis."""
+    """Trailing exact-21-session benchmark for the robustness analysis."""
 
     origin_day = as_date(origin)
     assert_forecast_origin_allowed(origin_day)
-    values = [
-        (day, value)
-        for day, value in _ordered_dated_values(dated_returns)
-        if day <= origin_day
-    ]
-    count = CONVENTIONS.robustness_trading_days
-    if len(values) < count:
+    values = dict(_ordered_dated_values(dated_returns))
+    expected = trailing_exchange_sessions(
+        origin_day, CONVENTIONS.robustness_trading_days
+    )
+    if any(day not in values for day in expected):
         return None
-    selected = [value for _, value in values[-count:]]
-    return annualize_hvar_21t(sum(value * value for value in selected))
+    return annualize_hvar_21t(
+        sum(values[day] * values[day] for day in expected)
+    )
 
 
 def _normalize_variance_map(
@@ -182,10 +170,13 @@ def _normalize_variance_map(
         day = as_date(raw_day)
         if day in normalized:
             raise ValueError(f"{name} has duplicate normalized date {day.isoformat()}")
-        if raw_value is None or math.isnan(float(raw_value)):
+        if raw_value is None:
             normalized[day] = None
             continue
         value = float(raw_value)
+        if math.isnan(value):
+            normalized[day] = None
+            continue
         if not math.isfinite(value):
             raise ValueError(f"{name} must contain finite values or missing values")
         if value < 0:
@@ -199,12 +190,7 @@ def common_evaluation_mask(
     realized_target: Mapping[date | str, float | None],
     forecasts: Mapping[str, Mapping[date | str, float | None]],
 ) -> tuple[date, ...]:
-    """Return origins observed for the target and every compared forecast.
-
-    One intersection is formed before any loss is computed, preventing a model
-    from being ranked on a different subset. The required VIX/GARCH/naive names
-    are enforced for the formal three-model comparison.
-    """
+    """Return origins observed for target and all three pre-specified forecasts."""
 
     required = {"vix", "garch", "naive"}
     if set(forecasts) != required:
@@ -223,7 +209,10 @@ def common_evaluation_mask(
         assert_forecast_origin_allowed(origin)
         if targets.get(origin) is None:
             continue
-        if any(values.get(origin) is None for values in normalized_forecasts.values()):
+        if any(
+            values.get(origin) is None
+            for values in normalized_forecasts.values()
+        ):
             continue
         common.append(origin)
     return tuple(common)

@@ -1,9 +1,9 @@
-"""Forward realized-variance targets locked by Protocol 1.0.1.
+"""Exchange-calendar-safe forward realized-variance targets.
 
-Primary horizon: exact forward 30 calendar days, annualized by ``365/30``.
-Mandatory robustness: the next 21 trading-day returns, annualized by ``252/21``.
-The first target return must end strictly after the origin. Incomplete
-end-of-sample calendar windows are missing and are never shortened.
+Primary horizon: exact forward 30 calendar days, annualized by 365/30.
+Mandatory robustness: the exact next 21 XNYS sessions, annualized by 252/21.
+A target is complete only when every expected return-ending exchange session
+is present. Missing sessions are never replaced by later observations.
 """
 
 from __future__ import annotations
@@ -12,6 +12,7 @@ import math
 from datetime import date, timedelta
 from typing import Sequence
 
+from vrp.calendar import forward_30c_sessions, next_exchange_sessions
 from vrp.config import CONVENTIONS
 from vrp.dates import as_date
 
@@ -25,7 +26,7 @@ def sample_start() -> date:
 
 
 def assert_forecast_origin_allowed(origin: date) -> None:
-    """Enforce the locked forecast-origin sample, not target-support availability."""
+    """Enforce the locked forecast-origin sample."""
 
     origin = as_date(origin)
     if origin > forecast_origin_end():
@@ -41,7 +42,7 @@ def assert_forecast_origin_allowed(origin: date) -> None:
 
 
 def primary_horizon_end(origin: date) -> date:
-    """Calendar date ``t + 30`` days for origin ``t``."""
+    """Calendar date t + 30 days for origin t."""
 
     return as_date(origin) + timedelta(days=CONVENTIONS.primary_calendar_days)
 
@@ -62,6 +63,21 @@ def annualize_hvar_21t(hvar: float) -> float:
     ) * hvar
 
 
+def _dated_value_map(
+    dated_values: Sequence[tuple[date, float]],
+) -> dict[date, float]:
+    mapping: dict[date, float] = {}
+    for raw_day, raw_value in dated_values:
+        day = as_date(raw_day)
+        if day in mapping:
+            raise ValueError(f"duplicate dated value for {day.isoformat()}")
+        value = float(raw_value)
+        if not math.isfinite(value):
+            raise ValueError("dated target inputs must be finite")
+        mapping[day] = value
+    return mapping
+
+
 def select_forward_30c(
     origin: date,
     dated_values: Sequence[tuple[date, float]],
@@ -69,39 +85,41 @@ def select_forward_30c(
     require_complete_calendar: bool = True,
     last_available: date | None = None,
 ) -> list[float] | None:
-    """Values whose dates ``d`` satisfy ``origin < d <= origin + 30c``.
+    """Select values for the exact expected XNYS sessions in the 30c window."""
 
-    When ``require_complete_calendar`` is true, return ``None`` unless the
-    full calendar interval has been observed. The window is never shortened.
-    """
+    origin_day = as_date(origin)
+    expected = forward_30c_sessions(
+        origin_day, CONVENTIONS.primary_calendar_days
+    )
+    values = _dated_value_map(dated_values)
 
-    origin = as_date(origin)
-    horizon_end = primary_horizon_end(origin)
-    selected = [value for day, value in dated_values if origin < as_date(day) <= horizon_end]
     if require_complete_calendar:
-        observed_end = last_available
-        if observed_end is None and dated_values:
-            observed_end = max(as_date(day) for day, _ in dated_values)
-        if observed_end is None or as_date(observed_end) < horizon_end:
+        if last_available is not None and as_date(last_available) < primary_horizon_end(
+            origin_day
+        ):
             return None
-    if not selected:
-        return None
-    return selected
+        if any(day not in values for day in expected):
+            return None
+        return [values[day] for day in expected]
+
+    selected = [values[day] for day in expected if day in values]
+    return selected or None
 
 
 def select_forward_21t(
     origin: date,
     dated_values: Sequence[tuple[date, float]],
 ) -> list[float] | None:
-    """The next 21 post-origin observations in date order, or ``None`` if short."""
+    """Select the exact next 21 expected XNYS-session values."""
 
-    origin = as_date(origin)
-    after = [(as_date(day), value) for day, value in dated_values if as_date(day) > origin]
-    after.sort(key=lambda item: item[0])
-    need = CONVENTIONS.robustness_trading_days
-    if len(after) < need:
+    origin_day = as_date(origin)
+    expected = next_exchange_sessions(
+        origin_day, CONVENTIONS.robustness_trading_days
+    )
+    values = _dated_value_map(dated_values)
+    if any(day not in values for day in expected):
         return None
-    return [value for _, value in after[:need]]
+    return [values[day] for day in expected]
 
 
 def realized_variance_30c(
@@ -111,7 +129,7 @@ def realized_variance_30c(
     require_complete_calendar: bool = True,
     last_available: date | None = None,
 ) -> float | None:
-    """Annualized close-to-close ``RVAR`` over the exact forward 30 calendar days."""
+    """Annualized close-to-close RVAR over the exact forward 30 calendar days."""
 
     selected = select_forward_30c(
         origin,
@@ -121,24 +139,25 @@ def realized_variance_30c(
     )
     if selected is None:
         return None
-    hvar = sum(value * value for value in selected)
-    return annualize_hvar_30c(hvar)
+    return annualize_hvar_30c(sum(value * value for value in selected))
 
 
 def realized_variance_21t(
     origin: date,
     return_pairs: Sequence[tuple[date, float]],
 ) -> float | None:
-    """Annualized close-to-close ``RVAR`` over the next 21 trading-day returns."""
+    """Annualized close-to-close RVAR over the exact next 21 XNYS sessions."""
 
     selected = select_forward_21t(origin, return_pairs)
     if selected is None:
         return None
-    hvar = sum(value * value for value in selected)
-    return annualize_hvar_21t(hvar)
+    return annualize_hvar_21t(sum(value * value for value in selected))
 
 
 def realized_volatility(rvar: float) -> float:
-    """``RVOL = sqrt(RVAR)``."""
+    """RVOL = sqrt(RVAR)."""
 
-    return math.sqrt(rvar)
+    value = float(rvar)
+    if not math.isfinite(value) or value < 0:
+        raise ValueError("realized variance must be finite and non-negative")
+    return math.sqrt(value)
