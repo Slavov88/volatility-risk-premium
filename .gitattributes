@@ -12,4 +12,4 @@ docs/h8_economic_attribution.md text eol=lf
 docs/h8_cash_execution.md text eol=lf
 docs/tables/h8_cash_yield/*.csv text eol=lf
 # Preserve the byte-exact archived cache index (including its original CRLF).
-data/manifests/h8_cash_cache_storage_v1.json -text
+data/manifests/h8_cash_cache_storage_v1.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
