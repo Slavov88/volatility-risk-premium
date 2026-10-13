@@ -5,7 +5,7 @@ This directory contains local immutable acquisition artifacts. Raw/provider data
 ## Canonical source roles
 
 - **Cboe VIX history:** primary official VIX source.
-- **Yahoo Finance `^GSPC`:** canonical S&P 500 price-index OHLC source, acquired through pinned `yfinance` with `auto_adjust=False`.\n- **FRED `SP500`:** optional, non-blocking recent close validation. It never overwrites Yahoo; endpoint failure is recorded rather than treated as acquisition failure.
+- **Yahoo Finance `^GSPC`:** canonical S&P 500 price-index OHLC source, acquired through pinned `yfinance` with `auto_adjust=False`.\n- **FRED `SP500`:** optional, non-blocking recent close validation. It never overwrites Yahoo; transport failure and malformed validation responses are recorded as distinct states rather than treated as canonical-data corrections.
 - **FRED / Federal Reserve H.15 short Treasury yields:** Track A rate source. The one-month constant-maturity series `DGS1MO` is preferred when it is available and maturity-matched.
 - **Nasdaq SPY:** legacy engineering proxy only. It is not final S&P 500 index data.
 
@@ -35,3 +35,10 @@ The final core acquisition must:
 5. record the deterministic production-quality gate (OHLC validity and expected-session coverage);\n6. optionally record FRED close-validation status and discrepancies without making that transport a dependency;\n7. copy a sanitized manifest into `data/manifests/` for version control.
 
 The earlier feasibility run that required `verify=False` for Yahoo remains historical evidence only and must not become the final core-data freeze.
+
+
+## Calendar reproducibility
+
+Session completeness is evaluated against XNYS using exactly
+`exchange-calendars==4.13.2`. Production manifests must record this library
+version and the expected session count for the acquisition window.

@@ -16,6 +16,7 @@ At minimum record:
 - SHA-256 hashes of local immutable artifacts;
 - validation results and discrepancy summary;
 - TLS/transport verification status;
+- exchange-calendar name, exact calendar-library version, and expected session count;
 - any licensing/redistribution note.
 
 Raw files referenced by these hashes remain local under `data/raw/`.
