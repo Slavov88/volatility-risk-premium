@@ -156,3 +156,13 @@ Provider prices remain local. The isolated XLS parser is reused from
 `outputs/archive_inspection` (xlrd==2.0.2); install this into an isolated
 inspection directory if reproducing on another machine. The locked empirical
 dependencies are unchanged.
+
+## Latest: full provisional H1-H5 execution
+
+Aleksandar explicitly authorized statistical execution before independent
+freeze review on 2026-10-13; the earlier operational wait is superseded for
+this separate provisional pathway. All five hypotheses and mandatory
+robustness analyses have executed. See docs/empirical_results_summary.md
+and docs/h1_results.md through h5_results.md. Original data/gates remain
+unchanged. Every result is PROVISIONAL - PENDING INDEPENDENT COAUTHOR REVIEW.
+No manuscript conclusions or independent acceptance inferred.

@@ -187,3 +187,12 @@ All seven alternate FRED closes were evaluated individually and jointly as separ
 Venelin should inspect the dated authorization/amendment, verify original source and derived hashes, reparse A2528/E2528, reproduce XNYS eligibility, source preservation and all target audits, and record actual independent acceptance/rejection with its evidence. No signature is supplied by this execution. See RUN-007/008 for exact commands. H1/H2 inferential execution remains gated until independent freeze acceptance; then use locked overlap-HAC/non-overlap and calibration robustness, followed by recursive GARCH/OOS H3/H4 and frozen-regime H5.
 
 Cboe inquiry **SENT — AWAITING CBOE RESPONSE**, author-reported only. Six Yahoo/FRED disagreements remain unexplained; 2019-08-12 has official correction support but is still an alternate-source sensitivity. Exact historical VIX-close synchronization and non-session publication mechanisms remain limitations. Authentic later Cboe values or contradiction of the archive require a new versioned amendment, preserved baseline/results, independently reviewed rebuild and explicit comparison.
+
+## Subsequent provisional H1-H5 execution authorization
+
+Aleksandar explicitly authorized execution before independent review. The
+earlier operational inference wait above is historical; scientific freeze
+acceptance remains pending. Full H1-H5 results/robustness now exist under a
+separate provisional entry point using exactly this same pinned freeze.
+See empirical_results_summary.md and RUN-009; no data/gate change or signature
+claim. Original outputs preserved; no final manuscript conclusions.

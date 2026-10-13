@@ -336,3 +336,80 @@ re-execution, preserving original outputs. Use only the existing 9064-origin
 freeze and canonical SPX, with its three missing VIX origins unchanged.
 
 H1/H2: IMPLEMENTING. H3/H4: NOT STARTED. H5: NOT STARTED.
+
+## RUN-009 - 2026-10-13: authorized provisional H1-H5 execution
+
+Aleksandar authorized execution before Venelin's independent freeze review;
+7522a81 recorded authorization before statistical outcomes. Independent
+review remains PENDING, no signatures/acceptance supplied. Results become
+visible before that review. Protocol 1.1.0 and interim amendment unchanged;
+no new SPX/VIX dataset, source choice, exclusions or estimation sample.
+
+Python 3.11.5; arch 8.0.0, statsmodels 0.15.0, scipy 1.17.1, numpy 2.4.6,
+pandas 2.3.3, XNYS exchange-calendars 4.13.2; dependency lock unchanged.
+GARCH processes use OPENBLAS_NUM_THREADS=1, OMP_NUM_THREADS=1,
+MKL_NUM_THREADS=1, seed 42. Cold deterministic default starts, maxiter=1000,
+ftol=1e-9; no retries or model replacement on failure. Three variants:
+normal expanding, Student-t expanding, normal rolling five calendar years.
+Percent fit returns and /10000 decimal variance conversion. Both horizons
+derive from each recursive fit. Source/target hashes checked before every run.
+
+### Exact execution commands
+
+```powershell
+.venv/Scripts/python.exe -m vrp.provisional_analysis --parser-path outputs/archive_inspection --code-commit c896f1245eecfc2341a2b8a975f5dde76979cda1 --output outputs/empirical_h1_h5/v1/h1_h2.json
+.venv/Scripts/python.exe -m vrp.recursive_garch --variant normal_expanding --parser-path outputs/archive_inspection --code-commit 9aeb3b5712fc783d0016b2129aee6b3da62a3fa4 --output-root outputs/empirical_h1_h5/v1/garch
+.venv/Scripts/python.exe -m vrp.recursive_garch --variant t_expanding --parser-path outputs/archive_inspection --code-commit 9aeb3b5712fc783d0016b2129aee6b3da62a3fa4 --output-root outputs/empirical_h1_h5/v1/garch
+.venv/Scripts/python.exe -m vrp.recursive_garch --variant normal_rolling5y --parser-path outputs/archive_inspection --code-commit 9aeb3b5712fc783d0016b2129aee6b3da62a3fa4 --output-root outputs/empirical_h1_h5/v1/garch
+.venv/Scripts/python.exe -m vrp.forecast_analysis --parser-path outputs/archive_inspection --code-commit cade4518bf2761b41f2558ef263bde4bbf1dfd71 --garch-root outputs/empirical_h1_h5/v1/garch --output outputs/empirical_h1_h5/v1/h3_h4.json
+.venv/Scripts/python.exe -m vrp.regime_analysis --parser-path outputs/archive_inspection --code-commit cade4518bf2761b41f2558ef263bde4bbf1dfd71 --chronology data/manifests/2026-10-13_nber_chronology.json --forecasts outputs/empirical_h1_h5/v1/h3_h4.json --output outputs/empirical_h1_h5/v1/h5.json
+.venv/Scripts/python.exe scripts/audit_empirical_execution.py --parser-path outputs/archive_inspection --root outputs/empirical_h1_h5/v1
+.venv/Scripts/python.exe scripts/report_empirical_results.py --root outputs/empirical_h1_h5/v1 --parser-path outputs/archive_inspection
+```
+
+H1/H2 and H3/H4/H5 executed twice with identical hashes. Checkpoint resume
+revalidated/reused all 4780 records per model, with no reduced-refit
+approximation. Fifteen date-fixed fresh fits (first/final origin and first
+origins of 2008/2020/2022 per variant) exactly reproduced parameters,
+forecasts, warnings and residual diagnostics. Full set-intersection audit
+independently confirms L0=21. All 14340 fits converged; zero forecast failures.
+
+Input freeze: `1fc80bde23388d5619ea876ed31142b398dc28b254abf3ea74fd7a03dc815ac4`; target manifest: `00532571aad5f8d9c43231933429fe6facbf7687a6332231ac8b7ad0ff73ccd9`.
+
+| Result artifact | SHA-256 |
+|---|---|
+| execution_audit.json | `a37a4b74db24de665e0d1e109f237367a8f2c0110ada5d4a0ea8e106f38caeb6` |
+| h1_h2.json | `6b07e43199d3ffd723e42c8ed3bf497c800421f79a6c56b33b95d9e9d67d5a25` |
+| h3_h4.json | `03afa02ed0e6087ab507fcde105a066b591b74b10a9826cce553ce4310d5a1a5` |
+| h5.json | `b2945442db51261cc5fde5555eab806e8413b35dc26a5292cfe6d80f49937b90` |
+
+H1/H2 include all locked bandwidths, horizons, estimators, fixed subsets,
+non-overlap and secondary VOLGAP. H3/H4 include all three model variants,
+both horizons, common masks, paired squared-error and QLIKE HAC plus exactly
+two Holm-adjusted secondary contrasts. H5 includes source-frozen monthly
+NBER mapping, estimators/horizons/bandwidths/subsets, secondary gaps,
+non-overlap and fixed-year cases. Report estimates are generated exclusively
+from result JSON; full numerical precision remains in immutable outputs.
+
+NBER HTML downloaded with default verified TLS at the manifest timestamp;
+web-tool request returned 403 but direct official download succeeded.
+Original HTML SHA-256:
+99401340ae9b97310803cdcd0db0731ba4b4739f5425a83c370d268e3fa5795d.
+Snapshot/monthly parsing committed at cade451 before H5 outcomes; 432 monthly
+flags, 36 recession months, peak excluded/trough included. Case years unchanged.
+
+Initial synthetic GARCH oracle failed before production due to forecast
+versus fit backcast distinction; fixed in 9aeb3b5 without model changes.
+A mistyped replay commit was rejected before analysis; correct commit
+replayed identically. Initial fresh-fit audit compared integer lag keys to
+JSON string keys; canonical JSON normalization fixed representation without
+numeric changes, then 15 fresh fits matched. Plot generation initially used
+unsupported auto_ylim spelling; corrected to installed auto_ylims. Final
+publication/v2 preserves the preliminary visual version locally.
+
+Near-unit persistence and standardized residual diagnostics remain explicit.
+Residual tests cover 38 date-selected first/final-year anchors per variant,
+not every fit. Return JB/Ljung-Box/ARCH-LM and descriptive leverage diagnostics
+preceded fits. Numerical p=0 underflow labelled. No trimming, outcome-selected
+specification/source/window changes, theoretical conditional-premium claim,
+causality/efficiency claim or manuscript conclusion. Scientific review pending.

@@ -117,3 +117,14 @@ If a change is made after relevant results have been viewed, the modified specif
 6. **Documentation:** Cboe Information Circular IC14-075 and Cboe's VIX maturity-interpolation research note.
 7. **Coauthor review/approval status:** Pending.
 8. **Protocol version:** 1.1.0.
+
+## 2026-10-13 provisional execution before independent freeze review
+
+Aleksandar explicitly authorizes H1-H5 execution before Venelin's independent
+freeze review. This changes operational review order only: results become
+visible before review. Statistical specifications, base protocol 1.1.0 and
+interim dataset/amendment stay unchanged. Original strict gate remains
+unchanged. No new Venelin signature or scientific acceptance is implied.
+All outputs remain provisional pending independent coauthor review. Reviewer
+rejection requires documented versioned revision/full re-execution, preserving
+original outputs. No subsequent change may optimize observed significance.

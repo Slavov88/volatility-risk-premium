@@ -16,9 +16,9 @@ in the fetched checkout.
 | EMP-004 | Reproducible interim origin panel | TECHNICALLY COMPLETE / PROVISIONAL | Authorized path 55ce4a2, 9064/9067, two identical builds. Old strict gate still rejects. | Independent acceptance EMP-005. |
 | EMP-005 | B: independent freeze review | PENDING EXTERNAL REVIEW | Coauthor reviews exact hashes, quality findings and freeze report. Code/tests cannot provide this approval. | Deliver reviewable freeze report after EMP-004. |
 | EMP-006 | Returns and all six forward targets | COMPLETE / PROVISIONAL | RUN-008, 9087 returns; 9064 complete values per six series; full numpy audit; two identical executions. | Coauthor audit before inferential reporting. |
-| EMP-007 | D: H1/H2 and diagnostic robustness | PENDING REVIEW GATE | EMP-005 accepted; protocol-defined HAC, calibration and mandatory sensitivities; complete experiment log. | Wait for independent freeze approval. |
-| EMP-008 | E: recursive OOS and H3/H4 | PENDING REVIEW GATE | Prior milestones independently validated; locked units, windows and common masks. | Implement only after earlier scientific gates. |
-| EMP-009 | H5 and paper reporting | PENDING | Prior validation gates, frozen NBER provenance/crisis dates; independent output audit. | Retain theory/Track A without modification. |
+| EMP-007 | H1/H2 and robustness | COMPUTED / PROVISIONAL | RUN-009; independent HAC/Wald checks and repeated identical outputs; Aleksandar authorized execution before review. | Venelin audit. |
+| EMP-008 | Recursive OOS and H3/H4 | COMPUTED / PROVISIONAL | 14340 fits, 4780/4780 per variant, zero failures, same masks, verified restart/fresh fits. | Venelin audit. |
+| EMP-009 | H5 / manuscript | H5 COMPUTED / PROVISIONAL; PAPER CONCLUSIONS PENDING | Source-frozen NBER, fixed crisis years; generated reports/figures. | Independent review before conclusions. |
 | EMP-010 | Separate CLOSE candidate validation | COMPLETE FOR INSPECTION / UNAPPROVED | Commit `2c820db`; contract `vix-close-candidate/1.0.0`; 9,063 origins; identical replay; 1,674 tests pass. No production targets. Strict path unchanged. | Obtain EMP-012 authorization before any approved promotion path. |
 | EMP-011 | Source publication and close-correction investigation | DIAGNOSTICS COMPLETE / SIX DISCREPANCIES UNRESOLVED | Hashed Cboe notices, small FRED VIX publication checks and hypothetical correction footprints; 2019 correction explained. | Coauthors review source assumptions and unresolved-price sensitivity proposal; no replacements. |
 | EMP-012 | Both-author CLOSE methodology agreement | AUTHORIZED AS REPORTED | Aleksandar communication 2026-10-13 reports both authors agree; f940a1d dated amendment. No signatures/direct Venelin confirmation. | Freeze acceptance remains separate. |
@@ -326,3 +326,22 @@ H1/H2: IMPLEMENTING. H3/H4: NOT STARTED. H5: NOT STARTED.
   exact common-mask policy and refusal of incomplete coverage.
 - NBER chronology source/432 monthly flags frozen in cade451 before any H5
   outcome. H5 IMPLEMENTING; two monthly parsing/mapping tests passed.
+
+### Full H1-H5 computed / provisional
+
+| Hypothesis | Status | Evidence |
+|---|---|---|
+| H1 | COMPUTED / PROVISIONAL | h1_results.md, all mandatory robustness |
+| H2 | COMPUTED / PROVISIONAL | h2_results.md, covariance-aware joint Wald |
+| H3 | COMPUTED / PROVISIONAL | h3_results.md, 14340 fits and full OOS coverage |
+| H4 | COMPUTED / PROVISIONAL | h4_results.md, exact H3 common masks |
+| H5 | COMPUTED / PROVISIONAL | h5_results.md, frozen NBER and crisis windows |
+
+All numerical stages replayed identically; all checkpoint rows verified/reused.
+Fifteen fresh fits exactly matched. Independent full target-set L0 audit passed.
+Six reports plus source-linked PDF/PNG figures/publication tables generated.
+Preliminary visuals preserved; final version visually inspected.
+Full scientific suite: 1734 passed in 35.90 s; compile/diff checks passed.
+EMP-005 independent acceptance remains pending. No result marked independently
+reviewed. Cboe/source discrepancies remain unresolved. Next action: Venelin
+reviews the complete data/implementation/numerical/methodology evidence package.
