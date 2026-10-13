@@ -1,0 +1,7 @@
+{
+  "status": "EXPLORATORY_POST_RESULT_PENDING_REVIEW",
+  "registered_utc": "2026-10-13T19:59:44.0435359Z",
+  "version": "quant-extension/1.0",
+  "baseline_commit": "4f5d885ed461938d479566dca51537d011589753",
+  "prospective_rule": "first XNYS session strictly after UTC registration date; assess after252 matured origins"
+}
