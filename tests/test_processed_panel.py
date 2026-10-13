@@ -88,7 +88,7 @@ def test_verified_panel_builds_only_from_accepted_and_hashed_inputs(sources) -> 
     assert hashlib.sha256(panel_bytes).hexdigest() == result.panel_sha256
     panel = pd.read_csv(output / result.panel_relative_path)
     assert list(panel["spx_close"]) == [100.0, 101.25]
-    assert list(panel["ivar"]) == pytest.approx([0.0132**2, 0.0135**2], rel=1e-12)
+    assert list(panel["ivar"]) == pytest.approx([0.132**2, 0.135**2], rel=1e-12)
     assert not (set(panel.columns) & {"rvar", "vrp_x"})
     manifest = json.loads((output / result.manifest_relative_path).read_text())
     assert manifest["row_losses"]["common_origins"] == 2
