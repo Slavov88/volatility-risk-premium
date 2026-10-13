@@ -190,4 +190,4 @@ def run_h8():
             "log_sha256": hashes, "failed_strategies": 0,
             "timing": "next-open rebalance; old holdings earn overnight/dividends; final next-open mark without last-signal trade",
             "cash_interest": 0., "cost_bps": [0, 1, 5, 10, 25],
-            "implementation": implementation(["src/vrp/quant_portfolio.py", "src/vrp/quant_extension.py", "scripts/run_quant_portfolio.py"])}
+            "implementation": implementation(["src/vrp/quant_portfolio.py", "src/vrp/quant_extension.py", "src/vrp/quant_calendar.py", "scripts/run_quant_portfolio.py"])}

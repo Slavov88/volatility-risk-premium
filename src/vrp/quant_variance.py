@@ -105,4 +105,4 @@ def run_h7(panel):
     return {"status": STATUS, "n": len(forecasts), "models": metrics, "comparisons": tests, "periods": periods,
             "fits": fits, "failed_fits": 0, "floor_counts": clipcount, "forecasts_sha256": digest,
             "common_origin_sha256": hashlib.sha256("\n".join(forecasts.origin).encode()).hexdigest(),
-            "implementation": implementation(["src/vrp/quant_extension.py", "src/vrp/quant_variance.py", "scripts/run_quant_extension.py"])}
+            "implementation": implementation(["src/vrp/quant_extension.py", "src/vrp/quant_calendar.py", "src/vrp/quant_variance.py", "scripts/run_quant_extension.py"])}

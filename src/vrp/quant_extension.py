@@ -18,12 +18,13 @@ from scipy.optimize import minimize
 from scipy.stats import norm
 
 from vrp.calendar import forward_30c_sessions
+from vrp.quant_calendar import scheduled_forward_sessions, reaggregate_garch
 from vrp.provisional_analysis import inputs, checked_mean, checked_regression, persist
 from vrp.data import write_immutable
 
 STATUS = "EXPLORATORY — POST H1–H5 RESULT SELECTION — PENDING INDEPENDENT REVIEW"
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "outputs/quant_extension/v1"
+OUT = ROOT / "outputs/quant_extension/v2"
 FLOOR = 1e-8
 H6_FEATURES = ["log_ivar", "log_rv21", "log_rv63", "log_downside21", "negative_return", "log_garch"]
 H7_FEATURES = ["ivar", "garch", "trailing"]
@@ -95,7 +96,7 @@ def source_panel():
     for r in records:
         if r["training_end"] > r["origin"] or r["status"] != "CONVERGED":
             raise ValueError("GARCH information-set mismatch")
-    garch = pd.DataFrame({"origin": [r["origin"] for r in records], "garch": [r["garch_30c"] for r in records]})
+    garch = pd.DataFrame({"origin": [r["origin"] for r in records], "garch": [reaggregate_garch(r) for r in records]})
     return build_features(targets, daily, garch)
 
 
@@ -120,7 +121,7 @@ def build_features(targets, daily, garch):
     panel["event"] = (panel.y > 1.5*panel.ivar).astype(int)
     panel["maturity"] = pd.to_datetime(panel.origin) + pd.Timedelta(days=30)
     panel["feature_as_of"] = pd.to_datetime(panel.origin)
-    panel["ewma"] = [v*len(forward_30c_sessions(pd.Timestamp(d).date()))*365/30 for d, v in zip(panel.origin, panel.ewma_daily)]
+    panel["ewma"] = [v*len(scheduled_forward_sessions(d))*365/30 for d, v in zip(panel.origin, panel.ewma_daily)]
     return panel.sort_values("origin").reset_index(drop=True)
 
 
@@ -303,4 +304,4 @@ def run_h6(panel):
     return {"status": STATUS, "n": len(forecasts), "events": int(y.sum()), "prevalence": float(y.mean()),
             "models": metrics, "comparisons": tests, "periods": periods, "fits": fits, "failed_fits": 0,
             "forecasts_sha256": digest, "common_origin_sha256": hashlib.sha256("\n".join(forecasts.origin).encode()).hexdigest(),
-            "implementation": implementation(["src/vrp/quant_extension.py", "scripts/run_quant_extension.py"])}
+            "implementation": implementation(["src/vrp/quant_extension.py", "src/vrp/quant_calendar.py", "scripts/run_quant_extension.py"])}
