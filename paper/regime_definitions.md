@@ -108,3 +108,17 @@ The dates above are frozen as of 2026-09-17. They cannot be moved because the
 resulting premium or forecast output looks stronger or weaker. Any later
 alternative window is exploratory, must be identified as post-freeze, and must
 be reported alongside rather than in place of these pre-specified windows.
+
+## 2026-10-13 chronology snapshot frozen before H5 computation
+
+Official NBER chronology downloaded with default verified TLS at the retrieval
+time in data/manifests/2026-10-13_nber_chronology.json. Original HTML SHA-256:
+99401340ae9b97310803cdcd0db0731ba4b4739f5425a83c370d268e3fa5795d.
+Parser uses monthly turning points, not quarter labels (February 2020 is
+labelled 2019Q4 by NBER but remains February 2020 for monthly mapping).
+1990-2025: 432 monthly flags, 36 recession months; peak month excluded,
+trough included. Episodes: July 1990/March 1991, March/November 2001,
+December 2007/June 2009, February/April 2020. Current-vintage labels are
+ex-post classifications; later vintage revisions require preserved baseline
+and versioned re-execution. Existing 2008/2020/2022 calendar-year boundaries
+remain unchanged. H5 outcome not yet examined at this snapshot freeze.
