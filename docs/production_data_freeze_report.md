@@ -1,4 +1,13 @@
-# Production acquisition audit — freeze blocked
+# Production data-freeze review package
+
+**Latest state (2026-10-13): authorized interim freeze and six targets
+technically verified and reproduced twice; PROVISIONAL / NOT INDEPENDENTLY
+ACCEPTED.** There are 9,064 eligible origins, three missing predictors, and
+all six target series are complete. The original strict acquisition remains
+rejected. The final section below contains current hashes, commands,
+descriptive results and independent-review instructions.
+
+## Historical original acquisition audit — strict freeze blocked
 
 Date: **2026-10-13**. Protocol **1.1.0**; source branch **456a77c**.
 Scientific acceptance: **NOT APPROVED; independent coauthor review pending**.
