@@ -1,6 +1,6 @@
 # Data dictionary — planned analysis schema
 
-This versioned schema follows `paper/method_protocol.md` version 1.0.1: substantive lock 2026-08-26, technical sample-tail amendment 2026-08-27. It describes intended variables; it is not evidence that the cleaned panel, realized-variance targets, or forecast results already exist.
+This versioned schema follows `paper/method_protocol.md` version 1.0.2: substantive lock 2026-08-26, sample-tail amendment 2026-08-27, and provenance/validation amendment 2026-10-13. It describes intended variables; it is not evidence that the cleaned panel, realized-variance targets, or forecast results already exist.
 
 ## Market and return variables
 

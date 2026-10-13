@@ -29,16 +29,15 @@ resolve external hosts, so this retry does not claim a fresh successful CLI
 transport test; the verified-TLS production reacquisition requirement below
 remains open.
 
-**Decision:** Yahoo `^GSPC` is the S&P 500 OHLC source, with no FRED `SP500`
-close validation. Official Cboe history remains VIX. FRED `DGS1MO` remains the
-preferred one-month risk-free-rate proxy when maturity-matched.
+**Decision:** Yahoo `^GSPC` is the canonical S&P 500 OHLC source. FRED `SP500` is an optional, non-blocking independent close-validation overlay when available and never overwrites Yahoo. Official Cboe history remains VIX. FRED `DGS1MO` remains the preferred one-month risk-free-rate proxy when maturity-matched.
 
 ## Locked hierarchy
 
 | Research object | Source | Decision | Reason / caveat |
 |---|---|---|---|
 | VIX history | Cboe historical VIX data | **Primary** | Issuer source with public daily history from 1990 to present. Exact historical `CLOSE` timestamp convention remains a documented provenance limitation. |
-| S&P 500 OHLC | Yahoo Finance `^GSPC` through pinned `yfinance`, `auto_adjust=False` | **Primary / canonical** | Exact price index rather than SPY; supplies OHLC. The persisted CSV is a deterministic normalized acquisition snapshot, not byte-identical Yahoo response data. |\n| S&P 500 close validation | FRED `SP500` when available | **Optional validation only** | Independent recent close cross-check. Failure to reach FRED does not block acquisition; discrepancies are recorded and never overwrite Yahoo. |
+| S&P 500 OHLC | Yahoo Finance `^GSPC` through pinned `yfinance`, `auto_adjust=False` | **Primary / canonical** | Exact price index rather than SPY; supplies OHLC. The persisted CSV is a deterministic normalized acquisition snapshot, not byte-identical Yahoo response data. |
+| S&P 500 close validation | FRED `SP500` when available | **Optional validation only** | Independent recent close cross-check. Failure to reach FRED does not block acquisition; discrepancies are recorded and never overwrite Yahoo. |
 | Engineering fallback | SPY | **Engineering-only** | ETF tracking, dividends, microstructure, and adjustment differences prevent substitution for the S&P 500 index. |
 | Short risk-free rate for Track A | FRED / Federal Reserve H.15; prefer `DGS1MO` when available and maturity-matched | **Primary rate hierarchy** | One-month constant maturity is the natural first choice for approximately one-month option validation; use the nearest defensible short maturity otherwise and document conversions. |
 | Legacy feasibility Treasury feed | U.S. Treasury daily yield-curve XML, three-month field | **Legacy/provisional only** | Retained for reproducibility of the initial feasibility utility; it does not override the Track A rate hierarchy. |
@@ -66,7 +65,7 @@ The post-2025 S&P observations are **target-support outcomes only**. They do not
 
 ## Historical FRED SP500 feasibility check
 
-The 2026-08-10 feasibility run compared Yahoo closes with FRED `SP500`. That comparison is historical evidence only. Production acquisition does not require FRED `SP500`; an optional validation attempt may be run and its status is recorded.
+The 2026-08-10 feasibility run compared Yahoo closes with FRED `SP500`. That comparison is historical evidence only. Production acquisition does not require FRED `SP500`; the recommended production command requests the validation overlay, but transport failure is classified and non-blocking. Malformed validation responses are recorded separately from transport failure.
 
 ## Frozen feasibility result from 2026-08-10
 
@@ -110,3 +109,13 @@ The final 1990–2025 production freeze must be reacquired with normal certifica
 - `yfinance.download`: https://ranaroussi.github.io/yfinance/reference/api/yfinance.download.html
 - FRED `SP500`: https://fred.stlouisfed.org/series/SP500
 - FRED one-month Treasury `DGS1MO`: https://fred.stlouisfed.org/series/DGS1MO
+
+
+## Exchange-calendar reproducibility
+
+All S&P 500 target/session completeness checks use the XNYS calendar from
+`exchange-calendars==4.13.2`. The exact calendar-library version is part of
+the scientific environment because historical session definitions determine
+which returns enter a target. Production manifests record the calendar name,
+library version, and expected session count. Changing that pinned version
+requires an explicit reproducibility review before results are recomputed.

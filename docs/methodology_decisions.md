@@ -28,6 +28,7 @@ This file preserves the evolution of the design rather than pretending that earl
 | M-013 | Final **forecast-origin** sample ends 2025-12-31. Later S&P 500 observations may be retained only as outcome support needed to realize forward targets for late-2025 origins; they never become 2026 forecast origins or extend the predictor/training information set. | **Clarified 2026-08-27; substantive sample lock unchanged.** | Preserves the last-complete-calendar-year origin sample while avoiding mechanical truncation of valid forward targets at the boundary. |
 | M-014 | Final core data must be reacquired with verified TLS; the prior `verify=False` Yahoo feasibility run cannot be the production freeze. | **Locked 2026-08-26.** | Separates feasibility evidence from final provenance. |
 | M-015 | Sanitized acquisition manifests are committed under `data/manifests/`; provider/raw market data remain ignored. | **Locked 2026-08-26.** | Makes hashes, source parameters, and validation state auditable from Git without redistributing market data. |
+| M-016 | Exchange-session construction uses XNYS from exactly pinned `exchange-calendars==4.13.2`; production manifests record the calendar-library version. | **Technical reproducibility lock 2026-10-13.** | The exchange calendar is part of the target definition, so historical-session drift across library versions must not silently change RVAR. |
 
 ## Open issues before empirical analysis
 

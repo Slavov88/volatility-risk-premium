@@ -2,6 +2,11 @@
 
 Reproducible research code for **The Volatility Risk Premium: An Empirical and Theoretical Investigation of the Gap Between Implied and Realized Volatility in Equity Index Markets**.
 
+## Authors
+
+- Venelin Mirchev
+- Aleksandar Slavov
+
 ## Research question
 
 Is the excess of S&P 500 option-implied variance over subsequently realized variance statistically robust and economically explicable, or does it weaken after careful horizon matching, overlap-aware inference, out-of-sample forecasting, and regime analysis?
@@ -17,7 +22,7 @@ VIX is a model-free index constructed from a strip of SPX option prices. It is n
 
 ## Source of truth
 
-The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), originally locked on 2026-08-26 and technically amended on 2026-08-27 to clarify end-of-sample target support. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail. The Week 1 auditor's [`scope review`](docs/w1_09_scope_review.md) approves the bounded core and keeps stretch goals outside it until a separate extension gate is passed.
+The authoritative pre-analysis specification is [`paper/method_protocol.md`](paper/method_protocol.md), version 1.0.2. It was substantively locked on 2026-08-26, amended on 2026-08-27 for end-of-sample target support, and amended on 2026-10-13 only for provenance/validation handling and deterministic calendar-versioning. Earlier design drafts remain in Git history, while [`docs/methodology_decisions.md`](docs/methodology_decisions.md) and [`paper/protocol_deviations.md`](paper/protocol_deviations.md) preserve the audit trail. The Week 1 auditor's [`scope review`](docs/w1_09_scope_review.md) approves the bounded core and keeps stretch goals outside it until a separate extension gate is passed.
 
 ## Canonical empirical objects
 
@@ -64,14 +69,14 @@ python -m pip install -e ".[dev]"
 The **forecast-origin sample** is frozen through 2025-12-31. Forward targets for late-2025 origins require S&P 500 outcome data after that date: the 30-calendar-day target for 2025-12-31 extends through 2026-01-30, and the fixed 21-trading-day robustness target extends through 2026-02-02. Therefore the canonical S&P 500 acquisition deliberately includes target-support observations through 2026-02-02 using an exclusive 2026-02-03 end:
 
 ```bash
-vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-02-03
+vrp-download-spx --start-date 1990-01-02 --end-exclusive 2026-02-03 --validate-fred
 ```
 
 Observations after 2025-12-31 are **target-support outcomes only**. They must never be treated as new forecast origins, VIX predictors, training-period extensions, or separate 2026 confirmatory observations.
 
-The command requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects current-day bars, stores an immutable normalized acquisition snapshot, preserves FRED validation response bytes, records hashes and metadata, and reports close discrepancies without silently correcting either source.
+The command requests Yahoo Finance `^GSPC` with `auto_adjust=False`, rejects current-day bars, stores an immutable normalized acquisition snapshot, applies the production-quality gate, and records hashes and metadata. With `--validate-fred`, it also attempts the independent FRED close cross-check. FRED transport failure is recorded but does not invalidate an otherwise accepted Yahoo snapshot; malformed validation responses are distinguished from transport failures, and FRED never overwrites Yahoo.
 
-After a reviewed production acquisition, copy a sanitized provenance manifest into `data/manifests/`; raw provider files remain ignored by Git.
+A production-quality rejection preserves the immutable acquisition artifact and manifest but the CLI exits non-zero, so the snapshot cannot be mistaken for an accepted analysis input. After review, copy a sanitized provenance manifest into `data/manifests/`; raw provider files remain ignored by Git.
 
 ### Legacy feasibility utility
 
