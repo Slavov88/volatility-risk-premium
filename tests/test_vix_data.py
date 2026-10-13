@@ -187,7 +187,7 @@ def test_vix_cli_accepts_quality_and_rejects_invalid_quality_preserving_artifact
     manifest = json.loads(manifest_paths[0].read_text())
     assert manifest["quality"]["accepted"] is False
     assert manifest["quality"]["missing_sessions"] == ["2024-01-03"]
-    assert (manifest_paths[0].parent / manifest["raw"]["relative_path"]).exists()
+    assert ((tmp_path / "rejected") / manifest["raw"]["relative_path"]).exists()
 
 
 def test_vix_immutable_snapshot_refuses_modified_existing_file(
