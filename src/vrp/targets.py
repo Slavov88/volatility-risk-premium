@@ -12,7 +12,11 @@ import math
 from datetime import date, timedelta
 from typing import Sequence
 
-from vrp.calendar import forward_30c_sessions, next_exchange_sessions
+from vrp.calendar import (
+    forward_30c_sessions,
+    is_exchange_session,
+    next_exchange_sessions,
+)
 from vrp.config import CONVENTIONS
 from vrp.dates import as_date
 
@@ -26,18 +30,22 @@ def sample_start() -> date:
 
 
 def assert_forecast_origin_allowed(origin: date) -> None:
-    """Enforce the locked forecast-origin sample."""
+    """Enforce the locked forecast-origin sample and exchange calendar."""
 
-    origin = as_date(origin)
-    if origin > forecast_origin_end():
+    origin_day = as_date(origin)
+    if origin_day > forecast_origin_end():
         raise ValueError(
-            f"forecast origin {origin.isoformat()} is after locked cutoff "
+            f"forecast origin {origin_day.isoformat()} is after locked cutoff "
             f"{CONVENTIONS.sample_end}"
         )
-    if origin < sample_start():
+    if origin_day < sample_start():
         raise ValueError(
-            f"forecast origin {origin.isoformat()} is before sample start "
+            f"forecast origin {origin_day.isoformat()} is before sample start "
             f"{CONVENTIONS.sample_start}"
+        )
+    if not is_exchange_session(origin_day):
+        raise ValueError(
+            f"forecast origin {origin_day.isoformat()} is not an XNYS session"
         )
 
 
@@ -50,17 +58,23 @@ def primary_horizon_end(origin: date) -> date:
 def annualize_hvar_30c(hvar: float) -> float:
     """Annualize a 30-calendar-day sum of daily variance contributions."""
 
+    value = float(hvar)
+    if not math.isfinite(value) or value < 0:
+        raise ValueError("30c holding-period variance must be finite and non-negative")
     return (
         CONVENTIONS.calendar_days_per_year / CONVENTIONS.primary_calendar_days
-    ) * hvar
+    ) * value
 
 
 def annualize_hvar_21t(hvar: float) -> float:
     """Annualize a 21-trading-day sum of daily variance contributions."""
 
+    value = float(hvar)
+    if not math.isfinite(value) or value < 0:
+        raise ValueError("21t holding-period variance must be finite and non-negative")
     return (
         CONVENTIONS.trading_days_per_year / CONVENTIONS.robustness_trading_days
-    ) * hvar
+    ) * value
 
 
 def _dated_value_map(
@@ -81,29 +95,23 @@ def _dated_value_map(
 def select_forward_30c(
     origin: date,
     dated_values: Sequence[tuple[date, float]],
-    *,
-    require_complete_calendar: bool = True,
-    last_available: date | None = None,
 ) -> list[float] | None:
-    """Select values for the exact expected XNYS sessions in the 30c window."""
+    """Select the exact expected XNYS-session values in the 30c window.
+
+    The function intentionally has no partial-window mode. A confirmatory
+    target is either complete on the deterministic exchange calendar or
+    missing.
+    """
 
     origin_day = as_date(origin)
+    assert_forecast_origin_allowed(origin_day)
     expected = forward_30c_sessions(
         origin_day, CONVENTIONS.primary_calendar_days
     )
     values = _dated_value_map(dated_values)
-
-    if require_complete_calendar:
-        if last_available is not None and as_date(last_available) < primary_horizon_end(
-            origin_day
-        ):
-            return None
-        if any(day not in values for day in expected):
-            return None
-        return [values[day] for day in expected]
-
-    selected = [values[day] for day in expected if day in values]
-    return selected or None
+    if any(day not in values for day in expected):
+        return None
+    return [values[day] for day in expected]
 
 
 def select_forward_21t(
@@ -113,6 +121,7 @@ def select_forward_21t(
     """Select the exact next 21 expected XNYS-session values."""
 
     origin_day = as_date(origin)
+    assert_forecast_origin_allowed(origin_day)
     expected = next_exchange_sessions(
         origin_day, CONVENTIONS.robustness_trading_days
     )
@@ -125,18 +134,10 @@ def select_forward_21t(
 def realized_variance_30c(
     origin: date,
     return_pairs: Sequence[tuple[date, float]],
-    *,
-    require_complete_calendar: bool = True,
-    last_available: date | None = None,
 ) -> float | None:
     """Annualized close-to-close RVAR over the exact forward 30 calendar days."""
 
-    selected = select_forward_30c(
-        origin,
-        return_pairs,
-        require_complete_calendar=require_complete_calendar,
-        last_available=last_available,
-    )
+    selected = select_forward_30c(origin, return_pairs)
     if selected is None:
         return None
     return annualize_hvar_30c(sum(value * value for value in selected))

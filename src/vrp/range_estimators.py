@@ -22,11 +22,15 @@ from vrp.targets import (
 def parkinson_daily(high: float, low: float) -> float:
     """Daily Parkinson variance contribution."""
 
-    if not math.isfinite(float(high)) or not math.isfinite(float(low)):
+    high_value = float(high)
+    low_value = float(low)
+    if not math.isfinite(high_value) or not math.isfinite(low_value):
         raise ValueError("Parkinson requires finite high/low")
-    if high <= 0 or low <= 0:
+    if high_value <= 0 or low_value <= 0:
         raise ValueError("Parkinson requires positive high/low")
-    return (math.log(high / low) ** 2) / (4.0 * math.log(2.0))
+    if high_value < low_value:
+        raise ValueError("Parkinson requires High >= Low")
+    return (math.log(high_value / low_value) ** 2) / (4.0 * math.log(2.0))
 
 
 def garman_klass_daily(
@@ -34,33 +38,40 @@ def garman_klass_daily(
 ) -> float:
     """Daily Garman-Klass variance contribution."""
 
-    values = [float(open_px), float(high), float(low), float(close)]
+    open_value = float(open_px)
+    high_value = float(high)
+    low_value = float(low)
+    close_value = float(close)
+    values = [open_value, high_value, low_value, close_value]
     if any(not math.isfinite(value) for value in values):
         raise ValueError("Garman-Klass requires finite OHLC")
     if min(values) <= 0:
         raise ValueError("Garman-Klass requires positive OHLC")
-    return 0.5 * (math.log(high / low) ** 2) - (
+    if high_value < max(open_value, close_value):
+        raise ValueError("Garman-Klass requires High >= max(Open, Close)")
+    if low_value > min(open_value, close_value):
+        raise ValueError("Garman-Klass requires Low <= min(Open, Close)")
+    if high_value < low_value:
+        raise ValueError("Garman-Klass requires High >= Low")
+    estimate = 0.5 * (math.log(high_value / low_value) ** 2) - (
         2.0 * math.log(2.0) - 1.0
-    ) * (math.log(close / open_px) ** 2)
+    ) * (math.log(close_value / open_value) ** 2)
+    if estimate < -1e-15:
+        raise ValueError("Garman-Klass variance contribution cannot be negative")
+    return max(0.0, estimate)
 
 
 def realized_range_variance_30c(
     origin: date,
     daily_pairs: Sequence[tuple[date, float]],
-    *,
-    require_complete_calendar: bool = True,
-    last_available: date | None = None,
 ) -> float | None:
     """Aggregate range contributions over every expected 30c XNYS session."""
 
-    selected = select_forward_30c(
-        origin,
-        daily_pairs,
-        require_complete_calendar=require_complete_calendar,
-        last_available=last_available,
-    )
+    selected = select_forward_30c(origin, daily_pairs)
     if selected is None:
         return None
+    if any(value < 0 for value in selected):
+        raise ValueError("range-variance contributions must be non-negative")
     return annualize_hvar_30c(sum(selected))
 
 
@@ -73,4 +84,6 @@ def realized_range_variance_21t(
     selected = select_forward_21t(origin, daily_pairs)
     if selected is None:
         return None
+    if any(value < 0 for value in selected):
+        raise ValueError("range-variance contributions must be non-negative")
     return annualize_hvar_21t(sum(selected))

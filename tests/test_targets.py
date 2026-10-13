@@ -1,6 +1,8 @@
 import math
 from datetime import date
 
+import pytest
+
 from vrp.calendar import forward_30c_sessions, next_exchange_sessions
 from vrp.targets import (
     assert_forecast_origin_allowed,
@@ -32,6 +34,14 @@ def test_rvar_30c_requires_every_expected_exchange_session() -> None:
     assert select_forward_30c(origin, missing_middle) is None
 
 
+def test_rvar_30c_accepts_complete_window_ending_on_weekend() -> None:
+    origin = date(2024, 1, 5)  # t+30 is Sunday 2024-02-04
+    sessions = forward_30c_sessions(origin)
+    assert sessions[-1] == date(2024, 2, 2)
+    pairs = [(day, 0.01) for day in sessions]
+    assert realized_variance_30c(origin, pairs) is not None
+
+
 def test_rvar_30c_does_not_accept_endpoint_only_data() -> None:
     origin = date(2025, 12, 31)
     sessions = forward_30c_sessions(origin)
@@ -51,23 +61,45 @@ def test_rvar_21t_requires_exact_next_21_sessions() -> None:
     assert realized_variance_21t(origin, missing_fifth) is None
 
 
+def test_target_functions_reject_post_cutoff_origins() -> None:
+    origin = date(2026, 1, 2)
+    return_pairs = [(day, 0.01) for day in next_exchange_sessions(origin, 30)]
+    for function in (
+        select_forward_30c,
+        select_forward_21t,
+        realized_variance_30c,
+        realized_variance_21t,
+    ):
+        with pytest.raises(ValueError, match="after locked cutoff"):
+            function(origin, return_pairs)
+
+
+def test_target_functions_reject_non_session_origin() -> None:
+    origin = date(2024, 1, 6)  # Saturday
+    return_pairs = [(day, 0.01) for day in next_exchange_sessions(origin, 30)]
+    with pytest.raises(ValueError, match="not an XNYS session"):
+        realized_variance_30c(origin, return_pairs)
+
+
 def test_realized_volatility_validates_input() -> None:
     assert math.isclose(realized_volatility(0.04), 0.2)
     for bad in [-0.1, float("nan"), float("inf")]:
-        try:
+        with pytest.raises(ValueError):
             realized_volatility(bad)
-        except ValueError:
-            pass
-        else:
-            raise AssertionError("invalid variance should be rejected")
+
+
+def test_annualized_variance_rejects_invalid_holding_variance() -> None:
+    from vrp.targets import annualize_hvar_21t, annualize_hvar_30c
+
+    for bad in [-0.1, float("nan"), float("inf")]:
+        with pytest.raises(ValueError, match="finite and non-negative"):
+            annualize_hvar_30c(bad)
+        with pytest.raises(ValueError, match="finite and non-negative"):
+            annualize_hvar_21t(bad)
 
 
 def test_forecast_origin_cutoff() -> None:
     assert_forecast_origin_allowed(date(2025, 12, 31))
     assert_forecast_origin_allowed(date(1990, 1, 2))
-    try:
+    with pytest.raises(ValueError, match="after locked cutoff"):
         assert_forecast_origin_allowed(date(2026, 1, 2))
-    except ValueError:
-        pass
-    else:
-        raise AssertionError("post-cutoff origin accepted")
