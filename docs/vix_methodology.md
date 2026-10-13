@@ -90,3 +90,40 @@ Operationally:
 
 Cboe EOD-input reference:
 https://datashop.cboe.com/vix-index-eod-calculation-inputs
+
+## Detailed constant-maturity construction
+
+For each expiration, Cboe identifies the strike where call and put mid-quotes
+are closest, infers the forward through put-call parity, defines the reference
+strike K0, and uses out-of-the-money puts below K0 and calls above K0, with the
+put/call average at K0. The cross-strike sum is a discrete variance-replication
+approximation, with quote-validity and consecutive-zero rules limiting illiquid
+tails.
+
+VIX interpolates **total variance**, not volatility. If M1 and M2 are the
+minute counts to the two expirations bracketing the 30-day point, and
+Tj = Mj / M365, the interpolation weights act on Tj times sigma_j squared.
+The interpolated 30-day total variance is then annualized by M365 / M30 before
+taking the square root and multiplying by 100.
+
+This distinction matters empirically: squaring VIX/100 produces the annualized
+variance-space forecast proxy used in Track B, while the realized target is
+constructed independently from subsequent S&P 500 returns.
+
+## What model-free does and does not mean
+
+The option-strip construction avoids inversion of a particular parametric
+single-option pricing model such as Black-Scholes. It still relies on
+no-arbitrage replication logic, valid European option payoffs, an appropriate
+discount curve, sufficiently reliable contemporaneous quotes, and a finite
+listed-strike approximation to an idealized continuum. Bid-ask spreads,
+discrete strikes, tail truncation, jumps, contract rules, and methodology
+changes can therefore create approximation differences.
+
+The option-implied quantity is risk-neutral. It embeds compensation for
+volatility and tail risk and is not, by definition, an unbiased forecast under
+the physical probability measure.
+
+Additional primary source:
+https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Volatility_Index_Mathematics_Methodology.pdf
+
