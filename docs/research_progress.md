@@ -219,3 +219,13 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   Cboe-sourced republication corroborates 24.64.
 - Narrow verifier added; 12 focused regressions passed. No targets run yet.
 - Corrected encoding of appended authorization text; decisions unchanged.
+
+### 2026-10-13 authorized interim builder implementation
+
+- Archival verifier milestone: 80b78df. Added separate versioned builder,
+  exact source-manifest binding, committed-code binding, authorization replay,
+  source/derived hash verification and explicit independent-review rejection.
+- Focused archive/interim/candidate/strict-builder suite: 64 passed in 8.04 s.
+  The strict source gate and historical candidate remain unchanged.
+- Production double-build follows the committed implementation; no panel
+  count or target result claimed yet.

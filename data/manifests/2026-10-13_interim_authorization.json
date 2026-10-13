@@ -1,0 +1,18 @@
+{
+  "amendment": "2026-10-13-interim-vix-close/1.0.0",
+  "status": "AUTHORIZED_AS_REPORTED_BY_ALEKSANDAR",
+  "communicated_on": "2026-10-13",
+  "reported_by": "Aleksandar Slavov",
+  "authors": [
+    "Aleksandar Slavov",
+    "Venelin Mirchev"
+  ],
+  "independently_verified_signatures": false,
+  "independent_freeze_acceptance": "PENDING",
+  "allowed_insertions": [
+    {
+      "date": "1999-12-31",
+      "close": 24.64
+    }
+  ]
+}
