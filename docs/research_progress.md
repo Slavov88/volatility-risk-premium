@@ -353,3 +353,16 @@ reviews the complete data/implementation/numerical/methodology evidence package.
   forecasts. Computed twice, identical hash; 2827 common origins per variant
   and horizon. Post-2003 OOS is already the full OOS sample. Updated reports
   and v2 metadata preserve the original c3a3e2b report snapshot.
+
+### Final publication verification
+
+Package through 88f4c4b pushed to draft PR #2 and its description updated with
+full numerical evidence and fixed-cutoff sensitivity. GitHub Actions passed:
+https://github.com/Slavov88/volatility-risk-premium/actions/runs/38450108236.
+Final local suite 1734 passed in 57.49 s; compileall src/tests/scripts and
+diff check passed. All current v2 result/report/publication hashes verified.
+Original data and strict/review gates remain unchanged; no restricted price
+CSV tracked. PR remains draft against agent/autonomous-research, no main
+change/merge/force push. All H1-H5 are COMPUTED / PROVISIONAL; independent
+coauthor review pending. Next: Venelin audits exact inputs, implementations,
+robustness, persistence/residual warnings and methodological compliance.

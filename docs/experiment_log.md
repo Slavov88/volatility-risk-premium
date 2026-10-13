@@ -437,3 +437,16 @@ should record their platform/BLAS and compare numeric tolerance as well.
 Publication at c3a3e2b passed GitHub Actions: 1734 tests and compilation.
 https://github.com/Slavov88/volatility-risk-premium/actions/runs/38449276660.
 Independent scientific review remains pending.
+
+### Final publication verification
+
+Package through 88f4c4b pushed to draft PR #2 and its description updated with
+full numerical evidence and fixed-cutoff sensitivity. GitHub Actions passed:
+https://github.com/Slavov88/volatility-risk-premium/actions/runs/38450108236.
+Final local suite 1734 passed in 57.49 s; compileall src/tests/scripts and
+diff check passed. All current v2 result/report/publication hashes verified.
+Original data and strict/review gates remain unchanged; no restricted price
+CSV tracked. PR remains draft against agent/autonomous-research, no main
+change/merge/force push. All H1-H5 are COMPUTED / PROVISIONAL; independent
+coauthor review pending. Next: Venelin audits exact inputs, implementations,
+robustness, persistence/residual warnings and methodological compliance.
