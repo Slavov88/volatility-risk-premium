@@ -101,3 +101,19 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   https://github.com/Slavov88/volatility-risk-premium/actions/runs/38405901655.
   New branch CI is not yet claimed; draft PR publication will run the existing
   pull-request workflow. PR #1 remains open/draft and unchanged.
+
+### 2026-10-13 — publication and independent CI verification
+
+- Evidence commit: `a30d37b`; branch pushed as `agent/empirical-production`.
+  Draft PR #2 targets `agent/autonomous-research`:
+  https://github.com/Slavov88/volatility-risk-premium/pull/2.
+- GitHub Actions passed at `a30d37b`: **1,634 tests in 7.65 s** plus
+  successful compilation, using Python 3.11 and the unchanged dependency lock:
+  https://github.com/Slavov88/volatility-risk-premium/actions/runs/38415138496.
+- Final local checks reverified all source hashes, sanitized-price redaction,
+  audit implementation hash, identical source-audit and archive-inspection
+  outputs. Direct subprocess exits were 2 for the rejection audit and 1 for
+  the blocked panel builder. No processed origin panel exists.
+- PR #1 verified still open/draft on `agent/autonomous-research`. Nothing
+  merged into main; no theory/protocol/lock edits. Operational statuses remain
+  as above. Next required step is coauthor/source resolution, not inference.
