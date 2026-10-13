@@ -269,3 +269,15 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   aggregate outputs. Git attributes pin tracked manifest JSON to LF so
   authorization and metadata byte hashes survive Windows/Linux checkouts;
   scientific source fingerprints already normalize checkout line endings.
+
+### 2026-10-13 publication and CI acceptance of implementation
+
+- Pushed through 7842af4; draft PR #2 updated in place, still targets
+  agent/autonomous-research. PR #1 remains open/draft and unchanged; main
+  untouched, no merge/force push.
+- GitHub Actions succeeded for 7842af4 in pinned Python 3.11 environment:
+  https://github.com/Slavov88/volatility-risk-premium/actions/runs/38439995535
+  Test and compile steps passed. Local full suite: 1717 passed in 16.46 s.
+- Final Git tree clean before this journal entry; source/target files remain
+  ignored. Independent scientific freeze acceptance and Cboe response are
+  pending. Implementation CI success does not supply coauthor approval.

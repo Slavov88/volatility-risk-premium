@@ -315,3 +315,9 @@ passed in 16.46 s**. `python -m compileall src tests scripts` and
 all original/derived hashes, single insertion, source row preservation,
 old 9063-row candidate, original strict rejection and independent-review
 rejection. Remote CI status will be recorded after publication.
+
+Publication verification: PR #2 updated and remains draft against
+agent/autonomous-research. GitHub Actions at 7842af4 passed tests/compilation:
+https://github.com/Slavov88/volatility-risk-premium/actions/runs/38439995535.
+Market-data-dependent source/target replay was executed locally and is not
+claimed as a GitHub test using redistributable production inputs.
