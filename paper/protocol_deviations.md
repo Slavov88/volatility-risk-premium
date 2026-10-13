@@ -1,6 +1,6 @@
 # Protocol Deviations Log
 
-**Authoritative protocol:** `paper/method_protocol.md`, version 1.0.2; substantive lock 2026-08-26; technical amendments 2026-08-27 and 2026-10-13
+**Authoritative protocol:** `paper/method_protocol.md`, version 1.1.0; substantive lock 2026-08-26; amendments 2026-08-27 and 2026-10-13
 
 ## 2026-08-27 — Technical sample-tail support amendment
 
@@ -48,3 +48,15 @@ If a change is made after relevant results have been viewed, the modified specif
 5. **Likely effect:** Restores an independent recent close-quality check without reintroducing a network single point of failure.
 6. **Affected files:** src/vrp/spx_data.py, tests/test_spx_data.py, docs/data_sources.md, docs/methodology_decisions.md, paper/method_protocol.md, and data/raw/README.md.
 7. **Coauthor review/approval status:** Pending.
+
+
+## 2026-10-13 — Pre-result H3/H5 refinement and 2014 VIX sensitivity
+
+1. **Original rule:** H3 did not name one pairwise forecast contrast as primary; H5 did not name one regression/null; VIX robustness did not separately isolate the non-backfilled 2014 weekly-option inclusion change.
+2. **Reason for change:** A scientific-correctness audit identified avoidable multiplicity/specification discretion and the documented Cboe spot-VIX transition beginning 2014-10-06.
+3. **Replacement rule:** H3 primary inference is VIX versus GARCH under squared-error loss. VIX-versus-naive and GARCH-versus-naive are secondary with Holm adjustment across that two-test family. H5 uses `VRP_X = alpha + delta * recession + u`, two-sided `H0: delta=0`, and the H1 overlap-derived HAC rule. Post-2014-10-06 is a mandatory VIX-methodology sensitivity sample.
+4. **Relevant results viewed before change:** No empirical VRP values, forecast losses/rankings, GARCH results, H3/H5 tests, or crisis outputs had been generated or inspected.
+5. **Likely effect:** Reduces researcher degrees of freedom; empirical direction is unknown ex ante.
+6. **Documentation:** Cboe Information Circular IC14-075 and Cboe's VIX maturity-interpolation research note.
+7. **Coauthor review/approval status:** Pending.
+8. **Protocol version:** 1.1.0.

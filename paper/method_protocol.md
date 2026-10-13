@@ -3,9 +3,9 @@
 ## The Volatility Risk Premium: An Empirical and Theoretical Investigation of the Gap Between Implied and Realized Volatility in Equity Index Markets
 
 **File:** `paper/method_protocol.md`  
-**Protocol version:** 1.0.2  
+**Protocol version:** 1.1.0  
 **Original decision date:** 2026-08-26  
-**Technical amendments:** 2026-08-27 — end-of-sample target-support clarification; 2026-10-13 — provenance/validation handling and deterministic calendar-version pin; neither changes the hypotheses or economic horizon  
+**Amendments:** 2026-08-27 — end-of-sample target-support clarification; 2026-10-13 — provenance/calendar reproducibility and pre-result confirmatory refinement of H3/H5 plus the post-2014 VIX-methodology robustness. No empirical VRP, forecast-ranking, or regime result had been inspected before the 2026-10-13 confirmatory refinement.  
 **Tracker task:** W1-03  
 **Status:** Locked core-analysis protocol pending co-author review  
 **Primary market:** S&P 500 / Cboe VIX  
@@ -97,7 +97,9 @@ Compare three forecasts of the same forward realized-variance target:
 
 All models must use identical forecast origins, target dates, units, and missing-value masks.
 
-Primary reported loss metrics are RMSE and MAE. For formal pairwise loss-difference inference, squared-error loss is used with overlap-aware HAC covariance. QLIKE may be reported as a pre-specified robustness loss if all forecasts are strictly positive and the implementation passes tests.
+The **primary inferential contrast** is VIX versus GARCH under squared-error loss. VIX versus naive and GARCH versus naive are secondary benchmark contrasts. For those two secondary tests, report both raw two-sided p-values and Holm-adjusted p-values across that two-test family; do not make an unadjusted "best of all models" claim.
+
+Primary reported loss metrics are RMSE and MAE. Formal loss-difference inference uses squared-error loss with overlap-aware HAC covariance. QLIKE may be reported as a pre-specified robustness loss if all forecasts are strictly positive and the implementation passes tests.
 
 ### H4 — Forecast encompassing
 
@@ -118,7 +120,15 @@ Test whether:
 
 The formal external regime classification is the **NBER U.S. Business Cycle Dating Committee monthly chronology**. A daily forecast origin inherits the NBER status of its calendar month. Under the NBER convention, recession months begin in the month after a business-cycle peak and include the trough month. The classification is used ex post only and is never a predictor.
 
-In addition, 2008, 2020, and 2022 are studied as separate pre-defined case studies. Exact case-study windows must be frozen in `paper/regime_definitions.md` before regime outputs are calculated.
+The confirmatory H5 specification is
+
+\[
+VRP_t^X = \alpha + \delta R_t + u_t,
+\]
+
+where \(R_t=1\) for an NBER recession-month origin and zero otherwise. Test the two-sided null \(H_0:\delta=0\) using the same calendar-overlap-derived HAC lag \(L_0\) as H1, with 42/63 lag sensitivities. Recession/expansion means and sample sizes are descriptive companions, not substitute confirmatory tests.
+
+In addition, 2008, 2020, and 2022 are studied as separate pre-defined descriptive case studies. Exact case-study windows must be frozen in `paper/regime_definitions.md` before regime outputs are calculated.
 
 No regime or crisis window may be moved after seeing the premium series in order to strengthen a narrative.
 
@@ -167,6 +177,10 @@ The sign convention is always **implied minus realized**.
 ### 4.1 VIX
 
 Primary source: official Cboe historical daily VIX data.
+
+A documented non-backfilled spot-VIX computational transition begins **2014-10-06**, when Cboe began including eligible SPX weekly options. The full sample remains primary; the existing post-2003 robustness remains mandatory; and a **post-2014-10-06** sensitivity sample is additionally mandatory.
+
+The free daily VIX close is treated as an end-of-day predictor. Current Cboe spot-VIX RTH dissemination extends through 4:15 p.m. ET while the cash S&P 500 close is normally around 4:00 p.m. ET. This potential timing advantage is disclosed rather than "corrected" using an unsupported synthetic historical 4:00 p.m. VIX series.
 
 Required field:
 - daily VIX close.
@@ -541,7 +555,7 @@ MAE_m=
 \frac1N\sum_t |e_{m,t}|.
 \]
 
-For formal pairwise inference, compare mean squared-error loss differentials using overlap-aware HAC covariance. A naive Diebold–Mariano test that ignores overlapping targets is prohibited.
+For formal pairwise inference, compare mean squared-error loss differentials using overlap-aware HAC covariance. VIX versus GARCH is the primary H3 contrast. VIX-versus-naive and GARCH-versus-naive are secondary and use Holm adjustment across those two secondary tests, with raw p-values also retained. A naive Diebold–Mariano test that ignores overlapping targets is prohibited.
 
 QLIKE is a pre-specified robustness loss if every forecast is strictly positive and its implementation is validated.
 
@@ -563,7 +577,7 @@ Forecast superiority is interpreted as relative predictive performance, not as p
 
 `paper/regime_definitions.md` must be completed and committed before any regime output is calculated.
 
-Formal regime analysis uses the NBER monthly U.S. recession chronology. Each daily origin inherits the status of its calendar month. The regime indicator is ex-post descriptive/classification information only and never enters a forecast.
+Formal regime analysis uses the NBER monthly U.S. recession chronology. Each daily origin inherits the status of its calendar month. The regime indicator is ex-post classification information only and never enters a forecast. The confirmatory H5 regression is \(VRP_t^X=\alpha+\delta R_t+u_t\), with two-sided \(H_0:\delta=0\) and the same overlap-aware HAC rule as H1.
 
 The 2008, 2020, and 2022 episodes are separate case studies. Required outputs include sample size, VIX/IVAR, realized variance, mean/median \(VRP^X\), and forecast losses where sample size permits.
 
@@ -693,17 +707,22 @@ A genuine data or implementation constraint may require an amendment. Record eve
 
 If a specification changes after relevant results have been viewed, the modified analysis is exploratory unless the original pre-specified result is also retained.
 
-Earlier August 10 and August 23 protocol drafts remain part of Git history. `docs/methodology_decisions.md` records how the design evolved before empirical VRP or forecast-ranking results were generated. The August 26 protocol remains the substantive methodological lock. Version 1.0.1 (2026-08-27) clarified the distinction between the frozen forecast-origin sample and later S&P 500 observations required to realize already-valid forward targets. Version 1.0.2 (2026-10-13) changes only provenance/validation handling and deterministic calendar-versioning; it does not change hypotheses, horizons, losses, or the sign convention. Both amendments are recorded in `paper/protocol_deviations.md`.
+Earlier August 10 and August 23 protocol drafts remain part of Git history. `docs/methodology_decisions.md` records how the design evolved before empirical VRP or forecast-ranking results were generated. The August 26 protocol remains the substantive methodological lock. Version 1.0.1 (2026-08-27) clarified the distinction between the frozen forecast-origin sample and later S&P 500 observations required to realize already-valid forward targets. Version 1.0.2 (2026-10-13) changed only provenance/validation handling and deterministic calendar-versioning. Version 1.1.0 (also 2026-10-13, still before empirical VRP or forecast-ranking results) pre-specifies the H3 primary contrast and secondary multiplicity handling, makes H5's regression/null explicit, and adds the post-2014-10-06 VIX-methodology sensitivity. The primary 30-calendar-day estimand and implied-minus-realized sign convention are unchanged.
 
 ---
 
 ## 21. Locked implementation defaults
 
 ```yaml
-protocol_version: "1.0.2"
+protocol_version: "1.1.0"
 protocol_decision_date: "2026-08-26"
 protocol_sample_tail_amendment_date: "2026-08-27"
 protocol_provenance_amendment_date: "2026-10-13"
+protocol_confirmatory_refinement_date: "2026-10-13"
+vix_weekly_methodology_start: "2014-10-06"
+h3_primary_contrast: "vix_vs_garch"
+h3_secondary_multiplicity: "holm_two_naive_contrasts"
+h5_confirmatory_specification: "vrp_x_on_nber_recession_indicator"
 
 sample_start: "1990-01-02"
 sample_end: "2025-12-31"  # forecast-origin cutoff

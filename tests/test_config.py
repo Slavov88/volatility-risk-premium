@@ -6,10 +6,15 @@ from vrp.config import CONVENTIONS, ScientificConventions
 
 
 def test_default_conventions_match_locked_protocol() -> None:
-    assert CONVENTIONS.protocol_version == "1.0.2"
+    assert CONVENTIONS.protocol_version == "1.1.0"
     assert CONVENTIONS.protocol_decision_date == "2026-08-26"
     assert CONVENTIONS.protocol_sample_tail_amendment_date == "2026-08-27"
     assert CONVENTIONS.protocol_provenance_amendment_date == "2026-10-13"
+    assert CONVENTIONS.protocol_confirmatory_refinement_date == "2026-10-13"
+    assert CONVENTIONS.vix_weekly_methodology_start == "2014-10-06"
+    assert CONVENTIONS.h3_primary_contrast == "vix_vs_garch"
+    assert CONVENTIONS.h3_secondary_multiplicity == "holm_two_naive_contrasts"
+    assert CONVENTIONS.h5_confirmatory_specification == "vrp_x_on_nber_recession_indicator"
     assert CONVENTIONS.sample_start == "1990-01-02"
     assert CONVENTIONS.sample_end == "2025-12-31"
     assert CONVENTIONS.spx_target_support_end_exclusive == "2026-02-03"
@@ -78,7 +83,12 @@ def test_invalid_oos_design_is_rejected() -> None:
 @pytest.mark.parametrize(
     ("kwargs", "message"),
     [
-        ({"protocol_version": "1.0.1"}, "protocol_version"),
+        ({"protocol_version": "1.0.2"}, "protocol_version"),
+        ({"protocol_confirmatory_refinement_date": "2026-10-12"}, "confirmatory"),
+        ({"vix_weekly_methodology_start": "2014-10-07"}, "weekly-methodology"),
+        ({"h3_primary_contrast": "vix_vs_naive"}, "H3 primary"),
+        ({"h3_secondary_multiplicity": "none"}, "H3 secondary"),
+        ({"h5_confirmatory_specification": "mean_difference_only"}, "H5 confirmatory"),
         ({"protocol_sample_tail_amendment_date": "2026-08-28"}, "sample_tail"),
         ({"protocol_provenance_amendment_date": "2026-10-12"}, "provenance"),
         ({"sample_start": "1990-01-03"}, "sample_start"),

@@ -15,10 +15,15 @@ from datetime import date
 class ScientificConventions:
     """Units, horizons, inference, sample boundaries, and forecast constants."""
 
-    protocol_version: str = "1.0.2"
+    protocol_version: str = "1.1.0"
     protocol_decision_date: str = "2026-08-26"
     protocol_sample_tail_amendment_date: str = "2026-08-27"
     protocol_provenance_amendment_date: str = "2026-10-13"
+    protocol_confirmatory_refinement_date: str = "2026-10-13"
+    vix_weekly_methodology_start: str = "2014-10-06"
+    h3_primary_contrast: str = "vix_vs_garch"
+    h3_secondary_multiplicity: str = "holm_two_naive_contrasts"
+    h5_confirmatory_specification: str = "vrp_x_on_nber_recession_indicator"
 
     # These dates govern forecast-origin eligibility, not availability of
     # post-origin outcome data needed to realize the final targets.
@@ -65,8 +70,8 @@ class ScientificConventions:
     def validate(self) -> None:
         """Raise if any locked convention drifts from the protocol."""
 
-        if self.protocol_version != "1.0.2":
-            raise ValueError("protocol_version must remain 1.0.2")
+        if self.protocol_version != "1.1.0":
+            raise ValueError("protocol_version must remain 1.1.0")
         if self.protocol_decision_date != "2026-08-26":
             raise ValueError("protocol_decision_date must remain 2026-08-26")
         if self.protocol_sample_tail_amendment_date != "2026-08-27":
@@ -77,6 +82,18 @@ class ScientificConventions:
             raise ValueError(
                 "protocol_provenance_amendment_date must remain 2026-10-13"
             )
+        if self.protocol_confirmatory_refinement_date != "2026-10-13":
+            raise ValueError(
+                "protocol_confirmatory_refinement_date must remain 2026-10-13"
+            )
+        if self.vix_weekly_methodology_start != "2014-10-06":
+            raise ValueError("VIX weekly-methodology start must remain 2014-10-06")
+        if self.h3_primary_contrast != "vix_vs_garch":
+            raise ValueError("H3 primary contrast must remain VIX vs GARCH")
+        if self.h3_secondary_multiplicity != "holm_two_naive_contrasts":
+            raise ValueError("H3 secondary multiplicity rule must remain Holm")
+        if self.h5_confirmatory_specification != "vrp_x_on_nber_recession_indicator":
+            raise ValueError("H5 confirmatory specification must remain locked")
 
         if self.sample_start != "1990-01-02":
             raise ValueError("sample_start must remain 1990-01-02")
