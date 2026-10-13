@@ -106,7 +106,7 @@ def audit():
         for c in frame:
             if frame[c].map(lambda x:isinstance(x,list)).any():frame[c]=frame[c].map(lambda x:json.dumps(x) if isinstance(x,list) else x)
         csv_immutable(OUT/(name+'.csv'),frame)
-    persist(OUT/'independent_audit.json',report);persist(ROOT/'data/manifests/h8_cash_independent_audit_v1.json',report)
+    persist(OUT/'independent_audit.json',report);persist(ROOT/'data/manifests/h8_cash_independent_audit_v2.json',report)
     print(report['status'],flush=True);return report
 
 

@@ -11,7 +11,7 @@ from vrp.quant_extension import ROOT, OUT as ORIGINAL, sha, checked_hash, persis
 from vrp.quant_portfolio import rebalance, portfolio_metrics, rolling_volatility
 from vrp.quant_failure import load_inputs
 
-OUT=ROOT/'outputs/h8_cash_yield/v1'
+OUT=ROOT/'outputs/h8_cash_yield/v2'
 MODELS=['buyhold','trailing','vix','garch','combined']
 COSTS=[0,1,5,10,25]
 SCENARIOS=['zero','dgs1mo_full','dgs1mo_half','dtb4wk_full']
@@ -297,8 +297,11 @@ def execute():
                     csv_immutable(OUT/f'{scenario}_{model}_daily_attribution.csv',pd.DataFrame({'Date':log.Date,
                                   'direct_interest_log':lp[:,0],'changed_equity_dividend_log':lp[:,1],'changed_fee_log':lp[:,2]}))
                     for period,(lo,hi) in PERIODS.items():
-                        mask=log.signal_origin.between(lo,hi).to_numpy();sub=log[mask].copy()
+                        # Match the original H8 execution-date period convention exactly.
+                        mask=log.Date.between(lo,hi).to_numpy();sub=log[mask].copy()
                         sub['nav']=np.cumprod(1+sub['return'].to_numpy());metric=portfolio_metrics(sub)
+                        if scenario=='zero' and metric!=meta['h8']['periods_5bps'][period][model]:
+                            raise ValueError('Original zero-interest period metrics differ')
                         periods.append({'scenario':scenario,'strategy':model,'period':period,**metric,
                                         'cash_income_initial_nav':float(log.cash_interest[mask].sum())})
         print('Completed ledger scenario',scenario,flush=True)
@@ -326,6 +329,6 @@ def execute():
         hashes[name+'.csv']=csv_immutable(OUT/(name+'.csv'),frame)
     for identifier,schedule in schedules.items():hashes[identifier+'_schedule.csv']=csv_immutable(OUT/(identifier+'_schedule.csv'),schedule)
     result['table_sha256']=hashes
-    persist(OUT/'results.json',result);persist(ROOT/'data/manifests/h8_cash_results_v1.json',result)
+    persist(OUT/'results.json',result);persist(ROOT/'data/manifests/h8_cash_results_v2.json',result)
     print('Complete cash-yield results SHA '+sha(OUT/'results.json'),flush=True)
     return result
