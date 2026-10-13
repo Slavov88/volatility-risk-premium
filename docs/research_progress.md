@@ -310,3 +310,19 @@ H1/H2: IMPLEMENTING. H3/H4: NOT STARTED. H5: NOT STARTED.
   Both 30c/21t forecasts derive from each same recursive fit. All 4780 origins
   scheduled per variant. Date-only residual diagnostic anchors: first/last
   eligible origin of each year. Return diagnostics precede fitting.
+
+### Recursive forecasting launched and verified chronological checkpoints
+
+- GARCH implementation 75de041; synthetic recurrence test initially failed
+  because ARCH forecasts recompute final-residual backcasts while fitted
+  conditional volatility retains the estimation backcast. Fixed the oracle
+  in 9aeb3b5 before production fitting; all four GARCH tests then passed.
+  Model specification/configuration did not change.
+- Gaussian expanding and Gaussian rolling each completed 4780/4780 fits
+  with zero failures. Student-t expanding RUNNING; partial coverage is not
+  treated as a full-period H3 result. All variants use immutable verified
+  checkpoint rows and independent daily forecast recurrence checks.
+- H3/H4 IMPLEMENTING; three new forecast-analysis tests passed, including
+  exact common-mask policy and refusal of incomplete coverage.
+- NBER chronology source/432 monthly flags frozen in cade451 before any H5
+  outcome. H5 IMPLEMENTING; two monthly parsing/mapping tests passed.
