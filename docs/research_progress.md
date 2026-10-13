@@ -296,3 +296,17 @@ re-execution, preserving original outputs. Use only the existing 9064-origin
 freeze and canonical SPX, with its three missing VIX origins unchanged.
 
 H1/H2: IMPLEMENTING. H3/H4: NOT STARTED. H5: NOT STARTED.
+
+### H1-H2 computed / provisional; recursive GARCH implementation
+
+- Authorization 7522a81 precedes results. Inference commit c896f12 executed
+  all locked H1/H2 robustness grids; exact calendar overlap L0=21. Independent
+  numpy OLS/score-sandwich, mean and joint Wald checks passed throughout.
+- Outputs outputs/empirical_h1_h5/v1/h1_h2.json; result review remains pending.
+- Recursive GARCH config fixed before fits: cold default starts at each origin,
+  maxiter=1000, ftol=1e-9; no retries/specification changes on failure; percentage
+  returns and decimal variance conversion. Three pre-specified variants:
+  normal expanding, Student-t expanding, normal rolling five calendar years.
+  Both 30c/21t forecasts derive from each same recursive fit. All 4780 origins
+  scheduled per variant. Date-only residual diagnostic anchors: first/last
+  eligible origin of each year. Return diagnostics precede fitting.
