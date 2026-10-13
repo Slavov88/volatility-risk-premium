@@ -199,7 +199,7 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   record the authorized amendment, build the approved freeze twice, then
   construct locked targets; H1/H2 still require independent freeze acceptance.
 
-### 2026-10-13 â€” communicated methodology authorization
+### 2026-10-13 — communicated methodology authorization
 
 - EMP-012: AUTHORIZED FOR IMPLEMENTATION, both-author agreement as reported
   by Aleksandar on 2026-10-13; no independent signatures or freeze acceptance.
@@ -209,4 +209,13 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   discrepancy sensitivity; post-2003 starts 2004-01-01.
 - EMP-004/006 may proceed through the separate interim path. EMP-005 remains
   pending external independent review; EMP-007 inference remains gated.
-- Cboe inquiry SENT â€” AWAITING CBOE RESPONSE (author report only).
+- Cboe inquiry SENT — AWAITING CBOE RESPONSE (author report only).
+
+### 2026-10-13 archival cell verification
+
+- Methodology milestone committed as f940a1d before target computations.
+- Original XLS hash verified; OHLC A2528 serial 36525 (1999-12-31), E2528
+  numeric CLOSE 24.64 percentage points. HIGH/LOW contains CLOSE. FRED
+  Cboe-sourced republication corroborates 24.64.
+- Narrow verifier added; 12 focused regressions passed. No targets run yet.
+- Corrected encoding of appended authorization text; decisions unchanged.

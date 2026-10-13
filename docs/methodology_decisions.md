@@ -70,4 +70,4 @@ alternate-close sensitivities for all seven documented discrepancies.
 M-022: Post-2003 sensitivity starts 2004-01-01, fixed before outcomes.
 Authorization: both authors agree **as reported by Aleksandar Slavov on
 2026-10-13**. No signatures/direct confirmation or independent freeze
-acceptance is implied. Inquiry: SENT â€” AWAITING CBOE RESPONSE, author-reported.
+acceptance is implied. Inquiry: SENT — AWAITING CBOE RESPONSE, author-reported.

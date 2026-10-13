@@ -134,7 +134,7 @@ manifest under `data/processed/`.
 It rejects unverified acquisitions and **does not** compute realized variance,
 VRP, GARCH fits, forecasts, or inferential results.
 
-## Authorized interim data methodology â€” 2026-10-13
+## Authorized interim data methodology — 2026-10-13
 
 Both authors agree to the interim method **as reported by Aleksandar Slavov
 on 2026-10-13**. See the dated amendment in `paper/protocol_deviations.md`.
@@ -145,4 +145,4 @@ Yahoo remains canonical; seven alternate-close sensitivities are separately
 registered; post-2003 starts 2004-01-01. Independent freeze acceptance remains
 pending. Production targets/descriptions may proceed as **PROVISIONAL / NOT
 INDEPENDENTLY ACCEPTED**; H1/H2 inference awaits that review. Cboe inquiry:
-SENT â€” AWAITING CBOE RESPONSE, as reported by the author.
+SENT — AWAITING CBOE RESPONSE, as reported by the author.

@@ -206,7 +206,7 @@ the approved panel twice and verify hashes/row losses, construct locked
 targets, then seek independent freeze acceptance before H1/H2. No PR is merged
 and no approval is inferred from green tests or candidate generation.
 
-## Subsequent authorization â€” 2026-10-13
+## Subsequent authorization — 2026-10-13
 
 The preceding proposal/sign-off table records the historical unapproved state.
 It is superseded for implementation by the dated amendment in
