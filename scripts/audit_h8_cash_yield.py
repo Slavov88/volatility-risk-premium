@@ -63,7 +63,17 @@ def audit():
                               'difference':error,'snapshot_sha256':sha(path)})
             if abs(error)>1e-12:raise ValueError('Independent selected quote vintage value mismatch')
     # Numeric summaries verified independently from saved return streams.
-    errors=[];controls=[];attributions=[];rankings=[];period_uncertainty=[]
+    errors=[];controls=[];nominal=[];rankings=[]
+    spy_meta=json.loads((ROOT/'data/manifests/quant_extension_spy.json').read_bytes())
+    checked_hash(ROOT/spy_meta['path'],result['spy_sha256'])
+    market=pd.read_csv(ROOT/spy_meta['path'],float_precision='round_trip').set_index('Date')
+    def nominal_components(log):
+        prices=market.loc[log.Date];opening=prices.Open.to_numpy();closing=prices.Close.to_numpy()
+        priorclose=np.r_[opening[0],closing[:-1]];final=log.final_open_mark.to_numpy(bool)
+        overnight=log.old_shares.to_numpy()*(opening-priorclose)
+        intraday=np.where(final,0.,log.shares.to_numpy()*(closing-opening))
+        return np.array([math.fsum(map(float,overnight+intraday)),math.fsum(map(float,log.dividend_cash)),
+                         math.fsum(map(float,log.cash_interest)),-math.fsum(map(float,log.cost))])
     for scenario in SCENARIOS:
         for model in MODELS:
             for cost in COSTS:
@@ -75,6 +85,14 @@ def audit():
                 nav=1.;peak=1.;dd=0.
                 for v in r:nav*=1+v;peak=max(peak,nav);dd=min(dd,nav/peak-1)
                 metrics=next(a for a in result['summary'] if a['scenario']==scenario and a['strategy']==model and a['cost_bps']==cost)
+                zero=pd.read_csv(OUT/f'zero_{model}_{cost}bps.csv',float_precision='round_trip')
+                parts=nominal_components(log);zp=nominal_components(zero);delta=parts-zp
+                terminal_delta=float(log.nav.iloc[-1]-zero.nav.iloc[-1]);residual=terminal_delta-float(delta.sum())
+                errors.extend([abs(float(parts.sum())-(log.nav.iloc[-1]-1)),abs(residual)])
+                nominal.append({'scenario':scenario,'strategy':model,'cost_bps':cost,
+                    'terminal_nav_change':terminal_delta,'changed_equity_pnl_initial_nav':float(delta[0]),
+                    'changed_dividends_initial_nav':float(delta[1]),'cash_interest_initial_nav':float(delta[2]),
+                    'changed_negative_fees_initial_nav':float(delta[3]),'residual':residual})
                 errors.extend([abs(vol-metrics['annual_vol']),abs(cagr-metrics['cagr']),abs(dd-metrics['max_drawdown']),
                                abs(math.fsum(map(float,log.cash_interest))-metrics['cash_income_initial_nav'])])
                 if model=='buyhold':
@@ -100,8 +118,9 @@ def audit():
             'results_sha256':sha(OUT/'results.json'),'rate_checks':rate_checks,
             'current_finite_but_initially_missing':missing,'snapshot_checks':snapshots,
             'max_independent_summary_error':max(errors),'buyhold_unchanged_controls':len(controls),
-            'rankings':rankings,'all_original_inputs_preserved':len(result['input_sha256'])}
-    for name,records in [('source_missing',missing),('vintage_checks',snapshots),('rankings',rankings)]:
+            'rankings':rankings,'nominal_terminal_attribution':nominal,
+            'all_original_inputs_preserved':len(result['input_sha256'])}
+    for name,records in [('source_missing',missing),('vintage_checks',snapshots),('rankings',rankings),('nominal_attribution',nominal)]:
         frame=pd.DataFrame(records)
         for c in frame:
             if frame[c].map(lambda x:isinstance(x,list)).any():frame[c]=frame[c].map(lambda x:json.dumps(x) if isinstance(x,list) else x)
