@@ -33,10 +33,19 @@ def test_injected_future_closure_changes_actual_targets_not_forecasts(monkeypatc
     origin=date(2018,11,15); before=forecast_schedule(origin)
     known=cal.exchange_sessions
     injected=date(2018,11,20)
+    announcement=date(2018,11,19)
+    assert origin<announcement<injected
+    cached=record();cached["origin"]=origin.isoformat();cached["training_end"]=origin.isoformat()
+    cached["session_count_30c"]=len(cal.forward_30c_sessions(origin))
+    cached["garch_30c"]=365/30*sum(cached["daily_decimal_variances"][:cached["session_count_30c"]])
+    prediction_before=corrected_record(cached,"normal")
     monkeypatch.setattr(cal,"exchange_sessions",lambda start,end:tuple(d for d in known(start,end) if d!=injected))
     assert forecast_schedule(origin)==before
     assert injected not in cal.forward_30c_sessions(origin)
     assert injected in before[0]
+    prediction_after=corrected_record(cached,"normal")
+    assert prediction_after["garch_30c"]==prediction_before["garch_30c"]
+    assert prediction_after["garch_21t"]==prediction_before["garch_21t"]
     returns=[(d,.01) for d in known(origin,date(2018,12,15)) if d!=injected]
     # Actual target selector follows actual sessions, which is correct ex-post.
     selected=select_forward_30c(origin,returns)

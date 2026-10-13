@@ -1,5 +1,19 @@
 # Operational research progress
 
+## Current H3/H4 calendar correction
+
+**CORRECTED / PROVISIONAL — PENDING INDEPENDENT COAUTHOR REVIEW**
+
+Current [versioned empirical summary](empirical_results_summary_calendar_v1.md), [corrected results](h3_h4_corrected_results.md), and [impact/supersession](empirical_calendar_impact.md) supersede original30c GARCH-based H3/H4 comparisons. Original reports/results/manifests are preserved, not deleted. Method registration `ae47137`, repair producer `6a02ca5`, numerical verification/replay `dcb8412`; branch `agent/asof-calendar-repair`, separate draft PR targeting quant extension.
+
+- All3 variants ×4780 cached fits verified read-only against configuration/SQLite/training hashes; every first-step variance exactly reconstructed. Zero refits;61 changed30c counts and10 analytic horizon extensions per variant;63 corrected first21 date annotations. All14340 fixed21 numerical forecasts and36 full diagnostic21t analysis objects exactly unchanged.
+- Recomputed72 analysis cells and1620 old/corrected metric comparisons:3 variants,2 horizons,CC/PK/GK,full/post2014,overlapping/non-overlap;42 archived CC inference cells independently replayed. All1134 checked5% decisions unchanged. Post2003 OOS identical to full2007+.
+- Primary CC30c Gaussian H3 loss difference−0.0004913364916464496, p0.36146753553652455; H4 beta0.6794639163713788, gamma0.20569035185047013, gamma p0.322678868440637. Substantive conclusions unchanged.
+- H1/H2 every cell and formal H5 every regression exactly reproduced. H5's borrowed H3 crisis-loss table has two rounding-scale RMSE changes (<=2.78e-17); corrected companion preserved separately. H6–H8 v2 full model/numeric/CSV replay exactly unchanged.
+- Full producer/cache/inference replay deterministic, report regeneration identical. **1816 tests passed**, final repeat in33.62s after strengthening injected-closure numerical assertions (earlier full run37.22s); compileall/diff-check pass. Remote repair CI pending publication at this record; only observed CI outcomes will be claimed.
+
+The prior progress text below is historical. Original raw log bytes are archived in `outputs/empirical_calendar_repair/v1/historical_log_snapshots/`. Automated verification is not independent coauthor acceptance. Actual realized calendars remain unchanged; forecast schedules deliberately omit future ad-hoc closures even when an announcement might already be known.
+
 Protocol: `paper/method_protocol.md` **1.1.0**. Track B execution owner:
 Aleksandar Slavov / Codex. Independent scientific approval remains with the
 other coauthor. This is the operational source of truth; historical W-task

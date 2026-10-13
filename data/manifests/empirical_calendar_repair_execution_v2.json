@@ -1,0 +1,28 @@
+{
+  "generator_sha256_lf": "8b66a8f1beb6b8085ccf9aee56606a5cbc4f2ef1f91aa81b3472ab9f614e7ed6",
+  "independent_review": "PENDING",
+  "local_output_sha256": {
+    "case_metrics.csv": "43b5e521b6049eb0c53411e63f83989d6b09b762aace32b6e910182e9520f0c5",
+    "corrected_results.json": "f5ca96f49726028f830594c0f824e93f4a15894b31c4bfd697e89302554102fa",
+    "decision_audit.json": "1387963219f6a53a8df39f900d0d3e7744e7d5b760d56538e221caa534ae416b",
+    "deterministic_replay.json": "d5e8ad32fde11fdc0464f5710eca52f2392b4e164b64068337c65a22c9d029ab",
+    "extension_control_replay.json": "9b3cb7aeaac397c6d790ceddabf43dbeb73642b18de26cba12586fe088a29af9",
+    "forecast_comparison.csv": "28674c127b695cc4df200332bf724a8cb26bba0c397653a2a0ce1d77318709f3",
+    "forecasts/normal_expanding.json": "7761044fdc0e77d0987244fa5742bd0bbc0aa0ed1b9535d12fcfe742d298bf73",
+    "forecasts/normal_rolling5y.json": "5257c8477b73419ed29e4fcdb456448a90848d992edfc65781cba0044ab98e09",
+    "forecasts/t_expanding.json": "ffb39c15752bf1d0843828925201eaa57db6275998e757e0f63124f7af25f6e7",
+    "historical_log_snapshots/experiment_log.md": "e49ca9da584844773159fea90c681a82241b53892c7749679890afe2098f0443",
+    "historical_log_snapshots/research_progress.md": "33ed3b6a85d294a7f97e3d02e5fb71d9d2b4bf100bdd8e7f3246f66c796443fb",
+    "independent_audit.json": "d91b30357f4824f5c87aca7cd5e2ccefcc6d803890560da82bf793df9af92b0c",
+    "metric_comparison.csv": "5fe38fd5810528709dc500b057e06638f603bc582365b2113c89fcc0a9d0c10b",
+    "preservation_snapshot.json": "d1981dfc8127c9e01f13d6df4f0e5864bf2b401bb149e2b4b33fc4e0a576d1c9"
+  },
+  "report_sha256": {
+    "empirical_calendar_impact.md": "7c4885d812f626541aa3356be7dfabdf1b2cf5b4a303000431fba53ca73ab71a",
+    "empirical_results_summary_calendar_v1.md": "55df61a3b850fb455bc8e3c2cdd5a441b6e458e557563aa22156c186869bf02a",
+    "h3_h4_corrected_results.md": "3ab3edb20821d85c7c5e6e2198bbbcf7f152a4395dc02234526ab2000987f838"
+  },
+  "results_sha256": "f5ca96f49726028f830594c0f824e93f4a15894b31c4bfd697e89302554102fa",
+  "status": "CORRECTED / PROVISIONAL \u2014 PENDING INDEPENDENT COAUTHOR REVIEW",
+  "supersedes_preliminary_inventory": "empirical_calendar_repair_execution_v1.json; numerical results unchanged"
+}

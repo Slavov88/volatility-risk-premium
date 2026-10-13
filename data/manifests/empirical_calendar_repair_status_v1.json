@@ -1,0 +1,30 @@
+{
+  "H5_ancillary_case_losses": "updated companion only; formal regressions exact",
+  "cache_original_hashes": {
+    "normal_expanding": {
+      "configuration_sha256": "d2ba995fee3f3a57402eaea55c67e9e945bfa2174b147453b8ec6082626923ad",
+      "forecasts_sha256": "8ee39a08f5e89169670341d3967fc82112eafd7177af359addb4461163a82421"
+    },
+    "normal_rolling5y": {
+      "configuration_sha256": "4bdbaaa6da040f2d0df98a423e7b04da0188ca8ddd20594f87b4b272fa15925f",
+      "forecasts_sha256": "85e604db0c55d3c0635f0c37903027309fc34ce95a2f42d4ca4b9a76bc93370e"
+    },
+    "t_expanding": {
+      "configuration_sha256": "b496d0d01a66e2b6ab25018764fba15acaadeb93c43454c008de76ccd20150af",
+      "forecasts_sha256": "0e685bb398cefbfea8c5db75b156e9bf628a778dc1e18bd488c80fe7eec25539"
+    }
+  },
+  "current_corrected_results_sha256": "f5ca96f49726028f830594c0f824e93f4a15894b31c4bfd697e89302554102fa",
+  "independent_review": "PENDING",
+  "original21t_numeric_status": "VERIFIED_EXACT_UNCHANGED; scheduled date metadata superseded",
+  "original30c_inference_status": "SUPERSEDED_INVALID_FOR_STRICT_EX_ANTE_CALENDAR",
+  "status": "CORRECTED / PROVISIONAL \u2014 PENDING INDEPENDENT COAUTHOR REVIEW",
+  "superseded_original_results": {
+    "h3_h4.json": "03afa02ed0e6087ab507fcde105a066b591b74b10a9826cce553ce4310d5a1a5",
+    "h3_h4_post2014.json": "f29223a7fcc2b21145a6be9901cf002dca3ae80878c0339111f4e7513c022ddf"
+  },
+  "unchanged_H1_H2_H5_result_hashes": {
+    "h1_h2.json": "6b07e43199d3ffd723e42c8ed3bf497c800421f79a6c56b33b95d9e9d67d5a25",
+    "h5.json": "b2945442db51261cc5fde5555eab806e8413b35dc26a5292cfe6d80f49937b90"
+  }
+}

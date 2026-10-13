@@ -1,5 +1,21 @@
 # Scientific execution log
 
+## CAL-001–005: historical H3/H4 information-set repair
+
+**CORRECTED / PROVISIONAL — PENDING INDEPENDENT COAUTHOR REVIEW**
+
+Original log bytes archived before this status addition in `outputs/empirical_calendar_repair/v1/historical_log_snapshots/experiment_log.md`. Earlier runs below remain historical evidence.
+
+| Run | Committed method / evidence | Actual outcome |
+|---|---|---|
+| CAL-001 | registration `ae47137`; original H1–H5 parent4f5d885, extension parent2ac49b6 | Independently confirmed future finalized-calendar count affects30c aggregation; regular-rule history audited. No model/specification search. |
+| CAL-002 | repair producer6a02ca5 | All14340 cache payload/config/training hashes verified read-only; first-step reconstruction error0, multi-step error<=1.74e-18.61 count changes,10 extended vectors per variant;0 refits. All21t numerical forecasts unchanged; scheduled annotations corrected. |
+| CAL-003 | fixed inference |72 full/range/nonoverlap/period/horizon/variant cells,1620 numerical comparison rows;42 archived CC cells replayed. Full/post2014 lag grids and two secondary Holm contrasts retained. No1134 tested5% classifications change. Source SHA f5ca96f49726028f830594c0f824e93f4a15894b31c4bfd697e89302554102fa. |
+| CAL-004 | verification3040fcb/dcb8412 | Full H6–H8 v2 source/forecast/numeric/trade replay exact; full repair producer replay exact. H1/H2 all cells and H5 all formal regressions exact; H5 case-table dependency has two rounding-only display changes. All fixed crisis years retained. |
+| CAL-005 | reporting/testing | Required corrected/impact/versioned-summary reports generated and regenerated identically.1816 full tests pass, final repeat33.62s after stronger numeric closure-injection checks (earlier run37.22s); compileall/diff-check pass. Initial synthetic fixture errors (selector returns values; weekdays include holidays) corrected before final tests. No empirical fit/comparison failed; no independent scientific acceptance. |
+
+Current links: [method correction](h3_h4_calendar_correction.md), [corrected results](h3_h4_corrected_results.md), [impact/supersession](empirical_calendar_impact.md), [versioned summary](empirical_results_summary_calendar_v1.md). Original30c H3/H4 is superseded for strict ex-ante forecasts; original21t numerics verified unchanged. Prospective extension specification/results are untouched.
+
 Protocol version **1.1.0** throughout. Acquisition quality diagnostics are
 scientific data-validation computations, not empirical hypothesis results.
 No H1–H5 test or premium/forecast target was executed in RUN-001–005. RUN-008 later records authorized provisional targets. Initial entries below record the
