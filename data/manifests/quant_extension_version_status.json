@@ -1,0 +1,24 @@
+{
+  "archived_v1_report_sha256": {
+    "h6_tail_risk_results.md": "3aadee98acd5654a3bf02f5b2af6559d7fed8be1dc79591dd576539386c02f94",
+    "h7_variance_forecasting_results.md": "3ff8413dbc837f0acd4f017a6051cfd83eb6c1d7a3457cecc37d5f587501ef84",
+    "h8_portfolio_economic_value.md": "c63204ae8d90713d7bdb392f1691a142a29261b631259adbb6ff754a12d49345",
+    "quant_extension_summary.md": "fc3f402a3362436061cabc3ad9f9d66e740b89c60f46247c2aadb67fac09d0d1"
+  },
+  "baseline_commit": "4f5d885ed461938d479566dca51537d011589753",
+  "baseline_unchanged": true,
+  "calendar_amendment_commit": "9292edb",
+  "corrected_model_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+  "horizon_clarification_commit": "8f1d9d2",
+  "initial_registration_commit": "b5bd57c",
+  "prospective_results": "NONE",
+  "v1_status": "INVALIDATED_FOR_STRICT_AS_OF_CALENDAR; A/B/VIX/trailing/HAR controls unaffected",
+  "v2_manifests": [
+    "quant_extension_execution_v2.json",
+    "quant_extension_independent_audit_v2.json",
+    "quant_extension_calendar_audit_v2.json",
+    "quant_extension_version_comparison_v2.json",
+    "quant_extension_deterministic_replay_v2.json"
+  ],
+  "v2_status": "EXPLORATORY_POST_RESULT_PENDING_INDEPENDENT_REVIEW"
+}

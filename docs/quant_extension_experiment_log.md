@@ -15,4 +15,16 @@ Original H1–H5 experiment log remains unchanged. No new threshold, feature, co
 | Q007 | report/figure generation | Four numerical reports and three figures (PNG/PDF), regenerated exactly. Source output SHA/version and environment in `quant_extension_execution.json`. H9 feasibility only; no purchases/provider messages. |
 | Q008 | local full validation |1795 tests pass; compileall/diff-check pass. Dedicated extension CI plus existing CI install additive dependency lock; baseline lock unchanged. Remote status recorded separately after actual CI completion. |
 
-Scientific gates remain independent review PENDING; practical improvement gates H6/H7/H8 all fail. Positive comparisons versus weak trailing forecasts are not promoted into strong benchmark or economic superiority claims.
+Q001–Q008 describe preserved **version1**, whose affected comparisons are now invalid for the strict future-calendar information set. Original v1 result JSON/manifests/figures and archived report copies are unchanged.
+
+| Run | Registered repair / implementation | Execution and evidence |
+|---|---|---|
+| Q009 | calendar amendment9292edb | Final chronology review found hindsight unscheduled closures in future counts. Frozen correction removes future ad-hoc closures from forecasts only. H1–H5 unchanged. |
+| Q010 | correction75a03cf | Precomparison calendar audit and H6/H7 stopped at insufficient cached horizon gate;0 v2 predictions/results. No fallback or refit. |
+| Q011 | horizon clarification8f1d9d2; recurrence9d7bc6f; cache429e5f2 | Analytic extension using cached omega/alpha/beta/last daily variance registered before re-execution; verified every stored recurrence. Duplicate slow diagnostic audit aborted after the optimized equivalent audit passed; no results promoted from the aborted process. |
+| Q012 | corrected models429e5f2 | Calendar audit4780 origins,61 mapped horizon changes,10 extended vectors;0 GARCH refits. H6/H7 completed3520 common origins,168 monthly fits, no failed fitted model. V2 SHA H6:2a8107e9ace5dcfd565bbdba59bf7f298906584d3050565806f129072b4715c9; H7:cec3e911eaef7f4d27d8395ba8316f807a910b82601a79bcfe29a8f636001d68. |
+| Q013 | corrected H8429e5f2 | All25 scenarios completed; SHA b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001. |
+| Q014 | v2 independent/full replay | Every score/ledger/fit boundary/ordinal anchor passed; full H6/H7/H8 numeric fields and all27 forecast/trade CSV bytes identical. V1/v2 exact unaffected controls verified, including15 unchanged portfolio ledgers. Original source/target/GARCH hashes unchanged. |
+| Q015 | corrected report/table/figure generation | Current numerical reports use v2; original v1 report copies preserved. All generated figures/regeneration passed;1800 tests pass in33.09s, compileall/diff-check pass. Remote v2 CI recorded after actual completion. |
+
+Scientific gates remain independent review PENDING; practical improvement gates H6/H7/H8 all fail. Positive comparisons versus weak trailing forecasts are not promoted into strong benchmark or economic superiority claims. The calendar repair was driven by as-of correctness, with all outcome-independent settings and all negative findings preserved.

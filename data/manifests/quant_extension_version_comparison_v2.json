@@ -1,0 +1,57 @@
+{
+  "controls": {
+    "h6_A": "EXACT_FORECAST_CONTROL_UNCHANGED",
+    "h6_B": "EXACT_FORECAST_CONTROL_UNCHANGED",
+    "h7_har": "EXACT_FORECAST_CONTROL_UNCHANGED",
+    "h7_trailing": "EXACT_FORECAST_CONTROL_UNCHANGED",
+    "h7_vix": "EXACT_FORECAST_CONTROL_UNCHANGED",
+    "h8_buyhold_0bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_buyhold_10bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_buyhold_1bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_buyhold_25bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_buyhold_5bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_trailing_0bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_trailing_10bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_trailing_1bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_trailing_25bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_trailing_5bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_vix_0bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_vix_10bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_vix_1bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_vix_25bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED",
+    "h8_vix_5bps.csv": "EXACT_LEDGER_CONTROL_UNCHANGED"
+  },
+  "metric_changes_v2_minus_v1": {
+    "h6": {
+      "A": 0.0,
+      "B": 0.0,
+      "C": -3.204122801506171e-05,
+      "D": 2.326085156018065e-06
+    },
+    "h7": {
+      "combined": -7.321636752682936e-05,
+      "ewma": -0.0008008457202950403,
+      "garch": -0.0005075284833902516,
+      "har": 0.0,
+      "trailing": 0.0,
+      "vix": 0.0
+    },
+    "h8_combined_5bps": {
+      "annual_vol": -1.2192614519387912e-05,
+      "cagr": 6.239701712695833e-05,
+      "rolling21_target_rmse": -7.565439533049889e-06
+    }
+  },
+  "status": "PASSED_VERSION_CONTROL_AND_PRESERVATION_AUDIT",
+  "v1_sha256": {
+    "h6": "503bd9c72063964ad9a0b2ef3d6cad66b9835daf5cb694745e9b76ecca9f235c",
+    "h7": "630cc87c95cececb6b26ee08536aa2e32bae86fcc01b3313eec5d73cd76a54d5",
+    "h8": "2f00f779fae13a4c79760ed340c378deb54ed36ba154864c477a4a52a9c30ba7"
+  },
+  "v1_status": "INVALIDATED_FOR_STRICT_AS_OF_CALENDAR",
+  "v2_sha256": {
+    "h6": "2a8107e9ace5dcfd565bbdba59bf7f298906584d3050565806f129072b4715c9",
+    "h7": "cec3e911eaef7f4d27d8395ba8316f807a910b82601a79bcfe29a8f636001d68",
+    "h8": "b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001"
+  }
+}
