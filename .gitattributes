@@ -6,3 +6,7 @@ docs/h7_failure_analysis.md text eol=lf
 docs/h8_failure_analysis.md text eol=lf
 docs/quant_failure*.md text eol=lf
 paper/quant_failure_diagnostic_plan.md text eol=lf
+paper/h8_cash_yield_plan.md text eol=lf
+docs/h8_cash_yield_sensitivity.md text eol=lf
+docs/h8_economic_attribution.md text eol=lf
+docs/tables/h8_cash_yield/*.csv text eol=lf
