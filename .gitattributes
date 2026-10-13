@@ -1,0 +1,2 @@
+# Preserve byte-reproducible tracked scientific metadata across Windows/Linux.
+data/manifests/*.json text eol=lf

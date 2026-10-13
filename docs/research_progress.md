@@ -264,3 +264,8 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
 - Final local suite: 1717 passed in 16.46 s; compileall src/tests/scripts and
   diff check passed. No restricted price CSV staged; only source, tests,
   sanitized provenance/aggregate JSON and research documentation.
+
+- Evidence milestone 6669b8e preserves actual freeze/target manifests and
+  aggregate outputs. Git attributes pin tracked manifest JSON to LF so
+  authorization and metadata byte hashes survive Windows/Linux checkouts;
+  scientific source fingerprints already normalize checkout line endings.
