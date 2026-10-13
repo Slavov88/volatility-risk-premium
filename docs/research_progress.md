@@ -83,3 +83,21 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
 - Next action: deliver exact sanitized source audit for independent review.
   VIX quality and six unexplained Yahoo/FRED differences remain external
   source/review blockers; gate-compliant targets cannot proceed yet.
+
+### 2026-10-13 — audit package delivery
+
+- Implementation commit: `b191daf`. New regression tests plus the complete
+  original suite passed: **1,634 tests**. No synthetic fixture replaced a
+  production input.
+- Produced four sanitized dated manifests, `docs/experiment_log.md`, and
+  `docs/production_data_freeze_report.md`. These contain actual coverage,
+  hash/replay evidence, defect dates, source-investigation limitations and
+  exact reproduction commands. Provider price rows are excluded from Git.
+- The only completed milestone is EMP-001. EMP-002's acquisition subtask is
+  complete, but its production acceptance remains blocked; EMP-003's audit
+  is reproducible but source resolutions are incomplete. EMP-004/006 are
+  blocked and EMP-005/007/008 require independent review.
+- Baseline remote CI verified green at `456a77c`:
+  https://github.com/Slavov88/volatility-risk-premium/actions/runs/38405901655.
+  New branch CI is not yet claimed; draft PR publication will run the existing
+  pull-request workflow. PR #1 remains open/draft and unchanged.

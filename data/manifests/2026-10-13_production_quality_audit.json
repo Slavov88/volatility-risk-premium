@@ -1,0 +1,325 @@
+{
+  "alignment_diagnostic_only": {
+    "common_dates": 9063,
+    "expected_origins": 9067,
+    "missing_vix_on_spx": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "panel_constructed": false,
+    "spx_support_rows_after_cutoff": 21,
+    "vix_without_spx": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ]
+  },
+  "coverage": {
+    "spx": {
+      "coverage_end": "2026-02-02",
+      "coverage_start": "1990-01-02",
+      "row_count": 9088
+    },
+    "vix": {
+      "coverage_end": "2025-12-31",
+      "coverage_start": "1990-01-02",
+      "row_count": 9091
+    }
+  },
+  "fred_validation": {
+    "sha256": "4590145f9ed88e20b41bc1325fa7c538e7532e8b1289dac4b801b216c9bd77e6",
+    "status": "available",
+    "validation": {
+      "discrepancy_count": 7,
+      "discrepancy_sample": [
+        {
+          "absolute_difference": 5.289999999999964,
+          "date": "2021-08-11"
+        },
+        {
+          "absolute_difference": 1.050000000000182,
+          "date": "2019-08-12"
+        },
+        {
+          "absolute_difference": 0.13000000000010914,
+          "date": "2020-05-11"
+        },
+        {
+          "absolute_difference": 0.03999999999996362,
+          "date": "2018-11-29"
+        },
+        {
+          "absolute_difference": 0.03000000000020009,
+          "date": "2020-10-05"
+        },
+        {
+          "absolute_difference": 0.01999999999998181,
+          "date": "2020-10-02"
+        },
+        {
+          "absolute_difference": 0.01999999999998181,
+          "date": "2020-10-06"
+        }
+      ],
+      "fred_coverage_end": "2026-02-02",
+      "fred_coverage_start": "2016-10-13",
+      "fred_missing_close": 90,
+      "fred_row_count": 2428,
+      "fred_source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500&cosd=1990-01-02&coed=2026-02-02",
+      "maximum_absolute_difference": 5.289999999999964,
+      "mean_absolute_difference": 0.0028229255774165564,
+      "overlap_end": "2026-02-02",
+      "overlap_row_count": 2338,
+      "overlap_start": "2016-10-13",
+      "tolerance_index_points": 0.01,
+      "within_tolerance_count": 2331
+    }
+  },
+  "frozen_windows": {
+    "spx": {
+      "current_day_policy": "reject any bar dated on or after retrieval's New York date",
+      "end_exclusive": "2026-02-03",
+      "start_inclusive": "1990-01-02"
+    },
+    "vix": {
+      "end_exclusive": "2026-01-01",
+      "start_inclusive": "1990-01-02"
+    }
+  },
+  "implementation_sha256": "1b0081bc769f92a413689eeb720ca2f5a3a124ed422962a5e870ab4904d4d4f1",
+  "limitations": [
+    "Audit does not repair, drop, fill or approve observations.",
+    "Date intersection is diagnostic only; failed quality blocks panel and target construction.",
+    "Discrepancy magnitudes are metadata; provider price rows remain local."
+  ],
+  "protocol_version": "1.1.0",
+  "schema_version": 1,
+  "scientific_approval": "NOT_REVIEWED",
+  "software": {
+    "curl-cffi": "0.16.3",
+    "exchange-calendars": "4.13.2",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "yfinance": "1.5.2"
+  },
+  "source_data_sha256": {
+    "spx": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+    "vix_normalized": "10b2faa178208d7553f96597b40e63807668af77b3f8242f73afb8b8a40b0f94",
+    "vix_raw": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7"
+  },
+  "source_manifest_sha256": {
+    "spx": "29bb559550a8470b1b8c034cf752b8bd3919b2585069ed27d252ddc2bb6873a5",
+    "vix": "68c11d8fe5a9f454761a898b1bd6bdee499c7a55b30ce370ec28549fc8805d92"
+  },
+  "spx_quality": {
+    "accepted": true,
+    "expected_session_count": 9088,
+    "missing_required_values": {
+      "Close": 0,
+      "High": 0,
+      "Low": 0,
+      "Open": 0
+    },
+    "missing_sessions": [],
+    "nonpositive_required_values": {
+      "Close": 0,
+      "High": 0,
+      "Low": 0,
+      "Open": 0
+    },
+    "observed_session_count": 9088,
+    "ohlc_order_violations": 0,
+    "unexpected_sessions": []
+  },
+  "status": "BLOCKED_VIX_QUALITY",
+  "vix_ohlc_defects": {
+    "categories": {
+      "high_below_close": [],
+      "high_below_low": [],
+      "high_below_open": [
+        "1992-02-11",
+        "1992-02-19",
+        "1992-08-27",
+        "1992-11-09",
+        "1992-11-20",
+        "1992-12-21",
+        "1993-03-19",
+        "1993-04-28",
+        "1993-09-15",
+        "1993-10-15",
+        "1993-10-29",
+        "1993-11-23",
+        "1993-11-24",
+        "1994-01-05",
+        "1994-02-23",
+        "1996-01-08",
+        "1998-11-20",
+        "2002-09-11",
+        "2004-10-26",
+        "2006-02-08"
+      ],
+      "low_above_close": [],
+      "low_above_open": [
+        "1992-08-24",
+        "1992-09-16",
+        "1992-10-09",
+        "1992-12-09",
+        "1992-12-23",
+        "1993-04-19",
+        "1993-06-01",
+        "1993-07-13",
+        "1993-07-14",
+        "1993-10-27",
+        "1993-11-30",
+        "1994-01-31",
+        "1994-02-07",
+        "1994-03-08",
+        "1994-03-10",
+        "1994-03-14",
+        "1994-04-04",
+        "1994-09-20",
+        "1994-12-19",
+        "1995-02-21",
+        "1995-10-10",
+        "1996-02-13",
+        "1996-04-08",
+        "1998-01-12",
+        "1998-04-27",
+        "1999-04-01",
+        "2004-11-08"
+      ]
+    },
+    "dates": [
+      "1992-02-11",
+      "1992-02-19",
+      "1992-08-24",
+      "1992-08-27",
+      "1992-09-16",
+      "1992-10-09",
+      "1992-11-09",
+      "1992-11-20",
+      "1992-12-09",
+      "1992-12-21",
+      "1992-12-23",
+      "1993-03-19",
+      "1993-04-19",
+      "1993-04-28",
+      "1993-06-01",
+      "1993-07-13",
+      "1993-07-14",
+      "1993-09-15",
+      "1993-10-15",
+      "1993-10-27",
+      "1993-10-29",
+      "1993-11-23",
+      "1993-11-24",
+      "1993-11-30",
+      "1994-01-05",
+      "1994-01-31",
+      "1994-02-07",
+      "1994-02-23",
+      "1994-03-08",
+      "1994-03-10",
+      "1994-03-14",
+      "1994-04-04",
+      "1994-09-20",
+      "1994-12-19",
+      "1995-02-21",
+      "1995-10-10",
+      "1996-01-08",
+      "1996-02-13",
+      "1996-04-08",
+      "1998-01-12",
+      "1998-04-27",
+      "1998-11-20",
+      "1999-04-01",
+      "2002-09-11",
+      "2004-10-26",
+      "2004-11-08",
+      "2006-02-08"
+    ],
+    "row_count": 47
+  },
+  "vix_quality": {
+    "accepted": false,
+    "expected_session_count": 9067,
+    "missing_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "missing_sessions": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "nonpositive_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "observed_session_count": 9091,
+    "ohlc_order_violations": 47,
+    "unexpected_sessions": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ]
+  }
+}

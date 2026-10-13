@@ -1,0 +1,94 @@
+{
+  "dataset": "Cboe VIX daily history",
+  "frozen_window": {
+    "end_exclusive": "2026-01-01",
+    "start_inclusive": "1990-01-02"
+  },
+  "methodology": {
+    "full_sample_primary": true,
+    "post_2003_sensitivity_required": true,
+    "post_2014_10_06_sensitivity_required": true,
+    "weekly_inclusive_start": "2014-10-06"
+  },
+  "normalized": {
+    "columns": [
+      "Date",
+      "OPEN",
+      "HIGH",
+      "LOW",
+      "CLOSE"
+    ],
+    "coverage_end": "2025-12-31",
+    "coverage_start": "1990-01-02",
+    "relative_path": "2026-10-13T142430Z/cboe/vix_frozen_normalized.csv",
+    "row_count": 9091,
+    "sha256": "10b2faa178208d7553f96597b40e63807668af77b3f8242f73afb8b8a40b0f94"
+  },
+  "quality": {
+    "accepted": false,
+    "expected_session_count": 9067,
+    "missing_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "missing_sessions": [
+      "1991-03-01",
+      "1997-01-31",
+      "1997-11-26",
+      "1999-12-31"
+    ],
+    "nonpositive_required_values": {
+      "CLOSE": 0,
+      "HIGH": 0,
+      "LOW": 0,
+      "OPEN": 0
+    },
+    "observed_session_count": 9091,
+    "ohlc_order_violations": 47,
+    "unexpected_sessions": [
+      "2004-06-11",
+      "2022-05-30",
+      "2022-06-20",
+      "2022-07-04",
+      "2022-09-05",
+      "2022-11-24",
+      "2023-01-16",
+      "2023-02-20",
+      "2023-05-29",
+      "2023-06-19",
+      "2023-07-04",
+      "2023-09-04",
+      "2023-11-23",
+      "2024-01-15",
+      "2024-02-19",
+      "2024-05-27",
+      "2024-06-19",
+      "2024-07-04",
+      "2024-09-02",
+      "2024-11-28",
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27"
+    ]
+  },
+  "raw": {
+    "bytes": 473635,
+    "relative_path": "2026-10-13T142430Z/cboe/VIX_History.csv",
+    "sha256": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7"
+  },
+  "retrieved_at_utc": "2026-10-13T14:24:30.124133+00:00",
+  "schema_version": 1,
+  "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+  "timing_note": "daily CLOSE is treated as an end-of-day predictor; exact historical same-instant synchronization with the S&P 500 cash close is not assumed",
+  "transport": {
+    "note": "urllib default TLS verification; no verify=False override",
+    "verification_override_requested": false
+  }
+}
