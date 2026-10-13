@@ -97,3 +97,21 @@ the audit. Replay uses **original local acquisition manifests**.
 4. Obtain independent freeze acceptance before H1/H2 and later OOS analysis.
 
 No favorable or negative empirical VRP conclusion can be drawn at this stage.
+
+## Follow-up: separate unapproved CLOSE candidate (2026-10-13)
+
+The original acquisition findings and rejection above are unchanged. A
+distinct inspection-only CLOSE contract now generates **9,063** candidate
+origins, with original source replay, explicit exclusions and derived hashes.
+No approved panel, production target or inferential freeze exists.
+See `docs/vix_close_acceptance_proposal.md` for the exact contract, both-author
+sign-off requirements and 1,674 passing tests. Full metadata are in
+`data/manifests/2026-10-13_vix_close_candidate.json` and
+`data/manifests/2026-10-13_source_blocker_diagnostics.json`.
+
+New official Cboe closure/GTH notices and small FRED VIXCLS checks support
+the publication/eligibility distinction and corroborate missing values on
+three dates. They do not authorize source stitching. All four missing origins
+remain excluded in the candidate. The 2019 SPX correction explanation remains
+verified, while six other Yahoo/FRED differences remain unresolved. No
+canonical source observations were changed.

@@ -1,0 +1,28 @@
+{
+  "purpose": "Official publication-calendar supporting evidence; no price replacement",
+  "retrieved_at_utc": "2026-10-13T15:06:39.664954+00:00",
+  "sources": [
+    {
+      "bytes": 120113,
+      "name": "memorial_2022.pdf",
+      "relative_path": "2026-10-13T150635Z/notices/memorial_2022.pdf",
+      "sha256": "0fae517b3d8ceda1db4d99e3c99d9b2824c3982e37fbdeb26cb6a926c2808104",
+      "source_url": "https://cdn.cboe.com/resources/schedule_update/2022/Cboe-Holiday-Reminder-Closed-on-Monday-May-30-2022.pdf"
+    },
+    {
+      "bytes": 115210,
+      "name": "mourning_2025.pdf",
+      "relative_path": "2026-10-13T150635Z/notices/mourning_2025.pdf",
+      "sha256": "ecabcf3de38b3eaa3a9c7b8a384082a66405401299fba8bc733e44061bbfc6ba",
+      "source_url": "https://cdn.cboe.com/resources/schedule_update/2025/Update-Cboe-to-Observe-National-Day-of-Mourning-on-Thursday-January-9-2025.pdf"
+    },
+    {
+      "bytes": 24098,
+      "name": "mourning_2004.pdf",
+      "relative_path": "2026-10-13T150635Z/notices/mourning_2004.pdf",
+      "sha256": "15cbdec8b2bbe881e3458d33763ed26830bd9f7a6faa0b853fbd982a01ed5c2f",
+      "source_url": "https://cdn.cboe.com/resources/regulation/circulars/regulatory/RG04-69.pdf"
+    }
+  ],
+  "transport": "urllib default certificate verification"
+}

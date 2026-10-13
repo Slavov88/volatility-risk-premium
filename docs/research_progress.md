@@ -19,8 +19,8 @@ in the fetched checkout.
 | EMP-007 | D: H1/H2 and diagnostic robustness | PENDING REVIEW GATE | EMP-005 accepted; protocol-defined HAC, calibration and mandatory sensitivities; complete experiment log. | Wait for independent freeze approval. |
 | EMP-008 | E: recursive OOS and H3/H4 | PENDING REVIEW GATE | Prior milestones independently validated; locked units, windows and common masks. | Implement only after earlier scientific gates. |
 | EMP-009 | H5 and paper reporting | PENDING | Prior validation gates, frozen NBER provenance/crisis dates; independent output audit. | Retain theory/Track A without modification. |
-| EMP-010 | Separate CLOSE candidate validation | CANDIDATE GENERATED / TESTING | Version `vix-close-candidate/1.0.0`; original immutable inputs replayed; 9,063 inspection origins, no production targets. Strict production path unchanged. | Complete source footprint diagnostics and full tests; deliver sign-off proposal. |
-| EMP-011 | Source publication and close-correction investigation | IN PROGRESS | Official holiday notices found; original XLS evidence retained; 2019 correction independently explained, other six discrepancies unresolved. | Record hashed notices and diagnostic footprints without changing prices. |
+| EMP-010 | Separate CLOSE candidate validation | COMPLETE FOR INSPECTION / UNAPPROVED | Commit `2c820db`; contract `vix-close-candidate/1.0.0`; 9,063 origins; identical replay; 1,674 tests pass. No production targets. Strict path unchanged. | Obtain EMP-012 authorization before any approved promotion path. |
+| EMP-011 | Source publication and close-correction investigation | DIAGNOSTICS COMPLETE / SIX DISCREPANCIES UNRESOLVED | Hashed Cboe notices, small FRED VIX publication checks and hypothetical correction footprints; 2019 correction explained. | Coauthors review source assumptions and unresolved-price sensitivity proposal; no replacements. |
 | EMP-012 | Both-author CLOSE methodology sign-off | PENDING EXTERNAL APPROVAL | Candidate manifest cannot authorize itself; confirmatory loader explicitly rejects this contract under protocol 1.1.0. | Review `docs/vix_close_acceptance_proposal.md` once completed; both authors must sign. |
 
 ## Initial implementation inventory
@@ -148,3 +148,36 @@ under `data/raw/` / `data/processed/`; only sanitized provenance is committed.
   commit. No RVAR/VRP or H1–H5 run.
 - Added EMP-010–012 without changing existing task IDs. Next action is
   source-diagnostic evidence and a concrete both-author review proposal.
+
+### 2026-10-13 — source investigation and CLOSE review package
+
+- Implementation milestone commit: `2c820db`. Candidate and source-footprint
+  modules plus **40** new test cases qualify inspection-only processing.
+  Original strict source/panel implementations, theory, protocol and lock
+  remain unchanged.
+- Final candidate: **9,063/9,067** eligible origins; four missing predictor
+  dates (0.044116%). Missing by year: 1991: 1, 1997: 2, 1999: 1. Non-session
+  exclusions: 2004: 1, 2022: 5, 2023: 7, 2024: 7, 2025: 8. OOS 4,780/4,780;
+  proposed post-2003 calendar year 5,535/5,535; alternate 2003-01-01 boundary
+  5,787/5,787; post-2014-10-06 2,827/2,827. These are predictor-eligibility
+  counts, not target or hypothesis sample-size claims.
+- Acquired three small official Cboe notices under
+  `data/raw/2026-10-13T150635Z/` and four small FRED VIXCLS windows under
+  `data/raw/2026-10-13T150732Z/`, with verified TLS/hashes. Both archive and
+  FRED republication corroborate three missing closes; 1999-12-31 is available
+  separately but not stitched. Original full acquisitions were not refreshed.
+- Cboe confirms 2004-06-11 full closure; the CSV repeats the previous provider
+  close. GTH schedules explain why publication on some U.S. holidays is
+  plausible, but exact historical CSV timestamp/source mechanisms remain
+  unconfirmed. All 28 non-XNYS rows excluded as origins regardless.
+- Replayed blocker diagnostics identically and reran candidate construction/
+  verification with identical output hashes. Diagnostic correction footprints
+  change no prices or target values. Six Yahoo/FRED disagreements remain
+  unresolved; 2019 source explanation still requires a source-choice decision.
+- Reviewable proposal: `docs/vix_close_acceptance_proposal.md`. Both author
+  sign-offs are pending. It requests CLOSE-specific eligibility, four origin
+  exclusions, 28 non-session exclusions, no stitching, preserved SPX and
+  explicit post-2003/source-discrepancy decisions. No approval inferred.
+- EMP-004 remains blocked for an approved production panel; EMP-006–009
+  remain behind their scientific gates. EMP-010 completed only for inspection;
+  EMP-012 pending. Next action is explicit both-author methodological review.

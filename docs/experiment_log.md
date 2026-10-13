@@ -226,3 +226,9 @@ the official closure notice. Holiday GTH trading is documented for 2022-05-30
 and 2025-01-09. The precise CSV timestamp/source mechanism remains unconfirmed;
 the other holiday dates have a plausible GTH explanation, not individual
 publication attestation. Every non-XNYS row is excluded from candidate origins.
+
+Reproducibility check after the proposal was drafted: reran RUN-005's diagnostic
+command and RUN-004's candidate command against existing immutable artifacts.
+Both succeeded and reproduced the identical manifests/output hashes above.
+Confirmatory eligibility remains rejected; repeated success is inspection
+repeatability, not methodological approval.

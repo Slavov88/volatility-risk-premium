@@ -1,0 +1,43 @@
+{
+  "purpose": "Small official FRED republication checks of Cboe-sourced VIX; corroboration only, never a replacement or fill",
+  "retrieved_at_utc": "2026-10-13T15:07:36.734747+00:00",
+  "sources": [
+    {
+      "bytes": 70,
+      "investigated_date": "1991-03-01",
+      "published_close_finite_positive": false,
+      "published_row_present": true,
+      "relative_path": "2026-10-13T150732Z/fred/vixcls_1991-03-01.csv",
+      "sha256": "4260e3b2632551a9450155c2c671e7e47d0bf1949479d727bf64d227231e1169",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1991-02-28&coed=1991-03-04"
+    },
+    {
+      "bytes": 70,
+      "investigated_date": "1997-01-31",
+      "published_close_finite_positive": false,
+      "published_row_present": true,
+      "relative_path": "2026-10-13T150732Z/fred/vixcls_1997-01-31.csv",
+      "sha256": "161523a99765a3394399eec4800564198a027bdccc99f483474d61c154a6c851",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1997-01-30&coed=1997-02-03"
+    },
+    {
+      "bytes": 82,
+      "investigated_date": "1997-11-26",
+      "published_close_finite_positive": false,
+      "published_row_present": true,
+      "relative_path": "2026-10-13T150732Z/fred/vixcls_1997-11-26.csv",
+      "sha256": "f476bf97e6f25ceda69a95cf89bf04e0acc3ca41f81e631913dbc431856e90f4",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1997-11-25&coed=1997-11-28"
+    },
+    {
+      "bytes": 75,
+      "investigated_date": "1999-12-31",
+      "published_close_finite_positive": true,
+      "published_row_present": true,
+      "relative_path": "2026-10-13T150732Z/fred/vixcls_1999-12-31.csv",
+      "sha256": "cf5fd219cd8cd428b287c6f260baaefd746e11ca8ef1eb19ffc9741204d58bcb",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS&cosd=1999-12-30&coed=2000-01-03"
+    }
+  ],
+  "transport": "urllib default certificate verification"
+}
