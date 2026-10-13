@@ -56,12 +56,13 @@ The Yahoo/FRED feasibility comparison identified several close discrepancies tha
 
 ## Installation
 
-Python 3.11 or newer is required.
+Python 3.11 or newer is required. Confirmatory CI is pinned to Python 3.11 and the exact dependency set in `requirements-dev.lock`; changing that lock is a reviewed reproducibility event.
 
 ```bash
 python -m venv .venv
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
+python -m pip install pip==26.2.1
+python -m pip install -r requirements-dev.lock
+python -m pip install -e . --no-deps --no-build-isolation
 ```
 
 ## Reproduce the exact-index core acquisition
