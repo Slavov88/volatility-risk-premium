@@ -1,0 +1,26 @@
+{
+  "h6": {
+    "all_immutable_csv_bytes_identical": true,
+    "all_numeric_fields_identical": true,
+    "original_commit": "81b3da4671bbca66f90b6a0e5690262907f07d9a",
+    "original_sha256": "503bd9c72063964ad9a0b2ef3d6cad66b9835daf5cb694745e9b76ecca9f235c",
+    "replay_commit": "17550459b1981771860e9f8629ea6b78e73afa32",
+    "source_hashes_identical": true
+  },
+  "h7": {
+    "all_immutable_csv_bytes_identical": true,
+    "all_numeric_fields_identical": true,
+    "original_commit": "81b3da4671bbca66f90b6a0e5690262907f07d9a",
+    "original_sha256": "630cc87c95cececb6b26ee08536aa2e32bae86fcc01b3313eec5d73cd76a54d5",
+    "replay_commit": "17550459b1981771860e9f8629ea6b78e73afa32",
+    "source_hashes_identical": true
+  },
+  "h8": {
+    "all_immutable_csv_bytes_identical": true,
+    "all_numeric_fields_identical": true,
+    "original_commit": "17550459b1981771860e9f8629ea6b78e73afa32",
+    "original_sha256": "2f00f779fae13a4c79760ed340c378deb54ed36ba154864c477a4a52a9c30ba7",
+    "replay_commit": "17550459b1981771860e9f8629ea6b78e73afa32",
+    "source_hashes_identical": true
+  }
+}

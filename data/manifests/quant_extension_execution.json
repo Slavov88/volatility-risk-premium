@@ -1,0 +1,72 @@
+{
+  "audit_sha256": "28b13dd048edb37ff45581eb0a44e7ede1e4c7010e19cce9ecc15837fc4d4b6f",
+  "environment": {
+    "packages": {
+      "arch": "8.0.0",
+      "exchange-calendars": "4.13.2",
+      "matplotlib": "3.11.2",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.17.1",
+      "statsmodels": "0.15.0",
+      "yfinance": "1.5.2"
+    },
+    "python": "3.11.5"
+  },
+  "figure_sha256": {
+    "h6_reliability.pdf": "ed6abae1fb4cdb899ad724b41e88ea036c6256817cd53448dd65e16e62718cae",
+    "h6_reliability.png": "61fd899250b2b6f28ffdd99bcb8b1d3a2b4e6cdabf3b6dfa58b79ffb1c60630e",
+    "h7_period_losses.pdf": "08fdefc7c233f72d2035ab8cc01e3bf771348dcb4ef14f545eca534a63527b79",
+    "h7_period_losses.png": "5ff8c74490be818750add3a2ee8ff065637d26532666ee09bea7af6b123e25ba",
+    "h8_equity_risk.pdf": "a9781a6d60a5f56c643baef931125e80c8a14773f7387ef385d03d83f805556e",
+    "h8_equity_risk.png": "263060c6299f0afb65502706205b466e927eaf4f1215a42ff81aad1918031c95"
+  },
+  "forecast_and_trade_files": {
+    "h6_forecasts.csv": "48e5997e6072878f826e4b3912ec90ecbbf7e0fd02eb11f54ba93efc42405627",
+    "h6_metrics.csv": "d9cdc818ea3e12d78bc191e1986416b1838465326992d8742ccdcb6438110cbc",
+    "h7_forecasts.csv": "8048380316b9defc3e3b609a8679b2ac047f4ad5d3dcfbd35c710d0c209d1f89",
+    "h7_metrics.csv": "a5034aaaefc6e3b974e6c486001f38a17ea4eb05360e4652e3d9b30a027ffb6b",
+    "h8_buyhold_0bps.csv": "88680aeb653b6b8e1c429e8ebb4b61a12650c8e068e2665086e45677cac7784d",
+    "h8_buyhold_10bps.csv": "f8b047c3918dc7f953a0344d5308a2d145fcb6ebc76536aa405d6946493963fc",
+    "h8_buyhold_1bps.csv": "4dd574ae22b1d0c9f7d13ee4f13c42a0995deadcce6215686b95de48454dfb2c",
+    "h8_buyhold_25bps.csv": "1aad3bfa57814687f9859331790b9736f4e7178f6f39edddc3071dab6e6c84c0",
+    "h8_buyhold_5bps.csv": "071e08076a8f9fc6152d5be2c4d6342f2369fc961e6c767ee5c1d682c6573855",
+    "h8_combined_0bps.csv": "ec04f64bdfd850ef4985b5c3c2803f1f7dfff68202a1a477ed072580aecf263f",
+    "h8_combined_10bps.csv": "3e79ff6c56bc90548cb2195777d1d861ac65dbbfbcbf0a9cf871452573d63057",
+    "h8_combined_1bps.csv": "4b629cde28f8cf92c74b568a8200a2f97a5ab32cc4f98ed8251839c494e05531",
+    "h8_combined_25bps.csv": "8aaefabc68d6da01e7c4be5377f8b05fc1c6fe1ba1a5b3d3909b7b330c888848",
+    "h8_combined_5bps.csv": "25cdf3f89b0393f60365d987fb93bde8dd8e90ba4ece62b9aafd93ba9793ba77",
+    "h8_garch_0bps.csv": "74c1d59209bdc0c5de3388c5e5a2bc5113db71b3be3f7d4e810922f124539d94",
+    "h8_garch_10bps.csv": "17db654b7c5c92d3633a0f244d3e7929ad89da84fe840e99da71bd8ea2571f40",
+    "h8_garch_1bps.csv": "356f7a0d3d0515ae5dc296413bd5467db21c8582d53f3fb707613380327ad23f",
+    "h8_garch_25bps.csv": "6514100e7a9df3465cd7faef6e823cb942ad2f47b8f2417d0f609986acf47400",
+    "h8_garch_5bps.csv": "867e69ba70e71afd7699c695861449d716142c3aedd7c4fff56ba3678509ac26",
+    "h8_metrics.csv": "5efca43822b762b6fbf037444fe4f5b81537604ae43715e4d2dd809743ab9bc1",
+    "h8_trailing_0bps.csv": "82849780ad59523dd975a880957e3038c322bb36e9810d7a0987ee2d1e81504c",
+    "h8_trailing_10bps.csv": "a16e40ce617f501b0132efec1b1dbbd72a63575856d92983bc52c05640e45e46",
+    "h8_trailing_1bps.csv": "ab200ca2864ae5229e04bd5a768d3f89d3405d724be7eb7c4862f0b4b9d7a2ae",
+    "h8_trailing_25bps.csv": "76dcad1203d0ec7add1008fed170c26fe1b5a0600ea1c62a6c8a801d14f1c400",
+    "h8_trailing_5bps.csv": "7ab3f0f055421b7f59d527e690f6c2d1cfce51971749507d3603f083203d6528",
+    "h8_vix_0bps.csv": "1707b5bdac6761c5399dddf7dcf60201eb41761f1d096839722d02159a1029b7",
+    "h8_vix_10bps.csv": "ee1dfdcbe8e296b1023962770d967bc200f4629cc1673326e065cf1a079c76ff",
+    "h8_vix_1bps.csv": "39a1e7c84d9ffdad46e573324e28d7071c70319742ad20646237dc61d6db024c",
+    "h8_vix_25bps.csv": "2353efca0de966c46dd63098730e29a45206dca0ec4455b840a3c5de554496be",
+    "h8_vix_5bps.csv": "68b6d1078d07a2bf312d67b7b619d88e5a2982506f3e8843429fdf45bfa2269f"
+  },
+  "generator_sha256_lf": "bbe513d82237d50e9f196f3f16f369c361f940e4929c0e4a077184d14f26ba0c",
+  "independent_review": "PENDING",
+  "prospective_results": "NONE",
+  "report_sha256": {
+    "h6_tail_risk_results.md": "3aadee98acd5654a3bf02f5b2af6559d7fed8be1dc79591dd576539386c02f94",
+    "h7_variance_forecasting_results.md": "3ff8413dbc837f0acd4f017a6051cfd83eb6c1d7a3457cecc37d5f587501ef84",
+    "h8_portfolio_economic_value.md": "c63204ae8d90713d7bdb392f1691a142a29261b631259adbb6ff754a12d49345",
+    "quant_extension_summary.md": "fc3f402a3362436061cabc3ad9f9d66e740b89c60f46247c2aadb67fac09d0d1"
+  },
+  "result_sha256": {
+    "h6": "503bd9c72063964ad9a0b2ef3d6cad66b9835daf5cb694745e9b76ecca9f235c",
+    "h7": "630cc87c95cececb6b26ee08536aa2e32bae86fcc01b3313eec5d73cd76a54d5",
+    "h8": "2f00f779fae13a4c79760ed340c378deb54ed36ba154864c477a4a52a9c30ba7"
+  },
+  "status": "EXPLORATORY \u2014 POST H1\u2013H5 RESULT SELECTION \u2014 PENDING INDEPENDENT REVIEW"
+}

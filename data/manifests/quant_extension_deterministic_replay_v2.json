@@ -1,0 +1,26 @@
+{
+  "h6": {
+    "all_immutable_csv_bytes_identical": true,
+    "all_numeric_fields_identical": true,
+    "original_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+    "original_sha256": "2a8107e9ace5dcfd565bbdba59bf7f298906584d3050565806f129072b4715c9",
+    "replay_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+    "source_hashes_identical": true
+  },
+  "h7": {
+    "all_immutable_csv_bytes_identical": true,
+    "all_numeric_fields_identical": true,
+    "original_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+    "original_sha256": "cec3e911eaef7f4d27d8395ba8316f807a910b82601a79bcfe29a8f636001d68",
+    "replay_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+    "source_hashes_identical": true
+  },
+  "h8": {
+    "all_immutable_csv_bytes_identical": true,
+    "all_numeric_fields_identical": true,
+    "original_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+    "original_sha256": "b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001",
+    "replay_commit": "429e5f2d8bdb7bf9094a7468e9f8926a303b778b",
+    "source_hashes_identical": true
+  }
+}

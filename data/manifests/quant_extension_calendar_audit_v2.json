@@ -1,0 +1,646 @@
+{
+  "analytically_extended_vectors": 10,
+  "cached_sha256": "8ee39a08f5e89169670341d3967fc82112eafd7177af359addb4461163a82421",
+  "changed_origins": 61,
+  "changes": [
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-01",
+      "scheduled_count": 22,
+      "v1": 0.01357394291175487,
+      "v2": 0.015084023552666434
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-02",
+      "scheduled_count": 22,
+      "v1": 0.012868516910729086,
+      "v2": 0.014313404591606101
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-03",
+      "scheduled_count": 22,
+      "v1": 0.012381990565365611,
+      "v2": 0.013781938451645796
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-04",
+      "scheduled_count": 21,
+      "v1": 0.01182313477831552,
+      "v2": 0.01322180653666065
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-05",
+      "scheduled_count": 20,
+      "v1": 0.010581056244006914,
+      "v2": 0.01190850513237816
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-08",
+      "scheduled_count": 22,
+      "v1": 0.011604513846217865,
+      "v2": 0.012932593273799755
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-09",
+      "scheduled_count": 22,
+      "v1": 0.01291338015932006,
+      "v2": 0.01436217323450648
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-10",
+      "scheduled_count": 22,
+      "v1": 0.013024384227773952,
+      "v2": 0.01448336411331528
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-11",
+      "scheduled_count": 21,
+      "v1": 0.011673652765957498,
+      "v2": 0.01305736176366872
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-12",
+      "scheduled_count": 20,
+      "v1": 0.01062539612298409,
+      "v2": 0.011957007073901803
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-15",
+      "scheduled_count": 22,
+      "v1": 0.01234637348533912,
+      "v2": 0.013742529369917942
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-16",
+      "scheduled_count": 22,
+      "v1": 0.013339346729183436,
+      "v2": 0.014827271353780052
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-17",
+      "scheduled_count": 22,
+      "v1": 0.012868805573844115,
+      "v2": 0.014313156791977123
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-18",
+      "scheduled_count": 21,
+      "v1": 0.011677456010884688,
+      "v2": 0.013061272218974525
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-19",
+      "scheduled_count": 20,
+      "v1": 0.015007979598906832,
+      "v2": 0.016792683597035552
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-22",
+      "scheduled_count": 22,
+      "v1": 0.01581700557036733,
+      "v2": 0.017533529472267585
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-23",
+      "scheduled_count": 21,
+      "v1": 0.017795663103663567,
+      "v2": 0.019776856850086132
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-24",
+      "scheduled_count": 21,
+      "v1": 0.016916586665345307,
+      "v2": 0.018811807131506344
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-25",
+      "scheduled_count": 20,
+      "v1": 0.015109262287713247,
+      "v2": 0.016904219414569353
+    },
+    {
+      "actual_count": 17,
+      "extra_scheduled_sessions": [
+        "2012-10-29",
+        "2012-10-30"
+      ],
+      "origin": "2012-10-26",
+      "scheduled_count": 19,
+      "v1": 0.013398901979553879,
+      "v2": 0.015092376572827786
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-05",
+      "scheduled_count": 21,
+      "v1": 0.03778972172668694,
+      "v2": 0.03961803249565078
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-06",
+      "scheduled_count": 21,
+      "v1": 0.03516250529854756,
+      "v2": 0.0368756066932158
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-07",
+      "scheduled_count": 21,
+      "v1": 0.04035268406690396,
+      "v2": 0.04229358228238256
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-08",
+      "scheduled_count": 20,
+      "v1": 0.035214874755958615,
+      "v2": 0.03701426512839317
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-09",
+      "scheduled_count": 19,
+      "v1": 0.03222684156944531,
+      "v2": 0.03397281859824709
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-12",
+      "scheduled_count": 21,
+      "v1": 0.040863794818528455,
+      "v2": 0.04282729155591775
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-13",
+      "scheduled_count": 21,
+      "v1": 0.03737134627175475,
+      "v2": 0.039181603420820575
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-14",
+      "scheduled_count": 21,
+      "v1": 0.035456943102901754,
+      "v2": 0.037183217724620875
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-15",
+      "scheduled_count": 20,
+      "v1": 0.03270726448382742,
+      "v2": 0.03439027239067936
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-16",
+      "scheduled_count": 19,
+      "v1": 0.028421690618024145,
+      "v2": 0.029980011855917695
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-19",
+      "scheduled_count": 21,
+      "v1": 0.0348031498751186,
+      "v2": 0.036500817377224354
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-20",
+      "scheduled_count": 21,
+      "v1": 0.038821679104389405,
+      "v2": 0.040695763949051916
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-21",
+      "scheduled_count": 21,
+      "v1": 0.0355822200003196,
+      "v2": 0.037314155500468536
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-23",
+      "scheduled_count": 20,
+      "v1": 0.03190188636251804,
+      "v2": 0.033547609381671846
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-26",
+      "scheduled_count": 21,
+      "v1": 0.035048046951045145,
+      "v2": 0.036756578820735804
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-27",
+      "scheduled_count": 21,
+      "v1": 0.032218973470155905,
+      "v2": 0.033803405117422296
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-28",
+      "scheduled_count": 21,
+      "v1": 0.03914320277838859,
+      "v2": 0.04103168614907426
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-29",
+      "scheduled_count": 20,
+      "v1": 0.03414928823287073,
+      "v2": 0.03589968930629054
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-11-30",
+      "scheduled_count": 19,
+      "v1": 0.030634011620600227,
+      "v2": 0.032301822731529435
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-12-03",
+      "scheduled_count": 20,
+      "v1": 0.03156040510316585,
+      "v2": 0.03319046330681361
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2018-12-05"
+      ],
+      "origin": "2018-12-04",
+      "scheduled_count": 20,
+      "v1": 0.04984120822706001,
+      "v2": 0.05232316223878292
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-10",
+      "scheduled_count": 20,
+      "v1": 0.01101169090973316,
+      "v2": 0.011721106562339116
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-11",
+      "scheduled_count": 20,
+      "v1": 0.011684800485702525,
+      "v2": 0.012424551830800795
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-12",
+      "scheduled_count": 19,
+      "v1": 0.011114210812229068,
+      "v2": 0.011850146269679068
+    },
+    {
+      "actual_count": 17,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-13",
+      "scheduled_count": 18,
+      "v1": 0.009826232395171565,
+      "v2": 0.010521858482458412
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-16",
+      "scheduled_count": 20,
+      "v1": 0.01088902371124662,
+      "v2": 0.011592785523255348
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-17",
+      "scheduled_count": 20,
+      "v1": 0.010800859694860391,
+      "v2": 0.011500611341767842
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-18",
+      "scheduled_count": 20,
+      "v1": 0.029961090890730454,
+      "v2": 0.031523831008941586
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-19",
+      "scheduled_count": 19,
+      "v1": 0.025765936508514053,
+      "v2": 0.02720377809848286
+    },
+    {
+      "actual_count": 17,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-20",
+      "scheduled_count": 18,
+      "v1": 0.024092453754396847,
+      "v2": 0.025517587715114785
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-23",
+      "scheduled_count": 19,
+      "v1": 0.024093355650062386,
+      "v2": 0.02545097568082711
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-24",
+      "scheduled_count": 19,
+      "v1": 0.024115505492940163,
+      "v2": 0.025474188071230457
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-26",
+      "scheduled_count": 19,
+      "v1": 0.021993922968751495,
+      "v2": 0.023250854836706594
+    },
+    {
+      "actual_count": 17,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-27",
+      "scheduled_count": 18,
+      "v1": 0.021565470155325065,
+      "v2": 0.022861242145154816
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-30",
+      "scheduled_count": 20,
+      "v1": 0.02478657316174153,
+      "v2": 0.026116017342364243
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2024-12-31",
+      "scheduled_count": 20,
+      "v1": 0.02313022857488508,
+      "v2": 0.024385011616408884
+    },
+    {
+      "actual_count": 19,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2025-01-02",
+      "scheduled_count": 20,
+      "v1": 0.021338061658176942,
+      "v2": 0.02251208065310267
+    },
+    {
+      "actual_count": 18,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2025-01-03",
+      "scheduled_count": 19,
+      "v1": 0.021342039708144054,
+      "v2": 0.022567667966013505
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2025-01-06",
+      "scheduled_count": 21,
+      "v1": 0.022349681295142875,
+      "v2": 0.023521358071531474
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2025-01-07",
+      "scheduled_count": 21,
+      "v1": 0.02357796692876795,
+      "v2": 0.024801773025819485
+    },
+    {
+      "actual_count": 20,
+      "extra_scheduled_sessions": [
+        "2025-01-09"
+      ],
+      "origin": "2025-01-08",
+      "scheduled_count": 21,
+      "v1": 0.021647412534518667,
+      "v2": 0.022789241189023205
+    }
+  ],
+  "extra_future_dates": {
+    "2012-10-29": 20,
+    "2012-10-30": 20,
+    "2018-12-05": 21,
+    "2025-01-09": 20
+  },
+  "origins": 4780,
+  "status": "PASSED_SCHEDULED_CALENDAR_PRECOMPARISON_AUDIT",
+  "unaffected_mapping_max_error": 2.220446049250313e-16
+}

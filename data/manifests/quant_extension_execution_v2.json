@@ -1,0 +1,74 @@
+{
+  "audit_sha256": "0589134a75428e90bdd62125782c08633dd32778c1f9817fae4244830965a2dc",
+  "calendar_audit_sha256": "a5553faa642c1761d0b7126476d98b1897542cee4c569e147c8faf112f9515f6",
+  "environment": {
+    "packages": {
+      "arch": "8.0.0",
+      "exchange-calendars": "4.13.2",
+      "matplotlib": "3.11.2",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.17.1",
+      "statsmodels": "0.15.0",
+      "yfinance": "1.5.2"
+    },
+    "python": "3.11.5"
+  },
+  "figure_sha256": {
+    "h6_reliability_v2.pdf": "89b2fca7562713dcf8c13c7908202f92140d2ae73b52fe0b498b620524785a3e",
+    "h6_reliability_v2.png": "cc244842d4279880c929837eb673cc9b00db12c6a2af65f0c2bc5a256a71acff",
+    "h7_period_losses_v2.pdf": "6c8f316858576f1b9b3bc4262e76cb418ad863800afe3d835115504513c592ee",
+    "h7_period_losses_v2.png": "2c6f8950178d8d41d18ca9506efd7ff021730853dd6aadb11df67dc88c930afc",
+    "h8_equity_risk_v2.pdf": "249eed6f240bad508b1eb06a67da8f358646cd2dc1915e3f58ad369ac8323e13",
+    "h8_equity_risk_v2.png": "2745b973a82ddea461c913d94fed78ab20cd2456bcf1d9c67f224ad4ffb1a46a"
+  },
+  "forecast_and_trade_files": {
+    "h6_forecasts.csv": "cba5d6f563f510be1e205cafdb49cabb56232b5ae2fe7ac779840d160262e130",
+    "h6_metrics.csv": "48795023f4d8982ad1440510a9bdda1847cc773108d7872e8417dbcf2fc2b7e9",
+    "h7_forecasts.csv": "298d6f418ca227f9fc4bd949fb8321f0ad7b02e1e93a2350f8544b8ca6e30da7",
+    "h7_metrics.csv": "d87dec946a3babf14dd7dbb5a25086666b5b8be13cffcee249d80902fe81b75e",
+    "h8_buyhold_0bps.csv": "88680aeb653b6b8e1c429e8ebb4b61a12650c8e068e2665086e45677cac7784d",
+    "h8_buyhold_10bps.csv": "f8b047c3918dc7f953a0344d5308a2d145fcb6ebc76536aa405d6946493963fc",
+    "h8_buyhold_1bps.csv": "4dd574ae22b1d0c9f7d13ee4f13c42a0995deadcce6215686b95de48454dfb2c",
+    "h8_buyhold_25bps.csv": "1aad3bfa57814687f9859331790b9736f4e7178f6f39edddc3071dab6e6c84c0",
+    "h8_buyhold_5bps.csv": "071e08076a8f9fc6152d5be2c4d6342f2369fc961e6c767ee5c1d682c6573855",
+    "h8_combined_0bps.csv": "9c2fc52b6eab5acd46d4bc4948ee07922fa00aaa84e2f169bdd63b59b2785d39",
+    "h8_combined_10bps.csv": "04301e1664ee48b1f96af07fcf5e2751a5fee13f56245f9b89ec99c02e40ed7b",
+    "h8_combined_1bps.csv": "25a4578819da74d3e5f21ad1a5d2bbf71455a1fb3ba36eb2f75d3285f0d1ed88",
+    "h8_combined_25bps.csv": "69cff19a35cf0c953bf302b697a0914d6408a01e71479db1dc2c5295f31a1236",
+    "h8_combined_5bps.csv": "fc17ad54283ffebf1f9c3cbaebe17e376deb0e41a3483ede465d3ec89c03fa2a",
+    "h8_garch_0bps.csv": "cffa085151773590574dcb223e73d2e0f1a9a5f9f420ef896fab7e8f54acf206",
+    "h8_garch_10bps.csv": "885a09669f5480121a07cfaedc171c8d30d76a8b5f8f56e870c5556b9394638a",
+    "h8_garch_1bps.csv": "c8371b92da47d15f8f8bb475320f9a5dd5fcae1a77902d4185d3bf7fe9a96d6c",
+    "h8_garch_25bps.csv": "62dd5d0aceeb17f343f2d877a68d390969c4bcac680f00ae14db977e2bbe5ba6",
+    "h8_garch_5bps.csv": "180184f3018a45888363eeb50669fd10d8276032b91dbfd186ab7a4090fcca0d",
+    "h8_metrics.csv": "7e2c9f243eed173367a9df3c0caa93a06d77cc537eefb22468159e95244216a3",
+    "h8_trailing_0bps.csv": "82849780ad59523dd975a880957e3038c322bb36e9810d7a0987ee2d1e81504c",
+    "h8_trailing_10bps.csv": "a16e40ce617f501b0132efec1b1dbbd72a63575856d92983bc52c05640e45e46",
+    "h8_trailing_1bps.csv": "ab200ca2864ae5229e04bd5a768d3f89d3405d724be7eb7c4862f0b4b9d7a2ae",
+    "h8_trailing_25bps.csv": "76dcad1203d0ec7add1008fed170c26fe1b5a0600ea1c62a6c8a801d14f1c400",
+    "h8_trailing_5bps.csv": "7ab3f0f055421b7f59d527e690f6c2d1cfce51971749507d3603f083203d6528",
+    "h8_vix_0bps.csv": "1707b5bdac6761c5399dddf7dcf60201eb41761f1d096839722d02159a1029b7",
+    "h8_vix_10bps.csv": "ee1dfdcbe8e296b1023962770d967bc200f4629cc1673326e065cf1a079c76ff",
+    "h8_vix_1bps.csv": "39a1e7c84d9ffdad46e573324e28d7071c70319742ad20646237dc61d6db024c",
+    "h8_vix_25bps.csv": "2353efca0de966c46dd63098730e29a45206dca0ec4455b840a3c5de554496be",
+    "h8_vix_5bps.csv": "68b6d1078d07a2bf312d67b7b619d88e5a2982506f3e8843429fdf45bfa2269f"
+  },
+  "generator_sha256_lf": "e5904b2ce82765905036435301d0b667cb11458ce710352b0f67287ce1d2db31",
+  "independent_review": "PENDING",
+  "prospective_results": "NONE",
+  "report_sha256": {
+    "h6_tail_risk_results.md": "feb0272295ada30a22584f6adc788c5a96071e27f55eb3b47a23a2103deca660",
+    "h7_variance_forecasting_results.md": "9987a4a7bb3b0ac5e8015808351277ad23ccb9a83b83f7c96991c70c469e25c1",
+    "h8_portfolio_economic_value.md": "3fd60d8e60920db50d65aba9241c0eb7908a91e63317980bea2ca96b4cd2d5c0",
+    "quant_extension_summary.md": "639c15475c69610b13bdf2e337d910b61cdb96dd36e7c3e173ec03fd633bc932"
+  },
+  "result_sha256": {
+    "h6": "2a8107e9ace5dcfd565bbdba59bf7f298906584d3050565806f129072b4715c9",
+    "h7": "cec3e911eaef7f4d27d8395ba8316f807a910b82601a79bcfe29a8f636001d68",
+    "h8": "b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001"
+  },
+  "status": "EXPLORATORY \u2014 POST H1\u2013H5 RESULT SELECTION \u2014 PENDING INDEPENDENT REVIEW",
+  "supersedes_invalidated_calendar_version": "quant_extension_execution.json; v1 retained"
+}

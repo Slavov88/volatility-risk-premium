@@ -1,0 +1,30 @@
+{
+  "limitations": "Vendor OHLC/actions, not executable historical quotes. Dividend ex-date cash credit; no external provider validation.",
+  "parameters": {
+    "actions": true,
+    "auto_adjust": false,
+    "end_exclusive": "2026-02-03",
+    "raise_errors": true,
+    "repair": false,
+    "start": "2006-12-01"
+  },
+  "path": "data/raw/2026-10-13T200615Z/quant_extension_spy/spy_ohlc_actions.csv",
+  "provider": "Yahoo Finance via yfinance",
+  "retrieved_utc": "2026-10-13T20:06:10.911378+00:00",
+  "sha256": "25b45ed25d1c6c09d337d277518e9710fbdcbfc62f691d7971231a6a3d7c5b44",
+  "symbol": "SPY",
+  "tls": "normal provider library certificate verification; no overrides",
+  "validation": {
+    "cumulative_cash_vs_vendor_return_factor_difference": 0.0005896713020059341,
+    "dividend_events": 77,
+    "end": "2026-02-02",
+    "independent_provider_validation": "NOT_AVAILABLE; internal action/adjustment consistency only",
+    "max_daily_difference_date": "2020-03-20",
+    "max_daily_return_difference": 0.00025187083036082303,
+    "missing_sessions": 0,
+    "rows": 4821,
+    "splits": 0,
+    "start": "2006-12-01"
+  },
+  "yfinance": "1.5.2"
+}

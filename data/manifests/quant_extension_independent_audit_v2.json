@@ -1,0 +1,41 @@
+{
+  "accounting_max_abs_error": 0.0,
+  "anchors": [
+    {
+      "fit_as_of": "2012-01-03",
+      "h6_and_h7_exact_prediction_replay": true,
+      "origin": "2012-01-03"
+    },
+    {
+      "fit_as_of": "2019-01-02",
+      "h6_and_h7_exact_prediction_replay": true,
+      "origin": "2019-01-02"
+    },
+    {
+      "fit_as_of": "2025-12-01",
+      "h6_and_h7_exact_prediction_replay": true,
+      "origin": "2025-12-31"
+    }
+  ],
+  "baseline_files_preserved": 56,
+  "baseline_snapshot_sha256": "801965ae27643c797f75abcf39a67afaccdc0f4de18c9ffce5a9e20303991c0b",
+  "common_origins": 3520,
+  "h6_sha256": "2a8107e9ace5dcfd565bbdba59bf7f298906584d3050565806f129072b4715c9",
+  "h7_sha256": "cec3e911eaef7f4d27d8395ba8316f807a910b82601a79bcfe29a8f636001d68",
+  "h8_sha256": "b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001",
+  "monthly_fits_each": 168,
+  "return_product_max_abs_error": 1.687538997430238e-13,
+  "score_max_errors": {
+    "brier_A": 0.0,
+    "brier_B": 0.0,
+    "brier_C": 0.0,
+    "brier_D": 0.0,
+    "qlike_combined": 0.0,
+    "qlike_ewma": 0.0,
+    "qlike_garch": 5.551115123125783e-17,
+    "qlike_har": 5.551115123125783e-17,
+    "qlike_trailing": 0.0,
+    "qlike_vix": 1.1102230246251565e-16
+  },
+  "status": "PASSED_INDEPENDENT_SCORE_AND_SHARE_CASH_REPLAY"
+}

@@ -1,0 +1,4 @@
+# Additive extension dependencies; original requirements-dev.lock is unchanged.
+scikit-learn==1.7.2
+joblib==1.5.2
+threadpoolctl==3.6.0

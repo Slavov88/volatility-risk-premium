@@ -1,0 +1,5 @@
+# Cached-horizon clarification before corrected comparisons
+
+The v2 precomparison calendar audit and both new model runs stopped at the registered insufficient-vector gate; no v2 predictions or comparisons were produced. Some cached horizons contain only max(actual30-day count,21) daily variances, shorter than the ex-ante scheduled count around Sandy. Preserve those failed attempts in the log.
+
+Correctness clarification: extend a cached Gaussian GARCH expected-variance vector analytically, using its already hash-verified parameters and last stored daily forecast: v_next=omega/10000+(alpha+beta)*v_last. This is the same previously independently verified analytic recurrence, introduces no fit or future input, and handles at most the known scheduled horizon. Reject missing/nonfinite parameters or nonpositive values. Compare recurrence against **every stored vector** before any extension. All models/settings/periods/thresholds remain unchanged; no corrected performance has yet been inspected. This clarification is committed before re-execution.
