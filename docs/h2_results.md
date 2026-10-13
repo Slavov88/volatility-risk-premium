@@ -4,7 +4,7 @@
 
 Aleksandar authorized provisional execution before Venelin's independent review on 2026-10-13. No independent acceptance/signature is implied. Protocol 1.1.0 and interim amendment remain fixed.
 
-Input freeze SHA-256 `1fc80bde23388d5619ea876ed31142b398dc28b254abf3ea74fd7a03dc815ac4`; target manifest SHA-256 `00532571aad5f8d9c43231933429fe6facbf7687a6332231ac8b7ad0ff73ccd9`. Result source hashes: `h1_h2.json: 6b07e43199d3ffd723e42c8ed3bf497c800421f79a6c56b33b95d9e9d67d5a25`, `h3_h4.json: 03afa02ed0e6087ab507fcde105a066b591b74b10a9826cce553ce4310d5a1a5`, `h5.json: b2945442db51261cc5fde5555eab806e8413b35dc26a5292cfe6d80f49937b90`, `execution_audit.json: a37a4b74db24de665e0d1e109f237367a8f2c0110ada5d4a0ea8e106f38caeb6`.
+Input freeze SHA-256 `1fc80bde23388d5619ea876ed31142b398dc28b254abf3ea74fd7a03dc815ac4`; target manifest SHA-256 `00532571aad5f8d9c43231933429fe6facbf7687a6332231ac8b7ad0ff73ccd9`. Result source hashes: `h1_h2.json: 6b07e43199d3ffd723e42c8ed3bf497c800421f79a6c56b33b95d9e9d67d5a25`, `h3_h4.json: 03afa02ed0e6087ab507fcde105a066b591b74b10a9826cce553ce4310d5a1a5`, `h3_h4_post2014.json: f29223a7fcc2b21145a6be9901cf002dca3ae80878c0339111f4e7513c022ddf`, `h5.json: b2945442db51261cc5fde5555eab806e8413b35dc26a5292cfe6d80f49937b90`, `execution_audit.json: a37a4b74db24de665e0d1e109f237367a8f2c0110ada5d4a0ea8e106f38caeb6`.
 
 Point estimates use the frozen untrimmed sample; Bartlett HAC finite-sample correction N/(N-k), asymptotic normal confidence intervals/p-values, joint Wald chi-square where specified. Independent numpy least-squares and score-sandwich checks passed. Numeric p=0 in diagnostics means floating-point underflow, not a mathematical zero. Full numerical precision is retained in source JSON.
 

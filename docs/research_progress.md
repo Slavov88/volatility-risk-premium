@@ -345,3 +345,11 @@ Full scientific suite: 1734 passed in 35.90 s; compile/diff checks passed.
 EMP-005 independent acceptance remains pending. No result marked independently
 reviewed. Cboe/source discrepancies remain unresolved. Next action: Venelin
 reviews the complete data/implementation/numerical/methodology evidence package.
+
+- c3a3e2b empirical package published to draft PR #2; GitHub Actions passed
+  1734 tests/compilation (run 38449276660). Final local package suite also
+  passed 1734 tests in 48.32 s, compileall src/tests/scripts and diff check.
+- d3df79d adds fixed post-2014 H3/H4 evaluation sensitivity on unchanged
+  forecasts. Computed twice, identical hash; 2827 common origins per variant
+  and horizon. Post-2003 OOS is already the full OOS sample. Updated reports
+  and v2 metadata preserve the original c3a3e2b report snapshot.

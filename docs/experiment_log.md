@@ -413,3 +413,27 @@ not every fit. Return JB/Ljung-Box/ARCH-LM and descriptive leverage diagnostics
 preceded fits. Numerical p=0 underflow labelled. No trimming, outcome-selected
 specification/source/window changes, theoretical conditional-premium claim,
 causality/efficiency claim or manuscript conclusion. Scientific review pending.
+
+### RUN-010 - fixed post-2014 H3/H4 sensitivity completion
+
+Protocol cutoff 2014-10-06 applied to the same complete frozen forecasts and
+H3 common masks, without refitting or changing training/source choices.
+Post-2003 OOS is identical to full OOS because evaluation begins in 2007.
+Implementation d3df79d41e70fc72673d4582cc076f1fd80047d8:
+
+```powershell
+.venv/Scripts/python.exe scripts/post2014_forecast_sensitivity.py --parser-path outputs/archive_inspection --root outputs/empirical_h1_h5/v1 --code-commit d3df79d41e70fc72673d4582cc076f1fd80047d8
+```
+
+Executed twice with identical SHA-256
+f29223a7fcc2b21145a6be9901cf002dca3ae80878c0339111f4e7513c022ddf.
+Three variants/both horizons/all prescribed lags, paired HAC/QLIKE/Holm and
+matching encompassing masks, 2827 evaluation origins. Primary full-OOS
+results unchanged. Reports regenerated from artifacts with v2 execution
+manifest; c3a3e2b report snapshot and original manifest remain preserved.
+Same-environment byte replay verified; cross-platform numerical reproductions
+should record their platform/BLAS and compare numeric tolerance as well.
+
+Publication at c3a3e2b passed GitHub Actions: 1734 tests and compilation.
+https://github.com/Slavov88/volatility-risk-premium/actions/runs/38449276660.
+Independent scientific review remains pending.

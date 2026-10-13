@@ -30,6 +30,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,required=True)
     parser.add_argument('--parser-path',type=Path,required=True);args=parser.parse_args();sys.path.insert(0,str(args.parser_path.resolve()))
     root=args.root;h12=json.loads((root/'h1_h2.json').read_bytes());h34=json.loads((root/'h3_h4.json').read_bytes());h5=json.loads((root/'h5.json').read_bytes())
+    post2014=json.loads((root/'h3_h4_post2014.json').read_bytes())
     targets,daily,_=inputs();output=root/'publication/v2';output.mkdir(parents=True,exist_ok=True)
     source={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in root.glob('h*.json')}
     source['execution_audit.json']=hashlib.sha256((root/'execution_audit.json').read_bytes()).hexdigest()
@@ -73,6 +74,10 @@ def main():
     h3+='\nWarning logs distinguish library FutureWarnings from convergence failures; none failed. Near-unit persistence is common, especially Student-t; three rolling fits are at/just above one within floating-point precision and are retained. Residual diagnostics use 38 pre-selected calendar anchors per variant, not every fit; they are not a claim that all residual ARCH disappeared.\n\n'
     h3+=table(['Variant','Horizon','Lag','Contrast','Mean squared-loss difference','HAC SE','95% CI','Raw p','Holm p (two secondary contrasts only)'],tests)
     h3+='\nParameter distributions, per-origin warnings/convergence, standardized residual JB/Ljung-Box/ARCH-LM diagnostics and QLIKE contrast uncertainties are in the hashed source JSON and local forecast checkpoints. Raw and adjusted p-values are retained.\n'
+    h3+='\n## Fixed post-2014 forecast sensitivity\n\nThe pre-specified cutoff is 2014-10-06. Reuse exactly the same frozen recursive forecasts, restricting only evaluation origins; no refit/model/source change. The post-2003 OOS sensitivity is identical to full OOS because evaluation begins in 2007.\n\n'
+    h3+=table(['Variant','Horizon','N','Lag','VIX RMSE','GARCH RMSE','Naive RMSE','VIX-GARCH MSE difference','95% CI','p'],[
+        [r['variant'],r['horizon'],r['n'],r['lag'],fmt(r['metrics']['vix']['rmse']),fmt(r['metrics']['garch']['rmse']),fmt(r['metrics']['naive']['rmse']),
+         fmt(r['h3']['vix_vs_garch']['mean']),interval(r['h3']['vix_vs_garch']['ci_lower'],r['h3']['vix_vs_garch']['ci_upper']),repr(r['h3']['vix_vs_garch']['p_value'])] for r in post2014['analyses']])
     reports['h3_results.md']=h3
     h4=prefix+'## H4: forecast encompassing\n\nRVAR = alpha + beta IVAR + gamma GARCH; identical H3 common masks. Tests beta=0 and gamma=0 use individual two-sided HAC normal inference. No causal interpretation.\n\n'
     h4+=f"Primary N={p4['n']}, R²={p4['r_squared']!r}, design rank={p4['design_rank']}, raw condition number={p4['design_condition_number']!r}; predictor correlation={p4['predictor_correlation'][0][1]!r}. Correlated forecasts widen incremental-effect intervals; variance-unit scaling contributes to the raw condition number.\n\n"
@@ -84,6 +89,10 @@ def main():
             for r in o['h4']:
                 for i,name in enumerate(['alpha','beta VIX','gamma GARCH']):rows.append([a['variant'],h,r['lag'],r['n'],name,fmt(r['coefficients'][i]),fmt(r['se'][i]),interval(*r['ci95'][i]),repr(r['p_values'][i]),fmt(r['r_squared'])])
     h4+=table(['Variant','Horizon','Lag','N','Coefficient','Estimate','HAC SE','95% CI','p','R²'],rows)
+    h4+='\n## Fixed post-2014 encompassing sensitivity\n\nReuse the same H3 post-2014 common mask and forecasts. Primary full-OOS results above remain primary.\n\n'
+    h4+=table(['Variant','Horizon','N','Lag','Beta VIX','95% CI beta','p beta','Gamma GARCH','95% CI gamma','p gamma'],[
+        [r['variant'],r['horizon'],r['n'],r['lag'],fmt(r['h4']['coefficients'][1]),interval(*r['h4']['ci95'][1]),repr(r['h4']['p_values'][1]),
+         fmt(r['h4']['coefficients'][2]),interval(*r['h4']['ci95'][2]),repr(r['h4']['p_values'][2])] for r in post2014['analyses']])
     reports['h4_results.md']=h4
     h5text=prefix+'## H5: ex-post NBER recession classification\n\n'
     h5text+=f"Official chronology source: [{h5['chronology_source']['source_url']}]({h5['chronology_source']['source_url']}); retrieved {h5['chronology_source']['retrieved_at_utc']}; HTML SHA-256 `{h5['chronology_source']['sha256']}`. Frozen before H5 outcomes; monthly peak excluded, trough included. Labels never enter forecasts. Revisions require a preserved versioned baseline. Existing case windows remain entire 2008/2020/2022 calendar years.\n\n"
@@ -170,7 +179,9 @@ def main():
         'generator_sha256_lf':hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
         'publication_root':output.as_posix(),
         'independent_review':'PENDING','manuscript_conclusions_added':False}
-    persist(Path('data/manifests/2026-10-13_h1_h5_execution.json'),metadata)
+    metadata['prior_execution_manifest']='data/manifests/2026-10-13_h1_h5_execution.json; c3a3e2b report snapshot'
+    metadata['post2014_sensitivity_implementation_commit']=post2014['implementation']['commit']
+    persist(Path('data/manifests/2026-10-13_h1_h5_execution_v2.json'),metadata)
     print('reports generated from hashed JSON',flush=True)
 
 
