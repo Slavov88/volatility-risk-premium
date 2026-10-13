@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this research software, please cite the repository and the accompanying paper when available."
+title: "Volatility Risk Premium"
+type: software
+authors:
+  - given-names: Venelin
+    family-names: Mirchev
+  - given-names: Aleksandar
+    family-names: Slavov
+repository-code: "https://github.com/Slavov88/volatility-risk-premium"
+version: 0.1.0
