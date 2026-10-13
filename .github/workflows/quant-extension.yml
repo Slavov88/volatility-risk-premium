@@ -1,9 +1,9 @@
 name: quant-extension
 on:
   push:
-    branches: [agent/quant-risk-extension]
+    branches: [agent/quant-risk-extension, agent/asof-calendar-repair]
   pull_request:
-    branches: [agent/empirical-production]
+    branches: [agent/empirical-production, agent/quant-risk-extension]
 jobs:
   test:
     runs-on: ubuntu-latest

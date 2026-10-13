@@ -1,0 +1,87 @@
+{
+  "archived_CC_inference_cells_replayed": 42,
+  "case_metrics_sha256": "43b5e521b6049eb0c53411e63f83989d6b09b762aace32b6e910182e9520f0c5",
+  "corrected_results_sha256": "f5ca96f49726028f830594c0f824e93f4a15894b31c4bfd697e89302554102fa",
+  "five_percent_decision_changes": [],
+  "fixed21_analysis_cells_exact": 36,
+  "h1_h2_all_cells_exact": true,
+  "h5_all_regressions_exact": true,
+  "h5_case_forecast_loss_dependency": true,
+  "h5_case_loss_changes": [
+    {
+      "corrected": 0.17314680450686998,
+      "metric": "rmse",
+      "model": "garch",
+      "original": 0.17314680450686995,
+      "signed_change": 2.7755575615628914e-17,
+      "year": "2008"
+    },
+    {
+      "corrected": 0.02899562278888399,
+      "metric": "rmse",
+      "model": "garch",
+      "original": 0.028995622788883988,
+      "signed_change": 3.469446951953614e-18,
+      "year": "2022"
+    }
+  ],
+  "h5_updated_case_forecast_loss_companion": {
+    "2008": {
+      "garch": {
+        "mae": 0.09713816967732915,
+        "n": 253,
+        "rmse": 0.17314680450686998
+      },
+      "naive": {
+        "mae": 0.11308606261854423,
+        "n": 253,
+        "rmse": 0.188801973126327
+      },
+      "vix": {
+        "mae": 0.09601359113474955,
+        "n": 253,
+        "rmse": 0.17418569728038266
+      }
+    },
+    "2020": {
+      "garch": {
+        "mae": 0.11480724507325889,
+        "n": 253,
+        "rmse": 0.2346723867919863
+      },
+      "naive": {
+        "mae": 0.14413684520467512,
+        "n": 253,
+        "rmse": 0.2849949027117042
+      },
+      "vix": {
+        "mae": 0.10464470916117802,
+        "n": 253,
+        "rmse": 0.20991950911734966
+      }
+    },
+    "2022": {
+      "garch": {
+        "mae": 0.02209992590997266,
+        "n": 251,
+        "rmse": 0.02899562278888399
+      },
+      "naive": {
+        "mae": 0.024454724897538523,
+        "n": 251,
+        "rmse": 0.03142310188521431
+      },
+      "vix": {
+        "mae": 0.02216145069717169,
+        "n": 251,
+        "rmse": 0.028317721475946703
+      }
+    }
+  },
+  "independent_qlike_max_error": 5.551115123125783e-17,
+  "status": "CORRECTED / PROVISIONAL \u2014 PENDING INDEPENDENT COAUTHOR REVIEW",
+  "unchanged_result_hashes": {
+    "h1_h2.json": "6b07e43199d3ffd723e42c8ed3bf497c800421f79a6c56b33b95d9e9d67d5a25",
+    "h5.json": "b2945442db51261cc5fde5555eab806e8413b35dc26a5292cfe6d80f49937b90"
+  }
+}
