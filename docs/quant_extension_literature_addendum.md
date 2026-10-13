@@ -1,0 +1,11 @@
+# Literature verification addendum
+
+**EXPLORATORY — POST H1–H5 RESULT SELECTION — PENDING INDEPENDENT REVIEW**
+
+This bibliography supplement was checked after extension results; it changes no registered design, model or claim. Original Phase A evidence map remains preserved in its registration commit.
+
+- [Bates & Granger (1969), The Combination of Forecasts, Journal of the Operational Research Society20,451–468, DOI10.1057/jors.1969.103](https://link.springer.com/article/10.1057/jors.1969.103): publisher abstract reports airline-forecast combinations with past-error-derived weights and lower mean-square error. This verifies the longstanding combination precedent, not an assurance that our variance combination should beat its constituents. Full text subscription-gated.
+- [Blair, Poon & Taylor (2001), Forecasting S&P100 volatility: The incremental information content of implied volatilities and high-frequency index returns, Journal of Econometrics105(1),5–26, university research record](https://research.manchester.ac.uk/en/publications/forecasting-sampp-100-volatility-the-incremental-information-cont/): bibliographic search result verified; full page retrieval timed out. Treat as a closest calibration/information-content precedent requiring full-text verification before manuscript reliance. Its S&P100/earlier VIX setting differs from current SPX methodology; no unverified detailed empirical claim imported.
+- [Perold, The Implementation Shortfall: Paper versus Reality (Spring1988), publisher reprint entry](https://www.degruyterbrill.com/document/doi/10.1515/9781400829408-014/html): publisher search metadata confirms the essay/reprint; full text blocked. We therefore make no source-specific numeric cost claim. Cboe's verified quote product and the explicitly modeled cost/delay accounting support the concrete implementation boundaries in H8/H9. Original journal bibliography independently indexed as Journal of Portfolio Management14(3),4–9 (1988), but full publisher article unavailable in this session.
+
+No exhaustive novelty or systematic-review claim is warranted. The key unresolved empirical bridge remains whether better proxy-variance scores lead to stronger real-time decisions after costs; our fixed models do not establish that bridge.

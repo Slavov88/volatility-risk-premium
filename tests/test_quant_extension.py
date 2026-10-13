@@ -26,7 +26,7 @@ def test_exact_maturity_and_incomplete_labels():
     p.loc[0, "y"] = np.nan; p.loc[1, "target_status_cc_30c"] = "INCOMPLETE"
     assert len(matured_training(p, asof, H6_FEATURES)) == 2
     p.loc[2, "maturity"] -= pd.Timedelta(days=1)
-    with pytest.raises(ValueError, match="origin\+30"):
+    with pytest.raises(ValueError, match=r"origin\+30"):
         matured_training(p, asof, H6_FEATURES)
 
 
@@ -70,3 +70,32 @@ def test_hash_and_immutable_rerun(tmp_path):
     p.write_text("corruption")
     with pytest.raises(ValueError, match="Hash"):
         checked_hash(p, digest)
+
+
+def test_feature_builder_is_causal_and_has_decimal_variance_units():
+    from vrp.quant_extension import build_features
+    dates = pd.date_range("2011-08-01", periods=150, freq="B")
+    r = np.repeat(.01, len(dates)); r[::3] = -.02
+    daily = pd.DataFrame({"Date": dates.strftime("%Y-%m-%d"), "log_return": r})
+    targets = pd.DataFrame({"origin": daily.Date, "ivar": .04, "rvar_cc_fwd_30c": .03,
+                            "target_status_cc_30c": "COMPLETE"})
+    garch = pd.DataFrame({"origin": daily.Date, "garch": .02})
+    before = build_features(targets, daily, garch)
+    asof = daily.Date.iloc[100]
+    assert np.exp(before.log_rv21.iloc[100]) == pytest.approx(252*np.mean(r[80:101]**2))
+    changed = daily.copy(); changed.loc[101:, "log_return"] = 100.
+    changed_garch = garch.copy(); changed_garch.loc[101:, "garch"] = 1e10
+    after = build_features(targets, changed, changed_garch)
+    pd.testing.assert_frame_equal(before.loc[before.origin <= asof], after.loc[after.origin <= asof])
+
+
+def test_common_mask_rejects_partial_model_coverage():
+    from vrp.quant_extension import evaluation_panel, H7_FEATURES, HAR_FEATURES
+    p = training_panel(5)
+    p["origin"] = pd.date_range("2012-01-03", periods=5, freq="B").strftime("%Y-%m-%d")
+    for f in H7_FEATURES+HAR_FEATURES+["ewma"]:
+        p[f] = .01
+    assert len(evaluation_panel(p)) == 5
+    p.loc[0, "garch"] = np.nan
+    with pytest.raises(ValueError, match="common evaluation"):
+        evaluation_panel(p)
