@@ -58,6 +58,9 @@ class ScientificConventions:
     garch_robustness_distribution: str = "student_t"
     garch_primary_window: str = "expanding"
     garch_robustness_window_years: int = 5
+    garch_fit_return_scale: float = 100.0
+    garch_variance_backscale: float = 10000.0
+    summary_moment_convention: str = "sample_sd_bias_corrected_fisher"
 
     oos_initial_estimation_end_year: int = 2006
     oos_start_year: int = 2007
@@ -162,6 +165,12 @@ class ScientificConventions:
             raise ValueError("primary GARCH estimation window must remain expanding")
         if self.garch_robustness_window_years != 5:
             raise ValueError("rolling-window robustness must remain five years")
+        if self.garch_fit_return_scale != 100.0:
+            raise ValueError("GARCH fitting return scale must remain 100")
+        if self.garch_variance_backscale != 10000.0:
+            raise ValueError("GARCH variance backscale must remain 10000")
+        if self.summary_moment_convention != "sample_sd_bias_corrected_fisher":
+            raise ValueError("summary moment convention must remain locked")
         if self.oos_initial_estimation_end_year != 2006 or self.oos_start_year != 2007:
             raise ValueError("OOS design must remain train-through-2006/start-2007")
         if self.oos_test_period_tuning_allowed:

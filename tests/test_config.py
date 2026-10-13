@@ -49,6 +49,9 @@ def test_default_conventions_match_locked_protocol() -> None:
     assert CONVENTIONS.garch_robustness_distribution == "student_t"
     assert CONVENTIONS.garch_primary_window == "expanding"
     assert CONVENTIONS.garch_robustness_window_years == 5
+    assert CONVENTIONS.garch_fit_return_scale == 100.0
+    assert CONVENTIONS.garch_variance_backscale == 10000.0
+    assert CONVENTIONS.summary_moment_convention == "sample_sd_bias_corrected_fisher"
     assert CONVENTIONS.oos_initial_estimation_end_year == 2006
     assert CONVENTIONS.oos_start_year == 2007
     assert CONVENTIONS.oos_test_period_tuning_allowed is False
@@ -99,6 +102,9 @@ def test_invalid_oos_design_is_rejected() -> None:
         ({"garch_mean": "zero"}, "mean specification"),
         ({"garch_primary_distribution": "student_t"}, "primary GARCH distribution"),
         ({"garch_robustness_distribution": "normal"}, "robustness distribution"),
+        ({"garch_fit_return_scale": 1.0}, "return scale"),
+        ({"garch_variance_backscale": 1.0}, "variance backscale"),
+        ({"summary_moment_convention": "population"}, "summary moment"),
         ({"oos_test_period_tuning_allowed": True}, "test-period tuning"),
     ],
 )

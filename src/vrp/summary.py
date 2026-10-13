@@ -1,4 +1,9 @@
-"""Descriptive summary statistics required by Protocol 1.0.1."""
+"""Descriptive summary statistics required by Protocol 1.1.0.
+
+The convention is fixed before empirical outputs: sample standard deviation
+(ddof=1), bias-corrected Fisher-Pearson skewness, and bias-corrected Fisher
+excess kurtosis. Quantiles use linear interpolation on positions q*(n-1).
+"""
 
 from __future__ import annotations
 
@@ -15,15 +20,34 @@ def summary_statistics(values: Sequence[float]) -> dict[str, float]:
     n_obs = len(sample)
     if n_obs == 0:
         return {"n_obs": 0.0}
+
     ordered = sorted(sample)
     mean = sum(sample) / n_obs
     centered = [item - mean for item in sample]
-    second = sum(item * item for item in centered) / n_obs
-    std = math.sqrt(second)
-    third = sum(item**3 for item in centered) / n_obs
-    fourth = sum(item**4 for item in centered) / n_obs
-    skewness = 0.0 if second == 0 else third / (second ** 1.5)
-    excess_kurtosis = 0.0 if second == 0 else fourth / (second**2) - 3.0
+    sum2 = sum(item * item for item in centered)
+    m2 = sum2 / n_obs
+    std = math.sqrt(sum2 / (n_obs - 1)) if n_obs >= 2 else math.nan
+
+    if m2 == 0.0:
+        skewness = 0.0
+        excess_kurtosis = 0.0
+    else:
+        m3 = sum(item**3 for item in centered) / n_obs
+        m4 = sum(item**4 for item in centered) / n_obs
+        g1 = m3 / (m2 ** 1.5)
+        g2 = m4 / (m2**2) - 3.0
+        skewness = (
+            math.sqrt(n_obs * (n_obs - 1)) / (n_obs - 2) * g1
+            if n_obs >= 3
+            else math.nan
+        )
+        excess_kurtosis = (
+            ((n_obs - 1) / ((n_obs - 2) * (n_obs - 3)))
+            * ((n_obs + 1) * g2 + 6.0)
+            if n_obs >= 4
+            else math.nan
+        )
+
     return {
         "n_obs": float(n_obs),
         "mean": mean,
