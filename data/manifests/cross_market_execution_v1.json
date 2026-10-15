@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "study": "cross-market-replication",
+  "status": "EXPLORATORY_EXTERNAL_REPLICATION — PROVISIONAL / PENDING INDEPENDENT REVIEW",
+  "analysis_cutoff": "2025-12-31",
+  "protocol_commits": ["88de0f5", "ced7cce", "fb20a28"],
+  "permission_note": "Author attested 2026-10-15 that written permissions cover research use and public sharing of derived results from all proposed providers; license documents are not stored in this checkout.",
+  "raw_market_data_policy": "Raw source observations are local ignored inputs and are not committed. Exact paths, retrieval metadata, coverage, and source SHA-256 are in the input manifests.",
+  "input_manifests": {
+    "data/manifests/cross_market_sources_v1.json": "7a78261c22d5d9af773a6a3f3b8be3c0cdda15fe08e8e6c81fa5a684f0cae379",
+    "data/manifests/cross_market_volatility_v2.json": "5baf82276ce3dd2583b08731f08702af26beceb00144e32f85d1fd4bba7ce47c",
+    "data/manifests/h8_cash_rate_source_v1.json": "61ff6f555ea3d6c1106b4717ee83f215b17e379ad8cea78852637b7d216f91d7"
+  },
+  "results": {
+    "outputs/cross_market/v1/ndx_vxn_h1_h2_v2.json": {
+      "sha256": "1284c6b9141a941ba826a31cf004a20e23f501646799068e3117103a78bed795",
+      "code_commit": "4e9b2b982891df88f3eac0a125a71267e17f4566",
+      "origins": 6241
+    },
+    "outputs/cross_market/v1/ndx_vxn_h3_h4_v2.json": {
+      "sha256": "cff969766af030acc9a2cbe35bc406d220d8bdf6735058bb4a1e7de7e9801349",
+      "code_commit": "8e967f7273c903d724af186a5e3267cb63ebdbc5",
+      "origins_per_variant": 4780,
+      "variants": ["normal_expanding", "t_expanding", "normal_rolling5y"]
+    },
+    "outputs/cross_market/v1/ndx_vxn_h5_v1.json": {
+      "sha256": "d7a074fbdef82739f950223ba335a5f06f013bd3bdee125790cae37c575bcaa2",
+      "code_commit": "a0b68a874e1211a28c9f21920a1d18284c34905a",
+      "origins": 6241
+    },
+    "outputs/cross_market/v1/ndx_vxn_h6_v1.json": {
+      "sha256": "cb2dd809825c8a3f0b6f0f6dfa8c751a7ee78ce0b7827b94e5e8b48961de38c7",
+      "code_commit": "a0b68a874e1211a28c9f21920a1d18284c34905a",
+      "origins": 3520
+    },
+    "outputs/cross_market/v1/ndx_vxn_h7_v1.json": {
+      "sha256": "32a7af62e45b2c5722b7dd0cd081840fbcdbe5393d981fb2e61adcf0270fba82",
+      "code_commit": "a0b68a874e1211a28c9f21920a1d18284c34905a",
+      "origins": 3520
+    },
+    "outputs/cross_market/v1/ndx_spx_paired_inference_v3.json": {
+      "sha256": "3e060cf74f59ba0abd5143c9c24cd679fff8ed928551a1a3c79baf510ce72ff0",
+      "code_commit": "8e967f7273c903d724af186a5e3267cb63ebdbc5",
+      "common_origins": 4780
+    },
+    "outputs/cross_market/v1/h8_cash_yield_v1/ndx_qqq_h8_v1.json": {
+      "sha256": "a4dbb8a3b0fbdfdd270e19004169830706d576df18408420339212633c2163de",
+      "code_commit": "4433473bf9122ef670f7ad4c013d1c3191d29956",
+      "strategy_origin_rows": 3520,
+      "ledgers": 100,
+      "zero_interest_ledgers_exact": 25,
+      "max_independent_accounting_error": 3.552713678800501e-15
+    },
+    "data/manifests/h8_ledger_component_attribution_v1.json": {
+      "sha256": "1a4e563f1b59bd23294f78178d4912004f8ed4692a489e513589d296ad524586",
+      "code_commit": "eb5aeaf",
+      "daily_ledgers": 20,
+      "rows_per_ledger": 3520,
+      "max_daily_return_residual": 6.062858548538941e-16
+    }
+  },
+  "limitations": [
+    "The full series-level outputs and raw market inputs are local ignored data, not files in this manifest.",
+    "No independently verified authorized full-history Russell 2000 index input or entitled full-history EURO STOXX 50/VSTOXX data file was present; those markets were not analyzed.",
+    "The S&P H3/H4 historical summary does not preserve the per-origin forecast series needed for a paired market-specific H3 loss differential; H3 results are compared descriptively, not falsely pooled."
+  ]
+}

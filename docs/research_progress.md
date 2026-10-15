@@ -380,3 +380,12 @@ CSV tracked. PR remains draft against agent/autonomous-research, no main
 change/merge/force push. All H1-H5 are COMPUTED / PROVISIONAL; independent
 coauthor review pending. Next: Venelin audits exact inputs, implementations,
 robustness, persistence/residual warnings and methodological compliance.
+
+## Cross-market replication — computed, provisional (2026-10-15)
+
+- Registered protocol and acquired/hashed official Nasdaq-100, Cboe VXN/RVX, QQQ/IWM/RUT candidate, and cash-rate snapshots; source permissions were author-attested. Raw vendor observations remain local/ignored.
+- Completed Nasdaq H1–H8, including 6,241 H1/H2 origins, all 4,780 OOS GARCH origins across three variants, 3,520 H6/H7/H8 origins, same-origin S&P H1/H2 inference, and the fixed 5 bp QQQ replay. Exact input/result identities are in `data/manifests/cross_market_execution_v1.json`.
+- Results do not establish global generalization: paired 2007–2025 VRP differences are small and statistically uncertain; recent means weaken; VXN remains the strongest Nasdaq H3/H7 benchmark, while GARCH increments, H6 event utility, H5 regime effects, and H7 combination gains remain unsupported or inconclusive.
+- Full DGS1MO cash accrual raises cash-holding QQQ-rule CAGR by 0.72–0.87 percentage points at 5 bp but does not change CAGR ordering; the close VXN/combined Sharpe point-rank reversal is not statistically separated. This is Treasury-proxy accrual, not a broker yield claim.
+- Russell 2000 and EURO STOXX 50 execution is blocked by missing independently verified/entitled index histories in the environment. No results are claimed for those markets. Status: EXPLORATORY / PROVISIONAL / PENDING INDEPENDENT REVIEW.
+- Full local suite: 1,839 passed in 38.85 s; focused XNYS/calendar regression tests: 10 passed, plus two daily-ledger attribution tests. `compileall`, manifest JSON parsing, output/input SHA-256 audits, and `git diff --check` passed after documentation updates. Draft PR targets the verified Task 3 branch `codex/cash-yield-robustness` (PR #6 head `0910d8e`); no merge.

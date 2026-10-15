@@ -3,7 +3,7 @@ from datetime import date
 
 import pytest
 
-from vrp.calendar import exchange_sessions, forward_30c_sessions, next_exchange_sessions
+from vrp.calendar import exchange_sessions, forward_30c_sessions, is_exchange_session, next_exchange_sessions
 from vrp.evaluation import (
     common_evaluation_mask,
     estimation_window,
@@ -11,6 +11,13 @@ from vrp.evaluation import (
 )
 from vrp.inference import holm_adjust_two, nonoverlapping_origins_30c, overlap_l0
 from vrp.returns import log_returns
+
+
+def test_xnys_calendar_covers_verified_1986_training_history() -> None:
+    sessions = exchange_sessions(date(1986, 1, 2), date(1986, 1, 8))
+    assert sessions[0] == date(1986, 1, 2)
+    assert date(1986, 1, 3) in sessions
+    assert is_exchange_session(date(1986, 1, 3))
 
 
 def test_future_data_mutation_cannot_change_estimation_window_at_origin() -> None:

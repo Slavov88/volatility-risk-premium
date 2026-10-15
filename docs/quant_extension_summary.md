@@ -15,3 +15,7 @@ Numerical audit: 56 baseline files hash-preserved; H6/H7 same mask; all 168 refi
 Multiplicity: four H6 and three H7 primary pair families use Holm, H8 one primary5bps comparison. Lag63 HAC/lag21 sensitivity and paired block 63 bootstrap intervals; no global false-positive guarantee across exploratory choices, periods and secondary metrics. Historical resampling cannot undo prior result selection.
 
 Generated from `h8.json`, SHA-256 `b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001`. Exact forecasts, refit parameters/scaling and source identity are preserved in `outputs/quant_extension/v2/`; sanitized result metadata is committed in `data/manifests/quant_extension_h8_v2.json`. Reproduction instructions: `docs/quant_extension_reproduction.md`. Independent scientific review PENDING.
+
+## Cross-market follow-on
+
+The Nasdaq-100/VXN/QQQ external replication and paired S&P reference analysis are separate, post-baseline evidence. See [cross_market_replication.md](cross_market_replication.md) and [cross_market_results.md](cross_market_results.md). The fixed-signals QQQ cash-yield sensitivity is isolated at `outputs/cross_market/v1/h8_cash_yield_v1/`; it leaves the S&P H8 result set unchanged. Overall status remains exploratory and pending independent review.

@@ -1,0 +1,135 @@
+{
+  "acquired_at_utc": "2026-10-15T12:31:48Z",
+  "analysis_origin_cutoff": "2025-12-31",
+  "protocol_commit": "ced7cce",
+  "raw_data_policy": "Local ignored storage only; do not redistribute source observations.",
+  "rights_basis": "Author attested 2026-10-15 that written permissions cover research use and public sharing of derived results from all proposed providers; license documents are not stored in this checkout.",
+  "schema_version": 1,
+  "sources": [
+    {
+      "definition": "Official daily OHLC history for Cboe VXN volatility index",
+      "first_date": "2009-09-14",
+      "last_date": "2026-10-14",
+      "missing_cells": 0,
+      "provider": "Cboe Global Indices",
+      "raw_bytes": 219318,
+      "raw_path": "data/raw/cross_market_v1/2026-10-15T123148Z/cboe_vxn_history.csv",
+      "raw_sha256": "5f1eff0cf54605b5a38d3850b9451cbd9b066993dc96d40d4a437e08455e5d64",
+      "rows": 4300,
+      "series": "VXN",
+      "units": "index points; volatility-index methodology-specific annualized measure",
+      "url_final": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VXN_History.csv",
+      "url_requested": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VXN_History.csv",
+      "validation": "schema, date order/uniqueness, positive OHLC, and OHLC inequalities passed"
+    },
+    {
+      "definition": "Official daily OHLC history for Cboe RVX volatility index",
+      "first_date": "2009-09-16",
+      "last_date": "2026-10-14",
+      "missing_cells": 0,
+      "provider": "Cboe Global Indices",
+      "raw_bytes": 218866,
+      "raw_path": "data/raw/cross_market_v1/2026-10-15T123148Z/cboe_rvx_history.csv",
+      "raw_sha256": "5e2cb7e87cf69892b0568b3ed7aac1faa82921707d16895bd8b48f7183d75cc5",
+      "rows": 4291,
+      "series": "RVX",
+      "units": "index points; volatility-index methodology-specific annualized measure",
+      "url_final": "https://cdn-api.cboe.com/api/global/us_indices/daily_prices/RVX_History.csv",
+      "url_requested": "https://cdn.cboe.com/api/global/us_indices/daily_prices/RVX_History.csv",
+      "validation": "schema, date order/uniqueness, positive OHLC, and OHLC inequalities passed"
+    },
+    {
+      "definition": "NASDAQ-100 daily market-close index value; Nasdaq source series distributed by FRED",
+      "first_date": "1986-01-02",
+      "last_date": "2026-10-14",
+      "missing_values": 362,
+      "provider": "Nasdaq, Inc. via FRED",
+      "raw_bytes": 208461,
+      "raw_path": "data/raw/cross_market_v1/2026-10-15T123148Z/nasdaq100_fred_distribution.csv",
+      "raw_sha256": "2326ea9359dc6d521ada1c0600b90be23e054b4ba93955a615a5dba97159ff9f",
+      "rows_finite": 10277,
+      "rows_total": 10639,
+      "series": "NASDAQ100",
+      "units": "index points",
+      "url_final": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQ100",
+      "url_requested": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQ100",
+      "validation": "source schema, date order/uniqueness, and positive finite closes passed; missing source cells retained as missing"
+    },
+    {
+      "definition": "Vendor daily OHLC, adjusted close, dividend and split action snapshot; unadjusted Close used for price-level returns",
+      "dividend_events": 0,
+      "first_date": "2000-01-03",
+      "last_date": "2026-10-14",
+      "provider": "Yahoo Finance via yfinance",
+      "raw_bytes": 633881,
+      "raw_path": "data/raw/cross_market_v1/2026-10-15T123148Z/yahoo_rut_normalized.csv",
+      "raw_sha256": "4e4490b91d25e5e23ef465406bebd0331716dfefe3cfe7be973ce482376dfeea",
+      "request": {
+        "actions": true,
+        "auto_adjust": false,
+        "end_exclusive": "2026-10-15",
+        "repair": false,
+        "start_inclusive": "2000-01-01"
+      },
+      "rows": 6736,
+      "series": "^RUT",
+      "software": {
+        "pandas": "2.3.3",
+        "yfinance": "1.5.2"
+      },
+      "split_events": 0,
+      "validation": "daily date order/uniqueness, positive finite OHLC, OHLC inequalities passed; corporate actions retained"
+    },
+    {
+      "definition": "Vendor daily OHLC, adjusted close, dividend and split action snapshot; unadjusted Close used for price-level returns",
+      "dividend_events": 90,
+      "first_date": "2000-01-03",
+      "last_date": "2026-10-14",
+      "provider": "Yahoo Finance via yfinance",
+      "raw_bytes": 628675,
+      "raw_path": "data/raw/cross_market_v1/2026-10-15T123148Z/yahoo_qqq_normalized.csv",
+      "raw_sha256": "0821f19bab7d5be67f0e3ef3e6c0612c5b3edf3ad114ef6b1f79f8ac1ad43832",
+      "request": {
+        "actions": true,
+        "auto_adjust": false,
+        "end_exclusive": "2026-10-15",
+        "repair": false,
+        "start_inclusive": "2000-01-01"
+      },
+      "rows": 6736,
+      "series": "QQQ",
+      "software": {
+        "pandas": "2.3.3",
+        "yfinance": "1.5.2"
+      },
+      "split_events": 1,
+      "validation": "daily date order/uniqueness, positive finite OHLC, OHLC inequalities passed; corporate actions retained"
+    },
+    {
+      "definition": "Vendor daily OHLC, adjusted close, dividend and split action snapshot; unadjusted Close used for price-level returns",
+      "dividend_events": 107,
+      "first_date": "2000-05-26",
+      "last_date": "2026-10-14",
+      "provider": "Yahoo Finance via yfinance",
+      "raw_bytes": 616919,
+      "raw_path": "data/raw/cross_market_v1/2026-10-15T123148Z/yahoo_iwm_normalized.csv",
+      "raw_sha256": "d3ad88cefec559e2c0c17c0d56c13f50fc0f987c971c82c83e6f12cb44116bf2",
+      "request": {
+        "actions": true,
+        "auto_adjust": false,
+        "end_exclusive": "2026-10-15",
+        "repair": false,
+        "start_inclusive": "2000-01-01"
+      },
+      "rows": 6635,
+      "series": "IWM",
+      "software": {
+        "pandas": "2.3.3",
+        "yfinance": "1.5.2"
+      },
+      "split_events": 1,
+      "validation": "daily date order/uniqueness, positive finite OHLC, OHLC inequalities passed; corporate actions retained"
+    }
+  ],
+  "study": "cross-market-replication"
+}
