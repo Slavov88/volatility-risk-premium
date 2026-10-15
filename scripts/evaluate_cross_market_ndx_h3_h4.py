@@ -186,7 +186,7 @@ def run() -> dict:
 
 def main() -> None:
     result=run()
-    out=ROOT/"outputs/cross_market/v1/ndx_vxn_h3_h4_v1.json"
+    out=ROOT/"outputs/cross_market/v1/ndx_vxn_h3_h4_v2.json"
     print(persist(out,result),flush=True)
     print(json.dumps({"metrics":[{"period":x["period"],"horizon":x["horizon"],"variants":{v:x["variants"][v]["metrics"] for v in VARIANTS}} for x in result["evaluations"]]},indent=2),flush=True)
 
