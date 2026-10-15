@@ -107,8 +107,14 @@ def main() -> None:
         dates=zero_logs["combined",5].Date.tolist()
         schedules[name]=rate_schedule(frame,dates,name)
     common_rf=schedules["DGS1MO"].cash_factor.to_numpy()
-    zero_parts={(model,cost):independently_audit(zero_logs[model,cost],qqq,schedules["DGS1MO"],"DGS1MO",0.,cost)[0]
-                for model in MODELS for cost in COSTS}
+    zero_parts={}
+    for model in MODELS:
+        for cost in COSTS:
+            zero_replay=cash_replay(qqq,zero_logs[model,cost],schedules["DGS1MO"],0.,cost)
+            if not exact_reference_values(zero_replay,zero_logs[model,cost]):
+                raise ValueError("Zero-interest accrual ledger does not reproduce frozen QQQ reference")
+            zero_parts[model,cost]=independently_audit(
+                zero_replay,qqq,schedules["DGS1MO"],"DGS1MO",0.,cost)[0]
     logs={}; summaries=[]; attributions=[]; ledger_audits={}; period_rows=[]
     for scenario in SCENARIOS:
         series="DTB4WK" if scenario=="dtb4wk_full" else "DGS1MO"
