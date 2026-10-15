@@ -17,6 +17,7 @@ from vrp.quant_portfolio import portfolio_metrics, simulate_spy
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs/cross_market/v1"
+H8_OUT = OUT / "h8_cash_yield_v1"
 QQQ_MANIFEST = ROOT / "data/manifests/cross_market_sources_v1.json"
 RATE_MANIFEST = ROOT / "data/manifests/h8_cash_rate_source_v1.json"
 H7_JSON = OUT / "ndx_vxn_h7_v1.json"
@@ -78,6 +79,7 @@ def csv_immutable(path: Path, frame: pd.DataFrame) -> str:
 
 
 def main() -> None:
+    H8_OUT.mkdir(parents=True, exist_ok=True)
     manifest=json.loads(QQQ_MANIFEST.read_bytes())
     qsource=next(s for s in manifest["sources"] if s["series"]=="QQQ")
     qpath=ROOT/qsource["raw_path"];checked_hash(qpath,qsource["raw_sha256"])
@@ -135,7 +137,7 @@ def main() -> None:
                 attributions.append(attribution_row)
                 summary=summarize(log,zero,common_rf,schedule.cash_factor.to_numpy()*multiplier,parts)
                 summary.update({"scenario":scenario,"strategy":model,"cost_bps":cost});summaries.append(summary)
-                log_hashes[f"{scenario}_{model}_{cost}bps.csv"]=csv_immutable(OUT/f"ndx_qqq_h8_{scenario}_{model}_{cost}bps.csv",log)
+                log_hashes[f"{scenario}_{model}_{cost}bps.csv"]=csv_immutable(H8_OUT/f"ndx_qqq_h8_{scenario}_{model}_{cost}bps.csv",log)
                 if cost==5:
                     for period,(lo,hi) in PERIODS.items():
                         mask=log.Date.between(lo,hi).to_numpy();sub=log[mask].copy()
@@ -168,8 +170,8 @@ def main() -> None:
         for col in frame:
             if frame[col].map(lambda value:isinstance(value,list)).any():
                 frame[col]=frame[col].map(lambda value:json.dumps(value) if isinstance(value,list) else value)
-        csv_immutable(OUT/f"ndx_qqq_h8_{name}.csv",frame)
-    result_path=OUT/"ndx_qqq_h8_v1.json"
+        csv_immutable(H8_OUT/f"ndx_qqq_h8_{name}.csv",frame)
+    result_path=H8_OUT/"ndx_qqq_h8_v1.json"
     print(persist(result_path,result),flush=True)
     rank5=[r for r in summaries if r["scenario"] in ("zero","dgs1mo_full","dgs1mo_half","dtb4wk_full") and r["cost_bps"]==5]
     print(json.dumps({"rankings":{s:sorted([(r["strategy"],r["cagr"]) for r in rank5 if r["scenario"]==s],key=lambda x:-x[1]) for s in SCENARIOS},
