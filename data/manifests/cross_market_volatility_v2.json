@@ -1,0 +1,47 @@
+{
+  "protocol_amendment": "source-coverage amendment 2026-10-15, before outcomes",
+  "raw_data_policy": "Local ignored storage only; no raw observations committed.",
+  "schema_version": 1,
+  "source_version": "v2",
+  "sources": [
+    {
+      "definition": "Cboe VXN daily close distributed by FRED; current-vintage snapshot",
+      "first_valid_date": "2001-02-02",
+      "last_valid_date": "2026-10-13",
+      "market_symbol": "VXN",
+      "missing_source_cells": 242,
+      "provider": "Cboe via FRED",
+      "raw_bytes": 112782,
+      "raw_path": "data/raw/cross_market_v2/fred_vxncls.csv",
+      "raw_sha256": "53aa81e815b3f9f5b7b18bcfa64f0c5d02b2341aad5b128307f069d1d7bd3f2f",
+      "retrieved_at_utc": "2026-10-15T12:35:32Z",
+      "rows_total": 6704,
+      "rows_valid": 6462,
+      "series": "VXNCLS",
+      "units": "volatility-index points",
+      "url_final": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VXNCLS",
+      "url_requested": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VXNCLS",
+      "vintage_limit": "FRED current distribution; not an ALFRED initial-release/as-of reconstruction"
+    },
+    {
+      "definition": "Cboe RVX daily close distributed by FRED; current-vintage snapshot",
+      "first_valid_date": "2004-01-02",
+      "last_valid_date": "2026-10-13",
+      "market_symbol": "RVX",
+      "missing_source_cells": 214,
+      "provider": "Cboe via FRED",
+      "raw_bytes": 99985,
+      "raw_path": "data/raw/cross_market_v2/fred_rvxcls.csv",
+      "raw_sha256": "6af5b37b220a840636abcf597578f726ae26454191d42c8ab6ddfbb35456fe04",
+      "retrieved_at_utc": "2026-10-15T12:35:32Z",
+      "rows_total": 5943,
+      "rows_valid": 5729,
+      "series": "RVXCLS",
+      "units": "volatility-index points",
+      "url_final": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RVXCLS",
+      "url_requested": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RVXCLS",
+      "vintage_limit": "FRED current distribution; not an ALFRED initial-release/as-of reconstruction"
+    }
+  ],
+  "study": "cross-market-replication"
+}
