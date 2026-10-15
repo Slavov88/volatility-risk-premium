@@ -25,3 +25,7 @@ No result directly observes the theoretical conditional premium, establishes ris
 Independent review tasks: reproduce exact source/target hashes; inspect the author-reported methodology and explicit Aleksandar execution authorization; verify H1/H2 HAC/Wald oracles and all robustness; audit chronological training/checkpoints/forecast recurrence/common masks; inspect parameter persistence and 38 residual anchors per variant; validate NBER monthly mapping and frozen case windows; inspect generated tables/figures. CI is implementation qualification, not independent scientific acceptance. If rejected, record a versioned revision and full re-execution preserving this baseline. Next concrete action: Venelin audits this complete review package.
 
 Reports: [H1](h1_results.md), [H2](h2_results.md), [H3](h3_results.md), [H4](h4_results.md), [H5](h5_results.md). Figures/tables are reproducibly generated under `outputs/empirical_h1_h5/v1/publication/`; provider price files remain ignored.
+
+## Cross-market extension (separate provisional evidence)
+
+Nasdaq-100/VXN H1–H8 results, synchronized S&P comparisons, source coverage gates, exact output hashes, and remaining Russell/Europe blockers are documented in [cross_market_replication.md](cross_market_replication.md), [cross_market_results.md](cross_market_results.md), and [cross_market_data_provenance.md](cross_market_data_provenance.md). These exploratory results do not revise the S&P estimates above. Independent review remains pending.

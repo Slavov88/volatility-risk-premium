@@ -1,0 +1,133 @@
+{
+  "code_commit": "eb5aeafae03430c4bf631e3653be8dcf8bcd5993",
+  "component_outputs": {
+    "ndx_qqq_h8_dgs1mo_full_buyhold_5bps_components.csv": {
+      "bytes": 531258,
+      "rows": 3520,
+      "sha256": "4f410ee05a7b17b0fa6bdae5a8b545abb6a276bc610ea00ce924e591b83e6d97",
+      "source_ledger_sha256": "6d4c538dab54fbd10d35da03ff9df0a63518f9bbe647c50fe8b8dd3b0b49a74e"
+    },
+    "ndx_qqq_h8_dgs1mo_full_combined_5bps_components.csv": {
+      "bytes": 746538,
+      "rows": 3520,
+      "sha256": "8975ca2584eb58f3a1224d1621668121a1eb01ff14b007beceb568ee692b1417",
+      "source_ledger_sha256": "0b4fbeee348bdf0a818c02805817c54be7e1c7c5bb640dcf06c959a05646b2c1"
+    },
+    "ndx_qqq_h8_dgs1mo_full_garch_5bps_components.csv": {
+      "bytes": 746369,
+      "rows": 3520,
+      "sha256": "75e7e9d3452ac5307eba1655e87ad8375d2551e12007729a66ff1f8b12cfb517",
+      "source_ledger_sha256": "a45559ff1c592a59fa77a76024caaaf4342335858e458bb1c8ef17fd5433666e"
+    },
+    "ndx_qqq_h8_dgs1mo_full_trailing_5bps_components.csv": {
+      "bytes": 726401,
+      "rows": 3520,
+      "sha256": "e765ab2f3113909e64b1635c62fa1f265152f8101edaa5f4400e19dcf25dd82f",
+      "source_ledger_sha256": "7426ec1cf93a363528e3bf94d0913a28ad05dce401e2dbe1a34d7b4e25aac80e"
+    },
+    "ndx_qqq_h8_dgs1mo_full_vix_5bps_components.csv": {
+      "bytes": 747009,
+      "rows": 3520,
+      "sha256": "52105bd0ee9da05a5c950a335f09a1ac0348631ac62335af6573e0093efaf03a",
+      "source_ledger_sha256": "e7faa55a1d74cae34f7504e66cf6a1eac38d2958b5d40ac25a7b65b759a7849d"
+    },
+    "ndx_qqq_h8_dgs1mo_half_buyhold_5bps_components.csv": {
+      "bytes": 531258,
+      "rows": 3520,
+      "sha256": "4f410ee05a7b17b0fa6bdae5a8b545abb6a276bc610ea00ce924e591b83e6d97",
+      "source_ledger_sha256": "80d97a005ec93578145c600bb9b2227c28037d131f41d335a4b0cf170ea7656c"
+    },
+    "ndx_qqq_h8_dgs1mo_half_combined_5bps_components.csv": {
+      "bytes": 746753,
+      "rows": 3520,
+      "sha256": "1e15b395385179fd87a42b6e0de7cd5d87bd7d6327a31c6d505ae438d1abc346",
+      "source_ledger_sha256": "c6672b921bbe13290f152d37d96749fc1848f52eef99bc8f29a77ac42b42d313"
+    },
+    "ndx_qqq_h8_dgs1mo_half_garch_5bps_components.csv": {
+      "bytes": 746402,
+      "rows": 3520,
+      "sha256": "cfd638cda19ec4c1eb1e5637df437e88b5bd93f63ef6f1b484d20595df11db33",
+      "source_ledger_sha256": "367dbc0a2be30d81cf8baf8808c01caf1bf14f2e7324086f85d16b9cb409d6d4"
+    },
+    "ndx_qqq_h8_dgs1mo_half_trailing_5bps_components.csv": {
+      "bytes": 726661,
+      "rows": 3520,
+      "sha256": "f8fb72ece89409f956dd1f04d2ad97dc5e4a3faae1106c1e0de42848d9637c25",
+      "source_ledger_sha256": "9425ce46876258654038f9d1a7336a56e02c3bc15e2436bcd6d1abcccdbb74ed"
+    },
+    "ndx_qqq_h8_dgs1mo_half_vix_5bps_components.csv": {
+      "bytes": 747127,
+      "rows": 3520,
+      "sha256": "f9eccb3eefd4893922f46041ca3049073619c8660b36282a79db6634f1f615bb",
+      "source_ledger_sha256": "06bd0c2e9cc9ae4d2663fee8b5b8222e9a8bfa6425c538f95cfbca1432124ecc"
+    },
+    "ndx_qqq_h8_dtb4wk_full_buyhold_5bps_components.csv": {
+      "bytes": 531258,
+      "rows": 3520,
+      "sha256": "4f410ee05a7b17b0fa6bdae5a8b545abb6a276bc610ea00ce924e591b83e6d97",
+      "source_ledger_sha256": "8b03d96124b37d1bb34353c42d992989617224157c3dc61128642fcd641e0202"
+    },
+    "ndx_qqq_h8_dtb4wk_full_combined_5bps_components.csv": {
+      "bytes": 747225,
+      "rows": 3520,
+      "sha256": "86218690072dbfe041c4850efa8a85f7cbb527fb82f15dacc0ecc7522fdbe0ee",
+      "source_ledger_sha256": "4190f72ec53186fc104e428ac234bbd896f2f0cb679239d9ad9b6d25670d5fab"
+    },
+    "ndx_qqq_h8_dtb4wk_full_garch_5bps_components.csv": {
+      "bytes": 746997,
+      "rows": 3520,
+      "sha256": "962df6277b328a6f99354bd99692f95d67a04fc2a7b5c106e6d581db7eea3278",
+      "source_ledger_sha256": "84d958f17bf06cdf08c9a00d3a04e1c2539bafe653dceb4b18c4ea53b5b8c256"
+    },
+    "ndx_qqq_h8_dtb4wk_full_trailing_5bps_components.csv": {
+      "bytes": 726962,
+      "rows": 3520,
+      "sha256": "f1f0912004b232cb8f608a9626e69e11fa3d338a150c38f373a655c3f2dcfff7",
+      "source_ledger_sha256": "1a885371350c9198c5b15552343dff7d4f7d02b962ff611862b6d5286474786a"
+    },
+    "ndx_qqq_h8_dtb4wk_full_vix_5bps_components.csv": {
+      "bytes": 747674,
+      "rows": 3520,
+      "sha256": "b84172c5ffe20105136183b04188e918b7254771f45f60990c8df7c1bfc5d4ea",
+      "source_ledger_sha256": "d69db8b4246b69e4b348f36fc3833338efccd9d621dcdd422bd637676d962e3b"
+    },
+    "ndx_qqq_h8_zero_buyhold_5bps_components.csv": {
+      "bytes": 531258,
+      "rows": 3520,
+      "sha256": "4f410ee05a7b17b0fa6bdae5a8b545abb6a276bc610ea00ce924e591b83e6d97",
+      "source_ledger_sha256": "191ca04e778e4874c3d94eb2a88e52b24a695229ea4bc1e12e73cc1877d238bb"
+    },
+    "ndx_qqq_h8_zero_combined_5bps_components.csv": {
+      "bytes": 674474,
+      "rows": 3520,
+      "sha256": "6218895adca8d3ec4a992f5cbd82065f6ec1e711f426b9d726be038dc4c73c10",
+      "source_ledger_sha256": "713e4c6abf757ff7611a0e488fa49cec3a1b21822aa2624ebed78395876f8e9e"
+    },
+    "ndx_qqq_h8_zero_garch_5bps_components.csv": {
+      "bytes": 674258,
+      "rows": 3520,
+      "sha256": "0bf9fc0d864566b55f6bcb18113cc86ce21796e4e0f5565e4a8a3d41ebbf1be1",
+      "source_ledger_sha256": "67b0117f90dc37ba4f26ceeb6185ee6613a5ce001bc6a61538f5e513f318cb7d"
+    },
+    "ndx_qqq_h8_zero_trailing_5bps_components.csv": {
+      "bytes": 661939,
+      "rows": 3520,
+      "sha256": "1d827af19b551832634afc79da696532d15acf37a3737b57fc01ddb9ab89b84e",
+      "source_ledger_sha256": "c301dac2ac8d2db8679b6175f00c92182526568748ce70477fe5f19c9ac8fb29"
+    },
+    "ndx_qqq_h8_zero_vix_5bps_components.csv": {
+      "bytes": 674834,
+      "rows": 3520,
+      "sha256": "f3bafc5ad0e53051fc5cde06b99960abd5935c500124558eefb7234a76d49926",
+      "source_ledger_sha256": "9d2125040b91f3315b1b643a34b7e6340c669880b8571907c3439983b6ea8db0"
+    }
+  },
+  "h8_result_sha256": "a4dbb8a3b0fbdfdd270e19004169830706d576df18408420339212633c2163de",
+  "identity": "previous-share overnight P&L + old-share dividend cash + post-trade intraday P&L + prior-cash interest - transaction fee, divided by prior NAV equals observed portfolio return.",
+  "max_absolute_daily_return_residual": 6.062858548538941e-16,
+  "primary_cost_bps": 5,
+  "qqq_raw_sha256": "0821f19bab7d5be67f0e3ef3e6c0612c5b3edf3ad114ef6b1f79f8ac1ad43832",
+  "scenario_strategy_ledgers": 20,
+  "source_manifest_sha256": "7a78261c22d5d9af773a6a3f3b8be3c0cdda15fe08e8e6c81fa5a684f0cae379",
+  "status": "AUDITED DAILY ATTRIBUTION \u2014 PROVISIONAL"
+}
