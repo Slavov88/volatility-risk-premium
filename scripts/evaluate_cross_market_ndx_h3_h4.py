@@ -10,10 +10,11 @@ import subprocess
 import numpy as np
 import pandas as pd
 
-from vrp.evaluation import naive_variance_30c, naive_variance_21t
+from vrp.calendar import trailing_30c_sessions, trailing_exchange_sessions
 from vrp.inference import holm_adjust_two, nonoverlapping_origins_30c, overlap_l0
 from vrp.provisional_analysis import checked_mean, checked_regression, persist
 from vrp.recursive_garch import VARIANTS
+from vrp.targets import annualize_hvar_21t, annualize_hvar_30c
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs/cross_market/v1/ndx_garch"
@@ -142,13 +143,23 @@ def run() -> dict:
         if prev in close and curr in close:
             returns[curr] = float(np.log(close[curr]/close[prev]))
     return_pairs = sorted(returns.items())
+    return_map = dict(return_pairs)
+    # Validate the realized return series once. The generic public naive
+    # benchmark helpers revalidate all dated values on every call, which is
+    # needlessly quadratic for this 4,780-origin cross-market panel.
+    if len(return_map) != len(return_pairs) or any(not np.isfinite(v) for v in return_map.values()):
+        raise ValueError("Naive benchmark return history is duplicated or non-finite")
     naive = {"30c": {}, "21t": {}}
     actual = {"30c": dict(zip(dates,targets_frame.rvar_30c)), "21t": dict(zip(dates,targets_frame.rvar_21t))}
     ivar = dict(zip(dates,targets_frame.ivar))
     for d in dates:
         day = date.fromisoformat(d)
-        naive["30c"][d] = naive_variance_30c(day,return_pairs)
-        naive["21t"][d] = naive_variance_21t(day,return_pairs)
+        horizon30 = trailing_30c_sessions(day)
+        horizon21 = trailing_exchange_sessions(day,21)
+        naive["30c"][d] = (annualize_hvar_30c(sum(return_map[s]**2 for s in horizon30))
+                             if all(s in return_map for s in horizon30) else None)
+        naive["21t"][d] = (annualize_hvar_21t(sum(return_map[s]**2 for s in horizon21))
+                             if all(s in return_map for s in horizon21) else None)
 
     results = []
     for horizon, field in (("30c","garch_30c"),("21t","garch_21t")):
@@ -168,8 +179,8 @@ def run() -> dict:
         "source_sha256":sha(SOURCE.read_bytes()),"target_panel_sha256":sha(PANEL.read_bytes()),
         "forecast_configurations":{k:v["configuration_sha256"] for k,v in forecasts.items()},
         "expected_oos_origins":4780,"h3_h4_same_mask_across_variants":True,
-        "forecast_validation":{k:{"records":len(v["records"]),"failures":sum(x["status"]!="CONVERGED" for x in v["records"]),
-             "max_recurrence_error":max(x.get("recurrence_max_abs_error_decimal_variance",0.0) for x in v["records"])} for k,v in records.items()},
+        "forecast_validation":{k:{"records":len(v),"failures":sum(x["status"]!="CONVERGED" for x in v.values()),
+             "max_recurrence_error":max(x.get("recurrence_max_abs_error_decimal_variance",0.0) for x in v.values())} for k,v in records.items()},
         "evaluations":results}
 
 

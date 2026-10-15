@@ -108,7 +108,7 @@ def compare() -> dict:
 
 def main() -> None:
     result = compare()
-    print(persist(OUT / "ndx_spx_paired_inference_v2.json", result), flush=True)
+    print(persist(OUT / "ndx_spx_paired_inference_v3.json", result), flush=True)
     print(json.dumps({"n":result["n_common_full"],"h1":result["h1_paired"],"h2":result["h2_calibration"]},indent=2))
 
 
