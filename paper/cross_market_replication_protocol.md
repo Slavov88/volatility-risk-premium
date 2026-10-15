@@ -54,6 +54,10 @@ Documented source pages consulted at registration:
 
 The cited pages document candidate definitions and access constraints, not accepted data freezes. Dataset eligibility is determined by actual acquired files and their audit. Because Cboe/FRED values are copyrighted and STOXX historical index levels are restricted, only hashes, metadata, and legally redistributable summaries will be committed; raw observations stay outside Git unless terms explicitly permit redistribution.
 
+### Registration amendment (2026-10-15, before outcomes)
+
+The author confirmed in this task that written permissions cover research use and public sharing of derived results from all proposed providers. This authorization does not waive provider login requirements or expand the stated license scope. No raw series will be committed. The specific license documents and their effective dates are not present in this checkout, so the reproducibility record will identify this reliance on the author's attestation and retain the original provider terms as constraints. If a provider requires authenticated access unavailable in this environment, that market remains blocked until its entitled data file is supplied.
+
 ## 3. Samples, alignment, and horizons
 
 The candidate synchronized panel is **2007-01-01 through 2025-12-31**. It is used only for market/date cells with actual valid underlying, volatility-index, and target support. Forecast and portfolio evaluation begins in 2012 for H6–H8, preserving the original five-year training/warm-up design. Report each market's maximum admissible history separately, including first simultaneous valid predictor/underlying date, first supported target date, first honest OOS forecast date, and end date. No artificial common history is created.
