@@ -15,7 +15,7 @@ import exchange_calendars as xcals
 
 from vrp.dates import as_date
 
-_CALENDAR_START = "1989-01-01"
+_CALENDAR_START = "1985-01-01"
 _CALENDAR_END = "2030-12-31"
 
 
