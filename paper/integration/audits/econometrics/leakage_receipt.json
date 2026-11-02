@@ -1,0 +1,157 @@
+{
+  "run_kind": "SAME_RUNTIME_NEW_ANCHOR_FIT_REPEAT_NOT_HISTORICAL_REPLAY",
+  "anchors": [
+    {
+      "origin": "2007-01-03",
+      "variant": "normal_expanding",
+      "training_rows": 4287,
+      "training_end": "2007-01-03",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 21
+    },
+    {
+      "origin": "2007-01-03",
+      "variant": "t_expanding",
+      "training_rows": 4287,
+      "training_end": "2007-01-03",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 21
+    },
+    {
+      "origin": "2007-01-03",
+      "variant": "normal_rolling5y",
+      "training_rows": 1258,
+      "training_end": "2007-01-03",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 21
+    },
+    {
+      "origin": "2012-10-26",
+      "variant": "normal_expanding",
+      "training_rows": 5754,
+      "training_end": "2012-10-26",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 19
+    },
+    {
+      "origin": "2012-10-26",
+      "variant": "t_expanding",
+      "training_rows": 5754,
+      "training_end": "2012-10-26",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 19
+    },
+    {
+      "origin": "2012-10-26",
+      "variant": "normal_rolling5y",
+      "training_rows": 1261,
+      "training_end": "2012-10-26",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 19
+    },
+    {
+      "origin": "2018-12-03",
+      "variant": "normal_expanding",
+      "training_rows": 7288,
+      "training_end": "2018-12-03",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 20
+    },
+    {
+      "origin": "2018-12-03",
+      "variant": "t_expanding",
+      "training_rows": 7288,
+      "training_end": "2018-12-03",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 20
+    },
+    {
+      "origin": "2018-12-03",
+      "variant": "normal_rolling5y",
+      "training_rows": 1259,
+      "training_end": "2018-12-03",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 20
+    },
+    {
+      "origin": "2022-05-20",
+      "variant": "normal_expanding",
+      "training_rows": 8160,
+      "training_end": "2022-05-20",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 19
+    },
+    {
+      "origin": "2022-05-20",
+      "variant": "t_expanding",
+      "training_rows": 8160,
+      "training_end": "2022-05-20",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 19
+    },
+    {
+      "origin": "2022-05-20",
+      "variant": "normal_rolling5y",
+      "training_rows": 1260,
+      "training_end": "2022-05-20",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 19
+    },
+    {
+      "origin": "2025-12-31",
+      "variant": "normal_expanding",
+      "training_rows": 9066,
+      "training_end": "2025-12-31",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 20
+    },
+    {
+      "origin": "2025-12-31",
+      "variant": "t_expanding",
+      "training_rows": 9066,
+      "training_end": "2025-12-31",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 20
+    },
+    {
+      "origin": "2025-12-31",
+      "variant": "normal_rolling5y",
+      "training_rows": 1255,
+      "training_end": "2025-12-31",
+      "exact_new_refit_repeat": true,
+      "after_origin_perturbation_changes_prediction": false,
+      "fit_status": "CONVERGED",
+      "forecast_steps30c": 20
+    }
+  ],
+  "all_exact": true,
+  "input_daily_sha256": "f262250e873ecd46b5ef9372c607a2165dd1b1cb30b56d7365d8df7e70de62b2"
+}

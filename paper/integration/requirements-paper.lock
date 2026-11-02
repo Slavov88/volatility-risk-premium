@@ -1,0 +1,4 @@
+# In addition to the repository's research locks. Pandoc 3.1.3 is external.
+typst==0.15.0
+PyMuPDF==1.26.6
+xlrd==2.0.2

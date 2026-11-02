@@ -1,0 +1,22 @@
+{
+  "normal_rolling5y_fresh_results.json.gz": {
+    "uncompressed_name": "normal_rolling5y_fresh_results.json",
+    "uncompressed_sha256": "f904b60c33d6b79e660172f189f48b2d27733191e9b6fd6b5d11b3e5cbb5274e",
+    "uncompressed_bytes": 1422594
+  },
+  "normal_expanding_fresh_results.json.gz": {
+    "uncompressed_name": "normal_expanding_fresh_results.json",
+    "uncompressed_sha256": "1816db521febf4c932095eee8b308e7fa1670d54a27af675a7e9983a52486f4e",
+    "uncompressed_bytes": 1422392
+  },
+  "fresh_comparison_receipt.json.gz": {
+    "uncompressed_name": "fresh_comparison_receipt.json",
+    "uncompressed_sha256": "c4b0fb491d9adc0575f4e2bbe6bd5eb06cff6ba34e0b65c40218cb19b2aa688e",
+    "uncompressed_bytes": 1090570
+  },
+  "t_expanding_fresh_results.json.gz": {
+    "uncompressed_name": "t_expanding_fresh_results.json",
+    "uncompressed_sha256": "2ba56a62aa2401d33f55a02f61a8d83e587a6637f3fce0bfb5c6357fe28e275f",
+    "uncompressed_bytes": 1422061
+  }
+}

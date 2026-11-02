@@ -1,0 +1,154 @@
+{
+  "archive_verification": {
+    "artifact_sha256": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566",
+    "close": 24.64,
+    "close_cell": "E2528",
+    "date": "1999-12-31",
+    "date_cell": "A2528",
+    "date_serial": 36525.0,
+    "excel_datemode": 0,
+    "independent_review": "PENDING",
+    "numeric_cell_verified": true,
+    "original_csv_absent": true,
+    "parser": "xlrd==2.0.2",
+    "reason": "official archival-source insertion; original CSV omission",
+    "row_one_based": 2528,
+    "sheet": "OHLC",
+    "source_url": "https://cdn.cboe.com/resources/us/indices/vixarchive.xls",
+    "transformation_version": "official-cboe-archival-insertion/1.0.0",
+    "unit": "annualized percentage points",
+    "verification": "TECHNICALLY_VERIFIED"
+  },
+  "audit": {
+    "checks": [
+      "source preservation",
+      "all SPX returns before VIX masking",
+      "all expected XNYS sessions",
+      "no same-origin return",
+      "no 2026 origins",
+      "six independent numpy formulas",
+      "annualization and variance units",
+      "premium sign and volatility square root",
+      "exact endpoints",
+      "explicit incomplete-target missingness",
+      "unchanged predictors"
+    ],
+    "counts": {
+      "cc_21t": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "cc_30c": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "gk_21t": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "gk_30c": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "parkinson_21t": {
+        "complete": 9064,
+        "missing": 0
+      },
+      "parkinson_30c": {
+        "complete": 9064,
+        "missing": 0
+      }
+    },
+    "first_price_return": "UNAVAILABLE_NO_PREVIOUS_PRICE",
+    "forecast_ranking_executed": false,
+    "inference_executed": false,
+    "max_independent_rvar_absolute_error": 2.220446049250313e-16,
+    "origin_count": 9064,
+    "post_2025_support_rows": 21,
+    "return_count": 9087,
+    "review_status": "PROVISIONAL / NOT INDEPENDENTLY ACCEPTED",
+    "spx_rows_preserved": 9088,
+    "status": "PASSED_ALL_ORIGINS_ALL_SIX_TARGETS",
+    "target_session_count_30c_range": [
+      15,
+      22
+    ],
+    "target_version": "complete-forward-targets/1.0.0"
+  },
+  "chart_normalization_exactly_matches_original_spx": true,
+  "current_vix_download_sha256": "a5409500cdb8fdd86ba926dcfc7de5b1a54d365d4b7850a1a50c803ae57fddd1",
+  "full_manifest_chain_replayed": false,
+  "limitation": "Original SPX source manifest and original FRED SP500 response unavailable. Original VIX manifest is recovered exactly from tracked rejected manifest. No forged replacement; production verify_interim has not passed.",
+  "outputs": {
+    "canonical_daily.csv": {
+      "bytes": 1531439,
+      "original_hash_match": false,
+      "original_sha256": "774147ffba6e298a49ef2ba1059503515e2dec1317500d4f37acf980cd7a51e2",
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/canonical_daily.csv",
+      "rows": 9088,
+      "sha256": "f262250e873ecd46b5ef9372c607a2165dd1b1cb30b56d7365d8df7e70de62b2"
+    },
+    "canonical_spx_ohlc.csv": {
+      "bytes": 913760,
+      "original_hash_match": true,
+      "original_sha256": "ad8baf5121a081d633d6283c936f6956f82974446dfd871fc905ab31ff34a74e",
+      "relative_path": "interim/40113d6646b0e7b8/canonical_spx_ohlc.csv",
+      "rows": 9088,
+      "sha256": "ad8baf5121a081d633d6283c936f6956f82974446dfd871fc905ab31ff34a74e"
+    },
+    "descriptive_statistics.json": {
+      "original_hash_match": false,
+      "original_sha256": "bc93ca5c9d69a17d2dbb927fb1509bc578b343156ee1b9437898b8248aa0787c",
+      "sha256": "00558e61454ae10d222770ee5d3dc61a03f93dcb35dd19c4f80802b7d9f7db69"
+    },
+    "interim_origin_panel.csv": {
+      "bytes": 889316,
+      "original_hash_match": true,
+      "original_sha256": "5293bc8b5e3388090216fb27e50d5a989c67e817dde67cc40358c3522e3a32f5",
+      "relative_path": "interim/40113d6646b0e7b8/interim_origin_panel.csv",
+      "rows": 9064,
+      "sha256": "5293bc8b5e3388090216fb27e50d5a989c67e817dde67cc40358c3522e3a32f5"
+    },
+    "interim_vix_close.csv": {
+      "bytes": 305993,
+      "original_hash_match": true,
+      "original_sha256": "457f46b6850ef6481fc272deb0e097b5da1134e1610c7d86c225448758eb6353",
+      "relative_path": "interim/40113d6646b0e7b8/interim_vix_close.csv",
+      "rows": 9064,
+      "sha256": "457f46b6850ef6481fc272deb0e097b5da1134e1610c7d86c225448758eb6353"
+    },
+    "six_forward_targets.csv": {
+      "bytes": 6979958,
+      "original_hash_match": false,
+      "original_sha256": "cdd63f219d61584c8f3fa15e8f80c23ef351a6e902cb93027eed9b5e79dba3a5",
+      "relative_path": "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/six_forward_targets.csv",
+      "rows": 9064,
+      "sha256": "3c7fc89fc510659fca0a976ad0d61f780aa93505cc2764f53d38a3a14d671fbc"
+    },
+    "target_audit.json": {
+      "original_hash_match": true,
+      "original_sha256": "7b8d05616a1477e40c1eb86b65fe21a26e87e4b24429ef5ce056911eaed88bb5",
+      "sha256": "7b8d05616a1477e40c1eb86b65fe21a26e87e4b24429ef5ce056911eaed88bb5"
+    }
+  },
+  "recovery_yahoo_chart_response_sha256": "4bfec0d5d6b91b6421ae27e5121a935d03e49747388b3ce4dcd24f7467ef24e7",
+  "review_status": "PROVISIONAL / NOT INDEPENDENTLY ACCEPTED",
+  "runtime": {
+    "packages": {
+      "arch": "8.0.0",
+      "exchange-calendars": "4.13.2",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1",
+      "statsmodels": "0.15.0",
+      "yfinance": "1.5.2"
+    },
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "source_raw_spx_sha256": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+  "source_raw_vix_sha256": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7",
+  "source_xls_sha256": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566",
+  "status": "EXACT_FREEZE_WITH_NUMERICALLY_AUDITED_FRESH_TARGETS",
+  "vix_prefix_bytes": 473635
+}

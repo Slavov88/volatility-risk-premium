@@ -1,0 +1,40 @@
+{
+  "checked_tree": "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3",
+  "component_replay_passed": true,
+  "cross_market_report_sha256": "3201622293fdb673fd3d6bb2efe149ffa1e133f2bf7caec617765bf3fab2bbc9",
+  "fresh_raw_replay_exit_codes": {
+    "cash": 1,
+    "extension": 1,
+    "failure": 1
+  },
+  "fresh_raw_replay_logs": [
+    "replay_extension.log",
+    "replay_failure.log",
+    "replay_cash.log"
+  ],
+  "full_raw_refit_reproduced": false,
+  "portable_cli_validation": {
+    "comparison": "identical JSON content except producer script SHA-256",
+    "cwd": "/",
+    "fetch": "PASSED offline mock with exact recovered bytes plus appended bytes; files and receipt confined to selected output directory",
+    "fetch_script_sha256": "3f2016dc930872514510145722c1ffc226920e5f776f3e627366126a6b5e5a0c",
+    "paired_rebuild": "PASSED; explicit checkout, source directory, SPX target and output file",
+    "rebuild_script_sha256": "6adad7b7c4d4c919655afe6776379c948992fcdf309ab3e8dd6799e242816f0a"
+  },
+  "source_audit": {
+    "implemented_hypotheses": [
+      "H1",
+      "H2"
+    ],
+    "paired_covariance": "H1: Bartlett HAC 21 on paired differences; H2: Bartlett HAC 21 on date-summed stacked interaction-regression scores with 2n/(2n-4) correction",
+    "paired_market_producer": "ext-c/scripts/compare_cross_market_ndx_spx.py",
+    "registered_cross_market_bootstrap_present": false,
+    "registered_cross_market_bootstrap_present_note": "Historical producer lacks bootstrap; fresh partial H1 intervals now in paired_h1_h2_rebuilt.json. H1-H5 family incomplete.",
+    "registered_cross_market_holm_family_present": false,
+    "within_market_bootstrap_is_not_market_contrast_inference": true
+  },
+  "test_command": "PYTHONPATH=/workspace/scratch/3b223cfe9f8a/ext-deps:/workspace/scratch/3b223cfe9f8a/ext-c/src /workspace/scratch/3b223cfe9f8a/prov-env/bin/python -m pytest -q",
+  "test_cwd": "/workspace/scratch/3b223cfe9f8a/ext-c",
+  "test_exit_code": 0,
+  "test_observed_stdout_tail": "1839 passed in 23.58s"
+}

@@ -1,0 +1,21 @@
+{
+  "audit": "Committed aggregates and report arithmetic; freeze and observations not replayed",
+  "changed_classifications": 0,
+  "classification_comparisons": 1134,
+  "corrected_cells": 72,
+  "fixed21_identical_cells": 36,
+  "h1_mean_from_moments": 0.01134891365950711,
+  "h2_from_moments": {
+    "intercept": -0.005364684998276095,
+    "r_squared": 0.37218895448550865,
+    "slope": 0.8637143195852949
+  },
+  "h5_recession_difference_from_groups": -0.004222432516914859,
+  "inputs_sha256": {
+    "2026-10-13_descriptive_statistics": "bc93ca5c9d69a17d2dbb927fb1509bc578b343156ee1b9437898b8248aa0787c",
+    "2026-10-13_h1_h5_execution_v2": "f94754cbaf7b7acf33fa268665560d2d5029752d52105c597a45df692676907c",
+    "empirical_calendar_repair_decision_audit_v1": "1387963219f6a53a8df39f900d0d3e7744e7d5b760d56538e221caa534ae416b",
+    "empirical_calendar_repair_results_v1": "67287e3c9e572ec3583dd43b0b45f16658d61a65452a8a97bd8158e432b2ae6b"
+  },
+  "lag_cells": 162
+}

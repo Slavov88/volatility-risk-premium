@@ -1,0 +1,14 @@
+{
+  "corrected-h4-encompassing.csv": {
+    "rows": 486,
+    "arithmetic_failures": []
+  },
+  "h1-robustness.csv": {
+    "rows": 72,
+    "arithmetic_failures": []
+  },
+  "corrected-h3-contrasts.csv": {
+    "rows": 486,
+    "arithmetic_failures": []
+  }
+}

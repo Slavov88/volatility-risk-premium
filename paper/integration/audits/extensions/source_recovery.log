@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-11-02T13:41:09.632615+00:00",
+  "policy": "Accept original SHA-256 only; no vintage substitution or inference from unavailable inputs",
+  "sources": [
+    {
+      "appended_bytes_removed": 231,
+      "expected_bytes": 208461,
+      "expected_sha256": "2326ea9359dc6d521ada1c0600b90be23e054b4ba93955a615a5dba97159ff9f",
+      "http_status": 200,
+      "path": "/workspace/scratch/3b223cfe9f8a/ext-recovered/NASDAQ100_exact.csv",
+      "received_bytes": 208692,
+      "received_sha256": "fc2afcba424bccf65015e584647b4951fb6b02fc4a3bd8313c1de2789ffe01cd",
+      "series": "NASDAQ100",
+      "status": "RECOVERED_EXACT_HASH",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQ100"
+    },
+    {
+      "appended_bytes_removed": 204,
+      "expected_bytes": 112782,
+      "expected_sha256": "53aa81e815b3f9f5b7b18bcfa64f0c5d02b2341aad5b128307f069d1d7bd3f2f",
+      "http_status": 200,
+      "path": "/workspace/scratch/3b223cfe9f8a/ext-recovered/VXNCLS_exact.csv",
+      "received_bytes": 112986,
+      "received_sha256": "e792ca589e8e03540ba421d14c0ffd70b671224e0293f64a1fd3888f10aabbb4",
+      "series": "VXNCLS",
+      "status": "RECOVERED_EXACT_HASH",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VXNCLS"
+    }
+  ],
+  "tls_verification": true
+}

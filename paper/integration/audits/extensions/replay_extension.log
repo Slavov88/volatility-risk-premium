@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/3b223cfe9f8a/ext-e/scripts/replay_quant_extension.py", line 7, in <module>
+    panel = source_panel()
+            ^^^^^^^^^^^^^^
+  File "/workspace/scratch/3b223cfe9f8a/ext-e/src/vrp/quant_extension.py", line 84, in source_panel
+    baseline_audit()
+  File "/workspace/scratch/3b223cfe9f8a/ext-e/src/vrp/quant_extension.py", line 63, in baseline_audit
+    checked_hash(ROOT/"outputs/empirical_h1_h5/v1"/name, digest)
+  File "/workspace/scratch/3b223cfe9f8a/ext-e/src/vrp/quant_extension.py", line 43, in checked_hash
+    if sha(path) != expected:
+       ^^^^^^^^^
+  File "/workspace/scratch/3b223cfe9f8a/ext-e/src/vrp/quant_extension.py", line 39, in sha
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/3b223cfe9f8a/ext-e/outputs/empirical_h1_h5/v1/execution_audit.json'

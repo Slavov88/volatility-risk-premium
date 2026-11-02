@@ -1,0 +1,37 @@
+{
+  "files": {
+    "interim/40113d6646b0e7b8/canonical_spx_ohlc.csv": {
+      "second_build_identical": true,
+      "sha256": "ad8baf5121a081d633d6283c936f6956f82974446dfd871fc905ab31ff34a74e"
+    },
+    "interim/40113d6646b0e7b8/interim_origin_panel.csv": {
+      "second_build_identical": true,
+      "sha256": "5293bc8b5e3388090216fb27e50d5a989c67e817dde67cc40358c3522e3a32f5"
+    },
+    "interim/40113d6646b0e7b8/interim_vix_close.csv": {
+      "second_build_identical": true,
+      "sha256": "457f46b6850ef6481fc272deb0e097b5da1134e1610c7d86c225448758eb6353"
+    },
+    "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/canonical_daily.csv": {
+      "second_build_identical": true,
+      "sha256": "f262250e873ecd46b5ef9372c607a2165dd1b1cb30b56d7365d8df7e70de62b2"
+    },
+    "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/descriptive_statistics.json": {
+      "second_build_identical": true,
+      "sha256": "00558e61454ae10d222770ee5d3dc61a03f93dcb35dd19c4f80802b7d9f7db69"
+    },
+    "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/six_forward_targets.csv": {
+      "second_build_identical": true,
+      "sha256": "3c7fc89fc510659fca0a976ad0d61f780aa93505cc2764f53d38a3a14d671fbc"
+    },
+    "interim/40113d6646b0e7b8/targets/bd7a172882ded86f/target_audit.json": {
+      "second_build_identical": true,
+      "sha256": "7b8d05616a1477e40c1eb86b65fe21a26e87e4b24429ef5ce056911eaed88bb5"
+    },
+    "recovered_VIX_History.csv": {
+      "second_build_identical": true,
+      "sha256": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7"
+    }
+  },
+  "status": "PASSED_TWO_FRESH_BUILDS_CURRENT_RUNTIME"
+}
