@@ -1,0 +1,105 @@
+{
+  "events": 244,
+  "h6_brier": {
+    "A": 0.06528015574544137,
+    "B": 0.06601087323618962,
+    "C": 0.06777740719070001,
+    "D": 0.0702763453162386
+  },
+  "h7_qlike": {
+    "combined": 0.3879822969492082,
+    "ewma": 0.5255682585593895,
+    "garch": 0.3897455635999782,
+    "har": 0.4134776202852136,
+    "trailing": 0.6073231243557549,
+    "vix": 0.3858020853879921
+  },
+  "h8_cash_cagr": {
+    "dgs1mo_full": {
+      "buyhold": 0.14795277420282704,
+      "combined": 0.08491908297690975,
+      "garch": 0.09517154904815062,
+      "trailing": 0.10164377058070717,
+      "vix": 0.07945668652395144
+    },
+    "zero": {
+      "buyhold": 0.14795277420282704,
+      "combined": 0.07938932104309004,
+      "garch": 0.09029079663594208,
+      "trailing": 0.09760273503904404,
+      "vix": 0.07302612936479957
+    }
+  },
+  "h8_zero_five_bps": {
+    "buyhold": {
+      "annual_vol": 0.16667569963343334,
+      "cagr": 0.1479527742028271,
+      "rolling21_target_rmse": 0.09957048797829327,
+      "terminal_nav": 6.897476228627847
+    },
+    "combined": {
+      "annual_vol": 0.08438373228362982,
+      "cagr": 0.07938932104308996,
+      "rolling21_target_rmse": 0.03028142731979522,
+      "terminal_nav": 2.9131133509255833
+    },
+    "garch": {
+      "annual_vol": 0.09450916804391658,
+      "cagr": 0.09029079663594203,
+      "rolling21_target_rmse": 0.026845659027594924,
+      "terminal_nav": 3.3530394865874564
+    },
+    "trailing": {
+      "annual_vol": 0.1013954424011011,
+      "cagr": 0.09760273503904382,
+      "rolling21_target_rmse": 0.029596541848172682,
+      "terminal_nav": 3.6818528588755153
+    },
+    "vix": {
+      "annual_vol": 0.07774545402224671,
+      "cagr": 0.07302612936479991,
+      "rolling21_target_rmse": 0.0329795672465614,
+      "terminal_nav": 2.681751037746753
+    }
+  },
+  "hashes": {
+    "0910d8e26355832bdbd63abbc10a65a70bbc4d77:data/manifests/h8_cash_results_v2.json": "849296a15472fb8f4902d275807c66f8b58af49de4cf5d182baec8da4ab884fd",
+    "1a905b8301edccb8a4b3da0a64aad755c147b8a0:paper/h8_cash_yield_plan.md": "ddc58a71573ada08ebbd44a80c01d41058ec7aaf3ec5a07c6647d7c9c906748f",
+    "1a905b8301edccb8a4b3da0a64aad755c147b8a0:scripts/run_h8_cash_yield.py": "8ddec699fea8364f8ef5a984a006b4665d5fda11eacba6809360a03d3dcd5c5b",
+    "1a905b8301edccb8a4b3da0a64aad755c147b8a0:src/vrp/cash_yield.py": "2a6e11d12e97f1d72675313027fec109fce8b9e63e647091bab91d4d97904855",
+    "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3:data/manifests/cross_market_execution_v1.json": "14adde559a8481e93a1da17b86f87a0f9180f7a652c70bbe05df1d07f21da18f",
+    "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3:data/manifests/cross_market_sources_v1.json": "7a78261c22d5d9af773a6a3f3b8be3c0cdda15fe08e8e6c81fa5a684f0cae379",
+    "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3:data/manifests/cross_market_volatility_v2.json": "5baf82276ce3dd2583b08731f08702af26beceb00144e32f85d1fd4bba7ce47c",
+    "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3:data/manifests/h8_cash_rate_source_v1.json": "61ff6f555ea3d6c1106b4717ee83f215b17e379ad8cea78852637b7d216f91d7",
+    "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3:data/manifests/h8_ledger_component_attribution_v1.json": "1a4e563f1b59bd23294f78178d4912004f8ed4692a489e513589d296ad524586",
+    "2ac49b69d56db939d051849c6dbaf1c9eaa4ec12:data/manifests/quant_extension_execution_v2.json": "d23c6daf91c21cd12480073359b4b552851150611d99639582302da73a988a7f",
+    "2ac49b69d56db939d051849c6dbaf1c9eaa4ec12:data/manifests/quant_extension_h6_v2.json": "2a8107e9ace5dcfd565bbdba59bf7f298906584d3050565806f129072b4715c9",
+    "2ac49b69d56db939d051849c6dbaf1c9eaa4ec12:data/manifests/quant_extension_h7_v2.json": "cec3e911eaef7f4d27d8395ba8316f807a910b82601a79bcfe29a8f636001d68",
+    "2ac49b69d56db939d051849c6dbaf1c9eaa4ec12:data/manifests/quant_extension_h8_v2.json": "b09b8f3ffdd8af230854709e39771efb0e73f8c9b5afb9c5b33607e04183f001",
+    "429e5f2d8bdb7bf9094a7468e9f8926a303b778b:scripts/run_quant_extension.py": "3208e1ee65516aeb59866cc670d56efa537e614cc1a94a490986af051d7e4e26",
+    "429e5f2d8bdb7bf9094a7468e9f8926a303b778b:scripts/run_quant_portfolio.py": "aab2e88293ec2314d5dedb34ec8ba75675c698b86474adcdd30d9f1b141e8f42",
+    "429e5f2d8bdb7bf9094a7468e9f8926a303b778b:src/vrp/quant_calendar.py": "3b087975e97931551693b5cf3f0c06ccf89202706a967f61a0d7937668a732f0",
+    "429e5f2d8bdb7bf9094a7468e9f8926a303b778b:src/vrp/quant_extension.py": "3e1d07158854057355eb999b24aa88e65fa17ff29159f40fe5d7a2e933bf102f",
+    "429e5f2d8bdb7bf9094a7468e9f8926a303b778b:src/vrp/quant_portfolio.py": "6c18bd3b4e5bc38c3f8ee8d3a5558d8427c3494db8671aa378bcbab35ad142db",
+    "429e5f2d8bdb7bf9094a7468e9f8926a303b778b:src/vrp/quant_variance.py": "e0154db067e97a6e7f71dd3ef5d73944733419beba64b9e0ef8d9b99d9c9898f",
+    "89cd4a7186b766976c601cd56ba22919bc9e183c:paper/quant_failure_diagnostic_plan.md": "ab366a27bc6d4fcead74b5c20fa620b33d77608ed74cf77ed949f40739beeb55",
+    "89cd4a7186b766976c601cd56ba22919bc9e183c:scripts/run_quant_failure.py": "02e7b703244357daaf4ce2c8ba32010042d680bc760d971f483e29a81d1abf2c",
+    "89cd4a7186b766976c601cd56ba22919bc9e183c:src/vrp/quant_failure.py": "f2b7ff9ee9a03f291c66b662c074a11ef7d664c07fe17c1a462c9119f0c56c8f",
+    "956a9d8aa9ebc05c55e71241aeffbc11d80e2a7e:data/manifests/quant_failure_results_v1.json": "165ee888a84dd8df8a406490ac81b67667eee7906e0cb98c4c579cd6672ac80d",
+    "956a9d8aa9ebc05c55e71241aeffbc11d80e2a7e:docs/tables/quant_failure/h6_scores.csv": "f05abbcc0085019460cff525e16f543ac8d286d71393d3c2e583fa4697a21cdf",
+    "956a9d8aa9ebc05c55e71241aeffbc11d80e2a7e:docs/tables/quant_failure/h7_scores.csv": "ccb89e056ee4e2da9f7d6ce4cce511c43356d5f796d51366d60d03c2256f39cf",
+    "956a9d8aa9ebc05c55e71241aeffbc11d80e2a7e:docs/tables/quant_failure/h8_daily_components.csv": "09682c8d933d372189331ab05c8b1a28188ed7e60b9edfaaeb176b67aac56660"
+  },
+  "n": 3520,
+  "nasdaq_untracked_results": [
+    "outputs/cross_market/v1/ndx_vxn_h1_h2_v2.json",
+    "outputs/cross_market/v1/ndx_vxn_h3_h4_v2.json",
+    "outputs/cross_market/v1/ndx_vxn_h5_v1.json",
+    "outputs/cross_market/v1/ndx_vxn_h6_v1.json",
+    "outputs/cross_market/v1/ndx_vxn_h7_v1.json",
+    "outputs/cross_market/v1/ndx_spx_paired_inference_v3.json",
+    "outputs/cross_market/v1/h8_cash_yield_v1/ndx_qqq_h8_v1.json"
+  ],
+  "python": "3.12.14",
+  "scope": "Committed-summary and daily-component replay, excluding raw refits"
+}

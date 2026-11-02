@@ -1,0 +1,25 @@
+{
+  "scope": "RECOVERY_OF_HASH_IDENTIFIED_INPUTS_ONLY",
+  "http_urls": {
+    "yahoo-chart2.json": "https://query2.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=631238400&period2=1770076800&interval=1d",
+    "vix_current.csv": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+    "vixarchive.xls": "https://cdn.cboe.com/resources/us/indices/vixarchive.xls"
+  },
+  "download_sha256": {
+    "yahoo-chart2.json": "4bfec0d5d6b91b6421ae27e5121a935d03e49747388b3ce4dcd24f7467ef24e7",
+    "vix_current.csv": "a5409500cdb8fdd86ba926dcfc7de5b1a54d365d4b7850a1a50c803ae57fddd1",
+    "vixarchive.xls": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566"
+  },
+  "historical_source_sha256": {
+    "spx_candidate.csv": "dd7838e8470a5056e99b82dba808bf9df226ced891e0826e4425d55a8d0f544e",
+    "vix_prefix.csv": "965f14ae8d58079536b5491219b647e6385592be2c466e6ac849f6ace0bbe1f7",
+    "vixarchive.xls": "9f618c4d69c5ec784705c7a401382a6e066fde87d22bf893bfcd306132b03566"
+  },
+  "n_spx": 9088,
+  "archive_mode": true,
+  "missing_original_artifacts": [
+    "SPX acquisition manifest",
+    "full FRED SP500 response"
+  ],
+  "scientific_acceptance": "PENDING"
+}

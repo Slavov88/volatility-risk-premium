@@ -1,0 +1,11 @@
+{
+  "python": "3.12.14",
+  "scipy": "1.17.1",
+  "payoff_quadrature_cases": 6,
+  "maximum_absolute_price_error": 5.1514348342607263e-14,
+  "strip_quadrature_cases": 6,
+  "maximum_absolute_annualized_variance_error": 1.1102230246251565e-16,
+  "fixed_quotes_in_spread": 6,
+  "fixed_quotes": 6,
+  "maximum_quoted_iv_absolute_error": 8.603828431930083e-07
+}

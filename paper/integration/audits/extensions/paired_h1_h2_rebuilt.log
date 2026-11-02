@@ -1,0 +1,101 @@
+{
+  "panel": {
+    "n": 6241,
+    "first_origin": "2001-02-02",
+    "last_origin": "2025-12-31",
+    "origins_sha256": "e4c425d467ff521aeee459cea1134545682bbdd7817d061490930fcdac98db12"
+  },
+  "source_session_audit": {
+    "missing_ndx_sessions": [
+      "2002-01-29"
+    ],
+    "non_session_ndx_dates": [
+      "1998-07-03",
+      "2001-01-01",
+      "2019-04-19"
+    ],
+    "non_session_vxn_dates": [
+      "2003-08-24",
+      "2021-04-02",
+      "2021-12-24"
+    ]
+  },
+  "paired": [
+    {
+      "period": "common_2007_2025",
+      "horizon": "30c",
+      "n": 4780,
+      "mean": -0.0007679586164157666,
+      "hac_p": 0.35515821467654674,
+      "bootstrap63": {
+        "block": 63,
+        "draws": 1000,
+        "valid_draws": 1000,
+        "seed": 1729,
+        "estimate": -0.0007679586164157667,
+        "percentile_ci95": [
+          -0.002712032888020875,
+          0.0010564301562390264
+        ],
+        "status": "NEW_PARTIAL_REGISTERED_H1_REPLAY_NOT_COMPLETED_H1_H5_FAMILY"
+      }
+    },
+    {
+      "period": "common_2007_2025",
+      "horizon": "21t",
+      "n": 4780,
+      "mean": -0.0007997942484985348,
+      "hac_p": 0.3305860746431447,
+      "bootstrap63": {
+        "block": 63,
+        "draws": 1000,
+        "valid_draws": 1000,
+        "seed": 1729,
+        "estimate": -0.0007997942484985347,
+        "percentile_ci95": [
+          -0.002685736459326223,
+          0.0009599436529484376
+        ],
+        "status": "NEW_PARTIAL_REGISTERED_H1_REPLAY_NOT_COMPLETED_H1_H5_FAMILY"
+      }
+    },
+    {
+      "period": "post2014",
+      "horizon": "30c",
+      "n": 2827,
+      "mean": -0.00200078989063388,
+      "hac_p": 0.06967929628486758,
+      "bootstrap63": {
+        "block": 63,
+        "draws": 1000,
+        "valid_draws": 1000,
+        "seed": 1729,
+        "estimate": -0.0020007898906338794,
+        "percentile_ci95": [
+          -0.005048534623436697,
+          0.00029272216174986934
+        ],
+        "status": "NEW_PARTIAL_REGISTERED_H1_REPLAY_NOT_COMPLETED_H1_H5_FAMILY"
+      }
+    },
+    {
+      "period": "post2014",
+      "horizon": "21t",
+      "n": 2827,
+      "mean": -0.002020251970996661,
+      "hac_p": 0.06322963494548861,
+      "bootstrap63": {
+        "block": 63,
+        "draws": 1000,
+        "valid_draws": 1000,
+        "seed": 1729,
+        "estimate": -0.00202025197099666,
+        "percentile_ci95": [
+          -0.005092959518371449,
+          0.00023644924544245156
+        ],
+        "status": "NEW_PARTIAL_REGISTERED_H1_REPLAY_NOT_COMPLETED_H1_H5_FAMILY"
+      }
+    }
+  ]
+}

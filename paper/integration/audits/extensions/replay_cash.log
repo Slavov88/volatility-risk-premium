@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/3b223cfe9f8a/ext-y/scripts/replay_h8_cash_yield.py", line 68, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/3b223cfe9f8a/ext-y/scripts/replay_h8_cash_yield.py", line 22, in main
+    originals={n:json.loads((out/((n if n!='publication' else 'publication_p3')+'.json')).read_bytes()) for n in ['results','independent_audit','income_uncertainty','publication']}
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/3b223cfe9f8a/ext-y/outputs/h8_cash_yield/v2/results.json'

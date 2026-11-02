@@ -1,0 +1,7 @@
+# Preserve byte-verified publication artifacts and lossless scientific records.
+*.pdf binary
+*.gz binary
+# CSV audit receipts retain their producer's CRLF serialization.
+*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Matplotlib's generated SVG path lines contain insignificant trailing spaces.
+*.svg text eol=lf -whitespace

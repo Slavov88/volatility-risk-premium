@@ -1,0 +1,13 @@
+{
+  "delivery_version": "1.0.0",
+  "date": "2026-11-02",
+  "base_repository_commit": "27735e5653b5b778fb0e23ccc3e9079d4bdd6aa3",
+  "files": {
+    "theory.md": "6670425834142a3e5cf38e3b52aa4a98821e287f3951b39e4f4460e3680337a3",
+    "README.md": "b776c71fa98236d4beaa9d5eab2fa55b3cb3f719d9d55abf80e8a882c362d39c",
+    "source_audit.md": "38b1a0ef18e432d8260d56bc57c8a6a36b7f6887313663e7bcda9a6ff6def706",
+    "option_replay.md": "ec9825e302976c45229c4f35e8cd654646d3bdc999d70be0ef440a0988d8d13d",
+    "check_theory.py": "a5f6e96a407807ab3122c36a5006401c15776999963190432d2521f80fb809a4",
+    "theory_checks.json": "63f54d46c617c6859293a63e85130f6bf69ba20bcbbe692746d364556da797e4"
+  }
+}
